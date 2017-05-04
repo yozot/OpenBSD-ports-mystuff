@@ -1,0 +1,23 @@
+--- src/dynlibs/munix/Makefile.orig	Thu Aug 28 20:45:21 2014
++++ src/dynlibs/munix/Makefile	Sun May 29 23:24:54 2016
+@@ -9,16 +9,16 @@
+ CFLAGS=-Dunix -O3 $(OPTS) $(ADDDYNLIBCFLAGS) -I$(CAMLRT)
+ 
+ 
+-all: libmunix.so 
++all: libmunix.so.${LIBmunix_VERSION}
+ 
+ munix.o: munix.c
+ 	$(CC) $(CFLAGS) -c -o munix.o munix.c
+ 
+-libmunix.so: munix.o
+-	$(DYNLD) -o libmunix.so munix.o -lc
++libmunix.so.${LIBmunix_VERSION}: munix.o
++	$(DYNLD) -o libmunix.so.${LIBmunix_VERSION} munix.o -lc
+ 
+ install:
+-	$(INSTALL_DATA) libmunix.so $(DESTDIR)$(LIBDIR)
++	$(INSTALL_DATA) libmunix.so.${LIBmunix_VERSION} $(DESTDIR)$(LIBDIR)
+ 
+ test:
+ 	gcc -O2 -o sieve sieve.c

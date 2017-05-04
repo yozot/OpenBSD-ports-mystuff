@@ -1,0 +1,25 @@
+--- src/dynlibs/msocket/Makefile.orig	Thu Aug 28 20:45:21 2014
++++ src/dynlibs/msocket/Makefile	Sun May 29 23:24:35 2016
+@@ -11,18 +11,18 @@
+ 
+ MOSMLTOOLS=camlrunm $(TOOLSDIR)
+ 
+-all: libmsocket.so 
++all: libmsocket.so.${LIBmsocket_VERSION}
+ 
+ msocket.o: msocket.c
+ 	$(CC) $(CFLAGS) -c -o msocket.o msocket.c
+ 
+-libmsocket.so: msocket.o
+-	$(DYNLD) -o libmsocket.so msocket.o 
++libmsocket.so.${LIBmsocket_VERSION}: msocket.o
++	$(DYNLD) -o libmsocket.so.${LIBmsocket_VERSION} msocket.o 
+ # This is needed under Solaris:
+ #	$(DYNLD) -o libmsocket.so -lsocket msocket.o 
+ 
+ install:
+-	$(INSTALL_DATA) libmsocket.so $(DESTDIR)$(LIBDIR)
++	$(INSTALL_DATA) libmsocket.so.${LIBmsocket_VERSION} $(DESTDIR)$(LIBDIR)
+ 
+ test:
+ 	mosml testsocket.sml

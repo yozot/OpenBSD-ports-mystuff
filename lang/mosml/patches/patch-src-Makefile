@@ -1,0 +1,14 @@
+--- src/Makefile.orig	Wed Oct 16 22:29:52 2013
++++ src/Makefile	Tue Nov  5 03:35:09 2013
+@@ -143,3 +143,11 @@
+ 	cd mosmlyac; $(MAKE) all
+ 	cd compiler; $(MAKE) depend
+ 	cd lex; $(MAKE) depend
++
++test: test/result mosmllib/test/result
++
++test/result:
++	cd test; $(MAKE) all
++
++mosmllib/test/result:
++	cd mosmllib/test; $(MAKE) all

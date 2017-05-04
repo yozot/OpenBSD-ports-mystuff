@@ -1,0 +1,11 @@
+--- src/test/Makefile.orig	Wed Oct 16 22:29:52 2013
++++ src/test/Makefile	Mon Oct 28 05:48:36 2013
+@@ -18,7 +18,7 @@
+ 
+ current:
+ 	rm -f result
+-	make all MOSML=../camlrunm\ ../compiler/mosmltop\ -stdlib\ ../mosmllib
++	${MAKE} all MOSML=../camlrunm\ ../compiler/mosmltop\ -stdlib\ ../mosmllib
+ 
+ clean:
+ 	rm -f result
