@@ -1,0 +1,13 @@
+--- configure.ml.ORIG	Fri Jul  8 20:19:53 2016
++++ configure.ml	Sun Sep 11 15:02:32 2016
+@@ -827,7 +827,9 @@
+ (** * md5sum command *)
+ 
+ let md5sum =
+-  if arch = "Darwin" || arch = "FreeBSD" then "md5 -q" else "md5sum"
++  if arch = "Darwin" || arch = "FreeBSD" then "md5 -q"
++                                         else if arch = "OpenBSD" then "cksum -qa md5"
++                                         else "md5sum"
+ 
+ 
+ (** * Documentation : do we have latex, hevea, ... *)

@@ -1,0 +1,88 @@
+(Message openbsd/ports/year2016:4956)
+Return-Path: didickman@gmail.com
+Authentication-Results: so-net.ne.jp; spf=pass
+	 smtp.mailfrom=owner-ports+M81683=yozo=v007.vaio.ne.jp@openbsd.org; dkim=pass
+	 header.i=@gmail.com; dkim-adsp=pass header.from=didickman@gmail.com;
+	 dmarc=pass header.from=didickman@gmail.com
+Received: from openbsd.org (lists.openbsd.org [192.43.244.163])
+	by ms-imx69.plus.so-net.ne.jp  with ESMTP id u8K3QwRv028604
+	for <yozo@v007.vaio.ne.jp>; Tue, 20 Sep 2016 12:26:59 +0900
+Received: from openbsd.org (localhost [127.0.0.1])
+	by openbsd.org (OpenSMTPD) with ESMTP id bb07bf6e
+	for <yozo@v007.vaio.ne.jp>;
+	Mon, 19 Sep 2016 21:26:55 -0600 (MDT)
+Received: from mail-io0-f174.google.com (mail-io0-f174.google.com [209.85.223.174])
+	by openbsd.org (OpenSMTPD) with ESMTPS id 50408287 (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128:NO)
+	for <ports@openbsd.org>;
+	Mon, 19 Sep 2016 21:26:33 -0600 (MDT)
+Received: by mail-io0-f174.google.com with SMTP id m79so7481947ioo.3
+        for <ports@openbsd.org>; Mon, 19 Sep 2016 20:26:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20120113;
+        h=mime-version:in-reply-to:references:from:date:message-id:subject:to
+         :cc;
+        bh=FEPM7e11F5nNWpshz8FsQ+XROGI7UxYRwpSJRTk/x4s=;
+        b=WpjrpLZgyH2xUyai2htMDpE1C/N83Z1x6y7YwmxklXJwevqJRLrK8qehdeq/hbq2YD
+         3A63pEE6JTIXBOOI2ZLhZDPfTNQiyJ/0ND1fpCac1hPto9TIcDfwELbtFhP1+Ek6nPNQ
+         o9Befa5ld+9ewM5iU9NQCWB7ytMOt2iMyOX8xcA19tTXnROeHsxiO8khHjvmkyPww9He
+         EMNSLWxTGAXxBUuEzss2EIoNJAMhPtmyON0wmUErgJGwub+n3wTVVjfsTwMxf5HferAj
+         k1ENMah2xlDnzjSQ5kb+JZMruqnoLgUBpU/nceM9Cw5Ci2AsrBvgfRgFj5xwDuCW4lgl
+         /TUw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20130820;
+        h=x-gm-message-state:mime-version:in-reply-to:references:from:date
+         :message-id:subject:to:cc;
+        bh=FEPM7e11F5nNWpshz8FsQ+XROGI7UxYRwpSJRTk/x4s=;
+        b=SOiUb846HTp6U/ILU75RnHVagG/gPfDYjUMbTHsTOasxamSu/7l3QhRO+iGIPhNUCU
+         DwQKCWdh0woVHVLtJIGEtxyhSfgZ3unebs0fVHYQtSh8VD39+cQr71Iw9GxX8PSckzcZ
+         0AsaBZ9rhbm8Zxmz4dGADLout81DdFvDLvsUYGEbshKzS9niyjw+ONkbq+jDI+cuFdRm
+         tjKyDz8JBdBBggWehv/RLUH3MN7tpEq/Xa3gRt0XYGOtXPXsXZL7wilCsDwnhcgxeKRC
+         9EMiiXfVgxtdXSB83Ap6l4OCfeQCQ1sLpLer9obx6sWcNjku5DwMKrNXfNnSSAxTHIVN
+         82mw==
+X-Gm-Message-State: AE9vXwOPAONUwQ4H7xRwyOkVcd67bl/hiBlpbgtMswi+9P2dAdiyizE7F65smKFa8Q6e+9ZJ/VcELnzJOamRRg==
+X-Received: by 10.107.30.11 with SMTP id e11mr39100151ioe.57.1474341992782;
+ Mon, 19 Sep 2016 20:26:32 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 10.107.138.230 with HTTP; Mon, 19 Sep 2016 20:26:32 -0700 (PDT)
+In-Reply-To: <53afeb6547aa18bc@v007.vaio.ne.jp>
+References: <53afeb6547aa18bc@v007.vaio.ne.jp>
+From: Daniel Dickman <didickman@gmail.com>
+Date: Mon, 19 Sep 2016 23:26:32 -0400
+Message-ID: <CAMhqYKr2TULrL3qkq9-f73VESTRcN70bKK6+PUOt2XBHYt56WA@mail.gmail.com>
+Subject: Re: UPDATE: math/coq 8.5pl2
+To: Yozo TODA <yozo@v007.vaio.ne.jp>
+Cc: ports@openbsd.org
+Content-Type: text/plain; charset=UTF-8
+List-Help: <mailto:majordomo@openbsd.org?body=help>
+List-ID: <ports.openbsd.org>
+List-Owner: <mailto:owner-ports@openbsd.org>
+List-Post: <mailto:ports@openbsd.org>
+List-Subscribe: <mailto:majordomo@openbsd.org?body=sub%20ports>
+List-Unsubscribe: <mailto:majordomo@openbsd.org?body=unsub%20ports>
+X-Loop: ports@openbsd.org
+Precedence: bulk
+Sender: owner-ports@openbsd.org
+
+On Mon, Sep 19, 2016 at 8:17 PM, Yozo TODA <yozo@v007.vaio.ne.jp> wrote:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA512
+>
+> here is a patch to update math/coq (8.4pl6) to coq-8.5pl2.
+> works on amd64 now.
+> anyone please check this?  (hello, didickman?)
+>
+>  -- yozo.
+>
+> -----BEGIN PGP SIGNATURE-----
+
+See https://coq.inria.fr/bugs/show_bug.cgi?id=5007 for at least one
+fix that's needed.
+
+Many other things look odd. for example, I don't think OpenBSD
+supports "find -delete".
+
+Also why is "-opt" being deleted?
+
+Sorry, I'd say this needs more work and preferably some
+comments/rationale on changes you're proposing.
+
