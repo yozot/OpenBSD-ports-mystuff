@@ -1,0 +1,39 @@
+@comment $OpenBSD$
+@bin bin/brssl
+include/bearssl.h
+include/bearssl_aead.h
+include/bearssl_block.h
+include/bearssl_ec.h
+include/bearssl_hash.h
+include/bearssl_hmac.h
+include/bearssl_pem.h
+include/bearssl_prf.h
+include/bearssl_rand.h
+include/bearssl_rsa.h
+include/bearssl_ssl.h
+include/bearssl_x509.h
+lib/libbearssl.a
+@lib lib/libbearssl.so.${LIBbearssl_VERSION}
+share/examples/bearssl/
+share/examples/bearssl/README.txt
+share/examples/bearssl/cert-ee-ec+rsa.pem
+share/examples/bearssl/cert-ee-ec.pem
+share/examples/bearssl/cert-ee-rsa.pem
+share/examples/bearssl/cert-ica-ec.pem
+share/examples/bearssl/cert-ica-rsa.pem
+share/examples/bearssl/cert-root-ec.pem
+share/examples/bearssl/cert-root-rsa.pem
+share/examples/bearssl/chain-ec+rsa.h
+share/examples/bearssl/chain-ec.h
+share/examples/bearssl/chain-rsa.h
+share/examples/bearssl/client_basic.c
+share/examples/bearssl/custom_profile.c
+share/examples/bearssl/key-ec.h
+share/examples/bearssl/key-ee-ec.pem
+share/examples/bearssl/key-ee-rsa.pem
+share/examples/bearssl/key-ica-ec.pem
+share/examples/bearssl/key-ica-rsa.pem
+share/examples/bearssl/key-root-ec.pem
+share/examples/bearssl/key-root-rsa.pem
+share/examples/bearssl/key-rsa.h
+share/examples/bearssl/server_basic.c

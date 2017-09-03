@@ -1,0 +1,14 @@
+$OpenBSD$
+
+Index: conf/Unix.mk
+--- conf/Unix.mk.orig
++++ conf/Unix.mk
+@@ -19,7 +19,7 @@ L = .a
+ DP = lib
+ 
+ # Extension for DLL file name.
+-D = .so
++D = .so.${LIBbearssl_VERSION}
+ 
+ # Output file names can be overridden directly. By default, they are
+ # assembled using the prefix/extension macros defined above.
