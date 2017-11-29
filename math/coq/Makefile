@@ -21,6 +21,8 @@ WANTLIB += pangoft2-1.0 pthread z
 
 MASTER_SITES=	${HOMEPAGE}distrib/V${V}/files/
 
+MODULES=	lang/ocaml
+
 RUN_DEPENDS=	x11/lablgtk2
 BUILD_DEPENDS=	${RUN_DEPENDS} \
 		lang/ocaml-camlp4 \
@@ -29,9 +31,6 @@ BUILD_DEPENDS=	${RUN_DEPENDS} \
 DESTDIRNAME=	COQINSTALLPREFIX
 
 USE_GMAKE=	Yes
-
-MODULES=	devel/gettext \
-		lang/ocaml
 
 CONFIGURE_STYLE= simple
 CONFIGURE_ARGS=	-emacslib ${PREFIX}/share/emacs/site-lisp \
