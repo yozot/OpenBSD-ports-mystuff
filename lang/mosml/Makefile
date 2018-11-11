@@ -5,12 +5,13 @@ COMMENT =		a light-weight implementation of Standard ML (SML)
 VERSION =	2.10.1
 DISTNAME =	Rel-${VERSION}
 PKGNAME =	mosml-${VERSION}
+REVISION =	0
 
 GH_ACCOUNT =	kfl
 GH_PROJECT =	mosml
 GH_TAGNAME =	ver-${VERSION}
 
-SHARED_LIBS +=	mgmp	0.0 \
+SHARED_LIBS +=	mgmp	1.0 \
                 msocket	0.0 \
                 munix	0.0
 
@@ -25,7 +26,7 @@ PERMIT_PACKAGE_CDROM =	Yes
 
 WANTLIB =		c gmp m
 
-LIB_DEPENDS =		devel/gmp>=5.0.2
+LIB_DEPENDS =		devel/gmp>=6.1.2
 
 post-patch:
 	${SUBST_CMD} ${WRKSRC}/dynlibs/msocket/Makefile ${WRKSRC}/dynlibs/munix/Makefile ${WRKSRC}/dynlibs/intinf/Makefile
