@@ -1,0 +1,24 @@
+$OpenBSD$
+
+OpenBSD cp command does not have "-a" option, use "-pPR" instead.
+
+Index: Makefile
+--- Makefile.orig
++++ Makefile
+@@ -181,13 +181,13 @@ camldevfiles: $(MERLINFILES) META.coq
+ META.coq.in $(MERLININFILES): ;
+ 
+ .merlin: .merlin.in
+-	cp -a "$<" "$@"
++	cp -pPR "$<" "$@"
+ 
+ %/.merlin: %/.merlin.in
+-	cp -a "$<" "$@"
++	cp -pPR "$<" "$@"
+ 
+ META.coq: META.coq.in
+-	cp -a "$<" "$@"
++	cp -pPR "$<" "$@"
+ 
+ ###########################################################################
+ # Cleaning

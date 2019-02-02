@@ -1,0 +1,254 @@
+Sun Feb  3 02:18:31 JST 2019
+===> coq-V8.9.0 depends on: ocamlbuild-* -> ocamlbuild-0.9.2p1
+===> coq-V8.9.0 depends on: findlib-* -> findlib-1.6.2p2
+===> coq-V8.9.0 depends on: ocaml-camlp5-* -> ocaml-camlp5-7.05
+===> coq-V8.9.0 depends on: ocaml-=4.03.0 -> ocaml-4.03.0p4
+===> coq-V8.9.0 depends on: gmake-* -> gmake-4.2.1p0
+===>  Checking files for coq-V8.9.0
+`/usr/ports/distfiles/coq/V8.9.0.tar.gz' is up to date.
+>> (SHA256) coq/V8.9.0.tar.gz: OK
+===>  Extracting for coq-V8.9.0
+===>  Patching for coq-V8.9.0
+===>   Applying OpenBSD patch patch-Makefile
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|$OpenBSD$
+|
+|OpenBSD cp command does not have "-a" option, use "-pPR" instead.
+|
+|Index: Makefile
+|--- Makefile.orig
+|+++ Makefile
+--------------------------
+Patching file Makefile using Plan A...
+Hunk #1 succeeded at 181.
+done
+===>   Applying OpenBSD patch patch-Makefile_checker
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|$OpenBSD$
+|
+|OpenBSD cp command does not have "-a" option, use "-pPR" instead.
+|sed "i" command expects \ followed by text...
+|
+|Index: Makefile.checker
+|--- Makefile.checker.orig
+|+++ Makefile.checker
+--------------------------
+Patching file Makefile.checker using Plan A...
+Hunk #1 succeeded at 36.
+done
+===>   Ignoring patchfile patch-Makefile_checker.orig
+===>  Compiler link: clang -> /usr/bin/clang
+===>  Compiler link: clang++ -> /usr/bin/clang++
+===>  Compiler link: cc -> /usr/bin/cc
+===>  Compiler link: c++ -> /usr/bin/c++
+===>  Generating configure for coq-V8.9.0
+===>  Configuring for coq-V8.9.0
+You have OCaml 4.03.0. Good!
+You have OCamlfind 1.6.2. Good!
+You have Camlp5 7.05. Good!
+You have native-code compilation. Good!
+LablGtk2 found (via ocamlfind, 2.18.4), with native threads:
+=> native CoqIde will be built.
+
+  Architecture                : OpenBSD
+  Coq VM bytecode link flags  : -dllib -lcoqrun -dllpath /usr/local/lib/coq/kernel/byterun
+  Other bytecode link flags   : 
+  OCaml version               : 4.03.0
+  OCaml binaries in           : /usr/local/bin/
+  OCaml library in            : /usr/local/lib/ocaml
+  OCaml flambda flags         : 
+  Camlp5 version              : 7.05
+  Camlp5 binaries in          : /usr/local/bin
+  Camlp5 library in           : +camlp5
+  Native dynamic link support : true
+  Lablgtk2 library in         : +lablgtk2
+  CoqIde                      : opt
+  Documentation               : None
+  Web browser                 : firefox -remote "OpenURL(%s,new-tab)" || firefox %s &
+  Coq web site                : https://coq.inria.fr/
+  Bytecode VM enabled         : true
+  Native Compiler enabled     : true
+
+  Paths for true installation:
+  - the Coq binaries will be copied in /usr/local/bin
+  - the Coq library will be copied in /usr/local/lib/coq
+  - the Coqide configuration files will be copied in /etc/xdg/coq
+  - the Coqide data files will be copied in /usr/local/share/coq
+  - the Coq man pages will be copied in /usr/local/man
+  - the Coq documentation will be copied in /usr/local/share/doc/coq
+  - the Coqdoc LaTeX files will be copied in /usr/local/share/texmf/tex/latex/misc
+
+If anything is wrong above, please restart './configure'.
+
+*Warning* To compile the system for a new architecture
+          don't forget to do a 'make clean' before './configure'.
+===>  Building for coq-V8.9.0
+rm -f  
+cp -pPR ".merlin.in" ".merlin"
+cp -pPR "ide/.merlin.in" "ide/.merlin"
+cp -pPR "plugins/.merlin.in" "plugins/.merlin"
+cp -pPR "META.coq.in" "META.coq"
+mkdir bin
+gmake --warn-undefined-variable --no-builtin-rules -f Makefile.build all
+gmake[1]: Entering directory '/usr/ports/pobj/coq-V8.9.0/coq-8.9.0'
+OCAMLC    clib/segmenttree.mli
+OCAMLOPT  clib/segmenttree.ml
+OCAMLC    clib/segmenttree.ml
+OCAMLC    clib/unicodetable.ml
+OCAMLOPT  clib/unicodetable.ml
+OCAMLC    clib/unicode.mli
+OCAMLOPT  clib/unicode.ml
+OCAMLC    clib/unicode.ml
+OCAMLC    clib/minisys.ml
+OCAMLOPT  clib/minisys.ml
+OCAMLC    tools/coqdep_lexer.mli
+OCAMLLEX  tools/coqdep_lexer.mll
+314 states, 4454 transitions, table size 19700 bytes
+2927 additional bytes used for bindings
+OCAMLOPT  tools/coqdep_lexer.ml
+OCAMLC    tools/coqdep_common.mli
+OCAMLOPT  tools/coqdep_common.ml
+OCAMLC    tools/coqdep_boot.ml
+OCAMLOPT  tools/coqdep_boot.ml
+OCAMLBEST -o bin/coqdep_boot
+COQDEP    VFILES
+sed -n -e '/^  /s/ \([A-Z]\)/ \&\&coq_lbl_\1/gp' \
+               -e '/^}/q' kernel/byterun/coq_instruct.h > "kernel/byterun/coq_jumptbl.h" || (RV=$?; rm -f "kernel/byterun/coq_jumptbl.h"; exit ${RV})
+CCDEP     kernel/byterun/coq_values.c
+CCDEP     kernel/byterun/coq_memory.c
+CCDEP     kernel/byterun/coq_interp.c
+CCDEP     kernel/byterun/coq_fix_code.c
+OCAMLLEX  tools/ocamllibdep.mll
+14 states, 417 transitions, table size 1752 bytes
+OCAMLC    tools/ocamllibdep.ml
+OCAMLOPT  tools/ocamllibdep.ml
+OCAMLBEST -o bin/ocamllibdep
+OCAMLC    coqpp/coqpp_ast.mli
+OCAMLYACC  coqpp/coqpp_parse.mly
+gmake[1]: Circular coqpp/coqpp_parse.cmi <- coqpp/coqpp_parse.cmo dependency dropped.
+OCAMLC    coqpp/coqpp_parse.mli
+OCAMLC    coqpp/coqpp_parse.ml
+OCAMLLEX  coqpp/coqpp_lex.mll
+141 states, 8180 transitions, table size 33566 bytes
+OCAMLC    coqpp/coqpp_lex.ml
+OCAMLC -a bin/coqpp
+OCAMLLEX  ide/config_lexer.mll
+30 states, 1657 transitions, table size 6808 bytes
+6052 additional bytes used for bindings
+OCAMLLEX  ide/coq_lex.mll
+97 states, 1352 transitions, table size 5990 bytes
+OCAMLLEX  ide/protocol/xml_lexer.mll
+80 states, 774 transitions, table size 3576 bytes
+OCAMLLEX  ide/utf8_convert.mll
+15 states, 827 transitions, table size 3398 bytes
+OCAMLLEX  tools/coqdoc/cpretty.mll
+2654 states, 8247 transitions, table size 48912 bytes
+OCAMLLEX  tools/coqwc.mll
+244 states, 858 transitions, table size 4896 bytes
+COQPP   parsing/g_constr.mlg
+COQPP   parsing/g_prim.mlg
+COQPP   plugins/btauto/g_btauto.mlg
+COQPP   plugins/cc/g_congruence.mlg
+COQPP   plugins/ltac/coretactics.mlg
+COQPP   plugins/ltac/g_eqdecide.mlg
+COQPP   plugins/ltac/g_tactic.mlg
+COQPP   plugins/micromega/g_micromega.mlg
+COQPP   plugins/nsatz/g_nsatz.mlg
+COQPP   plugins/omega/g_omega.mlg
+COQPP   plugins/quote/g_quote.mlg
+COQPP   plugins/romega/g_romega.mlg
+COQPP   plugins/rtauto/g_rtauto.mlg
+COQPP   vernac/g_proofs.mlg
+COQPP   vernac/g_vernac.mlg
+COQPP   toplevel/g_toplevel.mlg
+tr -d "\r" < kernel/byterun/coq_instruct.h | sed -n -e '/^enum/p' -e 's/,//g' -e '/^  /p' | \
+awk -f kernel/make-opcodes > "kernel/copcodes.ml" || (RV=$?; rm -f "kernel/copcodes.ml"; exit ${RV})
+OCAMLLIBDEP  plugins/MLLIBFILES plugins/MLPACKFILES
+OCAMLC -c grammar/q_util.mli
+OCAMLC -c -pp grammar/q_util.mlp
+OCAMLC -c -pp grammar/argextend.mlp
+OCAMLC -c -pp grammar/tacextend.mlp
+OCAMLC -c -pp grammar/vernacextend.mlp
+Testing grammar/grammar.cma
+OCAMLC -a grammar/grammar.cma
+CAMLP5O   plugins/derive/g_derive.ml4
+CAMLP5O   plugins/extraction/g_extraction.ml4
+CAMLP5O   plugins/firstorder/g_ground.ml4
+CAMLP5O   plugins/funind/g_indfun.ml4
+CAMLP5O   plugins/ltac/extraargs.ml4
+CAMLP5O   plugins/ltac/extratactics.ml4
+CAMLP5O   plugins/ltac/g_auto.ml4
+CAMLP5O   plugins/ltac/g_class.ml4
+CAMLP5O   plugins/ltac/g_ltac.ml4
+CAMLP5O   plugins/ltac/g_obligations.ml4
+CAMLP5O   plugins/ltac/g_rewrite.ml4
+CAMLP5O   plugins/ltac/profile_ltac_tactics.ml4
+CAMLP5O   plugins/setoid_ring/g_newring.ml4
+CAMLP5O   plugins/ssr/ssrparser.ml4
+Redundant [TYPED AS] clause in [ARGUMENT EXTEND ssrindex].
+CAMLP5O   plugins/ssr/ssrvernac.ml4
+CAMLP5O   plugins/ssrmatching/g_ssrmatching.ml4
+CAMLP5O   plugins/syntax/g_numeral.ml4
+OCAMLDEP  plugins/MLFILES plugins/MLIFILES
+OCAMLLIBDEP  MLLIBFILES MLPACKFILES
+CAMLP5O   ide/coqide_main.ml4
+CAMLP5O   parsing/cLexer.ml4
+OCAMLDEP  MLFILES MLIFILES
+cp -pPR kernel/names.mli checker/names.mli
+sed -i.bak -E '1i\
+(* AUTOGENERATED FILE: DO NOT EDIT *)\
+\
+\
+\
+\
+\
+\
+\
+' checker/names.mli && rm checker/names.mli.bak
+cp -pPR kernel/names.ml checker/names.ml
+sed -i.bak -E '1i\
+(* AUTOGENERATED FILE: DO NOT EDIT *)\
+\
+\
+\
+\
+\
+\
+\
+' checker/names.ml && rm checker/names.ml.bak
+cp -pPR kernel/esubst.mli checker/esubst.mli
+sed -i.bak -E '1i\
+(* AUTOGENERATED FILE: DO NOT EDIT *)\
+\
+\
+\
+\
+\
+\
+\
+' checker/esubst.mli && rm checker/esubst.mli.bak
+cp -pPR kernel/esubst.ml checker/esubst.ml
+sed -i.bak -E '1i\
+(* AUTOGENERATED FILE: DO NOT EDIT *)\
+\
+\
+\
+\
+\
+\
+\
+' checker/esubst.ml && rm checker/esubst.ml.bak
+OCAMLLIBDEP  checker/MLLIBFILES checker/MLPACKFILES
+OCAMLDEP  checker/MLFILES checker/MLIFILES
+gmake[1]: Circular coqpp/coqpp_parse.cmi <- coqpp/coqpp_parse.cmo dependency dropped.
+Error: no rule to make target all (or missing .PHONY)
+gmake[1]: *** [Makefile.build:868: all] Error 1
+gmake[1]: Leaving directory '/usr/ports/pobj/coq-V8.9.0/coq-8.9.0'
+gmake: *** [Makefile:166: submake] Error 2
+*** Error 2 in . (/usr/ports/infrastructure/mk/bsd.port.mk:2801 '/usr/ports/pobj/coq-V8.9.0/.build_done')
+*** Error 1 in /usr/ports/mystuff/math/coq-8.9.0 (/usr/ports/infrastructure/mk/bsd.port.mk:2467 'build')
+Sun Feb  3 02:19:04 JST 2019
