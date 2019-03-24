@@ -1,0 +1,35 @@
+diff -ur x11/xvkbd/Makefile.orig x11/xvkbd/Makefile
+--- x11/xvkbd/Makefile.orig	Tue Nov 17 18:05:54 2015
++++ x11/xvkbd/Makefile	Sun Jan 13 23:42:13 2019
+@@ -2,9 +2,9 @@
+ 
+ COMMENT=		virtual keyboard for X Window System
+ 
+-DISTNAME=		xvkbd-3.7
++DISTNAME=		xvkbd-3.9
+ CATEGORIES=		x11
+-HOMEPAGE=		http://homepage3.nifty.com/tsato/xvkbd/
++HOMEPAGE=		http://t-sato.in.coocan.jp/xvkbd/
+ 
+ MAINTAINER=		Yozo TODA <yozo@v007.vaio.ne.jp>
+ 
+Only in .: diff-3.7-3.9.txt
+diff -ur x11/xvkbd/distinfo.orig x11/xvkbd/distinfo
+--- x11/xvkbd/distinfo.orig	Tue Nov 17 18:05:54 2015
++++ x11/xvkbd/distinfo	Sun Jan 13 23:44:53 2019
+@@ -1,2 +1,2 @@
+-SHA256 (xvkbd-3.7.tar.gz) = iV92gmmCDnwDebDarDaHvaDGcNGS67fmHlYTpZOeyQs=
+-SIZE (xvkbd-3.7.tar.gz) = 81645
++SHA256 (xvkbd-3.9.tar.gz) = uBw33ft7eJk9rRXTBPj9eOVA1XwKcvfjMW/UX7qRmp0=
++SIZE (xvkbd-3.9.tar.gz) = 88440
+Only in /usr/ports/x11/xvkbd/pkg: CVS
+diff -ur /usr/ports/x11/xvkbd/pkg/PLIST ./pkg/PLIST
+--- x11/xvkbd/pkg/PLIST.orig	Sat Oct 12 05:40:17 2013
++++ x11/xvkbd/pkg/PLIST	Sun Jan 13 23:54:21 2019
+@@ -26,5 +26,6 @@
+ lib/X11/app-defaults/XVkbd-swedish
+ lib/X11/app-defaults/XVkbd-swissgerman
+ lib/X11/app-defaults/XVkbd-turkish
++lib/X11/app-defaults/XVkbd-turkishF
+ lib/X11/app-defaults/XVkbd-uk
+ @man man/man1/xvkbd.1

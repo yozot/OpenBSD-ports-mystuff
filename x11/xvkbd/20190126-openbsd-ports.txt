@@ -1,0 +1,83 @@
+Return-Path: <owner-ports+m99043=yozo=v007.vaio.ne.jp@openbsd.org>
+Authentication-Results: so-net.ne.jp; spf=pass
+	 smtp.mailfrom=owner-ports+M99043=yozo=v007.vaio.ne.jp@openbsd.org; dkim=none;
+	 dkim-adsp=none header.from=yozo@v007.vaio.ne.jp; dmarc=none
+	 header.from=yozo@v007.vaio.ne.jp
+Received: from mail.openbsd.org (mail.openbsd.org [199.185.178.25])
+	by ms-imx71.plus.so-net.ne.jp  with ESMTP id x0Q9FLpI030061
+	for <yozo@v007.vaio.ne.jp>; Sat, 26 Jan 2019 18:15:22 +0900
+Received: from openbsd.org (localhost [127.0.0.1])
+	by mail.openbsd.org (OpenSMTPD) with ESMTP id 8cf04681
+	for <yozo@v007.vaio.ne.jp>;
+	Sat, 26 Jan 2019 02:15:20 -0700 (MST)
+Received: from ms-fb51.so-net.ne.jp (ms-fb51.so-net.ne.jp [202.238.84.155])
+	by mail.openbsd.org (OpenSMTPD) with ESMTPS id 020fad58 (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256:NO)
+	for <ports@openbsd.org>;
+	Sat, 26 Jan 2019 02:14:33 -0700 (MST)
+From: Yozo TODA <yozo@v007.vaio.ne.jp>
+To: ports@openbsd.org
+Subject: update: x11/xvkbd 3.7 -> 3.9
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <94899.1548488887.1@v157-7-52-58.my.domain>
+Content-Transfer-Encoding: 7bit
+Date: Sat, 26 Jan 2019 16:48:07 +0900
+Message-ID: <b434a41c81eee888@v007.vaio.ne.jp>
+List-Help: <mailto:majordomo@openbsd.org?body=help>
+List-ID: <ports.openbsd.org>
+List-Owner: <mailto:owner-ports@openbsd.org>
+List-Post: <mailto:ports@openbsd.org>
+List-Subscribe: <mailto:majordomo@openbsd.org?body=sub%20ports>
+List-Unsubscribe: <mailto:majordomo@openbsd.org?body=unsub%20ports>
+X-Loop: ports@openbsd.org
+Precedence: bulk
+Sender: owner-ports@openbsd.org
+
+Here is a simple update of xvkbd to 3.9, with HOMEPAGE revised.
+Tested as an amd64 X client and macos(xquartz) X server.
+anyone please give OK and commit?
+
+XQuartz disables XTEST extension by default, hence you should configure
+"defaults write org.macosforge.xquartz.X11 enable_test_extensions -boolean true"
+(see Xquartz(1))
+
+I wonder if this xquartz specific note should be added...
+
+-- yozo.
+
+
+diff -ur x11/xvkbd/Makefile.orig x11/xvkbd/Makefile
+--- x11/xvkbd/Makefile.orig	Tue Nov 17 18:05:54 2015
++++ x11/xvkbd/Makefile	Sun Jan 13 23:42:13 2019
+@@ -2,9 +2,9 @@
+ 
+ COMMENT=		virtual keyboard for X Window System
+ 
+-DISTNAME=		xvkbd-3.7
++DISTNAME=		xvkbd-3.9
+ CATEGORIES=		x11
+-HOMEPAGE=		http://homepage3.nifty.com/tsato/xvkbd/
++HOMEPAGE=		http://t-sato.in.coocan.jp/xvkbd/
+ 
+ MAINTAINER=		Yozo TODA <yozo@v007.vaio.ne.jp>
+ 
+diff -ur x11/xvkbd/distinfo.orig x11/xvkbd/distinfo
+--- x11/xvkbd/distinfo.orig	Tue Nov 17 18:05:54 2015
++++ x11/xvkbd/distinfo	Sun Jan 13 23:44:53 2019
+@@ -1,2 +1,2 @@
+-SHA256 (xvkbd-3.7.tar.gz) = iV92gmmCDnwDebDarDaHvaDGcNGS67fmHlYTpZOeyQs=
+-SIZE (xvkbd-3.7.tar.gz) = 81645
++SHA256 (xvkbd-3.9.tar.gz) = uBw33ft7eJk9rRXTBPj9eOVA1XwKcvfjMW/UX7qRmp0=
++SIZE (xvkbd-3.9.tar.gz) = 88440
+Only in /usr/ports/x11/xvkbd/pkg: CVS
+diff -ur /usr/ports/x11/xvkbd/pkg/PLIST ./pkg/PLIST
+--- x11/xvkbd/pkg/PLIST.orig	Sat Oct 12 05:40:17 2013
++++ x11/xvkbd/pkg/PLIST	Sun Jan 13 23:54:21 2019
+@@ -26,5 +26,6 @@
+ lib/X11/app-defaults/XVkbd-swedish
+ lib/X11/app-defaults/XVkbd-swissgerman
+ lib/X11/app-defaults/XVkbd-turkish
++lib/X11/app-defaults/XVkbd-turkishF
+ lib/X11/app-defaults/XVkbd-uk
+ @man man/man1/xvkbd.1
+
