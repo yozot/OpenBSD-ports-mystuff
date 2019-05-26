@@ -1,0 +1,39 @@
+x---x---x---x---x---x---x---x---x---x---x---x---x---x---x---x---x
+
+Classpath Hacker's Guide (cp-hacking.info),
+at the section Needed Tools and Libraries,
+explains the option "--with-ecj" and "--with-javac" for configure script
+
+the last port Makefile use ecj (running on OpenJDK) and gcc4 gcj.
+I assume we can use ecj (running and OpenJDK) only, or with jikes compiler
+instead of gcc4 gcj.
+And the next step is to depart from OpenJDK, e.g.,
+only with jikes compiler?
+
+Aside from this plan, we should explore other virtual machine implementation
+like openj9 or j3 (from llvm retired project vmkit).
+
+-- yozo.  Sat May 11 14:24:42 JST 2019
+
+x---x---x---x---x---x---x---x---x---x---x---x---x---x---x---x---x
+
+classpath depends on gcj-4.
+can we revise this to depend on jdk?
+
+-- yozo.  Fri May 10 09:15:11 JST 2019
+
+
+
+https://marc.info/?l=openbsd-ports-cvs&m=155655062402006&w=2
+https://marc.info/?l=openbsd-ports-cvs&m=155655162502458&w=2
+
+-- yozo. Mon May  6 02:58:23 JST 2019
+
+ports/lang/jamvm/ is removed from the official ports repository on 20190501.
+(cvs tag "D2019.04.29.15.00.00").
+
+here I salvaged the files at the last status by
+(cd ports/lang/ && cvs -d anoncvs@anoncvs.jp.openbsd.org:/cvs update -D 20190430 classpath)
+
+-- yozo.  Sun May  5 14:26:40 JST 2019
+

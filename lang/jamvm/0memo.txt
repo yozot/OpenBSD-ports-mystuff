@@ -1,0 +1,8 @@
+ports/lang/jamvm/ is removed from the official ports repository on 20190501.
+(cvs tag "D2019.04.29.15.00.00").
+
+here I salvaged the files at the last status by
+(cd ports/lang/ && cvs -d anoncvs@anoncvs.jp.openbsd.org:/cvs update -D 20190430 jamvm)
+
+-- yozo.  Sun May  5 14:26:10 JST 2019
+
