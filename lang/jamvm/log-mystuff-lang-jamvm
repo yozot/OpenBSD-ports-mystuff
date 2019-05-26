@@ -1,0 +1,1003 @@
+Fri May 10 09:17:34 JST 2019
+===>  Checking files for jamvm-1.5.4p1
+`/usr/ports/distfiles/jamvm-1.5.4.tar.gz' is up to date.
+>> (SHA256) jamvm-1.5.4.tar.gz: OK
+===> jamvm-1.5.4p1 depends on: jikes->=1.22 -> jikes-1.22p8
+===> jamvm-1.5.4p1 depends on: classpath->=0.98 -> classpath-0.98p28
+===> jamvm-1.5.4p1 depends on: gmake-* -> gmake-4.2.1p0
+===>  Verifying specs:  c m pthread z
+===>  found c.95.0 m.10.1 pthread.26.1 z.5.0
+===>  Extracting for jamvm-1.5.4p1
+===>  Patching for jamvm-1.5.4p1
+===>   Applying OpenBSD patch patch-configure
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|$OpenBSD: patch-configure,v 1.5 2013/06/01 14:28:28 ajacoutot Exp $
+|--- configure.orig	Thu Dec 31 13:41:44 2009
+|+++ configure	Wed Sep 14 15:15:27 2011
+--------------------------
+Patching file configure using Plan A...
+Hunk #1 succeeded at 2698.
+done
+===>   Applying OpenBSD patch patch-src_hooks_c
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|$OpenBSD: patch-src_hooks_c,v 1.3 2011/10/01 14:31:04 kurt Exp $
+|
+|Write output immediately in case user is interacting with a pipeline.
+|
+|--- src/hooks.c.orig	Thu Dec 31 13:40:47 2009
+|+++ src/hooks.c	Thu Sep  8 20:33:02 2011
+--------------------------
+Patching file src/hooks.c using Plan A...
+Hunk #1 succeeded at 29.
+done
+===>  Compiler link: clang -> /usr/bin/clang
+===>  Compiler link: clang++ -> /usr/bin/clang++
+===>  Compiler link: cc -> /usr/bin/cc
+===>  Compiler link: c++ -> /usr/bin/c++
+===>  Generating configure for jamvm-1.5.4p1
+===>  Configuring for jamvm-1.5.4p1
+Using /usr/ports/pobj/jamvm-1.5.4/config.site (generated)
+configure: WARNING: unrecognized options: --disable-silent-rules, --disable-gtk-doc
+configure: loading site script /usr/ports/pobj/jamvm-1.5.4/config.site
+checking for a BSD-compatible install... /usr/ports/pobj/jamvm-1.5.4/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... mkdir -p
+checking for gawk... (cached) awk
+checking whether gmake sets $(MAKE)... yes
+checking build system type... x86_64-unknown-openbsd6.5
+checking host system type... x86_64-unknown-openbsd6.5
+checking for style of include used by gmake... GNU
+checking for gcc... cc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... (cached) o
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether cc accepts -g... (cached) yes
+checking for cc option to accept ISO C89... none needed
+checking dependency style of cc... gcc3
+checking for a sed that does not truncate output... (cached) /usr/bin/sed
+checking for grep that handles long lines and -e... (cached) /usr/bin/grep
+checking for egrep... (cached) /usr/bin/egrep
+checking for ld used by cc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for /usr/bin/ld option to reload object files... -r
+checking for BSD-compatible nm... /usr/bin/nm -B
+checking whether ln -s works... yes
+checking how to recognize dependent libraries... unknown
+checking how to run the C preprocessor... cc -E
+checking for ANSI C header files... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for memory.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for dlfcn.h... (cached) yes
+checking whether we are using the GNU C++ compiler... (cached) yes
+checking whether c++ accepts -g... (cached) yes
+checking dependency style of c++... gcc3
+checking how to run the C++ preprocessor... c++ -E
+checking for g77... no
+checking for xlf... no
+checking for f77... no
+checking for frt... no
+checking for pgf77... no
+checking for cf77... no
+checking for fort77... no
+checking for fl32... no
+checking for af77... no
+checking for xlf90... no
+checking for f90... no
+checking for pgf90... no
+checking for pghpf... no
+checking for epcf90... no
+checking for gfortran... no
+checking for g95... no
+checking for xlf95... no
+checking for f95... no
+checking for fort... no
+checking for ifort... no
+checking for ifc... no
+checking for efc... no
+checking for pgf95... no
+checking for lf95... no
+checking for ftn... no
+checking whether we are using the GNU Fortran 77 compiler... (cached) yes
+checking whether  accepts -g... (cached) yes
+checking the maximum length of command line arguments... (cached) 131072
+checking command to parse /usr/bin/nm -B output from cc object... ok
+checking for objdir... .libs
+checking for ar... (cached) ar
+checking for ranlib... (cached) ranlib
+checking for strip... (cached) strip
+checking if cc supports -fno-rtti -fno-exceptions... yes
+checking for cc option to produce PIC... -fPIC
+checking if cc PIC flag -fPIC works... yes
+checking if cc static flag -static works... yes
+checking if cc supports -c -o file.o... yes
+checking whether the cc linker (/usr/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... yes
+checking dynamic linker characteristics... no
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... no
+checking whether to build shared libraries... no
+checking whether to build static libraries... yes
+configure: creating libtool
+appending configuration tag "CXX" to libtool
+checking for ld used by c++... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking whether the c++ linker (/usr/bin/ld) supports shared libraries... no
+checking for c++ option to produce PIC... -fPIC
+checking if c++ PIC flag -fPIC works... yes
+checking if c++ static flag -static works... yes
+checking if c++ supports -c -o file.o... yes
+checking whether the c++ linker (/usr/bin/ld) supports shared libraries... no
+checking dynamic linker characteristics... no
+(cached) (cached) checking how to hardcode library paths into programs... immediate
+appending configuration tag "F77" to libtool
+checking for gcc... (cached) cc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether cc accepts -g... (cached) yes
+checking for cc option to accept ISO C89... (cached) none needed
+checking dependency style of cc... (cached) gcc3
+checking dependency style of cc... gcc3
+checking for ecj... no
+checking for jikes... jikes
+checking for pthread_self in -lthr... no
+checking for pthread_self in -lpthread... yes
+checking for fmod in -lm... (cached) yes
+checking for inflate in -lz... yes
+checking for ANSI C header files... (cached) yes
+checking for sys/time.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking endian.h usability... yes
+checking endian.h presence... yes
+checking for endian.h... yes
+checking for sys/param.h... (cached) yes
+checking for locale.h... (cached) yes
+checking alloca.h usability... no
+checking alloca.h presence... no
+checking for alloca.h... no
+checking for zlib.h... (cached) yes
+checking for an ANSI C-conforming const... (cached) yes
+checking whether time.h and sys/time.h may both be included... (cached) yes
+checking for working alloca.h... (cached) no
+checking for alloca... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for getpagesize... (cached) yes
+checking for working mmap... (cached) yes
+checking for gettimeofday... (cached) yes
+checking for strtol... (cached) yes
+checking for setlocale... (cached) yes
+checking for LC_MESSAGES... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating src/interp/Makefile
+config.status: creating src/interp/engine/Makefile
+config.status: creating src/arch/Makefile
+config.status: creating src/os/Makefile
+config.status: creating src/os/linux/Makefile
+config.status: creating src/os/darwin/Makefile
+config.status: creating src/os/bsd/Makefile
+config.status: creating src/os/solaris/Makefile
+config.status: creating src/os/solaris/x86/Makefile
+config.status: creating src/os/linux/powerpc/Makefile
+config.status: creating src/os/linux/arm/Makefile
+config.status: creating src/os/linux/i386/Makefile
+config.status: creating src/os/linux/x86_64/Makefile
+config.status: creating src/os/linux/parisc/Makefile
+config.status: creating src/os/linux/mips/Makefile
+config.status: creating src/os/darwin/i386/Makefile
+config.status: creating src/os/darwin/arm/Makefile
+config.status: creating src/os/darwin/powerpc/Makefile
+config.status: creating src/os/bsd/powerpc/Makefile
+config.status: creating src/os/bsd/arm/Makefile
+config.status: creating src/os/bsd/i386/Makefile
+config.status: creating src/os/bsd/x86_64/Makefile
+config.status: creating src/os/bsd/sparc/Makefile
+config.status: creating lib/Makefile
+config.status: creating lib/java/Makefile
+config.status: creating lib/java/lang/Makefile
+config.status: creating lib/jamvm/Makefile
+config.status: creating lib/jamvm/java/Makefile
+config.status: creating lib/jamvm/java/lang/Makefile
+config.status: creating lib/java/lang/reflect/Makefile
+config.status: creating lib/java/security/Makefile
+config.status: creating lib/gnu/Makefile
+config.status: creating lib/sun/reflect/annotation/Makefile
+config.status: creating lib/sun/reflect/Makefile
+config.status: creating lib/sun/Makefile
+config.status: creating lib/gnu/classpath/Makefile
+config.status: creating src/config.h
+config.status: linking /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/arch/x86_64.h to src/arch.h
+config.status: executing depfiles commands
+configure: WARNING: unrecognized options: --disable-silent-rules, --disable-gtk-doc
+===>  Building for jamvm-1.5.4p1
+Making all in src
+gmake[1]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src'
+gmake  all-recursive
+gmake[2]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src'
+Making all in os
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os'
+Making all in bsd
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os/bsd'
+Making all in x86_64
+gmake[5]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os/bsd/x86_64'
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/os/bsd/x86_64 -I../../../../src  -I../../../../src   -O2 -pipe -mno-retpoline -MT init.lo -MD -MP -MF .deps/init.Tpo -c -o init.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/os/bsd/x86_64/init.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/os/bsd/x86_64 -I../../../../src -I../../../../src -O2 -pipe -mno-retpoline -MT init.lo -MD -MP -MF .deps/init.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/os/bsd/x86_64/init.c -fPIC -DPIC -o .libs/init.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/os/bsd/x86_64 -I../../../../src -I../../../../src -O2 -pipe -mno-retpoline -MT init.lo -MD -MP -MF .deps/init.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/os/bsd/x86_64/init.c -o init.o
+mv -f .deps/init.Tpo .deps/init.Plo
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/os/bsd/x86_64 -I../../../../src  -I../../../../src   -O2 -pipe -mno-retpoline -MT dll_md.lo -MD -MP -MF .deps/dll_md.Tpo -c -o dll_md.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/os/bsd/x86_64/dll_md.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/os/bsd/x86_64 -I../../../../src -I../../../../src -O2 -pipe -mno-retpoline -MT dll_md.lo -MD -MP -MF .deps/dll_md.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/os/bsd/x86_64/dll_md.c -fPIC -DPIC -o .libs/dll_md.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/os/bsd/x86_64 -I../../../../src -I../../../../src -O2 -pipe -mno-retpoline -MT dll_md.lo -MD -MP -MF .deps/dll_md.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/os/bsd/x86_64/dll_md.c -o dll_md.o
+mv -f .deps/dll_md.Tpo .deps/dll_md.Plo
+/usr/bin/libtool   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/os/bsd/x86_64 -I../../../../src  -I../../../../src  -I../../../../src -O2 -pipe -mno-retpoline -MT callNative.lo -MD -MP -MF .deps/callNative.Tpo -c -o callNative.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/os/bsd/x86_64/callNative.S
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/os/bsd/x86_64 -I../../../../src -I../../../../src -I../../../../src -O2 -pipe -mno-retpoline -MT callNative.lo -MD -MP -MF .deps/callNative.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/os/bsd/x86_64/callNative.S -fPIC -DPIC -o .libs/callNative.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/os/bsd/x86_64 -I../../../../src -I../../../../src -I../../../../src -O2 -pipe -mno-retpoline -MT callNative.lo -MD -MP -MF .deps/callNative.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/os/bsd/x86_64/callNative.S -o callNative.o
+mv -f .deps/callNative.Tpo .deps/callNative.Plo
+/usr/bin/libtool --tag=CC   --mode=link cc  -O2 -pipe -mno-retpoline   -o libnative.la  init.lo dll_md.lo callNative.lo  -lz -lm -lpthread 
+libtool: link: ar cru .libs/libnative.a .libs/init.o .libs/dll_md.o .libs/callNative.o
+libtool: link: ranlib .libs/libnative.a
+gmake[5]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os/bsd/x86_64'
+gmake[5]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os/bsd'
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/os/bsd -I../../../src  -I../../../src   -O2 -pipe -mno-retpoline -MT os.lo -MD -MP -MF .deps/os.Tpo -c -o os.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/os/bsd/os.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/os/bsd -I../../../src -I../../../src -O2 -pipe -mno-retpoline -MT os.lo -MD -MP -MF .deps/os.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/os/bsd/os.c -fPIC -DPIC -o .libs/os.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/os/bsd -I../../../src -I../../../src -O2 -pipe -mno-retpoline -MT os.lo -MD -MP -MF .deps/os.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/os/bsd/os.c -o os.o
+mv -f .deps/os.Tpo .deps/os.Plo
+/usr/bin/libtool --tag=CC   --mode=link cc  -O2 -pipe -mno-retpoline   -o libos.la  os.lo  -lz -lm -lpthread 
+libtool: link: ar cru .libs/libos.a .libs/os.o
+libtool: link: ranlib .libs/libos.a
+gmake[5]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os/bsd'
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os/bsd'
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os'
+gmake[4]: Nothing to be done for 'all-am'.
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os'
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os'
+Making all in interp
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/interp'
+Making all in engine
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/interp/engine'
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -I../../../src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp -I../../../src  -fno-reorder-blocks -O2 -pipe -mno-retpoline -MT interp.lo -MD -MP -MF .deps/interp.Tpo -c -o interp.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine/interp.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -I../../../src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp -I../../../src -fno-reorder-blocks -O2 -pipe -mno-retpoline -MT interp.lo -MD -MP -MF .deps/interp.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine/interp.c -fPIC -DPIC -o .libs/interp.o
+cc: warning: optimization flag '-fno-reorder-blocks' is not supported [-Wignored-optimization-argument]
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -I../../../src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp -I../../../src -fno-reorder-blocks -O2 -pipe -mno-retpoline -MT interp.lo -MD -MP -MF .deps/interp.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine/interp.c -o interp.o
+cc: warning: optimization flag '-fno-reorder-blocks' is not supported [-Wignored-optimization-argument]
+mv -f .deps/interp.Tpo .deps/interp.Plo
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -I../../../src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp -I../../../src  -fno-reorder-blocks -O2 -pipe -mno-retpoline -MT interp2.lo -MD -MP -MF .deps/interp2.Tpo -c -o interp2.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine/interp2.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -I../../../src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp -I../../../src -fno-reorder-blocks -O2 -pipe -mno-retpoline -MT interp2.lo -MD -MP -MF .deps/interp2.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine/interp2.c -fPIC -DPIC -o .libs/interp2.o
+cc: warning: optimization flag '-fno-reorder-blocks' is not supported [-Wignored-optimization-argument]
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -I../../../src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp -I../../../src -fno-reorder-blocks -O2 -pipe -mno-retpoline -MT interp2.lo -MD -MP -MF .deps/interp2.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine/interp2.c -o interp2.o
+cc: warning: optimization flag '-fno-reorder-blocks' is not supported [-Wignored-optimization-argument]
+mv -f .deps/interp2.Tpo .deps/interp2.Plo
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -I../../../src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp -I../../../src  -fno-reorder-blocks -O2 -pipe -mno-retpoline -MT relocatability.lo -MD -MP -MF .deps/relocatability.Tpo -c -o relocatability.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine/relocatability.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -I../../../src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp -I../../../src -fno-reorder-blocks -O2 -pipe -mno-retpoline -MT relocatability.lo -MD -MP -MF .deps/relocatability.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine/relocatability.c -fPIC -DPIC -o .libs/relocatability.o
+cc: warning: optimization flag '-fno-reorder-blocks' is not supported [-Wignored-optimization-argument]
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -I../../../src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp -I../../../src -fno-reorder-blocks -O2 -pipe -mno-retpoline -MT relocatability.lo -MD -MP -MF .deps/relocatability.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine/relocatability.c -o relocatability.o
+cc: warning: optimization flag '-fno-reorder-blocks' is not supported [-Wignored-optimization-argument]
+mv -f .deps/relocatability.Tpo .deps/relocatability.Plo
+/usr/bin/libtool --tag=CC   --mode=link cc -fno-reorder-blocks -O2 -pipe -mno-retpoline   -o libengine.la  interp.lo interp2.lo relocatability.lo  -lz -lm -lpthread 
+libtool: link: ar cru .libs/libengine.a .libs/interp.o .libs/interp2.o .libs/relocatability.o
+libtool: link: ranlib .libs/libengine.a
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -I../../../src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp -I../../../src  -fno-reorder-blocks -O2 -pipe -mno-retpoline -MT compute_relocatability.o -MD -MP -MF .deps/compute_relocatability.Tpo -c -o compute_relocatability.o /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine/compute_relocatability.c
+cc: warning: optimization flag '-fno-reorder-blocks' is not supported [-Wignored-optimization-argument]
+mv -f .deps/compute_relocatability.Tpo .deps/compute_relocatability.Po
+/usr/bin/libtool --tag=CC   --mode=link cc -fno-reorder-blocks -O2 -pipe -mno-retpoline   -o compute_relocatability compute_relocatability.o libengine.la -lz -lm -lpthread 
+libtool: link: cc -o compute_relocatability -fno-reorder-blocks -O2 -pipe -mno-retpoline compute_relocatability.o /usr/ports/pobj/jamvm-1.5.4/build-amd64/src/interp/engine/.libs/libengine.a -L.libs -lz -lm -lpthread
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/interp/engine'
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/interp'
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp -I../../src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -I../../src   -O2 -pipe -mno-retpoline -MT direct.lo -MD -MP -MF .deps/direct.Tpo -c -o direct.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/direct.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp -I../../src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -I../../src -O2 -pipe -mno-retpoline -MT direct.lo -MD -MP -MF .deps/direct.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/direct.c -fPIC -DPIC -o .libs/direct.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp -I../../src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -I../../src -O2 -pipe -mno-retpoline -MT direct.lo -MD -MP -MF .deps/direct.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/direct.c -o direct.o
+mv -f .deps/direct.Tpo .deps/direct.Plo
+engine/compute_relocatability
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp -I../../src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -I../../src   -O2 -pipe -mno-retpoline -MT inlining.lo -MD -MP -MF .deps/inlining.Tpo -c -o inlining.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/inlining.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp -I../../src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -I../../src -O2 -pipe -mno-retpoline -MT inlining.lo -MD -MP -MF .deps/inlining.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/inlining.c -fPIC -DPIC -o .libs/inlining.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp -I../../src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -I../../src -O2 -pipe -mno-retpoline -MT inlining.lo -MD -MP -MF .deps/inlining.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/inlining.c -o inlining.o
+mv -f .deps/inlining.Tpo .deps/inlining.Plo
+/usr/bin/libtool --tag=CC   --mode=link cc  -O2 -pipe -mno-retpoline   -o libinterp.la  direct.lo inlining.lo engine/libengine.la -lz -lm -lpthread 
+libtool: link: ar x /usr/ports/pobj/jamvm-1.5.4/build-amd64/src/interp/engine/.libs/libengine.a
+libtool: link: ar cru .libs/libinterp.a ./.libs/libinterp.lax/libengine.a/interp.o ./.libs/libinterp.lax/libengine.a/interp2.o ./.libs/libinterp.lax/libengine.a/relocatability.o .libs/direct.o .libs/inlining.o
+libtool: link: ranlib .libs/libinterp.a
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/interp'
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/interp'
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src'
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine   -O2 -pipe -mno-retpoline -MT alloc.lo -MD -MP -MF .deps/alloc.Tpo -c -o alloc.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/alloc.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT alloc.lo -MD -MP -MF .deps/alloc.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/alloc.c -fPIC -DPIC -o .libs/alloc.o
+/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/alloc.c:1525:72: warning: for loop has empty body [-Wempty-body]
+        for(chunk = freelist; chunk->next != NULL; chunk = chunk->next);
+                                                                       ^
+/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/alloc.c:1525:72: note: put the semicolon on a separate line to silence this warning
+1 warning generated.
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT alloc.lo -MD -MP -MF .deps/alloc.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/alloc.c -o alloc.o
+/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/alloc.c:1525:72: warning: for loop has empty body [-Wempty-body]
+        for(chunk = freelist; chunk->next != NULL; chunk = chunk->next);
+                                                                       ^
+/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/alloc.c:1525:72: note: put the semicolon on a separate line to silence this warning
+1 warning generated.
+mv -f .deps/alloc.Tpo .deps/alloc.Plo
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine   -O2 -pipe -mno-retpoline -MT cast.lo -MD -MP -MF .deps/cast.Tpo -c -o cast.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/cast.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT cast.lo -MD -MP -MF .deps/cast.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/cast.c -fPIC -DPIC -o .libs/cast.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT cast.lo -MD -MP -MF .deps/cast.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/cast.c -o cast.o
+mv -f .deps/cast.Tpo .deps/cast.Plo
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine   -O2 -pipe -mno-retpoline -MT class.lo -MD -MP -MF .deps/class.Tpo -c -o class.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/class.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT class.lo -MD -MP -MF .deps/class.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/class.c -fPIC -DPIC -o .libs/class.o
+/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/class.c:1864:33: warning: incompatible function pointer types passing 'int (*)(struct dirent *)' to parameter of type 'int (*)(const struct dirent *)' [-Wincompatible-function-pointer-types]
+    n = scandir(dir, &namelist, &filter, &alphasort);
+                                ^~~~~~~
+/usr/include/dirent.h:91:52: note: passing argument to parameter here
+int scandir(const char *, struct dirent ***, int (*)(const struct dirent *),
+                                                   ^
+1 warning generated.
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT class.lo -MD -MP -MF .deps/class.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/class.c -o class.o
+/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/class.c:1864:33: warning: incompatible function pointer types passing 'int (*)(struct dirent *)' to parameter of type 'int (*)(const struct dirent *)' [-Wincompatible-function-pointer-types]
+    n = scandir(dir, &namelist, &filter, &alphasort);
+                                ^~~~~~~
+/usr/include/dirent.h:91:52: note: passing argument to parameter here
+int scandir(const char *, struct dirent ***, int (*)(const struct dirent *),
+                                                   ^
+1 warning generated.
+mv -f .deps/class.Tpo .deps/class.Plo
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine   -O2 -pipe -mno-retpoline -MT dll.lo -MD -MP -MF .deps/dll.Tpo -c -o dll.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/dll.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT dll.lo -MD -MP -MF .deps/dll.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/dll.c -fPIC -DPIC -o .libs/dll.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT dll.lo -MD -MP -MF .deps/dll.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/dll.c -o dll.o
+mv -f .deps/dll.Tpo .deps/dll.Plo
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine   -O2 -pipe -mno-retpoline -MT excep.lo -MD -MP -MF .deps/excep.Tpo -c -o excep.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/excep.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT excep.lo -MD -MP -MF .deps/excep.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/excep.c -fPIC -DPIC -o .libs/excep.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT excep.lo -MD -MP -MF .deps/excep.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/excep.c -o excep.o
+mv -f .deps/excep.Tpo .deps/excep.Plo
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine   -O2 -pipe -mno-retpoline -MT execute.lo -MD -MP -MF .deps/execute.Tpo -c -o execute.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/execute.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT execute.lo -MD -MP -MF .deps/execute.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/execute.c -fPIC -DPIC -o .libs/execute.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT execute.lo -MD -MP -MF .deps/execute.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/execute.c -o execute.o
+mv -f .deps/execute.Tpo .deps/execute.Plo
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine   -O2 -pipe -mno-retpoline -MT hash.lo -MD -MP -MF .deps/hash.Tpo -c -o hash.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/hash.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT hash.lo -MD -MP -MF .deps/hash.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/hash.c -fPIC -DPIC -o .libs/hash.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT hash.lo -MD -MP -MF .deps/hash.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/hash.c -o hash.o
+mv -f .deps/hash.Tpo .deps/hash.Plo
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine   -O2 -pipe -mno-retpoline -MT jni.lo -MD -MP -MF .deps/jni.Tpo -c -o jni.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/jni.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT jni.lo -MD -MP -MF .deps/jni.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/jni.c -fPIC -DPIC -o .libs/jni.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT jni.lo -MD -MP -MF .deps/jni.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/jni.c -o jni.o
+mv -f .deps/jni.Tpo .deps/jni.Plo
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine   -O2 -pipe -mno-retpoline -MT lock.lo -MD -MP -MF .deps/lock.Tpo -c -o lock.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/lock.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT lock.lo -MD -MP -MF .deps/lock.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/lock.c -fPIC -DPIC -o .libs/lock.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT lock.lo -MD -MP -MF .deps/lock.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/lock.c -o lock.o
+mv -f .deps/lock.Tpo .deps/lock.Plo
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine   -O2 -pipe -mno-retpoline -MT natives.lo -MD -MP -MF .deps/natives.Tpo -c -o natives.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/natives.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT natives.lo -MD -MP -MF .deps/natives.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/natives.c -fPIC -DPIC -o .libs/natives.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT natives.lo -MD -MP -MF .deps/natives.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/natives.c -o natives.o
+mv -f .deps/natives.Tpo .deps/natives.Plo
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine   -O2 -pipe -mno-retpoline -MT reflect.lo -MD -MP -MF .deps/reflect.Tpo -c -o reflect.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/reflect.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT reflect.lo -MD -MP -MF .deps/reflect.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/reflect.c -fPIC -DPIC -o .libs/reflect.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT reflect.lo -MD -MP -MF .deps/reflect.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/reflect.c -o reflect.o
+mv -f .deps/reflect.Tpo .deps/reflect.Plo
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine   -O2 -pipe -mno-retpoline -MT resolve.lo -MD -MP -MF .deps/resolve.Tpo -c -o resolve.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/resolve.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT resolve.lo -MD -MP -MF .deps/resolve.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/resolve.c -fPIC -DPIC -o .libs/resolve.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT resolve.lo -MD -MP -MF .deps/resolve.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/resolve.c -o resolve.o
+mv -f .deps/resolve.Tpo .deps/resolve.Plo
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine   -O2 -pipe -mno-retpoline -MT string.lo -MD -MP -MF .deps/string.Tpo -c -o string.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/string.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT string.lo -MD -MP -MF .deps/string.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/string.c -fPIC -DPIC -o .libs/string.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT string.lo -MD -MP -MF .deps/string.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/string.c -o string.o
+mv -f .deps/string.Tpo .deps/string.Plo
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine   -O2 -pipe -mno-retpoline -MT thread.lo -MD -MP -MF .deps/thread.Tpo -c -o thread.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/thread.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT thread.lo -MD -MP -MF .deps/thread.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/thread.c -fPIC -DPIC -o .libs/thread.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT thread.lo -MD -MP -MF .deps/thread.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/thread.c -o thread.o
+mv -f .deps/thread.Tpo .deps/thread.Plo
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine   -O2 -pipe -mno-retpoline -MT utf8.lo -MD -MP -MF .deps/utf8.Tpo -c -o utf8.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/utf8.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT utf8.lo -MD -MP -MF .deps/utf8.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/utf8.c -fPIC -DPIC -o .libs/utf8.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT utf8.lo -MD -MP -MF .deps/utf8.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/utf8.c -o utf8.o
+mv -f .deps/utf8.Tpo .deps/utf8.Plo
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine   -O2 -pipe -mno-retpoline -MT zip.lo -MD -MP -MF .deps/zip.Tpo -c -o zip.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/zip.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT zip.lo -MD -MP -MF .deps/zip.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/zip.c -fPIC -DPIC -o .libs/zip.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT zip.lo -MD -MP -MF .deps/zip.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/zip.c -o zip.o
+mv -f .deps/zip.Tpo .deps/zip.Plo
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine   -O2 -pipe -mno-retpoline -MT properties.lo -MD -MP -MF .deps/properties.Tpo -c -o properties.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/properties.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT properties.lo -MD -MP -MF .deps/properties.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/properties.c -fPIC -DPIC -o .libs/properties.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT properties.lo -MD -MP -MF .deps/properties.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/properties.c -o properties.o
+mv -f .deps/properties.Tpo .deps/properties.Plo
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine   -O2 -pipe -mno-retpoline -MT dll_ffi.lo -MD -MP -MF .deps/dll_ffi.Tpo -c -o dll_ffi.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/dll_ffi.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT dll_ffi.lo -MD -MP -MF .deps/dll_ffi.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/dll_ffi.c -fPIC -DPIC -o .libs/dll_ffi.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT dll_ffi.lo -MD -MP -MF .deps/dll_ffi.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/dll_ffi.c -o dll_ffi.o
+mv -f .deps/dll_ffi.Tpo .deps/dll_ffi.Plo
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine   -O2 -pipe -mno-retpoline -MT access.lo -MD -MP -MF .deps/access.Tpo -c -o access.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/access.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT access.lo -MD -MP -MF .deps/access.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/access.c -fPIC -DPIC -o .libs/access.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT access.lo -MD -MP -MF .deps/access.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/access.c -o access.o
+mv -f .deps/access.Tpo .deps/access.Plo
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine   -O2 -pipe -mno-retpoline -MT frame.lo -MD -MP -MF .deps/frame.Tpo -c -o frame.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/frame.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT frame.lo -MD -MP -MF .deps/frame.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/frame.c -fPIC -DPIC -o .libs/frame.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT frame.lo -MD -MP -MF .deps/frame.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/frame.c -o frame.o
+mv -f .deps/frame.Tpo .deps/frame.Plo
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine   -O2 -pipe -mno-retpoline -MT init.lo -MD -MP -MF .deps/init.Tpo -c -o init.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/init.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT init.lo -MD -MP -MF .deps/init.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/init.c -fPIC -DPIC -o .libs/init.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT init.lo -MD -MP -MF .deps/init.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/init.c -o init.o
+mv -f .deps/init.Tpo .deps/init.Plo
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine   -O2 -pipe -mno-retpoline -MT hooks.lo -MD -MP -MF .deps/hooks.Tpo -c -o hooks.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/hooks.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT hooks.lo -MD -MP -MF .deps/hooks.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/hooks.c -fPIC -DPIC -o .libs/hooks.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT hooks.lo -MD -MP -MF .deps/hooks.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/hooks.c -o hooks.o
+mv -f .deps/hooks.Tpo .deps/hooks.Plo
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine   -O2 -pipe -mno-retpoline -MT symbol.lo -MD -MP -MF .deps/symbol.Tpo -c -o symbol.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/symbol.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT symbol.lo -MD -MP -MF .deps/symbol.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/symbol.c -fPIC -DPIC -o .libs/symbol.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT symbol.lo -MD -MP -MF .deps/symbol.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/symbol.c -o symbol.o
+mv -f .deps/symbol.Tpo .deps/symbol.Plo
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine   -O2 -pipe -mno-retpoline -MT shutdown.lo -MD -MP -MF .deps/shutdown.Tpo -c -o shutdown.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/shutdown.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT shutdown.lo -MD -MP -MF .deps/shutdown.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/shutdown.c -fPIC -DPIC -o .libs/shutdown.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT shutdown.lo -MD -MP -MF .deps/shutdown.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/shutdown.c -o shutdown.o
+mv -f .deps/shutdown.Tpo .deps/shutdown.Plo
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine   -O2 -pipe -mno-retpoline -MT time.lo -MD -MP -MF .deps/time.Tpo -c -o time.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/time.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT time.lo -MD -MP -MF .deps/time.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/time.c -fPIC -DPIC -o .libs/time.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT time.lo -MD -MP -MF .deps/time.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/time.c -o time.o
+mv -f .deps/time.Tpo .deps/time.Plo
+/usr/bin/libtool --tag=CC   --mode=compile cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine   -O2 -pipe -mno-retpoline -MT sig.lo -MD -MP -MF .deps/sig.Tpo -c -o sig.lo /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/sig.c
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT sig.lo -MD -MP -MF .deps/sig.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/sig.c -fPIC -DPIC -o .libs/sig.o
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine -O2 -pipe -mno-retpoline -MT sig.lo -MD -MP -MF .deps/sig.Tpo -c /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/sig.c -o sig.o
+mv -f .deps/sig.Tpo .deps/sig.Plo
+/usr/bin/libtool --tag=CC   --mode=link cc  -O2 -pipe -mno-retpoline   -o libcore.la  alloc.lo cast.lo class.lo dll.lo excep.lo execute.lo hash.lo jni.lo lock.lo natives.lo reflect.lo resolve.lo string.lo thread.lo utf8.lo zip.lo properties.lo dll_ffi.lo access.lo frame.lo init.lo hooks.lo symbol.lo shutdown.lo time.lo sig.lo interp/libinterp.la os/bsd/x86_64/libnative.la os/bsd/libos.la -lz -lm -lpthread 
+libtool: link: ar x /usr/ports/pobj/jamvm-1.5.4/build-amd64/src/interp/.libs/libinterp.a
+libtool: link: ar x /usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os/bsd/x86_64/.libs/libnative.a
+libtool: link: ar x /usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os/bsd/.libs/libos.a
+libtool: link: ar cru .libs/libcore.a ./.libs/libcore.lax/libinterp.a/interp.o ./.libs/libcore.lax/libinterp.a/interp2.o ./.libs/libcore.lax/libinterp.a/relocatability.o ./.libs/libcore.lax/libinterp.a/direct.o ./.libs/libcore.lax/libinterp.a/inlining.o ./.libs/libcore.lax/libnative.a/init.o ./.libs/libcore.lax/libnative.a/dll_md.o ./.libs/libcore.lax/libnative.a/callNative.o ./.libs/libcore.lax/libos.a/os.o .libs/alloc.o .libs/cast.o .libs/class.o .libs/dll.o .libs/excep.o .libs/execute.o .libs/hash.o .libs/jni.o .libs/lock.o .libs/natives.o .libs/reflect.o .libs/resolve.o .libs/string.o .libs/thread.o .libs/utf8.o .libs/zip.o .libs/properties.o .libs/dll_ffi.o .libs/access.o .libs/frame.o .libs/init.o .libs/hooks.o .libs/symbol.o .libs/shutdown.o .libs/time.o .libs/sig.o
+libtool: link: ranlib .libs/libcore.a
+/usr/bin/libtool --tag=CC   --mode=link cc  -O2 -pipe -mno-retpoline   -o libjvm.la -rpath /usr/local/lib/jamvm  libcore.la -lz -lm -lpthread 
+libtool: link: cc -shared -fPIC -DPIC -o .libs/libjvm.so.0.0 -O2 -pipe -mno-retpoline -Wl,-whole-archive /usr/ports/pobj/jamvm-1.5.4/build-amd64/src/.libs/libcore.a -Wl,-no-whole-archive -L.libs -lz -lm -lpthread -Wl,-soname,libjvm.so.0.0
+libtool: link: ar x /usr/ports/pobj/jamvm-1.5.4/build-amd64/src/.libs/libcore.a
+libtool: link: ar cru .libs/libjvm.a ./.libs/libjvm.lax/libcore.a/interp.o ./.libs/libjvm.lax/libcore.a/interp2.o ./.libs/libjvm.lax/libcore.a/relocatability.o ./.libs/libjvm.lax/libcore.a/direct.o ./.libs/libjvm.lax/libcore.a/inlining.o ./.libs/libjvm.lax/libcore.a/init.o ./.libs/libjvm.lax/libcore.a/dll_md.o ./.libs/libjvm.lax/libcore.a/callNative.o ./.libs/libjvm.lax/libcore.a/os.o ./.libs/libjvm.lax/libcore.a/alloc.o ./.libs/libjvm.lax/libcore.a/cast.o ./.libs/libjvm.lax/libcore.a/class.o ./.libs/libjvm.lax/libcore.a/dll.o ./.libs/libjvm.lax/libcore.a/excep.o ./.libs/libjvm.lax/libcore.a/execute.o ./.libs/libjvm.lax/libcore.a/hash.o ./.libs/libjvm.lax/libcore.a/jni.o ./.libs/libjvm.lax/libcore.a/lock.o ./.libs/libjvm.lax/libcore.a/natives.o ./.libs/libjvm.lax/libcore.a/reflect.o ./.libs/libjvm.lax/libcore.a/resolve.o ./.libs/libjvm.lax/libcore.a/string.o ./.libs/libjvm.lax/libcore.a/thread.o ./.libs/libjvm.lax/libcore.a/utf8.o ./.libs/libjvm.lax/libcore.a/zip.o ./.libs/libjvm.lax/libcore.a/properties.o ./.libs/libjvm.lax/libcore.a/dll_ffi.o ./.libs/libjvm.lax/libcore.a/access.o ./.libs/libjvm.lax/libcore.a/frame.o ./.libs/libjvm.lax/libcore.a/init.o ./.libs/libjvm.lax/libcore.a/hooks.o ./.libs/libjvm.lax/libcore.a/symbol.o ./.libs/libjvm.lax/libcore.a/shutdown.o ./.libs/libjvm.lax/libcore.a/time.o ./.libs/libjvm.lax/libcore.a/sig.o
+libtool: link: ranlib .libs/libjvm.a
+cc -DHAVE_CONFIG_H -I. -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src  -I/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/interp/engine   -O2 -pipe -mno-retpoline -MT jam.o -MD -MP -MF .deps/jam.Tpo -c -o jam.o /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/jam.c
+mv -f .deps/jam.Tpo .deps/jam.Po
+/usr/bin/libtool --tag=CC   --mode=link cc  -O2 -pipe -mno-retpoline   -o jamvm jam.o libcore.la -lz -lm -lpthread 
+libtool: link: cc -o jamvm -O2 -pipe -mno-retpoline jam.o /usr/ports/pobj/jamvm-1.5.4/build-amd64/src/.libs/libcore.a -L.libs -lz -lm -lpthread
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src'
+gmake[2]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src'
+gmake[1]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src'
+Making all in lib
+gmake[1]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib'
+Making all in jamvm
+gmake[2]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm'
+Making all in java
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm/java'
+Making all in lang
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm/java/lang'
+gmake[4]: Nothing to be done for 'all'.
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm/java/lang'
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm/java'
+gmake[4]: Nothing to be done for 'all-am'.
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm/java'
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm/java'
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm'
+gmake[3]: Nothing to be done for 'all-am'.
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm'
+gmake[2]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm'
+Making all in java
+gmake[2]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java'
+Making all in lang
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/lang'
+Making all in reflect
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/lang/reflect'
+gmake[4]: Nothing to be done for 'all'.
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/lang/reflect'
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/lang'
+gmake[4]: Nothing to be done for 'all-am'.
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/lang'
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/lang'
+Making all in security
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/security'
+gmake[3]: Nothing to be done for 'all'.
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/security'
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java'
+gmake[3]: Nothing to be done for 'all-am'.
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java'
+gmake[2]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java'
+Making all in gnu
+gmake[2]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/gnu'
+Making all in classpath
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/gnu/classpath'
+gmake[3]: Nothing to be done for 'all'.
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/gnu/classpath'
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/gnu'
+gmake[3]: Nothing to be done for 'all-am'.
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/gnu'
+gmake[2]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/gnu'
+Making all in sun
+gmake[2]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun'
+Making all in reflect
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun/reflect'
+Making all in annotation
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun/reflect/annotation'
+gmake[4]: Nothing to be done for 'all'.
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun/reflect/annotation'
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun/reflect'
+gmake[4]: Nothing to be done for 'all-am'.
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun/reflect'
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun/reflect'
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun'
+gmake[3]: Nothing to be done for 'all-am'.
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun'
+gmake[2]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun'
+gmake[2]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib'
+ln -fs /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/lib/classes.zip inst_classes.zip
+gmake[2]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib'
+gmake[1]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib'
+gmake[1]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64'
+gmake[1]: Nothing to be done for 'all-am'.
+gmake[1]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64'
+===>  Faking installation for jamvm-1.5.4p1
+Making install in src
+gmake[1]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src'
+Making install in os
+gmake[2]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os'
+Making install in bsd
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os/bsd'
+Making install in x86_64
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os/bsd/x86_64'
+gmake[5]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os/bsd/x86_64'
+gmake[5]: Nothing to be done for 'install-exec-am'.
+gmake[5]: Nothing to be done for 'install-data-am'.
+gmake[5]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os/bsd/x86_64'
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os/bsd/x86_64'
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os/bsd'
+gmake[5]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os/bsd'
+gmake[5]: Nothing to be done for 'install-exec-am'.
+gmake[5]: Nothing to be done for 'install-data-am'.
+gmake[5]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os/bsd'
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os/bsd'
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os/bsd'
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os'
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os'
+gmake[4]: Nothing to be done for 'install-exec-am'.
+gmake[4]: Nothing to be done for 'install-data-am'.
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os'
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os'
+gmake[2]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os'
+Making install in interp
+gmake[2]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/interp'
+Making install in engine
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/interp/engine'
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/interp/engine'
+gmake[4]: Nothing to be done for 'install-exec-am'.
+gmake[4]: Nothing to be done for 'install-data-am'.
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/interp/engine'
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/interp/engine'
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/interp'
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/interp'
+gmake[4]: Nothing to be done for 'install-exec-am'.
+gmake[4]: Nothing to be done for 'install-data-am'.
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/interp'
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/interp'
+gmake[2]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/interp'
+gmake[2]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src'
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src'
+test -z "/usr/local/lib/jamvm" || mkdir -p "/usr/ports/pobj/jamvm-1.5.4/fake-amd64/usr/local/lib/jamvm"
+ /usr/bin/libtool   --mode=install /usr/ports/pobj/jamvm-1.5.4/bin/install -c  'libjvm.la' '/usr/ports/pobj/jamvm-1.5.4/fake-amd64/usr/local/lib/jamvm/libjvm.la'
+libtool: install: /usr/ports/pobj/jamvm-1.5.4/bin/install -c -m 644 ./.libs/libjvm.a /usr/ports/pobj/jamvm-1.5.4/fake-amd64/usr/local/lib/jamvm/libjvm.a
+libtool: install: /usr/ports/pobj/jamvm-1.5.4/bin/install -c -m 644 ./.libs/libjvm.so.0.0 /usr/ports/pobj/jamvm-1.5.4/fake-amd64/usr/local/lib/jamvm/libjvm.so.0.0
+libtool: install: /usr/ports/pobj/jamvm-1.5.4/bin/install -c -m 644 ./.libs/libjvm.lai /usr/ports/pobj/jamvm-1.5.4/fake-amd64/usr/local/lib/jamvm/libjvm.la
+test -z "/usr/local/bin" || mkdir -p "/usr/ports/pobj/jamvm-1.5.4/fake-amd64/usr/local/bin"
+  /usr/bin/libtool   --mode=install /usr/ports/pobj/jamvm-1.5.4/bin/install -c -s -m 755 'jamvm' '/usr/ports/pobj/jamvm-1.5.4/fake-amd64/usr/local/bin/jamvm'
+libtool: install: /usr/ports/pobj/jamvm-1.5.4/bin/install -c -s -m 755 jamvm /usr/ports/pobj/jamvm-1.5.4/fake-amd64/usr/local/bin/jamvm
+test -z "/usr/local/include/jamvm" || mkdir -p "/usr/ports/pobj/jamvm-1.5.4/fake-amd64/usr/local/include/jamvm"
+ /usr/ports/pobj/jamvm-1.5.4/bin/install -c -m 644 '/usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/src/jni.h' '/usr/ports/pobj/jamvm-1.5.4/fake-amd64/usr/local/include/jamvm/jni.h'
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src'
+gmake[2]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src'
+gmake[1]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src'
+Making install in lib
+gmake[1]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib'
+Making install in jamvm
+gmake[2]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm'
+Making install in java
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm/java'
+Making install in lang
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm/java/lang'
+gmake[5]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm/java/lang'
+gmake[5]: Nothing to be done for 'install-exec-am'.
+gmake[5]: Nothing to be done for 'install-data-am'.
+gmake[5]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm/java/lang'
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm/java/lang'
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm/java'
+gmake[5]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm/java'
+gmake[5]: Nothing to be done for 'install-exec-am'.
+gmake[5]: Nothing to be done for 'install-data-am'.
+gmake[5]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm/java'
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm/java'
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm/java'
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm'
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm'
+gmake[4]: Nothing to be done for 'install-exec-am'.
+gmake[4]: Nothing to be done for 'install-data-am'.
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm'
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm'
+gmake[2]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm'
+Making install in java
+gmake[2]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java'
+Making install in lang
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/lang'
+Making install in reflect
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/lang/reflect'
+gmake[5]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/lang/reflect'
+gmake[5]: Nothing to be done for 'install-exec-am'.
+gmake[5]: Nothing to be done for 'install-data-am'.
+gmake[5]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/lang/reflect'
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/lang/reflect'
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/lang'
+gmake[5]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/lang'
+gmake[5]: Nothing to be done for 'install-exec-am'.
+gmake[5]: Nothing to be done for 'install-data-am'.
+gmake[5]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/lang'
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/lang'
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/lang'
+Making install in security
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/security'
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/security'
+gmake[4]: Nothing to be done for 'install-exec-am'.
+gmake[4]: Nothing to be done for 'install-data-am'.
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/security'
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/security'
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java'
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java'
+gmake[4]: Nothing to be done for 'install-exec-am'.
+gmake[4]: Nothing to be done for 'install-data-am'.
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java'
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java'
+gmake[2]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java'
+Making install in gnu
+gmake[2]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/gnu'
+Making install in classpath
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/gnu/classpath'
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/gnu/classpath'
+gmake[4]: Nothing to be done for 'install-exec-am'.
+gmake[4]: Nothing to be done for 'install-data-am'.
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/gnu/classpath'
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/gnu/classpath'
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/gnu'
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/gnu'
+gmake[4]: Nothing to be done for 'install-exec-am'.
+gmake[4]: Nothing to be done for 'install-data-am'.
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/gnu'
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/gnu'
+gmake[2]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/gnu'
+Making install in sun
+gmake[2]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun'
+Making install in reflect
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun/reflect'
+Making install in annotation
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun/reflect/annotation'
+gmake[5]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun/reflect/annotation'
+gmake[5]: Nothing to be done for 'install-exec-am'.
+gmake[5]: Nothing to be done for 'install-data-am'.
+gmake[5]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun/reflect/annotation'
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun/reflect/annotation'
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun/reflect'
+gmake[5]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun/reflect'
+gmake[5]: Nothing to be done for 'install-exec-am'.
+gmake[5]: Nothing to be done for 'install-data-am'.
+gmake[5]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun/reflect'
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun/reflect'
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun/reflect'
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun'
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun'
+gmake[4]: Nothing to be done for 'install-exec-am'.
+gmake[4]: Nothing to be done for 'install-data-am'.
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun'
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun'
+gmake[2]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun'
+gmake[2]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib'
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib'
+gmake[3]: Nothing to be done for 'install-exec-am'.
+/bin/sh /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/mkinstalldirs /usr/ports/pobj/jamvm-1.5.4/fake-amd64/usr/local/share/jamvm
+mkdir /usr/ports/pobj/jamvm-1.5.4/fake-amd64/usr/local/share/jamvm
+cp -p inst_classes.zip /usr/ports/pobj/jamvm-1.5.4/fake-amd64/usr/local/share/jamvm/classes.zip
+# unzip -o inst_classes.zip -d /usr/ports/pobj/jamvm-1.5.4/fake-amd64/usr/local/share/jamvm/classes
+/bin/sh /usr/ports/pobj/jamvm-1.5.4/jamvm-1.5.4/mkinstalldirs /usr/ports/pobj/jamvm-1.5.4/fake-amd64/usr/local/lib/jamvm
+ln -fs /usr/local/share/classpath/glibj.zip /usr/ports/pobj/jamvm-1.5.4/fake-amd64/usr/local/lib/jamvm/rt.jar
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib'
+gmake[2]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib'
+gmake[1]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib'
+gmake[1]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64'
+gmake[2]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64'
+gmake[2]: Nothing to be done for 'install-exec-am'.
+gmake[2]: Nothing to be done for 'install-data-am'.
+gmake[2]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64'
+gmake[1]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64'
+===>  Building package for jamvm-1.5.4p1
+Create /usr/ports/packages/amd64/all/jamvm-1.5.4p1.tgz
+Creating package jamvm-1.5.4p1
+reading plist|[K[Kchecking dependencies|[K[K[22Clang/classpath[K[Kchecksumming|[K[K[13C                                                             | 0%[K[13C***                                                          | 4%[K[16C**                                                        | 9%[K[18C***                                                     | 13%[K[21C***                                                  | 17%[K[24C**                                                | 22%[K[26C***                                             | 26%[K[29C***                                          | 30%[K[32C**                                        | 35%[K[34C***                                     | 39%[K[37C***                                  | 43%[K[40C**                                | 48%[K[42C***                             | 52%[K[45C**                           | 57%[K[47C***                        | 61%[K[50C***                     | 65%[K[53C**                   | 70%[K[55C***                | 74%[K[58C***             | 78%[K[61C**           | 83%[K[63C***        | 87%[K[66C***     | 91%[K[69C**   | 96%[K[71C***|100%[K[KWarning: symlink(s) point to non-existent /usr/ports/pobj/jamvm-1.5.4/fake-amd64/usr/local/share/classpath/glibj.zip
+	/usr/ports/pobj/jamvm-1.5.4/fake-amd64/usr/local/lib/jamvm/rt.jar
+archiving|[K[K[10C                                                                | 0%[K[10C*************                                                   | 20%[K[23C*                                                  | 21%[K[24C*****************************                     | 67%[K[53C******************** | 99%[K[73C*|100%[K[K/usr/ports/plist/amd64/jamvm-1.5.4p1 was updated
+@version -1 -> @version 5
+@depend lang/classpath:classpath->=0.98:classpath-0.98p27 -> @depend lang/classpath:classpath->=0.98:classpath-0.98p28
+Link to /usr/ports/packages/amd64/ftp/jamvm-1.5.4p1.tgz
+Link to /usr/ports/packages/amd64/cdrom/jamvm-1.5.4p1.tgz
+===>  Verifying specs: c m pthread z
+===>  found c.95.0 m.10.1 pthread.26.1 z.5.0
+===>  Installing jamvm-1.5.4p1 from /usr/ports/packages/amd64/all/
+jamvm-1.5.4p1 (extracting)|                                               | 0%[K[27C**********                                     | 20%[K[37C                                     | 21%[K[37C*********************                | 67%[K[58C*************** | 99%[K[73C*|100%[Kjamvm-1.5.4p1 (installing)|                                               | 0%[K[27C**********                                     | 20%[K[37C                                     | 21%[K[37C*********************                | 67%[K[58C*************** | 99%[K[73C*|100%[K[Kjamvm-1.5.4p1: ok
+===>  Regression tests for jamvm-1.5.4p1
+Making check in src
+gmake[1]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src'
+Making check in os
+gmake[2]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os'
+Making check in bsd
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os/bsd'
+Making check in x86_64
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os/bsd/x86_64'
+gmake[4]: Nothing to be done for 'check'.
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os/bsd/x86_64'
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os/bsd'
+gmake[4]: Nothing to be done for 'check-am'.
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os/bsd'
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os/bsd'
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os'
+gmake[3]: Nothing to be done for 'check-am'.
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os'
+gmake[2]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/os'
+Making check in interp
+gmake[2]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/interp'
+Making check in engine
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/interp/engine'
+gmake[3]: Nothing to be done for 'check'.
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/interp/engine'
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/interp'
+gmake[3]: Nothing to be done for 'check-am'.
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/interp'
+gmake[2]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src/interp'
+gmake[2]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src'
+gmake[2]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src'
+gmake[1]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/src'
+Making check in lib
+gmake[1]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib'
+Making check in jamvm
+gmake[2]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm'
+Making check in java
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm/java'
+Making check in lang
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm/java/lang'
+gmake[4]: Nothing to be done for 'check'.
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm/java/lang'
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm/java'
+gmake[4]: Nothing to be done for 'check-am'.
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm/java'
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm/java'
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm'
+gmake[3]: Nothing to be done for 'check-am'.
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm'
+gmake[2]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/jamvm'
+Making check in java
+gmake[2]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java'
+Making check in lang
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/lang'
+Making check in reflect
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/lang/reflect'
+gmake[4]: Nothing to be done for 'check'.
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/lang/reflect'
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/lang'
+gmake[4]: Nothing to be done for 'check-am'.
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/lang'
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/lang'
+Making check in security
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/security'
+gmake[3]: Nothing to be done for 'check'.
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java/security'
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java'
+gmake[3]: Nothing to be done for 'check-am'.
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java'
+gmake[2]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/java'
+Making check in gnu
+gmake[2]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/gnu'
+Making check in classpath
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/gnu/classpath'
+gmake[3]: Nothing to be done for 'check'.
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/gnu/classpath'
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/gnu'
+gmake[3]: Nothing to be done for 'check-am'.
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/gnu'
+gmake[2]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/gnu'
+Making check in sun
+gmake[2]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun'
+Making check in reflect
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun/reflect'
+Making check in annotation
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun/reflect/annotation'
+gmake[4]: Nothing to be done for 'check'.
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun/reflect/annotation'
+gmake[4]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun/reflect'
+gmake[4]: Nothing to be done for 'check-am'.
+gmake[4]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun/reflect'
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun/reflect'
+gmake[3]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun'
+gmake[3]: Nothing to be done for 'check-am'.
+gmake[3]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun'
+gmake[2]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib/sun'
+gmake[2]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib'
+gmake[2]: Nothing to be done for 'check-am'.
+gmake[2]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib'
+gmake[1]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64/lib'
+gmake[1]: Entering directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64'
+gmake[1]: Nothing to be done for 'check-am'.
+gmake[1]: Leaving directory '/usr/ports/pobj/jamvm-1.5.4/build-amd64'
+===>  Cleaning for bzip2-1.0.6p9
+===>  Cleaning for lynx-2.8.9rel1
+===>  Cleaning for libusb1-1.0.21p1
+===>  Cleaning for docbook-dsssl-1.79
+===>  Cleaning for rhash-1.3.5p0
+===>  Cleaning for nghttp2-1.38.0
+===>  Cleaning for metaauto-1.0p3
+===>  Cleaning for autoconf-2.13p4
+===>  Cleaning for xz-5.2.4
+===>  Cleaning for help2man-1.47.8
+===>  Cleaning for autoconf-2.69p2
+===>  Cleaning for automake-1.16.1
+===>  Cleaning for gmp-6.1.2p3
+===>  Cleaning for mpfr-3.1.5.2p0
+===>  Cleaning for libmpc-0.9p2
+===>  Cleaning for automake-1.15.1
+===>  Cleaning for gmp-6.1.2p3
+===>  Cleaning for automake-1.14.1p1
+===>  Cleaning for curl-7.64.1
+===>  Cleaning for autoconf-2.67p1
+===>  Cleaning for libltdl-2.4.2p1
+===>  Cleaning for libtool-2.4.2p0
+===>  Cleaning for gpatch-2.7.6
+===>  Cleaning for png-1.6.37
+===>  Cleaning for hicolor-icon-theme-0.17
+===>  Cleaning for p5-XML-NamespaceSupport-1.12
+===>  Cleaning for libyaml-0.1.7
+===>  Cleaning for libunbound-1.9.1
+===>  Cleaning for groff-1.22.4p0
+===>  Cleaning for unzip-6.0p11
+===>  Cleaning for iso8879-1986p0
+===>  Cleaning for libiconv-1.14p3
+===>  Cleaning for jikes-1.22p8
+===>  Cleaning for gettext-0.19.8.1p3
+===>  Cleaning for gmake-4.2.1p0
+===>  Cleaning for libpaper-1.1.26
+===>  Cleaning for libgpg-error-1.36
+===>  Cleaning for libgcrypt-1.8.4p0
+===>  Cleaning for lz4-1.9.1
+===>  Cleaning for zstd-1.4.0
+===>  Cleaning for libarchive-3.3.3
+===>  Cleaning for icu4c-63.1
+===>  Cleaning for libnettle-3.4.1p0
+===>  Cleaning for nspr-4.21
+===>  Cleaning for bash-5.0.7
+===>  Cleaning for gettext-tools-0.19.8.1
+===>  Cleaning for gnugetopt-1.1.6p0
+===>  Cleaning for gdbm-1.16
+===>  Cleaning for coreutils-8.31
+===>  Cleaning for libunistring-0.9.7
+===>  Cleaning for libidn2-2.0.0p0
+===>  Cleaning for libmagic-5.35
+===>  Cleaning for yasm-1.3.0p1
+===>  Cleaning for tcl-8.5.19p4
+===>  Cleaning for tk-8.5.19p1
+===>  Cleaning for p5-XML-SAX-Base-1.09
+===>  Cleaning for p5-XML-SAX-1.00
+===>  Cleaning for slib-3b4p0
+===>  Cleaning for guile-1.8.8p6
+===>  Cleaning for sqlite2mdoc-0.1.4
+===>  Cleaning for sqlite3-3.27.2p0
+===>  Cleaning for p5-XML-Parser-2.44
+===>  Cleaning for intltool-0.51.0p1
+===>  Cleaning for xmltoman-0.4
+===>  Cleaning for p5-XML-SAX-Expat-0.51
+===>  Cleaning for p5-XML-Simple-2.24
+===>  Cleaning for icon-naming-utils-0.8.90p1
+===>  Cleaning for icontool-0.1.0
+===>  Cleaning for zip-3.0p1
+===>  Cleaning for pcre-8.41p2
+===>  Cleaning for libtasn1-4.13p0
+===>  Cleaning for libssh2-1.8.2
+===>  Cleaning for libsigsegv-2.12
+===>  Cleaning for m4-1.4.18
+===>  Cleaning for bison-3.2
+===>  Cleaning for re2c-1.1.1p0
+===>  Cleaning for antlr3-3.4p2
+===>  Cleaning for db-4.6.21p6v0
+===>  Cleaning for lzo2-2.10p0
+===>  Cleaning for libexecinfo-0.3p1v0
+===>  Cleaning for gcc-libs-4.9.4p19
+===>  Cleaning for gcc-4.9.4p19
+===>  Cleaning for gcj-4.9.4p19
+===>  Cleaning for libdaemon-0.14p1
+===>  Cleaning for libffi-3.2.1p5
+===>  Cleaning for python-2.7.16p0
+===>  Cleaning for libxml-2.9.8p1
+===>  Cleaning for docbook-4.5p2
+===>  Cleaning for libxml-2.9.8p1
+===>  Cleaning for py-libxml-2.9.8
+===>  Cleaning for libxslt-1.1.32
+===>  Cleaning for docbook-xsl-1.68.1p6
+===>  Cleaning for xmlto-0.0.28p0
+===>  Cleaning for dbus-1.12.12v0
+===>  Cleaning for dbus-1.12.12v0
+===>  Cleaning for dbus-daemon-launch-helper-1.12.12
+===>  Cleaning for docbook2x-0.8.8p2
+===>  Cleaning for ninja-1.8.2p0
+===>  Cleaning for py-setuptools-41.0.0p0v0
+===>  Cleaning for py-tz-2018.7p0
+===>  Cleaning for py-babel-2.4.0p0
+===>  Cleaning for py-six-1.12.0p0
+===>  Cleaning for py-imagesize-1.1.0p0
+===>  Cleaning for py-alabaster-0.7.10p0
+===>  Cleaning for py-pygments-2.1.3p1
+===>  Cleaning for py-docutils-0.12p2
+===>  Cleaning for py-sphinx_rtd_theme-0.2.4p0
+===>  Cleaning for py-setuptools-git-1.2p0
+===>  Cleaning for py-cython-0.29.7p0
+===>  Cleaning for py-stemmer-1.3.0p3
+===>  Cleaning for py-snowballstemmer-1.2.1p1
+===>  Cleaning for py-MarkupSafe-1.1.0p0
+===>  Cleaning for py-jinja2-2.10p0
+===>  Cleaning for py-sphinx-1.4.8p1
+===>  Cleaning for libuv-1.24.1
+===>  Cleaning for spidermonkey-60.4.0p0v1
+===>  Cleaning for libpsl-0.20.2
+===>  Cleaning for gdb-7.12.1p5
+===>  Cleaning for python-3.7.3p0
+===>  Cleaning for py3-setuptools-41.0.0p0v0
+===>  Cleaning for meson-0.50.1p1v0
+===>  Cleaning for glib2-2.60.2
+===>  Cleaning for cairo-1.16.0
+===>  Cleaning for shared-mime-info-1.10p5
+===>  Cleaning for vala-0.44.3
+===>  Cleaning for dconf-0.32.0
+===>  Cleaning for libcroco-0.6.13
+===>  Cleaning for dbus-glib-0.110p0v0
+===>  Cleaning for fribidi-1.0.5
+===>  Cleaning for jsoncpp-1.8.4p2
+===>  Cleaning for cmake-3.10.2p2v0
+===>  Cleaning for graphite2-1.3.13p0
+===>  Cleaning for jasper-2.0.14
+===>  Cleaning for jpeg-2.0.2v0
+===>  Cleaning for tiff-4.0.10
+===>  Cleaning for lcms2-2.9
+===>  Cleaning for cmocka-1.1.3
+===>  Cleaning for libproxy-0.4.15p3
+===>  Cleaning for gtest-1.8.0p3
+===>  Cleaning for libgit2-0.27.8
+===>  Cleaning for py3-MarkupSafe-1.1.0p0
+===>  Cleaning for py3-cryptodome-3.7.3p0
+===>  Cleaning for py3-beaker-1.10.0p0
+===>  Cleaning for py3-mako-1.0.7p0
+===>  Cleaning for gobject-introspection-1.60.1
+===>  Cleaning for atk-2.32.0
+===>  Cleaning for harfbuzz-2.4.0
+===>  Cleaning for pango-1.42.4p1
+===>  Cleaning for gdk-pixbuf-2.38.1
+===>  Cleaning for avahi-0.7p6
+===>  Cleaning for at-spi2-core-2.32.1
+===>  Cleaning for at-spi2-atk-2.32.0
+===>  Cleaning for polkit-0.116
+===>  Cleaning for consolekit2-1.2.1p6
+===>  Cleaning for colord-1.3.5p1
+===>  Cleaning for json-glib-1.4.4
+===>  Cleaning for gsettings-desktop-schemas-3.32.0
+===>  Cleaning for gconf2-3.2.6p11
+===>  Cleaning for p11-kit-0.23.15p0
+===>  Cleaning for gnutls-3.6.7p0
+===>  Cleaning for cups-libs-2.2.11
+===>  Cleaning for glib2-networking-2.60.2
+===>  Cleaning for libsoup-2.66.1p0
+===>  Cleaning for librest-0.8.1
+===>  Cleaning for gtk-update-icon-cache-3.24.8
+===>  Cleaning for ruby-2.6.3
+===>  Cleaning for swig-3.0.12p0
+===>  Cleaning for llvm-7.0.1p13
+===>  Cleaning for rust-1.34.1
+===>  Cleaning for librsvg-2.44.13
+===>  Cleaning for gnome-icon-theme-3.12.0p5
+===>  Cleaning for gnome-icon-theme-symbolic-3.12.0p3
+===>  Cleaning for gtk+2-2.24.32p2
+===>  Cleaning for classpath-0.98p28
+===>  Cleaning for jamvm-1.5.4p1
+Fri May 10 09:28:05 JST 2019
