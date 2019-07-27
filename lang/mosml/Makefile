@@ -5,7 +5,7 @@ COMMENT =		a light-weight implementation of Standard ML (SML)
 VERSION =	2.10.1
 DISTNAME =	Rel-${VERSION}
 PKGNAME =	mosml-${VERSION}
-REVISION =	0
+REVISION =	1
 
 GH_ACCOUNT =	kfl
 GH_PROJECT =	mosml
@@ -17,12 +17,12 @@ SHARED_LIBS +=	mgmp	1.0 \
 
 CATEGORIES =	lang
 
-HOMEPAGE =	http://mosml.org/
+HOMEPAGE =	https://mosml.org/
 
 MAINTAINER =		Yozo TODA <yozo@v007.vaio.ne.jp>
 
 # GPLv2
-PERMIT_PACKAGE_CDROM =	Yes
+PERMIT_PACKAGE =	Yes
 
 WANTLIB =		c gmp m
 
