@@ -2,9 +2,9 @@
 
 COMMENT =	an implementation of the SSL/TLS protocol written in C
 
-DISTNAME =	bearssl-0.5
+DISTNAME =	bearssl-0.6
 
-SHARED_LIBS +=	bearssl 0.0
+SHARED_LIBS +=	bearssl 0.1
 
 CATEGORIES =	security
 
@@ -13,7 +13,7 @@ HOMEPAGE =	https://www.bearssl.org/
 MAINTAINER =		Yozo TODA <yozo@v007.vaio.ne.jp>
 
 # MIT
-PERMIT_PACKAGE_CDROM =	Yes
+PERMIT_PACKAGE =	Yes
 
 # "make port-lib-depends-check" can help
 WANTLIB +=		c
