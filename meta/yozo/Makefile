@@ -3,6 +3,7 @@
 COMMENT =	my local set of packages
 
 PKGNAME =	yozo-1.0
+REVISION =	0
 
 MAINTAINER =		Yozo TODA <yozo@v007.vaio.ne.jp>
 
@@ -12,7 +13,7 @@ DISTFILES=		#empty
 NO_BUILD=		Yes
 NO_TEST=		Yes
 PKG_ARCH=		*
-PERMIT_PACKAGE_CDROM=	Yes
+PERMIT_PACKAGE=	Yes
 do-install:
 
 RUN_DEPENDS =	japanese/kterm,xaw3d \
