@@ -1,0 +1,35 @@
+$OpenBSD$
+
+we should avoid git command invocation, and
+the release tarball does not contain git information.
+
+Index: Makefile
+--- Makefile.orig
++++ Makefile
+@@ -562,16 +562,16 @@ VERSION_NUMBER = 4.4.0
+ 
+ version.cpp: .git/HEAD .git/index Makefile
+ 	@echo "//Automatically generated file, see Makefile for details" > $@
+-	@echo "const char* VERSION_STRING = \"Vampire $(VERSION_NUMBER) (commit $(shell git log -1 --format=%h\ on\ %ci || echo unknown))\";" >> $@
++	@echo "const char* VERSION_STRING = \"Vampire $(VERSION_NUMBER) (commit unknown)\";" >> $@
+ 
+ ################################################################
+ # separate directory for object files implementation
+ 
+ # different directory for each configuration, so there is no need for "make clean"
+ SED_CMD='s/^[(]HEAD$$/detached/'      #
+-BRANCH=$(shell git branch | grep "\*" | cut -d ' ' -f 2 | sed -e $(SED_CMD)  )
+-COM_CNT=$(shell git rev-list HEAD --count)
+-CONF_ID := obj/$(shell echo -n "$(BRANCH) $(XFLAGS)"|sum|cut -d ' ' -f1)X
++BRANCH=BRANCH
++COM_CNT=COM_CNT
++CONF_ID := obj/0000X
+ 
+ obj:
+ 	-mkdir obj
+@@ -740,4 +740,4 @@ doc:
+ ###########################
+ # include header dependencies
+ 
+-include $(shell find obj -name *.d)
++## include $(shell find obj -name *.d)

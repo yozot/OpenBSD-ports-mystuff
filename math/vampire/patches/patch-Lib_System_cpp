@@ -1,0 +1,33 @@
+$OpenBSD$
+
+OpenBSD does not provide prctl(2), as with macOS and cygwin.
+sys/wait.h for WIFEXITED and other macros.
+
+Index: Lib/System.cpp
+--- Lib/System.cpp.orig
++++ Lib/System.cpp
+@@ -26,10 +26,14 @@
+ 
+ #include <stdlib.h>
+ #  include <unistd.h>
+-#  if !__APPLE__ && !__CYGWIN__
++#  if !__APPLE__ && !__CYGWIN__ && !__OpenBSD__
+ #    include <sys/prctl.h>
+ #  endif
+ 
++#if __OpenBSD__
++#  include <sys/wait.h>
++#endif
++
+ #include <dirent.h>
+ 
+ #include <cerrno>
+@@ -360,7 +364,7 @@ void System::terminateImmediately(int resultStatus)
+  */
+ void System::registerForSIGHUPOnParentDeath()
+ {
+-#if __APPLE__ || __CYGWIN__
++#if __APPLE__ || __CYGWIN__ || __OpenBSD__
+   // cerr<<"Death of parent process not being handled on Mac and Windows"<<endl;
+   // NOT_IMPLEMENTED;
+ #else
