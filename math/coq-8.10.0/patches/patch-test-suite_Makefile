@@ -1,0 +1,34 @@
+$OpenBSD$
+
+coqchk obsoletes -I option.
+
+Index: test-suite/Makefile
+--- test-suite/Makefile.orig
++++ test-suite/Makefile
+@@ -336,7 +336,7 @@ $(addsuffix .log,$(wildcard ssr/*.v success/*.v microm
+ 	} > "$@"
+ 	@echo "CHECK     $<"
+ 	$(HIDE){ \
+-    opts="$(if $(findstring modules/,$<),-R modules Mods -norec Mods.$(shell basename $< .v),-I $(shell dirname $<) -norec $(shell basename $< .v))"; \
++    opts="$(if $(findstring modules/,$<),-R modules Mods -norec Mods.$(shell basename $< .v),-R $(shell dirname $<) $(shell basename $< .v))"; \
+ 	  $(coqchk) -silent $(call get_set_impredicativity,$<) $$opts 2>&1; R=$$?; \
+ 	  if [ $$R != 0 ]; then \
+ 	    echo $(log_failure); \
+@@ -363,7 +363,7 @@ $(addsuffix .log,$(wildcard stm/*.v)): %.v.log: %.v
+ 	} > "$@"
+ 	@echo "CHECK     $<"
+ 	$(HIDE){ \
+-	  $(coqchk) -silent -I $(shell dirname $<) -norec $(shell basename $< .v) 2>&1; R=$$?; \
++	  $(coqchk) -silent -R $(shell dirname $<) $(shell basename $< .v) 2>&1; R=$$?; \
+ 	  if [ $$R != 0 ]; then \
+ 	    echo $(log_failure); \
+ 	    echo "    $<...could not be checked (Error!)" ; \
+@@ -387,7 +387,7 @@ $(addsuffix .log,$(wildcard failure/*.v)): %.v.log: %.
+ 	} > "$@"
+ 	@echo "CHECK     $<"
+ 	$(HIDE){ \
+-	  $(coqchk) -silent -I $(shell dirname $<) -norec $(shell basename $< .v) 2>&1; R=$$?; \
++	  $(coqchk) -silent -R $(shell dirname $<) $(shell basename $< .v) 2>&1; R=$$?; \
+ 	  if [ $$R != 0 ]; then \
+ 	    echo $(log_failure); \
+ 	    echo "    $<...could not be checked (Error!)" ; \
