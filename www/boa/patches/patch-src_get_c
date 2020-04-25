@@ -1,0 +1,65 @@
+$OpenBSD$
+
+OpenBSD doesn't have O_LARGEFILE.
+PRINTF_OFF_T_ARG should be "%lld" (long long) for OpenBSD.
+
+Index: src/get.c
+--- src/get.c.orig
++++ src/get.c
+@@ -58,7 +58,7 @@ int init_get(request * req)
+     struct stat statbuf;
+     volatile off_t bytes_free;
+ 
+-    data_fd = open(req->pathname, O_RDONLY|O_LARGEFILE);
++    data_fd = open(req->pathname, O_RDONLY);
+     saved_errno = errno;        /* might not get used */
+ 
+     while (use_lang_rewrite && data_fd == -1 && errno == ENOENT) {
+@@ -112,7 +112,7 @@ int init_get(request * req)
+         memcpy(gzip_pathname, req->pathname, len);
+         memcpy(gzip_pathname + len, ".gz", 3);
+         gzip_pathname[len + 3] = '\0';
+-        data_fd = open(gzip_pathname, O_RDONLY|O_LARGEFILE);
++        data_fd = open(gzip_pathname, O_RDONLY);
+         if (data_fd != -1) {
+             close(data_fd);
+ 
+@@ -567,7 +567,7 @@ int get_dir(request * req, struct stat *statbuf)
+         memcpy(pathname_with_index, req->pathname, l1); /* doesn't copy NUL */
+         memcpy(pathname_with_index + l1, directory_index, l2 + 1); /* does */
+ 
+-        data_fd = open(pathname_with_index, O_RDONLY|O_LARGEFILE);
++        data_fd = open(pathname_with_index, O_RDONLY);
+ 
+         if (data_fd != -1) {    /* user's index file */
+             /* We have to assume that directory_index will fit, because
+@@ -591,7 +591,7 @@ int get_dir(request * req, struct stat *statbuf)
+          * try index.html.gz
+          */
+         strcat(pathname_with_index, ".gz");
+-        data_fd = open(pathname_with_index, O_RDONLY|O_LARGEFILE);
++        data_fd = open(pathname_with_index, O_RDONLY);
+         if (data_fd != -1) {    /* user's index file */
+             close(data_fd);
+ 
+@@ -660,9 +660,9 @@ static int get_cachedir_file(request * req, struct sta
+      * include the NUL when calculating if the size is enough
+      */
+     snprintf(pathname_with_index, sizeof(pathname_with_index),
+-             "%s/dir.%d." PRINTF_OFF_T_ARG, cachedir,
++             "%s/dir.%d.%lld", cachedir,
+              (int) statbuf->st_dev, statbuf->st_ino);
+-    data_fd = open(pathname_with_index, O_RDONLY|O_LARGEFILE);
++    data_fd = open(pathname_with_index, O_RDONLY);
+ 
+     if (data_fd != -1) {        /* index cache */
+ 
+@@ -678,7 +678,7 @@ static int get_cachedir_file(request * req, struct sta
+     if (index_directory(req, pathname_with_index) == -1)
+         return -1;
+ 
+-    data_fd = open(pathname_with_index, O_RDONLY|O_LARGEFILE); /* Last chance */
++    data_fd = open(pathname_with_index, O_RDONLY); /* Last chance */
+     if (data_fd != -1) {
+         strcpy(req->request_uri, directory_index); /* for mimetype */
+         fstat(data_fd, statbuf);

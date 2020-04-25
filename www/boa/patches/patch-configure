@@ -1,0 +1,15 @@
+$OpenBSD$
+
+force to use make, not gmake.
+
+Index: configure
+--- configure.orig
++++ configure
+@@ -2637,6 +2637,7 @@ echo "${ECHO_T}$_cv_gnu_make_command" >&6
+            _cv_gnu_make_command='';
+          fi
+ 
++_cv_gnu_make_command='';
+ 
+ if test "x$_cv_gnu_make_command" != "x"; then
+   MAKE="$_cv_gnu_make_command"

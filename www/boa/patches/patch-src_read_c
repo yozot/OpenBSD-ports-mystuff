@@ -1,0 +1,43 @@
+$OpenBSD$
+
+PRINTF_OFF_T_ARG should be "%lld" (long long) for OpenBSD.
+
+Index: src/read.c
+--- src/read.c.orig
++++ src/read.c
+@@ -195,7 +195,7 @@ int read_header(request * req)
+                         && content_length > single_post_limit) {
+                         log_error_doc(req);
+                         fprintf(stderr,
+-                                "Content-Length [" PRINTF_OFF_T_ARG "] > SinglePostLimit [%d] on POST!\n",
++                                "Content-Length [%lld] > SinglePostLimit [%d] on POST!\n",
+                                 content_length, single_post_limit);
+                         send_r_bad_request(req);
+                         return 0;
+@@ -273,7 +273,7 @@ int read_header(request * req)
+         DEBUG(DEBUG_HEADER_READ) {
+             log_error_time();
+             req->client_stream[req->client_stream_pos] = '\0';
+-            fprintf(stderr, "%s:%d -- We read " PRINTF_OFF_T_ARG " bytes: \"%s\"\n",
++            fprintf(stderr, "%s:%d -- We read %lld bytes: \"%s\"\n",
+                     __FILE__, __LINE__, bytes,
+ #ifdef VERY_FASCIST_LOGGING2
+                     req->client_stream + req->client_stream_pos - bytes
+@@ -402,7 +402,7 @@ int write_body(request * req)
+     }
+     DEBUG(DEBUG_HEADER_READ) {
+         log_error_time();
+-        fprintf(stderr, "%s:%d - wrote " PRINTF_OFF_T_ARG " bytes of CGI body. " PRINTF_OFF_T_ARG " of " PRINTF_OFF_T_ARG "\n",
++        fprintf(stderr, "%s:%d - wrote %lld bytes of CGI body. %lld of %lld\n",
+                 __FILE__, __LINE__,
+                 bytes_written, req->filepos, req->filesize);
+     }
+@@ -417,7 +417,7 @@ int write_body(request * req)
+ 
+             req->header_line[bytes_written] = '\0';
+             fprintf(stderr,
+-                    "%s:%d - wrote " PRINTF_OFF_T_ARG " bytes (%s). " PRINTF_OFF_T_ARG " of " PRINTF_OFF_T_ARG "\n",
++                    "%s:%d - wrote %lld bytes (%s). %lld of %lld\n",
+                     __FILE__, __LINE__, bytes_written,
+                     req->header_line, req->filepos, req->filesize);
+             req->header_line[bytes_written] = c;

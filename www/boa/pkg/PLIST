@@ -1,0 +1,9 @@
+@comment $OpenBSD: PLIST,v$
+@man man/man8/boa.8
+@bin sbin/boa
+@bin sbin/boa_indexer
+share/doc/boa/
+share/doc/boa/boa.conf
+share/doc/boa/cgi-test.cgi
+share/doc/boa/nph-test.cgi
+share/doc/boa/resolver.pl

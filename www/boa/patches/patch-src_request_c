@@ -1,0 +1,16 @@
+$OpenBSD$
+
+PRINTF_OFF_T_ARG should be "%lld" (long long) for OpenBSD.
+
+Index: src/request.c
+--- src/request.c.orig
++++ src/request.c
+@@ -282,7 +282,7 @@ static void sanitize_request(request * req, int new_re
+ 
+     DEBUG(DEBUG_REQUEST) {
+         log_error_time();
+-        fprintf(stderr, "req: %p, offset: " PRINTF_OFF_T_ARG "\n", (void *) req,
++        fprintf(stderr, "req: %p, offset: %lld\n", (void *) req,
+                 bytes_to_zero);
+     }
+ 
