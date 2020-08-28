@@ -1,11 +1,27 @@
-@comment $OpenBSD: PFRAG.no-native,v$
+@comment $OpenBSD: PFRAG.no-native,v 1.3 2020/06/01 06:04:50 chrisz Exp $
+bin/coq-tex
+bin/coq_makefile
+bin/coqc
+bin/coqchk
+bin/coqdep
+bin/coqdoc
+bin/coqide
+bin/coqidetop
 bin/coqidetop.byte
 bin/coqproofworker.byte
 bin/coqqueryworker.byte
 bin/coqtacticworker.byte
+bin/coqtop
 bin/coqtop.byte
+bin/coqwc
+bin/coqworkmgr
+bin/ocamllibdep
+bin/votour
 lib/ocaml/coq/clib/clib.cma
 lib/ocaml/coq/config/config.cma
+lib/ocaml/coq/dev/
+lib/ocaml/coq/dev/top_printers.cmi
+@so lib/ocaml/coq/dllcoqrun.so
 lib/ocaml/coq/engine/engine.cma
 lib/ocaml/coq/gramlib/.pack/gramlib.cma
 lib/ocaml/coq/ide/ide.cma
@@ -22,6 +38,7 @@ lib/ocaml/coq/plugins/firstorder/ground_plugin.cmo
 lib/ocaml/coq/plugins/funind/recdef_plugin.cmo
 lib/ocaml/coq/plugins/ltac/ltac_plugin.cmo
 lib/ocaml/coq/plugins/ltac/tauto_plugin.cmo
+lib/ocaml/coq/plugins/micromega/csdpcert
 lib/ocaml/coq/plugins/micromega/micromega_plugin.cmo
 lib/ocaml/coq/plugins/micromega/zify_plugin.cmo
 lib/ocaml/coq/plugins/nsatz/nsatz_plugin.cmo

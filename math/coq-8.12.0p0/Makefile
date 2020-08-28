@@ -28,8 +28,7 @@ BUILD_DEPENDS=	x11/lablgtk3 \
 		math/ocaml-num \
 		shells/bash \
 		sysutils/findlib
-RUN_DEPENDS=	x11/lablgtk3 \
-		math/ocaml-num
+RUN_DEPENDS=	x11/lablgtk3
 
 DESTDIRNAME=	COQINSTALLPREFIX
 
@@ -50,6 +49,7 @@ INSTALL_TARGET=		install
 ALL_TARGET=		byte coq documentation \
 			bin/coqide coqide-files theories/Init/Prelude.vo
 INSTALL_TARGET=		install-coq install-byte install-meta
+RUN_DEPENDS+=		math/ocaml-num
 .endif
 
 TEST_ENV=		VERBOSE=1

@@ -1,20 +1,7 @@
-@comment $OpenBSD: PLIST,v$
+@comment $OpenBSD: PLIST,v 1.16 2020/08/09 02:45:35 daniel Exp $
 %%native%%
 !%%native%%
-bin/coq-tex
-bin/coq_makefile
-bin/coqc
-bin/coqchk
-bin/coqdep
-bin/coqdoc
-bin/coqide
-bin/coqidetop
 bin/coqpp
-bin/coqtop
-bin/coqwc
-bin/coqworkmgr
-bin/ocamllibdep
-bin/votour
 lib/ocaml/coq/
 lib/ocaml/coq/META
 lib/ocaml/coq/clib/
@@ -57,9 +44,6 @@ lib/ocaml/coq/coqpp/
 lib/ocaml/coq/coqpp/coqpp_ast.cmi
 lib/ocaml/coq/coqpp/coqpp_parse.cmi
 lib/ocaml/coq/coqpp/coqpp_parser.cmi
-lib/ocaml/coq/dev/
-lib/ocaml/coq/dev/top_printers.cmi
-@so lib/ocaml/coq/dllcoqrun.so
 lib/ocaml/coq/engine/
 lib/ocaml/coq/engine/eConstr.cmi
 lib/ocaml/coq/engine/evar_kinds.cmi
@@ -315,7 +299,6 @@ lib/ocaml/coq/plugins/ltac/tauto_plugin.cmi
 lib/ocaml/coq/plugins/micromega/
 lib/ocaml/coq/plugins/micromega/certificate.cmi
 lib/ocaml/coq/plugins/micromega/coq_micromega.cmi
-lib/ocaml/coq/plugins/micromega/csdpcert
 lib/ocaml/coq/plugins/micromega/csdpcert.cmi
 lib/ocaml/coq/plugins/micromega/g_micromega.cmi
 lib/ocaml/coq/plugins/micromega/itv.cmi
@@ -3535,7 +3518,6 @@ lib/ocaml/coq/vernac/vernacstate.cmi
 @man man/man1/coqdoc.1
 @man man/man1/coqide.1
 @man man/man1/coqtop.1
-@man man/man1/coqtop.opt.1
 @man man/man1/coqwc.1
 share/coq/
 share/coq/coq-ssreflect.lang
