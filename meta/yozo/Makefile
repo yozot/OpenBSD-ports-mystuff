@@ -3,7 +3,7 @@
 COMMENT =	my local set of packages
 
 PKGNAME =	yozo-1.0
-REVISION =	0
+REVISION =	1
 
 MAINTAINER =		Yozo TODA <yozo@v007.vaio.ne.jp>
 
@@ -24,7 +24,7 @@ RUN_DEPENDS =	japanese/kterm,xaw3d \
 		archivers/p7zip \
 		security/emldump \
 		security/pgpdump \
-		security/gnupg2,ldap \
+		security/gnupg,ldap \
 		mail/getmail \
 		www/w3m,image \
 		mail/nmh,sasl \
