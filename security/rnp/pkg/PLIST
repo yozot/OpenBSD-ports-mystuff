@@ -1,0 +1,14 @@
+@comment $OpenBSD: PLIST,v$
+@bin bin/rnp
+@bin bin/rnpkeys
+include/rnp-0/
+include/rnp-0/rnp.h
+include/rnp-0/rnp_err.h
+lib/cmake/
+lib/cmake/rnp/
+lib/cmake/rnp/rnp-config-version.cmake
+lib/cmake/rnp/rnp-config.cmake
+lib/cmake/rnp/rnp-targets${MODCMAKE_BUILD_SUFFIX}
+lib/cmake/rnp/rnp-targets.cmake
+@static-lib lib/librnp-0.a
+lib/pkgconfig/librnp-0.pc
