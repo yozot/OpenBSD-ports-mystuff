@@ -28,11 +28,11 @@ PERMIT_PACKAGE =	Yes
 # If pledge is used, annotate with `uses pledge()' in a comment
 
 # "make port-lib-depends-check" can help
-#WANTLIB =		???
+WANTLIB += ${COMPILER_LIBCXX} botan-2 bz2 c json-c m z
 
 MODULES =		devel/cmake
 
-BUILD_DEPENDS =		archivers/bzip2	\
+LIB_DEPENDS =		archivers/bzip2	\
 			devel/json-c	\
 			security/botan2
 
@@ -43,6 +43,7 @@ CONFIGURE_ARGS += -DBUILD_TESTING=OFF
 ## TEST_DEPENDS =		lang/python/2.7	\
 ## 			security/gnupg2 \
 ## 			devel/gtest
+NO_TEST =		Yes
 
 
 post-install:

@@ -12,3 +12,15 @@ lib/cmake/rnp/rnp-targets${MODCMAKE_BUILD_SUFFIX}
 lib/cmake/rnp/rnp-targets.cmake
 @static-lib lib/librnp-0.a
 lib/pkgconfig/librnp-0.pc
+@man man/man1/rnp.1
+@man man/man1/rnpkeys.1
+@man man/man3/librnp.3
+share/doc/rnp/
+share/doc/rnp/c-usage.adoc
+share/doc/rnp/cli-usage.adoc
+share/doc/rnp/cpp-usage.adoc
+share/doc/rnp/develop.adoc
+share/doc/rnp/installation.adoc
+share/doc/rnp/navigation.adoc
+share/doc/rnp/packaging.adoc
+share/doc/rnp/release-workflow.adoc
