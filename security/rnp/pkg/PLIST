@@ -10,8 +10,7 @@ lib/cmake/rnp/rnp-config-version.cmake
 lib/cmake/rnp/rnp-config.cmake
 lib/cmake/rnp/rnp-targets${MODCMAKE_BUILD_SUFFIX}
 lib/cmake/rnp/rnp-targets.cmake
-@comment lib/librnp-0.so.0
-@lib lib/librnp-0.so.${LIBlibrnp-0_VERSION}
+@lib lib/librnp-0.so.${LIBrnp-0_VERSION}
 lib/pkgconfig/librnp-0.pc
 @man man/man1/rnp.1
 @man man/man1/rnpkeys.1

@@ -6,7 +6,7 @@ GH_ACCOUNT =	rnpgp
 GH_PROJECT =	rnp
 GH_TAGNAME =	v0.13.1
 
-SHARED_LIBS +=	librnp-0	0.13.1
+SHARED_LIBS +=	rnp-0	13.1
 
 CATEGORIES =	security
 
