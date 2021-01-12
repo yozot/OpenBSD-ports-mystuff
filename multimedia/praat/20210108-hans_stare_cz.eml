@@ -1,0 +1,41 @@
+Return-Path: <owner-ports+m117625=yozo=v007.vaio.ne.jp@openbsd.org>
+Date: Fri, 8 Jan 2021 20:49:03 +0100
+From: Jan Stary <hans@stare.cz>
+To: ports@openbsd.org
+Subject: phonetics on OpenBSD: Praat
+Message-ID: <X/i3L+dA7/urs8DF@www.stare.cz>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+List-Help: <mailto:majordomo@openbsd.org?body=help>
+List-ID: <ports.openbsd.org>
+List-Owner: <mailto:owner-ports@openbsd.org>
+List-Post: <mailto:ports@openbsd.org>
+List-Subscribe: <mailto:majordomo@openbsd.org?body=sub%20ports>
+List-Unsubscribe: <mailto:majordomo@openbsd.org?body=unsub%20ports>
+X-Loop: ports@openbsd.org
+Precedence: bulk
+Sender: owner-ports@openbsd.org
+
+Is there anyone doing phonetics on OpenBSD?
+Is there an alternative to Praat, to be run on OpenBSD?
+(At this stage of phonetics studies, I imagine Praat
+is the one tool everyone is using.)
+
+There is a FreeBSD port, so I installed FreeBSD on a spare laptop
+and instralled praat on it, but couldn't get it to work (basicaly,
+it just crashes on anything, including opening a wav file).
+
+Is anyone working on a port of Praat?
+Or some other "equivalent"?
+What do you use?
+
+	Thank you
+
+		Jan
+
+
+PS: I am sending this to ports@ as this is probably too far from base,
+as oppposed to a XKB layout for an IPA kayboard and X fonts having the
+glyphs, which I sent to misc@. Please correct me it that's a bad choice.
+
