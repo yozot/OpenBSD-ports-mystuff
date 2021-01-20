@@ -1,0 +1,20 @@
+@comment $OpenBSD: PFRAG.dynlink-native,v 1.8 2020/08/09 02:45:35 daniel Exp $
+@bin lib/ocaml/coq/plugins/btauto/btauto_plugin.cmxs
+@bin lib/ocaml/coq/plugins/cc/cc_plugin.cmxs
+@bin lib/ocaml/coq/plugins/derive/derive_plugin.cmxs
+@bin lib/ocaml/coq/plugins/extraction/extraction_plugin.cmxs
+@bin lib/ocaml/coq/plugins/firstorder/ground_plugin.cmxs
+@bin lib/ocaml/coq/plugins/funind/recdef_plugin.cmxs
+@bin lib/ocaml/coq/plugins/ltac/ltac_plugin.cmxs
+@bin lib/ocaml/coq/plugins/ltac/tauto_plugin.cmxs
+@bin lib/ocaml/coq/plugins/micromega/micromega_plugin.cmxs
+@bin lib/ocaml/coq/plugins/micromega/zify_plugin.cmxs
+@bin lib/ocaml/coq/plugins/nsatz/nsatz_plugin.cmxs
+@bin lib/ocaml/coq/plugins/omega/omega_plugin.cmxs
+@bin lib/ocaml/coq/plugins/rtauto/rtauto_plugin.cmxs
+@bin lib/ocaml/coq/plugins/ssr/ssreflect_plugin.cmxs
+@bin lib/ocaml/coq/plugins/ssrmatching/ssrmatching_plugin.cmxs
+@bin lib/ocaml/coq/plugins/ssrsearch/ssrsearch_plugin.cmxs
+@bin lib/ocaml/coq/plugins/syntax/float_syntax_plugin.cmxs
+@bin lib/ocaml/coq/plugins/syntax/int63_syntax_plugin.cmxs
+@bin lib/ocaml/coq/user-contrib/Ltac2/ltac2_plugin.cmxs
