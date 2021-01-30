@@ -1,0 +1,241 @@
+Index: Makefile
+===================================================================
+RCS file: /cvs/ports/x11/xvkbd/Makefile,v
+retrieving revision 1.21
+diff -u -p -r1.21 Makefile
+--- Makefile	12 Jul 2019 20:51:31 -0000	1.21
++++ Makefile	30 Jan 2021 19:23:25 -0000
+@@ -2,7 +2,7 @@
+ 
+ COMMENT=		virtual keyboard for X Window System
+ 
+-DISTNAME=		xvkbd-3.9
++DISTNAME=		xvkbd-4.1
+ CATEGORIES=		x11
+ HOMEPAGE=		http://t-sato.in.coocan.jp/xvkbd/
+ 
+@@ -11,13 +11,12 @@ MAINTAINER=		Yozo TODA <yozo@v007.vaio.n
+ # GPLv2
+ PERMIT_PACKAGE=	Yes
+ 
+-WANTLIB += ICE SM X11 Xau Xaw3d Xdmcp Xext Xmu Xpm Xt Xtst c
++WANTLIB += X11 Xaw3d Xmu Xt Xtst c
+ 
+ MASTER_SITES=		${HOMEPAGE}
+ 
+ LIB_DEPENDS=		x11/Xaw3d
+ 
+-CONFIGURE_STYLE=	imake
+-NO_TEST=		Yes
++CONFIGURE_STYLE=	gnu
+ 
+ .include <bsd.port.mk>
+Index: distinfo
+===================================================================
+RCS file: /cvs/ports/x11/xvkbd/distinfo,v
+retrieving revision 1.10
+diff -u -p -r1.10 distinfo
+--- distinfo	1 Apr 2019 11:54:14 -0000	1.10
++++ distinfo	30 Jan 2021 19:23:25 -0000
+@@ -1,2 +1,2 @@
+-SHA256 (xvkbd-3.9.tar.gz) = uBw33ft7eJk9rRXTBPj9eOVA1XwKcvfjMW/UX7qRmp0=
+-SIZE (xvkbd-3.9.tar.gz) = 88440
++SHA256 (xvkbd-4.1.tar.gz) = lS0H3w/h5FKGUgt8mLT9AP1g2/Pj6P9h4Swln3ajvvQ=
++SIZE (xvkbd-4.1.tar.gz) = 408704
+Index: patches/patch-Makefile_in
+===================================================================
+RCS file: patches/patch-Makefile_in
+diff -N patches/patch-Makefile_in
+--- /dev/null	1 Jan 1970 00:00:00 -0000
++++ patches/patch-Makefile_in	30 Jan 2021 19:23:25 -0000
+@@ -0,0 +1,35 @@
++$OpenBSD$
++
++installation directories specified using LOCALBASE, and
++avoid "$<" to make "make" happy (-:
++
++Index: Makefile.in
++--- Makefile.in.orig
+++++ Makefile.in
++@@ -325,7 +325,7 @@ bindir = @bindir@
++ build_alias = @build_alias@
++ builddir = @builddir@
++ datadir = @datadir@
++-datarootdir = $(shell pkg-config --variable=datarootdir xt)
+++datarootdir = ${LOCALBASE}/share
++ docdir = @docdir@
++ dvidir = @dvidir@
++ exec_prefix = @exec_prefix@
++@@ -353,7 +353,7 @@ target_alias = @target_alias@
++ top_build_prefix = @top_build_prefix@
++ top_builddir = @top_builddir@
++ top_srcdir = @top_srcdir@
++-appdefaultdir = $(shell pkg-config --variable=appdefaultdir xt)
+++appdefaultdir = ${LOCALBASE}/lib/X11/app-defaults
++ SUBDIRS = .
++ man_MANS = xvkbd.1
++ xvkbd_SOURCES = xvkbd.c findwidget.c resources.h XVkbd-common.h
++@@ -982,7 +982,7 @@ uninstall-man: uninstall-man1
++ 
++ xvkbd.1: xvkbd.man
++ 	[ ! -e $@ ] ||  rm $@
++-	-ln -s $< $@
+++	-ln -s xvkbd.man $@
++ 
++ XVkbd-common.h: XVkbd-common.ad
++ 	[ which ad2c > /dev/null ] || ad2c XVkbd-common.ad > XVkbd-common.h
+Index: patches/patch-resources_h
+===================================================================
+RCS file: patches/patch-resources_h
+diff -N patches/patch-resources_h
+--- /dev/null	1 Jan 1970 00:00:00 -0000
++++ patches/patch-resources_h	30 Jan 2021 19:23:25 -0000
+@@ -0,0 +1,18 @@
++$OpenBSD$
++
++the variables should be long enabling conversion to pointers.
++
++Index: resources.h
++--- resources.h.orig
+++++ resources.h
++@@ -103,8 +103,8 @@ struct appres_struct {
++   float max_height_ratio;
++   int text_delay;
++   int key_click_pitch;
++-  int key_click_duration;
++-  int autoclick_delay;
+++  long key_click_duration;
+++  long autoclick_delay;
++ 
++   int save_private_dict_interval;
++   float private_dict_decay;
+Index: patches/patch-xvkbd_c
+===================================================================
+RCS file: patches/patch-xvkbd_c
+diff -N patches/patch-xvkbd_c
+--- /dev/null	1 Jan 1970 00:00:00 -0000
++++ patches/patch-xvkbd_c	30 Jan 2021 19:23:25 -0000
+@@ -0,0 +1,94 @@
++$OpenBSD$
++
++the variables should be long enabling conversion to pointers,
++and one indentation fix.
++
++Index: xvkbd.c
++--- xvkbd.c.orig
+++++ xvkbd.c
++@@ -1730,7 +1730,7 @@ static void SendString(const char *str)
++   const char *cp, *cp2;
++   char key[50];
++   int len;
++-  int val;
+++  long val;
++   Window target_root, child, junk_w;
++   int junk_i;
++   unsigned junk_u;
++@@ -1828,7 +1828,7 @@ static void SendString(const char *str)
++ 	break;
++       case 'x':
++       case 'y':  /* move mouse pointer */
++-	sscanf(cp + 1, "%d", &val);
+++	sscanf(cp + 1, "%ld", &val);
++ 	target_root = RootWindow(target_dpy, DefaultScreen(target_dpy));
++ 	XQueryPointer(target_dpy, target_root, &junk_w, &child,
++ 		      &cur_x, &cur_y, &junk_i, &junk_i, &junk_u);
++@@ -2354,8 +2354,8 @@ static void PropsItemToggled(Widget w, char *key, char
++   XtVaGetValues(XtNameToWidget(props_panel, "*integrate_completion_panel"),
++ 		XtNstate, &appres.integrate_completion_panel, NULL);
++ 
++-  appres.key_click_duration = (int)XawToggleGetCurrent(click_buttons);
++-  appres.autoclick_delay = (int)XawToggleGetCurrent(autoclick_buttons);
+++  appres.key_click_duration = (long)XawToggleGetCurrent(click_buttons);
+++  appres.autoclick_delay = (long)XawToggleGetCurrent(autoclick_buttons);
++ 
++   SaveProperty();
++   SetWindowManagerHint(FALSE);
++@@ -2427,7 +2427,7 @@ static void PopupPropsPanel(void)
++     Widget label, button;
++     Widget form, w;
++     int i;
++-    int val;
+++    long val;
++ 
++     props_panel = XtVaCreatePopupShell("props_panel", transientShellWidgetClass,
++ 				       toplevel, NULL);
++@@ -2452,7 +2452,7 @@ static void PopupPropsPanel(void)
++     click_buttons = button;
++     for (val = 1; val <= 50; val *= 2) {
++       char s1[15];
++-      snprintf(s1, sizeof(s1), "%dms", val);
+++      snprintf(s1, sizeof(s1), "%ldms", val);
++       button = XtVaCreateManagedWidget(s1, toggleWidgetClass,
++ 			       form, XtNfromVert, w, XtNfromHoriz, button,
++ 			       XtNradioData, (XtPointer)val,
++@@ -2474,7 +2474,7 @@ static void PopupPropsPanel(void)
++     autoclick_buttons = button;
++     for (val = 500; val <= 1000; val += 100) {
++       char s1[10];
++-      snprintf(s1, sizeof(s1), "%dms", val);
+++      snprintf(s1, sizeof(s1), "%ldms", val);
++       button = XtVaCreateManagedWidget(s1, toggleWidgetClass,
++ 			       form, XtNfromVert, w, XtNfromHoriz, button,
++ 			       XtNradioData, (XtPointer)val,
++@@ -2972,7 +2972,8 @@ static void KeyPressed(Widget w, char *key, char *data
++ 	default:
++ 	  if (keysym == NoSymbol || !appres.auto_add_keysym)
++ 	    fprintf(stderr, "%s: no such key: %s\n",
++-		    PROGRAM_NAME, key1); break;
+++		    PROGRAM_NAME, key1);
+++	  break;
++ 	}
++       }
++       SendKeyPressedEvent(keysym, cur_shift, 0);
++@@ -3700,8 +3701,8 @@ static void SaveProperty(void)
++   fprintf(fp, "#shift_lock %d\n", appres.shift_lock);
++   fprintf(fp, "#altgr_lock %d\n", appres.altgr_lock);
++   fprintf(fp, "#modifiers_lock %d\n", appres.modifiers_lock);
++-  fprintf(fp, "#key_click %d\n", appres.key_click_duration);
++-  fprintf(fp, "#autoclick %d\n", appres.autoclick_delay);
+++  fprintf(fp, "#key_click %ld\n", appres.key_click_duration);
+++  fprintf(fp, "#autoclick %ld\n", appres.autoclick_delay);
++   fprintf(fp, "#always_on_top %d\n", appres.always_on_top);
++   fprintf(fp, "#wm_toolbar %d\n", appres.wm_toolbar);
++   fprintf(fp, "#jump_pointer %d\n", appres.jump_pointer);
++@@ -3888,7 +3889,7 @@ static void ShowBalloon(Widget w, XEvent *event, Strin
++       autoclick_id = XtAppAddTimeOut(app_con, (long)appres.autoclick_delay,
++ 			   (XtTimerCallbackProc)Autoclick, (XtPointer)w);
++ 
++-      if (appres.debug) fprintf(stderr, "xvkbd: ShowBalloon: auto click triggerd: %lx, %d\n",
+++      if (appres.debug) fprintf(stderr, "xvkbd: ShowBalloon: auto click triggerd: %lx, %ld\n",
++ 				(long)autoclick_id, appres.autoclick_delay);
++     }
++     value = FindFunctionKeyValue(w, XtName(w), TRUE);
+Index: pkg/DESCR
+===================================================================
+RCS file: /cvs/ports/x11/xvkbd/pkg/DESCR,v
+retrieving revision 1.2
+diff -u -p -r1.2 DESCR
+--- pkg/DESCR	15 Dec 2003 21:55:58 -0000	1.2
++++ pkg/DESCR	30 Jan 2021 19:23:25 -0000
+@@ -4,3 +4,8 @@ which provides facility to enter charact
+ may be used for systems without a hardware keyboard such as kiosk
+ terminals or handheld devices.  This program also has facility to
+ send characters specified as the command line option to another client.
++
++you need to enable XTEST extension on your X server.
++when you use macOS xquartz, enable XTEST extension by
++"defaults write org.xquartz.x11 enable_test_extentions -boolean true".
++see Xquartz(1).
+Index: pkg/PLIST
+===================================================================
+RCS file: /cvs/ports/x11/xvkbd/pkg/PLIST,v
+retrieving revision 1.7
+diff -u -p -r1.7 PLIST
+--- pkg/PLIST	1 Apr 2019 11:54:14 -0000	1.7
++++ pkg/PLIST	30 Jan 2021 19:23:25 -0000
+@@ -29,3 +29,5 @@ lib/X11/app-defaults/XVkbd-turkish
+ lib/X11/app-defaults/XVkbd-turkishF
+ lib/X11/app-defaults/XVkbd-uk
+ @man man/man1/xvkbd.1
++share/xvkbd/
++share/xvkbd/words.english

@@ -11,13 +11,12 @@ MAINTAINER=		Yozo TODA <yozo@v007.vaio.ne.jp>
 # GPLv2
 PERMIT_PACKAGE=	Yes
 
-WANTLIB += ICE SM X11 Xau Xaw3d Xdmcp Xext Xmu Xpm Xt Xtst c
+WANTLIB += X11 Xaw3d Xmu Xt Xtst c
 
 MASTER_SITES=		${HOMEPAGE}
 
 LIB_DEPENDS=		x11/Xaw3d
 
 CONFIGURE_STYLE=	gnu
-## NO_TEST=		Yes
 
 .include <bsd.port.mk>
