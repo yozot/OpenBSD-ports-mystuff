@@ -1,10 +1,6 @@
-Index: Makefile
-===================================================================
-RCS file: /cvs/ports/x11/xvkbd/Makefile,v
-retrieving revision 1.21
-diff -u -p -r1.21 Makefile
---- Makefile	12 Jul 2019 20:51:31 -0000	1.21
-+++ Makefile	30 Jan 2021 19:23:25 -0000
+diff -Nur Makefile.orig Makefile
+--- Makefile.orig	Sat Jul 13 05:51:31 2019
++++ Makefile	Sun Jan 31 03:50:15 2021
 @@ -2,7 +2,7 @@
  
  COMMENT=		virtual keyboard for X Window System
@@ -14,7 +10,7 @@ diff -u -p -r1.21 Makefile
  CATEGORIES=		x11
  HOMEPAGE=		http://t-sato.in.coocan.jp/xvkbd/
  
-@@ -11,13 +11,12 @@ MAINTAINER=		Yozo TODA <yozo@v007.vaio.n
+@@ -11,13 +11,12 @@
  # GPLv2
  PERMIT_PACKAGE=	Yes
  
@@ -30,24 +26,17 @@ diff -u -p -r1.21 Makefile
 +CONFIGURE_STYLE=	gnu
  
  .include <bsd.port.mk>
-Index: distinfo
-===================================================================
-RCS file: /cvs/ports/x11/xvkbd/distinfo,v
-retrieving revision 1.10
-diff -u -p -r1.10 distinfo
---- distinfo	1 Apr 2019 11:54:14 -0000	1.10
-+++ distinfo	30 Jan 2021 19:23:25 -0000
+diff -Nur distinfo.orig xvkbd/distinfo
+--- distinfo.orig	Mon Apr  1 20:54:14 2019
++++ distinfo	Sat Jan 30 23:28:53 2021
 @@ -1,2 +1,2 @@
 -SHA256 (xvkbd-3.9.tar.gz) = uBw33ft7eJk9rRXTBPj9eOVA1XwKcvfjMW/UX7qRmp0=
 -SIZE (xvkbd-3.9.tar.gz) = 88440
 +SHA256 (xvkbd-4.1.tar.gz) = lS0H3w/h5FKGUgt8mLT9AP1g2/Pj6P9h4Swln3ajvvQ=
 +SIZE (xvkbd-4.1.tar.gz) = 408704
-Index: patches/patch-Makefile_in
-===================================================================
-RCS file: patches/patch-Makefile_in
-diff -N patches/patch-Makefile_in
---- /dev/null	1 Jan 1970 00:00:00 -0000
-+++ patches/patch-Makefile_in	30 Jan 2021 19:23:25 -0000
+diff -Nur patches/patch-Makefile_in.orig patches/patch-Makefile_in
+--- patches/patch-Makefile_in.orig	Thu Jan  1 09:00:00 1970
++++ patches/patch-Makefile_in	Sun Jan 31 02:05:29 2021
 @@ -0,0 +1,35 @@
 +$OpenBSD$
 +
@@ -84,12 +73,9 @@ diff -N patches/patch-Makefile_in
 + 
 + XVkbd-common.h: XVkbd-common.ad
 + 	[ which ad2c > /dev/null ] || ad2c XVkbd-common.ad > XVkbd-common.h
-Index: patches/patch-resources_h
-===================================================================
-RCS file: patches/patch-resources_h
-diff -N patches/patch-resources_h
---- /dev/null	1 Jan 1970 00:00:00 -0000
-+++ patches/patch-resources_h	30 Jan 2021 19:23:25 -0000
+diff -Nur patches/patch-resources_h.orig patches/patch-resources_h
+--- patches/patch-resources_h.orig	Thu Jan  1 09:00:00 1970
++++ patches/patch-resources_h	Sun Jan 31 02:07:38 2021
 @@ -0,0 +1,18 @@
 +$OpenBSD$
 +
@@ -109,21 +95,36 @@ diff -N patches/patch-resources_h
 + 
 +   int save_private_dict_interval;
 +   float private_dict_decay;
-Index: patches/patch-xvkbd_c
-===================================================================
-RCS file: patches/patch-xvkbd_c
-diff -N patches/patch-xvkbd_c
---- /dev/null	1 Jan 1970 00:00:00 -0000
-+++ patches/patch-xvkbd_c	30 Jan 2021 19:23:25 -0000
-@@ -0,0 +1,94 @@
+diff -Nur patches/patch-xvkbd_c.orig patches/patch-xvkbd_c
+--- patches/patch-xvkbd_c.orig	Mon Apr  1 20:54:14 2019
++++ patches/patch-xvkbd_c	Sun Jan 31 02:08:52 2021
+@@ -1,23 +1,94 @@
+-$OpenBSD: patch-xvkbd_c,v 1.3 2019/04/01 11:54:14 naddy Exp $
 +$OpenBSD$
-+
+ 
 +the variables should be long enabling conversion to pointers,
 +and one indentation fix.
 +
-+Index: xvkbd.c
-+--- xvkbd.c.orig
-++++ xvkbd.c
+ Index: xvkbd.c
+ --- xvkbd.c.orig
+ +++ xvkbd.c
+-@@ -1114,7 +1114,7 @@ static void SendKeyPressedEvent(KeySym keysym, unsigne
+-       	for (inx = (keycode - min_keycode) * keysym_per_keycode;
+- 	     inx < (keycode - min_keycode + 1) * keysym_per_keycode;
+- 	     inx++)
+--	  fprintf(stderr, " 0x%x (%s)",
+-+	  fprintf(stderr, " 0x%lx (%s)",
+- 		  keysym_table[inx], keysym_table[inx] ? XKeysymToString(keysym_table[inx]) : "null");
+- 	fprintf(stderr, "\n");
+-       } else
+-@@ -1964,7 +1964,7 @@ static void SetWindowManagerHint(Boolean initial)
+- 	       FALSE, SubstructureNotifyMask | SubstructureRedirectMask,
+- 	       (XEvent *)&ev);
+-     if (appres.debug)
+--      fprintf(stderr, "SetWindowManagerHint: _NET_WM_STATE_ABOVE = %d\n", ev.data.l[0]);
+-+      fprintf(stderr, "SetWindowManagerHint: _NET_WM_STATE_ABOVE = %ld\n", ev.data.l[0]);
+-   }
+- }
 +@@ -1730,7 +1730,7 @@ static void SendString(const char *str)
 +   const char *cp, *cp2;
 +   char key[50];
@@ -145,7 +146,7 @@ diff -N patches/patch-xvkbd_c
 +@@ -2354,8 +2354,8 @@ static void PropsItemToggled(Widget w, char *key, char
 +   XtVaGetValues(XtNameToWidget(props_panel, "*integrate_completion_panel"),
 + 		XtNstate, &appres.integrate_completion_panel, NULL);
-+ 
+  
 +-  appres.key_click_duration = (int)XawToggleGetCurrent(click_buttons);
 +-  appres.autoclick_delay = (int)XawToggleGetCurrent(autoclick_buttons);
 ++  appres.key_click_duration = (long)XawToggleGetCurrent(click_buttons);
@@ -210,14 +211,10 @@ diff -N patches/patch-xvkbd_c
 + 				(long)autoclick_id, appres.autoclick_delay);
 +     }
 +     value = FindFunctionKeyValue(w, XtName(w), TRUE);
-Index: pkg/DESCR
-===================================================================
-RCS file: /cvs/ports/x11/xvkbd/pkg/DESCR,v
-retrieving revision 1.2
-diff -u -p -r1.2 DESCR
---- pkg/DESCR	15 Dec 2003 21:55:58 -0000	1.2
-+++ pkg/DESCR	30 Jan 2021 19:23:25 -0000
-@@ -4,3 +4,8 @@ which provides facility to enter charact
+diff -Nur pkg/DESCR.orig pkg/DESCR
+--- pkg/DESCR.orig	Sun Jan 31 13:10:39 2021
++++ pkg/DESCR	Sun Jan 31 03:23:26 2021
+@@ -4,3 +4,8 @@
  may be used for systems without a hardware keyboard such as kiosk
  terminals or handheld devices.  This program also has facility to
  send characters specified as the command line option to another client.
@@ -226,14 +223,10 @@ diff -u -p -r1.2 DESCR
 +when you use macOS xquartz, enable XTEST extension by
 +"defaults write org.xquartz.x11 enable_test_extentions -boolean true".
 +see Xquartz(1).
-Index: pkg/PLIST
-===================================================================
-RCS file: /cvs/ports/x11/xvkbd/pkg/PLIST,v
-retrieving revision 1.7
-diff -u -p -r1.7 PLIST
---- pkg/PLIST	1 Apr 2019 11:54:14 -0000	1.7
-+++ pkg/PLIST	30 Jan 2021 19:23:25 -0000
-@@ -29,3 +29,5 @@ lib/X11/app-defaults/XVkbd-turkish
+diff -Nur pkg/PLIST.orig xvkbd/pkg/PLIST
+--- pkg/PLIST.orig	Sun Jan 31 13:10:39 2021
++++ pkg/PLIST	Sun Jan 31 01:38:01 2021
+@@ -29,3 +29,5 @@
  lib/X11/app-defaults/XVkbd-turkishF
  lib/X11/app-defaults/XVkbd-uk
  @man man/man1/xvkbd.1
