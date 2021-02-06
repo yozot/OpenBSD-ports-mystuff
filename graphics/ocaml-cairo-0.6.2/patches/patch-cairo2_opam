@@ -1,0 +1,16 @@
+$OpenBSD$
+
+use the old name for our dune-1.11.3p1
+
+Index: cairo2.opam
+--- cairo2.opam.orig
++++ cairo2.opam
+@@ -18,7 +18,7 @@ depends: [
+   "ocaml" {>= "4.02"}
+   "base-bigarray"
+   "dune"
+-  "dune-configurator"
++  "dune.configurator"
+   "conf-cairo"
+ ]
+ depopts: [
