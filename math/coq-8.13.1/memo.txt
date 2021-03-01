@@ -1,0 +1,16 @@
+coq-8.13.1/configure.ml is updated from 8.12
+to check the availability of lablgtk3 using ocamlfind, and
+it cannot find lablgtk3. (see "ocamlfind list | grep lablgtk3")
+
+The reason is, META file of lablgtk3-3.1.1 does not have version information.
+META file comes from dune-project (or opam files for each project) in lablgtk3 source code,
+and dune-project does not have version information.
+
+With the patch to lablgtk3 3.1.1 port to add version information,
+I confirmed that coq-8.13.1 can be packaged on amd64 current.
+(see ../x11/lablgtk3-3.1.1/)
+
+TODO: try package on non-ocaml-native system
+TODO: pull request to lablgtk3 project.
+
+-- yozo.  Tue Mar  2 02:38:00 JST 2021
