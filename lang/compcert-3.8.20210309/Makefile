@@ -4,11 +4,11 @@ ONLY_FOR_ARCHS =	aarch64 amd64 i386 powerpc
 
 COMMENT =		high assurance C compiler
 
-V =			3.8.20210223
+V =			3.8.20210309
 GH_ACCOUNT =		AbsInt
 GH_PROJECT =		CompCert
 #GH_TAGNAME =		v${V}
-GH_COMMIT =		014883f2f4cfc4fd64fe9aa5f561a971e2ed1345
+GH_COMMIT =		6bf310dd678285dc193798e89fc2c441d8430892
 DISTNAME =		${GH_PROJECT}-${V}
 PKGNAME =		${DISTNAME:L}
 

@@ -2,7 +2,6 @@ $OpenBSD: patch-configure,v 1.15 2021/02/13 17:46:38 daniel Exp $
 
 1) Fixup path locations for OpenBSD
 2) Add configuration support for macppc and aarch64 on OpenBSD
-3) experimental support for Coq-8.13.1
 
 Index: configure
 --- configure.orig
@@ -99,23 +98,6 @@ Index: configure
      macos|macosx)
          abi="apple"
          casm="${toolprefix}cc"
-@@ -503,14 +519,14 @@ missingtools=false
- echo "Testing Coq... " | tr -d '\n'
- coq_ver=$(${COQBIN}coqc -v 2>/dev/null | sed -n -e 's/The Coq Proof Assistant, version \([^ ]*\).*$/\1/p')
- case "$coq_ver" in
--  8.8.0|8.8.1|8.8.2|8.9.0|8.9.1|8.10.0|8.10.1|8.10.2|8.11.0|8.11.1|8.11.2|8.12.0|8.12.1|8.12.2|8.13.0)
-+  8.8.0|8.8.1|8.8.2|8.9.0|8.9.1|8.10.0|8.10.1|8.10.2|8.11.0|8.11.1|8.11.2|8.12.0|8.12.1|8.12.2|8.13.0|8.13.1)
-         echo "version $coq_ver -- good!";;
-   ?*)
-         echo "version $coq_ver -- UNSUPPORTED"
-         if $ignore_coq_version; then
-             echo "Warning: this version of Coq is unsupported, proceed at your own risks."
-         else
--            echo "Error: CompCert requires a version of Coq between 8.8.0 and 8.13.0"
-+            echo "Error: CompCert requires a version of Coq between 8.8.0 and 8.13.1"
-             missingtools=true
-         fi;;
-   "")
 @@ -611,8 +627,6 @@ fi
  #
  # Generate Makefile.config
