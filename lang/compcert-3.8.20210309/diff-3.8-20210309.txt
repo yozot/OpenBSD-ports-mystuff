@@ -1,0 +1,25 @@
+diff -ur /usr/ports/lang/compcert/Makefile ./Makefile
+--- /usr/ports/lang/compcert/Makefile	Sun Feb 14 02:46:38 2021
++++ ./Makefile	Wed Mar 10 03:20:33 2021
+@@ -4,11 +4,11 @@
+ 
+ COMMENT =		high assurance C compiler
+ 
+-V =			3.8.20210121
++V =			3.8.20210309
+ GH_ACCOUNT =		AbsInt
+ GH_PROJECT =		CompCert
+ #GH_TAGNAME =		v${V}
+-GH_COMMIT =		25483cf1acce8695a438f4f2164b09fb1ecd9d2e
++GH_COMMIT =		6bf310dd678285dc193798e89fc2c441d8430892
+ DISTNAME =		${GH_PROJECT}-${V}
+ PKGNAME =		${DISTNAME:L}
+ 
+diff -ur /usr/ports/lang/compcert/distinfo ./distinfo
+--- /usr/ports/lang/compcert/distinfo	Sun Feb 14 02:46:38 2021
++++ ./distinfo	Wed Mar 10 03:35:16 2021
+@@ -1,2 +1,2 @@
+-SHA256 (CompCert-3.8.20210121-25483cf1.tar.gz) = IE3vQHDOhE/7zaZ0sleJAG39l01Ui6Oxg+l4U+3MfbM=
+-SIZE (CompCert-3.8.20210121-25483cf1.tar.gz) = 2749134
++SHA256 (CompCert-3.8.20210309-6bf310dd.tar.gz) = N3acDF9aq69s6UKnBv0jf1XojS0e8uhqTd8X+Oy+pao=
++SIZE (CompCert-3.8.20210309-6bf310dd.tar.gz) = 2750002
