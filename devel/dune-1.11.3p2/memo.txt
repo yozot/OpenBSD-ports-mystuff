@@ -1,0 +1,18 @@
+- TEST_DEPENDS += shells/bash because test requires bash, anyway test fails but...
+- META misses the version information for dune itself.
+
+$ ocamlfind list |grep dune
+dune                (version: n/a)
+dune._caml          (version: 1.11.3)
+dune._dune_lang     (version: 1.11.3)
+dune._ocaml_config  (version: 1.11.3)
+dune._result        (version: 1.11.3)
+dune._stdune        (version: 1.11.3)
+dune._wp            (version: 1.11.3)
+dune._wp.dune       (version: 1.11.3)
+dune._wp.jbuilder   (version: 1.11.3)
+dune.configurator   (version: 1.11.3)
+
+we need 'version = "1.11.3"' to META, which sould be reported to upstream...
+
+-- yozo.  Mon Mar 22 17:47:26 JST 2021

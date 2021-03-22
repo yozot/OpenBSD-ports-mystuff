@@ -23,6 +23,7 @@ WANTLIB =		c m pthread
 MODULES =		lang/ocaml
 
 BUILD_DEPENDS =		sysutils/findlib
+TEST_DEPENDS =		shells/bash
 
 CONFIGURE_STYLE =	simple
 CONFIGURE_ARGS =	--libdir ${PREFIX}/lib/ocaml/
