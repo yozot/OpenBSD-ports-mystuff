@@ -6,11 +6,15 @@ The reason is, META file of lablgtk3-3.1.1 does not have version information.
 META file comes from dune-project (or opam files for each project) in lablgtk3 source code,
 and dune-project does not have version information.
 
-With the patch to lablgtk3 3.1.1 port to add version information,
-I confirmed that coq-8.13.1 can be packaged on amd64 current.
-(see ../x11/lablgtk3-3.1.1/)
+I found that OpenBSD ports for several ocaml software use the wrong source code tar balls.
+see
+    - #123: version information into dune-project (lablgtk3)
+      https://github.com/garrigue/lablgtk/issues/123
 
+    - ports: dune dependant ports should use the right source tarballs
+      https://marc.info/?l=openbsd-ports&m=161532978324751&w=2
+
+TODO: revise ocaml-cairo and lablgtk3 ports to use *.tbz tarballs
 TODO: try package on non-ocaml-native system
-TODO: pull request to lablgtk3 project.
 
--- yozo.  Tue Mar  2 02:38:00 JST 2021
+-- yozo.  Tue Mar 23 01:43:45 JST 2021
