@@ -104,7 +104,6 @@ lib/ocaml/coq/interp/reserve.cmx
 lib/ocaml/coq/interp/smartlocate.cmx
 lib/ocaml/coq/interp/stdarg.cmx
 lib/ocaml/coq/interp/syntax_def.cmx
-@so lib/ocaml/coq/kernel/byterun/dllcoqrun.so
 @static-lib lib/ocaml/coq/kernel/byterun/libcoqrun.a
 lib/ocaml/coq/kernel/cClosure.cmx
 lib/ocaml/coq/kernel/cPrimitives.cmx
@@ -431,7 +430,6 @@ lib/ocaml/coq/proofs/proofs.cmxa
 lib/ocaml/coq/proofs/refine.cmx
 lib/ocaml/coq/proofs/tacmach.cmx
 lib/ocaml/coq/proofs/tactypes.cmx
-lib/ocaml/coq/revision
 lib/ocaml/coq/stm/asyncTaskQueue.cmx
 lib/ocaml/coq/stm/coqworkmgrApi.cmx
 lib/ocaml/coq/stm/dag.cmx

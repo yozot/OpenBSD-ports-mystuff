@@ -11,10 +11,12 @@
 @bin lib/ocaml/coq/plugins/micromega/zify_plugin.cmxs
 @bin lib/ocaml/coq/plugins/nsatz/nsatz_plugin.cmxs
 @bin lib/ocaml/coq/plugins/omega/omega_plugin.cmxs
+@bin lib/ocaml/coq/plugins/ring/ring_plugin.cmxs
 @bin lib/ocaml/coq/plugins/rtauto/rtauto_plugin.cmxs
 @bin lib/ocaml/coq/plugins/ssr/ssreflect_plugin.cmxs
 @bin lib/ocaml/coq/plugins/ssrmatching/ssrmatching_plugin.cmxs
 @bin lib/ocaml/coq/plugins/ssrsearch/ssrsearch_plugin.cmxs
 @bin lib/ocaml/coq/plugins/syntax/float_syntax_plugin.cmxs
 @bin lib/ocaml/coq/plugins/syntax/int63_syntax_plugin.cmxs
+@bin lib/ocaml/coq/plugins/syntax/number_string_notation_plugin.cmxs
 @bin lib/ocaml/coq/user-contrib/Ltac2/ltac2_plugin.cmxs

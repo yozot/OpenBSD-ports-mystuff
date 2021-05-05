@@ -17,10 +17,6 @@ MAINTAINER=		Yozo Toda <yozo@v007.vaio.ne.jp>
 # LGPL 2.1
 PERMIT_PACKAGE=	Yes
 
-WANTLIB += atk-1.0 c cairo cairo-gobject fontconfig freetype gdk-3
-WANTLIB += gdk_pixbuf-2.0 gio-2.0 glib-2.0 gobject-2.0 gtk-3 gtksourceview-3.0
-WANTLIB += harfbuzz intl m pango-1.0 pangocairo-1.0 pthread z
-
 MODULES=	lang/ocaml
 
 BUILD_DEPENDS=	x11/lablgtk3 \
@@ -41,17 +37,22 @@ CONFIGURE_ARGS=	-prefix ${PREFIX} \
 		-mandir ${PREFIX}/man \
 		-configdir ${SYSCONFDIR}/xdg/coq
 
+ALL_TARGET=		world
+
 .include <bsd.port.arch.mk>
 .if ${PROPERTIES:Mocaml_native}
+## we should have WANTLIB only for native architectures
 RUN_DEPENDS +=		devel/gmp
-WANTLIB +=		gmp
-ALL_TARGET=		world
-INSTALL_TARGET=		install
+WANTLIB += atk-1.0 c cairo cairo-gobject fontconfig freetype gdk-3
+WANTLIB += gdk_pixbuf-2.0 gio-2.0 glib-2.0 gmp gobject-2.0 gtk-3 gtksourceview-3.0
+WANTLIB += harfbuzz intl m pango-1.0 pangocairo-1.0 pthread z
 .else
-# Order is important!
-ALL_TARGET=		byte coq documentation \
-			bin/coqide coqide-files theories/Init/Prelude.vo
-INSTALL_TARGET=		install-coq install-byte install-meta
+## target 'byte' doesn't build coqdep.
+## target 'world' almost works for byte architecture, but doens't build coqide.
+## now trying to add 'coqide-byte' to ALL_TARGET. (see Makefile.build for target 'coqide-byte')
+## target install-byte doesn't install coqide.byte.
+## here we use the default INSTALL_TARGET and patch some install targets.
+ALL_TARGET +=		coqide-byte
 .endif
 
 TEST_ENV=		VERBOSE=1
