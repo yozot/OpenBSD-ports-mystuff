@@ -1,0 +1,43 @@
+$OpenBSD$
+
+fixing installation for byte architecture.
+
+Index: Makefile.install
+--- Makefile.install.orig
++++ Makefile.install
+@@ -20,7 +20,7 @@ ifeq ($(LOCAL),true)
+ install:
+ 	@echo "Nothing to install in a local build!"
+ else
+-install: install-coq install-coqide install-doc-$(WITHDOC) install-meta
++install: install-coq install-doc-$(WITHDOC) install-meta
+ endif
+ 
+ # NOTA: for install-coqide, see Makefile.ide
+@@ -60,19 +60,20 @@ endif
+ .PHONY: install-coq-info install-coq-manpages install-latex
+ .PHONY: install-meta
+ 
++ifeq ($(BEST),opt)
+ install-coq: install-binaries install-library install-coq-info install-devfiles
+-
+-ifeq ($(BEST),byte)
+-install-coq: install-byte
++else
++## BEST == byte
++install-coq: install-byte install-library install-coq-info install-devfiles
+ endif
+ 
+-install-binaries: install-tools
++install-binaries: install-coqide install-tools
+ 	$(MKDIR) $(FULLBINDIR)
+ 	$(INSTALLBIN) $(COQC) $(CHICKEN) $(COQTOPEXE) $(TOPBIN) $(FULLBINDIR)
+ 
+-install-byte: install-coqide-byte
++install-byte: install-coqide-byte install-tools
+ 	$(MKDIR) $(FULLBINDIR)
+-	$(INSTALLBIN) $(TOPBYTE) $(FULLBINDIR)
++	$(INSTALLBIN) $(COQCBYTE) $(CHICKENBYTE) $(COQTOPBEST) $(TOPBIN) $(FULLBINDIR)
+ 	$(INSTALLSH) $(FULLCOQLIB) $(LINKCMO) $(PLUGINS)
+ ifndef CUSTOM
+ 	$(INSTALLLIB) $(DLLCOQRUN) $(FULLCOQLIB)

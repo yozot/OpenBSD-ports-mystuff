@@ -1,0 +1,24 @@
+$OpenBSD$
+
+fixing installation for byte architecture.
+
+Index: Makefile.ide
+--- Makefile.ide.orig
++++ Makefile.ide
+@@ -187,7 +187,7 @@ endif
+ ifeq ($(HASCOQIDE),no)
+ install-coqide-byte: install-ide-toploop-byte
+ else
+-install-coqide-byte: install-ide-toploop-byte install-ide-byte
++install-coqide-byte: install-ide-byte install-ide-toploop-byte install-ide-files install-ide-info install-ide-devfiles
+ endif
+ 
+ # Apparently, coqide.byte is not meant to be installed
+@@ -195,6 +195,7 @@ endif
+ install-ide-byte:
+ 	$(MKDIR) $(FULLCOQLIB)
+ 	$(INSTALLSH) $(FULLCOQLIB) $(IDECMA)
++	$(INSTALLBIN) $(COQIDEBYTE) $(FULLBINDIR)
+ 
+ install-ide-bin:
+ 	$(MKDIR) $(FULLBINDIR)
