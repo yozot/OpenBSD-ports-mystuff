@@ -52,6 +52,7 @@ WANTLIB += harfbuzz intl m pango-1.0 pangocairo-1.0 pthread z
 ## now trying to add 'coqide-byte' to ALL_TARGET. (see Makefile.build for target 'coqide-byte')
 ## target install-byte doesn't install coqide.byte.
 ## here we use the default INSTALL_TARGET and patch some install targets.
+RUN_DEPENDS +=		math/ocaml-zarith
 ALL_TARGET +=		coqide-byte
 .endif
 
