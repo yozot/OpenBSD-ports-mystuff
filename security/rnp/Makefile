@@ -4,13 +4,13 @@ COMMENT =	a set of OpenPGP tools forked from NetPGP
 
 GH_ACCOUNT =	rnpgp
 GH_PROJECT =	rnp
-GH_TAGNAME =	v0.13.1
+GH_TAGNAME =	v0.15.1
 
-SHARED_LIBS +=	rnp-0	13.1
+SHARED_LIBS +=	rnp	15.1
 
 CATEGORIES =	security
 
-HOMEPAGE =	https://www.rnpgp.com/software/rnp/
+HOMEPAGE =	https://www.rnpgp.org/
 
 MAINTAINER =		Yozo TODA <yozo@v007.vaio.ne.jp>
 
@@ -21,6 +21,7 @@ WANTLIB += ${COMPILER_LIBCXX} botan-2 bz2 c json-c m z
 
 MODULES =		devel/cmake
 
+BUILD_DEPENDS =		textproc/asciidoctor
 LIB_DEPENDS =		archivers/bzip2	\
 			devel/json-c	\
 			security/botan2
@@ -43,9 +44,6 @@ NO_TEST =		Yes
 
 
 post-install:
-	${INSTALL_MAN} ${WRKSRC}/src/rnp/rnp.1 ${PREFIX}/man/man1/
-	${INSTALL_MAN} ${WRKSRC}/src/rnpkeys/rnpkeys.1 ${PREFIX}/man/man1/
-	${INSTALL_MAN} ${WRKSRC}/src/lib/librnp.3 ${PREFIX}/man/man3/
 	${INSTALL_DATA_DIR} ${PREFIX}/share/doc/rnp
 	${INSTALL_DATA} ${WRKSRC}/docs/*.adoc ${PREFIX}/share/doc/rnp/
 	${INSTALL_DATA} ${WRKSRC}/docs/develop/*.adoc ${PREFIX}/share/doc/rnp/

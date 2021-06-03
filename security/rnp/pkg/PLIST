@@ -1,23 +1,26 @@
 @comment $OpenBSD: PLIST,v$
 @bin bin/rnp
 @bin bin/rnpkeys
-include/rnp-0/
-include/rnp-0/rnp.h
-include/rnp-0/rnp_err.h
+include/rnp/
+include/rnp/rnp.h
+include/rnp/rnp_err.h
+include/rnp/rnp_export.h
 lib/cmake/
 lib/cmake/rnp/
 lib/cmake/rnp/rnp-config-version.cmake
 lib/cmake/rnp/rnp-config.cmake
 lib/cmake/rnp/rnp-targets${MODCMAKE_BUILD_SUFFIX}
 lib/cmake/rnp/rnp-targets.cmake
-@lib lib/librnp-0.so.${LIBrnp-0_VERSION}
-lib/pkgconfig/librnp-0.pc
+@comment lib/librnp.so.0
+@lib lib/librnp.so.${LIBrnp_VERSION}
+lib/pkgconfig/librnp.pc
 @man man/man1/rnp.1
 @man man/man1/rnpkeys.1
 @man man/man3/librnp.3
 share/doc/rnp/
 share/doc/rnp/c-usage.adoc
 share/doc/rnp/cli-usage.adoc
+share/doc/rnp/code-of-conduct.adoc
 share/doc/rnp/cpp-usage.adoc
 share/doc/rnp/develop.adoc
 share/doc/rnp/installation.adoc
