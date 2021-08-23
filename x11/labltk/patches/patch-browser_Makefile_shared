@@ -1,0 +1,16 @@
+$OpenBSD$
+
+add DESTDIR.
+
+Index: browser/Makefile.shared
+--- browser/Makefile.shared.orig
++++ browser/Makefile.shared
+@@ -61,7 +61,7 @@ help.ml:
+ 
+ install:
+ 	if test -f ocamlbrowser$(EXE); then \
+-	   cp ocamlbrowser$(EXE) $(INSTALLBINDIR); fi
++	   cp ocamlbrowser$(EXE) ${DESTDIR}$(INSTALLBINDIR); fi
+ 
+ clean:
+ 	rm -f *.cm? ocamlbrowser$(EXE) dummy.ml *~ *.orig *.$(O) help.ml

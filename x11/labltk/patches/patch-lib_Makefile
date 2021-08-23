@@ -1,0 +1,35 @@
+$OpenBSD$
+
+parens for make variable, and add DESTDIR.
+
+Index: lib/Makefile
+--- lib/Makefile.orig
++++ lib/Makefile
+@@ -78,16 +78,16 @@ $(LIBNAME): Makefile
+ 	@echo 'exec $(INSTALLDIR)/$(LIBNAME)top$(EXE) -I $(INSTALLDIR) "$$@"' >> $@
+ 
+ install-script: $(LIBNAME)
+-	cp $(LIBNAME) $(INSTALLBINDIR)
+-	chmod 755 $(INSTALLBINDIR)/$(LIBNAME)
++	cp $(LIBNAME) ${DESTDIR}$(INSTALLBINDIR)
++	chmod 755 ${DESTDIR}$(INSTALLBINDIR)/$(LIBNAME)
+ 
+ install-batch:
+ 	cp labltk.bat $(INSTALLBINDIR)
+ 
+-ifeq ($USE_FINDLIB,yes)
++ifeq ($(USE_FINDLIB),yes)
+ install:
+ 	ocamlfind install labltk -add  $(LIBNAME).cma $(LIBNAME)top$(EXE)
+-	chmod 755 $(INSTALLDIR)/$(LIBNAME)top$(EXE)
++	chmod 755 ${DESTDIR}$(INSTALLDIR)/$(LIBNAME)top$(EXE)
+ 	@case x$(TOOLCHAIN) in \
+ 	  xmingw|xmsvc) $(MAKE) install-batch ;; \
+ 	  *) 		$(MAKE) install-script ;; \
+@@ -114,4 +114,4 @@ installopt:
+ 	cd $(INSTALLDIR); $(RANLIB) $(LIBNAME).$(A)
+ 	chmod 644 $(INSTALLDIR)/$(LIBNAME).cmxa
+ 	chmod 644 $(INSTALLDIR)/$(LIBNAME).$(A)
+-endif
+\ No newline at end of file
++endif
