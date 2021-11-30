@@ -1,2 +1,8 @@
 @comment $OpenBSD: PLIST,v$
 @bin bin/vampire
+share/doc/vampire/
+share/doc/vampire/AUTHORS
+share/doc/vampire/HACKING.md
+share/doc/vampire/LICENCE
+share/doc/vampire/README.md
+share/doc/vampire/THANKS

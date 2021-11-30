@@ -1,11 +1,11 @@
 $OpenBSD$
 
-OpenBSD uses RLIMIT_DATA.
+OpenBSD does not have RLIMIT_AS. Use RLIMIT_DATA instead.
 
 Index: SAT/MinisatInterfacingNewSimp.hpp
 --- SAT/MinisatInterfacingNewSimp.hpp.orig
 +++ SAT/MinisatInterfacingNewSimp.hpp
-@@ -163,10 +163,10 @@ class MinisatInterfacingNewSimp : public SATSolverWith
+@@ -146,10 +146,10 @@ class MinisatInterfacingNewSimp : public SATSolverWith
        if (max_mem_mb != 0){
            rlim_t new_mem_lim = (rlim_t)max_mem_mb * 1024*1024;
            rlimit rl;

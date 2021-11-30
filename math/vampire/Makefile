@@ -4,7 +4,7 @@ COMMENT =	automatic theorem prover
 
 GH_ACCOUNT =	vprover
 GH_PROJECT =	vampire
-GH_TAGNAME =	4.4
+GH_TAGNAME =	v4.6.1
 
 CATEGORIES =	math
 
@@ -12,22 +12,24 @@ HOMEPAGE =	https://vprover.github.io/
 
 MAINTAINER =	Yozo TODA <yozo@v007.vaio.ne.jp>
 
-# Vampire License
-# see https://vprover.github.io/license.html
-## In short, we do not allow modification and distribution of Vampire and
-## the use of Vampire to compete against Vampire.
-## ........
-## Permission is hereby granted, free of charge, to use this Software
-## for evaluation and research purposes.
-PERMIT_PACKAGE =	"evaluation and research purposes only"
-PERMIT_DISTFILES =	"evaluation and research purposes only"
+# BSD (https://vprover.github.io/license.html)
+PERMIT_PACKAGE =	Yes
 
 WANTLIB +=		c m
 
 ## TODO: base clang++ without depending on ports-gcc.
-## we should check whether gcc's -Wno-terminate option can be just omitted, or
-## should be replated with some clang option.
+## when using base clang++, compilation failed with
+## /usr/include/c++/v1/iterator trying to include <Availability.h>.
+## looking at iterator shows that __APPLE__ macro is enabled. why??
+## 
+## c++14 is required. I tried with g++-11 only...
 COMPILER =		ports-gcc base-clang
+MODGCC4_VERSION ?=	11
+
+MODULES = 		devel/cmake
+MODCMAKE_VERBOSE =	Yes
+
+BUILD_DEPENDS =		devel/ninja
 
 MAKE_FLAGS =		CXX=${CXX}
 
@@ -38,6 +40,8 @@ ALL_TARGET =		vampire
 ## TODO: ${WRKDIST}/regressions/ contains materials for test.
 
 do-install:
-	${INSTALL_PROGRAM} ${WRKBUILD}/vampire ${PREFIX}/bin/
+	${INSTALL_PROGRAM} ${WRKBUILD}/bin/vampire_rel ${PREFIX}/bin/vampire
+	${INSTALL_DATA_DIR} ${PREFIX}/share/doc/vampire
+	${INSTALL_DATA} ${WRKSRC}/{AUTHORS,HACKING.md,LICENCE,README.md,THANKS} ${PREFIX}/share/doc/vampire
 
 .include <bsd.port.mk>

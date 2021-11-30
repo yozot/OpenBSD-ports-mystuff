@@ -1,14 +1,14 @@
 $OpenBSD$
 
-OpenBSD does not provide prctl(2), as with macOS and cygwin.
+OpenBSD does not have prctl.h
 sys/wait.h for WIFEXITED and other macros.
 
 Index: Lib/System.cpp
 --- Lib/System.cpp.orig
 +++ Lib/System.cpp
-@@ -26,10 +26,14 @@
+@@ -17,10 +17,14 @@
  
- #include <stdlib.h>
+ #include <cstdlib>
  #  include <unistd.h>
 -#  if !__APPLE__ && !__CYGWIN__
 +#  if !__APPLE__ && !__CYGWIN__ && !__OpenBSD__
@@ -22,7 +22,7 @@ Index: Lib/System.cpp
  #include <dirent.h>
  
  #include <cerrno>
-@@ -360,7 +364,7 @@ void System::terminateImmediately(int resultStatus)
+@@ -316,7 +320,7 @@ void System::terminateImmediately(int resultStatus)
   */
  void System::registerForSIGHUPOnParentDeath()
  {
