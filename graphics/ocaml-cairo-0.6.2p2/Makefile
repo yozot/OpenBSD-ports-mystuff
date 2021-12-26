@@ -32,6 +32,7 @@ LIB_DEPENDS =	devel/pango \
 		graphics/gdk-pixbuf2 \
 		x11/gtk+2
 
+WRKDIST =	${WRKDIR}/cairo2-${TAGNAME}
 ALL_TARGET =
 
 post-install:
