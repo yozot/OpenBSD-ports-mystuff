@@ -28,20 +28,25 @@ MODGCC4_VERSION ?=	11
 
 MODULES = 		devel/cmake
 MODCMAKE_VERBOSE =	Yes
-
-BUILD_DEPENDS =		devel/ninja
+## let's try debug build...
+MODCMAKE_DEBUG =	Yes
 
 MAKE_FLAGS =		CXX=${CXX}
 
 USE_GMAKE =		Yes
 
 ALL_TARGET =		vampire
-#TEST_TARGET =		???
-## TODO: ${WRKDIST}/regressions/ contains materials for test.
 
 do-install:
-	${INSTALL_PROGRAM} ${WRKBUILD}/bin/vampire_rel ${PREFIX}/bin/vampire
+	${INSTALL_PROGRAM} ${WRKBUILD}/bin/vampire_dbg ${PREFIX}/bin/vampire
 	${INSTALL_DATA_DIR} ${PREFIX}/share/doc/vampire
 	${INSTALL_DATA} ${WRKSRC}/{AUTHORS,HACKING.md,LICENCE,README.md,THANKS} ${PREFIX}/share/doc/vampire
+
+## here we inline the contents of ${WRKSRC}/regressions/run_problems.sh
+do-test:
+	cd ${WRKSRC}/regressions/ && for F in problems/* ; do \
+	    (./run_problem.sh ${WRKBUILD}/bin/vampire_dbg $$F || \
+	         echo "# test $F failed for vampire debug build" ) \
+	done
 
 .include <bsd.port.mk>
