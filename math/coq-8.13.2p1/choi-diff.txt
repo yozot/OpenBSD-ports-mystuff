@@ -1,0 +1,84 @@
+--- pkg/PLIST.orig	Sat Dec 11 11:11:53 2021
++++ pkg/PLIST	Sun Jan  9 00:11:58 2022
+@@ -1,25 +1,25 @@
+ @comment $OpenBSD: PLIST,v 1.17 2021/12/04 04:33:45 daniel Exp $
+ %%native%%
+ !%%native%%
+-@bin bin/coq-tex
+-@bin bin/coq_makefile
+-@bin bin/coqc
+-@bin bin/coqchk
+-@bin bin/coqdep
+-@bin bin/coqdoc
+-@bin bin/coqide
+-@bin bin/coqidetop
++bin/coq-tex
++bin/coq_makefile
++bin/coqc
++bin/coqchk
++bin/coqdep
++bin/coqdoc
++bin/coqide
++bin/coqidetop
+ @comment bin/coqidetop.byte
+ bin/coqpp
+ @comment bin/coqproofworker.byte
+ @comment bin/coqqueryworker.byte
+ @comment bin/coqtacticworker.byte
+-@bin bin/coqtop
++bin/coqtop
+ @comment bin/coqtop.byte
+-@bin bin/coqwc
+-@bin bin/coqworkmgr
+-@bin bin/ocamllibdep
+-@bin bin/votour
++bin/coqwc
++bin/coqworkmgr
++bin/ocamllibdep
++bin/votour
+ lib/ocaml/coq/
+ lib/ocaml/coq/META
+ lib/ocaml/coq/clib/
+@@ -63,9 +63,6 @@
+ lib/ocaml/coq/coqpp/coqpp_parser.cmi
+ lib/ocaml/coq/dev/
+ @comment lib/ocaml/coq/dllcoqrun.so
+-lib/ocaml/coq/doc/
+-lib/ocaml/coq/doc/tools/
+-lib/ocaml/coq/doc/tools/docgram/
+ lib/ocaml/coq/engine/
+ lib/ocaml/coq/engine/eConstr.cmi
+ lib/ocaml/coq/engine/evar_kinds.cmi
+@@ -107,6 +104,7 @@
+ lib/ocaml/coq/ide/coqide/document.cmi
+ lib/ocaml/coq/ide/coqide/fileOps.cmi
+ lib/ocaml/coq/ide/coqide/gtk_parsing.cmi
++lib/ocaml/coq/ide/coqide/ide.cma
+ lib/ocaml/coq/ide/coqide/ideutils.cmi
+ lib/ocaml/coq/ide/coqide/microPG.cmi
+ lib/ocaml/coq/ide/coqide/minilib.cmi
+@@ -324,7 +322,7 @@
+ lib/ocaml/coq/plugins/micromega/
+ lib/ocaml/coq/plugins/micromega/certificate.cmi
+ lib/ocaml/coq/plugins/micromega/coq_micromega.cmi
+-@bin lib/ocaml/coq/plugins/micromega/csdpcert
++lib/ocaml/coq/plugins/micromega/csdpcert
+ lib/ocaml/coq/plugins/micromega/csdpcert.cmi
+ lib/ocaml/coq/plugins/micromega/g_micromega.cmi
+ lib/ocaml/coq/plugins/micromega/itv.cmi
+@@ -355,6 +353,7 @@
+ lib/ocaml/coq/plugins/ring/ring.cmi
+ lib/ocaml/coq/plugins/ring/ring_ast.cmi
+ lib/ocaml/coq/plugins/ring/ring_plugin.cmi
++lib/ocaml/coq/plugins/ring/ring_plugin.cmo
+ lib/ocaml/coq/plugins/rtauto/
+ lib/ocaml/coq/plugins/rtauto/proof_search.cmi
+ lib/ocaml/coq/plugins/rtauto/refl_tauto.cmi
+@@ -384,6 +383,7 @@
+ lib/ocaml/coq/plugins/syntax/int63_syntax_plugin.cmi
+ lib/ocaml/coq/plugins/syntax/number.cmi
+ lib/ocaml/coq/plugins/syntax/number_string_notation_plugin.cmi
++lib/ocaml/coq/plugins/syntax/number_string_notation_plugin.cmo
+ lib/ocaml/coq/plugins/syntax/string_notation.cmi
+ lib/ocaml/coq/pretyping/
+ lib/ocaml/coq/pretyping/arguments_renaming.cmi
