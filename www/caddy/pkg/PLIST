@@ -1,0 +1,5 @@
+@comment $OpenBSD: PLIST,v$
+@bin bin/caddy
+share/doc/caddy-2.4.6/
+share/doc/caddy-2.4.6/LICENSE
+share/doc/caddy-2.4.6/README.md

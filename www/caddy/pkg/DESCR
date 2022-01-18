@@ -1,0 +1,15 @@
+Caddy is most often used as an HTTPS server, but it is suitable for any long-running Go program.
+First and foremost, it is a platform to run Go applications. Caddy "apps" are just Go programs that
+are implemented as Caddy modules. Two apps -- tls and http -- ship standard with Caddy.
+
+Caddy apps instantly benefit from automated documentation, graceful on-line config changes via API,
+and unification with other Caddy apps.
+
+Although JSON is Caddy's native config language, Caddy can accept input from config adapters which
+can essentially convert any config format of your choice into JSON: Caddyfile, JSON 5, YAML, TOML,
+NGINX config, and more.
+
+The primary way to configure Caddy is through its API, but if you prefer config files, the
+command-line interface supports those too.
+
+see the full documentation on https://caddyserver.com/docs/.
