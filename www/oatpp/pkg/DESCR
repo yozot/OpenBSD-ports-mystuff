@@ -1,0 +1,17 @@
+(copied from https://oatpp.io/about/)
+
+Oat++ is an open-source C++ web framework for highly scalable and
+resource-efficient web applications.
+It provides all the necessary components for production-grade development,
+including:
+
+ - Advanced REST framework with request parameters mapping and
+   Swagger-UI annotations
+ - ORM Framework
+ - WebSocket framework
+ - Object Mapping
+ - Dependency Injection
+ - Swagger-UI
+
+It's zero-dependency, easy-portable, and high-performance.
+

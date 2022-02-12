@@ -1,0 +1,16 @@
+$OpenBSD$
+
+OpenBSD kqueue does not support EVFILT_USER.
+
+Index: src/oatpp/core/async/worker/IOEventWorker.hpp
+--- src/oatpp/core/async/worker/IOEventWorker.hpp.orig
++++ src/oatpp/core/async/worker/IOEventWorker.hpp
+@@ -40,7 +40,7 @@
+     #define OATPP_IO_EVENT_INTERFACE "epoll"
+     #define OATPP_IO_EVENT_INTERFACE_EPOLL
+ 
+-  #elif defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__) || \
++  #elif defined(__FreeBSD__) || defined(__NetBSD__) || \
+         defined(__bsdi__) || defined(__DragonFly__)|| defined(__APPLE__)
+ 
+     #define OATPP_IO_EVENT_INTERFACE "kqueue"

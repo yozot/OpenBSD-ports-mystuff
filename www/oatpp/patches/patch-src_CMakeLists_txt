@@ -1,0 +1,16 @@
+$OpenBSD$
+
+OpenBSD does't need "-latomic".
+
+Index: src/CMakeLists.txt
+--- src/CMakeLists.txt.orig
++++ src/CMakeLists.txt
+@@ -311,7 +311,7 @@ SET(OATPP_ADD_LINK_LIBS "")
+ 
+ if(MSVC OR MINGW)
+         SET(OATPP_ADD_LINK_LIBS wsock32 ws2_32)
+-elseif(NOT APPLE AND NOT ${CMAKE_SYSTEM_NAME} STREQUAL "FreeBSD")
++elseif(NOT APPLE AND NOT ${CMAKE_SYSTEM_NAME} STREQUAL "FreeBSD" AND NOT ${CMAKE_SYSTEM_NAME} STREQUAL "OpenBSD")
+         if(OATPP_LINK_ATOMIC)
+                 SET(OATPP_ADD_LINK_LIBS atomic)
+         endif()
