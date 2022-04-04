@@ -1,0 +1,13 @@
+install tutorial.txt too.
+
+Index: setup.py
+--- setup.py.orig
++++ setup.py
+@@ -24,6 +24,6 @@ setup(
+     data_files=[
+         (data_prefix, ['data/discriminant.csv']),
+         (doc_prefix + 'manual',
+-            glob.glob('manual/*.pdf')),
++            glob.glob('manual/*.pdf')+['tutorial.txt']),
+     ]
+ )

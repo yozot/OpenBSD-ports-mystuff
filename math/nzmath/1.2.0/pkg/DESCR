@@ -1,0 +1,8 @@
+The purpose of the NZMATH system is to provide mathematical,
+especially number-theoretic computational power to you.  It is written
+in Python scripting language in order to enhance quickly with users'
+experiences.
+
+NZMATH is provided as a Python library package named 'nzmath', so
+please use it as a usual package.  For more information please refer
+to tutorial.txt.
