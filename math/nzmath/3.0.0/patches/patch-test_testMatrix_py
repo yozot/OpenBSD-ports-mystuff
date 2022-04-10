@@ -1,0 +1,14 @@
+deal with "ModuleNotFoundError: No module named 'test'"
+
+Index: test/testMatrix.py
+--- test/testMatrix.py.orig
++++ test/testMatrix.py
+@@ -11,7 +11,7 @@ Int = rational.theIntegerRing
+ 
+ # sub test
+ try:
+-    from test.testMatrixFiniteField import *
++    from testMatrixFiniteField import *
+ except:
+     try:
+         from nzmath.test.testMatrixFiniteField import *
