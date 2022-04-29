@@ -1,5 +1,3 @@
-$OpenBSD$
-
 compiled binaries from opusfile/opus/ are placed on opusfile/ and
 results in error when archiving.
 here is a fix for inference rule converting .c to .o.
@@ -7,23 +5,7 @@ here is a fix for inference rule converting .c to .o.
 Index: external/opusfile/Makefile
 --- external/opusfile/Makefile.orig
 +++ external/opusfile/Makefile
-@@ -7,10 +7,12 @@ CPPFLAGS = -I ../../melder -I ../vorbis -I opus -I opu
- 
- OPUSFILE_OBJECTS = opusfile.o opusfile_info.o opusfile_internal.o opusfile_stream.o
- 
--OPUS_OBJECTS = opus/analysis.o opus/mlp.o opus/opus.o opus/opus_decoder.o opus/opus_multistream.o \
--opus/mapping_matrix.o opus/mlp_data.o opus/opus_compare.o opus/opus_multistream_decoder.o \
--opus/opus_projection_decoder.o opus/repacketizer.o
-+OPUS = opus/
- 
-+OPUS_OBJECTS = $(OPUS)analysis.o $(OPUS)mlp.o $(OPUS)opus.o $(OPUS)opus_decoder.o $(OPUS)opus_multistream.o \
-+$(OPUS)mapping_matrix.o $(OPUS)mlp_data.o $(OPUS)opus_compare.o $(OPUS)opus_multistream_decoder.o \
-+$(OPUS)opus_projection_decoder.o $(OPUS)repacketizer.o
-+
- CELT = opus/celt/
- 
- CELT_OBJECTS = $(CELT)bands.o $(CELT)celt.o $(CELT)celt_encoder.o $(CELT)celt_decoder.o \
-@@ -72,3 +74,6 @@ libopusfile.a: $(OBJECTS)
+@@ -73,3 +73,6 @@ libopusfile.a: $(OBJECTS)
  	$(RANLIB) libopusfile.a
  
  $(OBJECTS): *.h ../../melder/*.h

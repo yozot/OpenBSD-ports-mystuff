@@ -1,29 +1,28 @@
-$OpenBSD$
-
-customization for OpenBSD
+customization for OpenBSD.
 
 Index: makefiles/makefile.defs.openbsd
 --- /dev/null
 +++ makefiles/makefile.defs.openbsd
-@@ -0,0 +1,21 @@
+@@ -0,0 +1,22 @@
 +# File: makefile.defs.openbsd
 +
-+# System: OpenBSD 6.8
-+# Yozo TODA, 9 January 2021
++# System: OpenBSD 7.1
++# Yozo TODA, 25 April 2022
 +
-+## use the default base compiler cc and c++, which means clang
++LINK = $(CXX)
++## use the default base compiler cc and c++, which means clang on amd64
 +
-+COMMONFLAGS = -DNO_AUDIO -DUNIX -Dlinux `pkg-config --cflags gtk+-3.0`
++PKG_CONFIG ?= "pkg-config"
++COMMONFLAGS = -DNO_AUDIO -DUNIX -Dlinux `$(PKG_CONFIG) --cflags gtk+-3.0`
 +
 +CFLAGS = $(COMMONFLAGS) -Werror=missing-prototypes -Werror=implicit
 +
-+CXXFLAGS = -std=c++17 $(COMMONFLAGS) -Wshadow
 +
-+LINK = $(CXX)
++CXXFLAGS = -std=c++17 $(COMMONFLAGS) -Wshadow
 +
 +EXECUTABLE = praat
 +
-+LIBS = `pkg-config --libs gtk+-3.0` -L${X11BASE}/lib -lX11
++LIBS = `$(PKG_CONFIG) --libs gtk+-3.0` -L${X11BASE}/lib -lX11
 +
 +ICON =
 +MAIN_ICON =

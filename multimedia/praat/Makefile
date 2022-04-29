@@ -4,7 +4,7 @@ COMMENT =	a program to analyse, synthesize, and manipulate sound data
 
 GH_ACCOUNT =	praat
 GH_PROJECT =	praat
-GH_TAGNAME =	v6.1.38
+GH_TAGNAME =	v6.2.12
 
 ## which is better, audio? multimedia?
 CATEGORIES =	multimedia
@@ -14,8 +14,12 @@ HOMEPAGE =	http://www.fon.hum.uva.nl/praat/
 
 MAINTAINER =	Yozo TODA <yozo@v007.vaio.ne.jp>
 
-# GPL (https://github.com/praat/praat/bob/master/README.md#user-content-21-license)
+# GPL3 (https://www.fon.hum.uva.nl/praat/gpl-3.0.txt)
 PERMIT_PACKAGE =	Yes
+
+## when using lang/gcc/11
+## MODGCC4_VERSION =	11
+## COMPILER =		ports-gcc base-gcc base-clang
 
 WANTLIB += X11 atk-1.0 ${COMPILER_LIBCXX} c cairo cairo-gobject
 WANTLIB += gdk-3 gdk_pixbuf-2.0 gio-2.0 glib-2.0 gobject-2.0 gtk-3
@@ -23,7 +27,7 @@ WANTLIB += harfbuzz intl m pango-1.0 pangocairo-1.0
 
 LIB_DEPENDS =		x11/gtk+3
 
-## assume clang /clang++ are used (as cc /c++)
+## assume clang/clang++ are used (as cc/c++)
 pre-build:
 	cp -p ${WRKBUILD}/makefiles/makefile.defs.openbsd ${WRKBUILD}/makefile.defs
 
