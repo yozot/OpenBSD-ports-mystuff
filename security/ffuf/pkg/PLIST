@@ -1,0 +1,6 @@
+@bin bin/ffuf
+share/doc/ffuf-1.4.1/
+share/doc/ffuf-1.4.1/CHANGELOG.md
+share/doc/ffuf-1.4.1/LICENSE
+share/doc/ffuf-1.4.1/README.md
+share/doc/ffuf-1.4.1/ffufrc.example
