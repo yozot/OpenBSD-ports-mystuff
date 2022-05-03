@@ -1,11 +1,9 @@
-$OpenBSD$
-
-parens for make variable, and add DESTDIR.
+add DESTDIR.
 
 Index: lib/Makefile
 --- lib/Makefile.orig
 +++ lib/Makefile
-@@ -78,16 +78,16 @@ $(LIBNAME): Makefile
+@@ -78,8 +78,8 @@ $(LIBNAME): Makefile
  	@echo 'exec $(INSTALLDIR)/$(LIBNAME)top$(EXE) -I $(INSTALLDIR) "$$@"' >> $@
  
  install-script: $(LIBNAME)
@@ -16,9 +14,8 @@ Index: lib/Makefile
  
  install-batch:
  	cp labltk.bat $(INSTALLBINDIR)
- 
--ifeq ($USE_FINDLIB,yes)
-+ifeq ($(USE_FINDLIB),yes)
+@@ -87,7 +87,7 @@ install-batch:
+ ifeq ($USE_FINDLIB,yes)
  install:
  	ocamlfind install labltk -add  $(LIBNAME).cma $(LIBNAME)top$(EXE)
 -	chmod 755 $(INSTALLDIR)/$(LIBNAME)top$(EXE)
@@ -26,10 +23,40 @@ Index: lib/Makefile
  	@case x$(TOOLCHAIN) in \
  	  xmingw|xmsvc) $(MAKE) install-batch ;; \
  	  *) 		$(MAKE) install-script ;; \
-@@ -114,4 +114,4 @@ installopt:
- 	cd $(INSTALLDIR); $(RANLIB) $(LIBNAME).$(A)
- 	chmod 644 $(INSTALLDIR)/$(LIBNAME).cmxa
- 	chmod 644 $(INSTALLDIR)/$(LIBNAME).$(A)
+@@ -95,23 +95,23 @@ install:
+ 
+ installopt:
+ 	ocamlfind install labltk -add $(LIBNAME).cmxa $(LIBNAME).$(A)
+-	cd $(INSTALLDIR); $(RANLIB) $(LIBNAME).$(A)
++	cd ${DESTDIR}$(INSTALLDIR); $(RANLIB) $(LIBNAME).$(A)
+ else
+ install:
+-	if test -d $(INSTALLDIR); then : ; else mkdir $(INSTALLDIR); fi
+-	cp $(LIBNAME).cma $(LIBNAME)top$(EXE) $(INSTALLDIR)
+-	chmod 644 $(INSTALLDIR)/$(LIBNAME).cma
+-	chmod 755 $(INSTALLDIR)/$(LIBNAME)top$(EXE)
+-	@if test -d $(INSTALLBINDIR); then : ; else mkdir $(INSTALLBINDIR); fi
++	if test -d ${DESTDIR}$(INSTALLDIR); then : ; else mkdir ${DESTDIR}$(INSTALLDIR); fi
++	cp $(LIBNAME).cma $(LIBNAME)top$(EXE) ${DESTDIR}$(INSTALLDIR)
++	chmod 644 ${DESTDIR}$(INSTALLDIR)/$(LIBNAME).cma
++	chmod 755 ${DESTDIR}$(INSTALLDIR)/$(LIBNAME)top$(EXE)
++	@if test -d ${DESTDIR}$(INSTALLBINDIR); then : ; else mkdir ${DESTDIR}$(INSTALLBINDIR); fi
+ 	@case x$(TOOLCHAIN) in \
+ 	  xmingw|xmsvc) $(MAKE) install-batch ;; \
+ 	  *) 		$(MAKE) install-script ;; \
+ 	esac
+ 
+ installopt:
+-	@if test -d $(INSTALLDIR); then : ; else mkdir $(INSTALLDIR); fi
+-	cp $(LIBNAME).cmxa $(LIBNAME).$(A) $(INSTALLDIR)
+-	cd $(INSTALLDIR); $(RANLIB) $(LIBNAME).$(A)
+-	chmod 644 $(INSTALLDIR)/$(LIBNAME).cmxa
+-	chmod 644 $(INSTALLDIR)/$(LIBNAME).$(A)
 -endif
 \ No newline at end of file
++	@if test -d ${DESTDIR}$(INSTALLDIR); then : ; else mkdir ${DESTDIR}$(INSTALLDIR); fi
++	cp $(LIBNAME).cmxa $(LIBNAME).$(A) ${DESTDIR}$(INSTALLDIR)
++	cd ${DESTDIR}$(INSTALLDIR); $(RANLIB) $(LIBNAME).$(A)
++	chmod 644 ${DESTDIR}$(INSTALLDIR)/$(LIBNAME).cmxa
++	chmod 644 ${DESTDIR}$(INSTALLDIR)/$(LIBNAME).$(A)
 +endif

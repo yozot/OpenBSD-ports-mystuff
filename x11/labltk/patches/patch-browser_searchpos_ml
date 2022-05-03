@@ -1,0 +1,91 @@
+revert the following commits for ocaml-4.12.1,
+  - commit 0e52cb81271236d904eaf18d26821d5df5e4234a (update ocamlbrowser for 4.14)
+  - commit 2cbb92a8c0feacdd8ee69976f3f45a7cf81f805c (ready for ocaml 4.13)
+
+Index: browser/searchpos.ml
+--- browser/searchpos.ml.orig
++++ browser/searchpos.ml
+@@ -195,7 +195,7 @@ let search_pos_type_decl td ~pos ~env =
+ 
+ let search_pos_extension ext ~pos ~env =
+   begin match ext.pext_kind with
+-    Pext_decl (_, l, _) -> search_pos_arguments l ~pos ~env
++    Pext_decl (l, _) -> search_pos_arguments l ~pos ~env
+   | Pext_rebind _ -> ()
+   end
+   
+@@ -245,7 +245,7 @@ let rec search_pos_signature l ~pos ~env =
+         add_found_sig (`Module, lid.txt) ~env ~loc:pt.psig_loc
+       | Psig_include {pincl_mod=t} -> search_pos_module t ~pos ~env
+       | Psig_attribute _ | Psig_extension _ -> ()
+-      | Psig_typesubst _ | Psig_modsubst _ | Psig_modtypesubst _ -> ()
++      | Psig_typesubst _ | Psig_modsubst _ -> ()
+       end;
+     env
+   end)
+@@ -502,18 +502,16 @@ and view_module_id id ~env =
+ and view_type_decl path ~env =
+   let td = find_type path env in
+   try match td.type_manifest with None -> raise Not_found
+-    | Some ty -> match get_desc ty with
++    | Some ty -> match (Ctype.repr ty).desc with
+         Tobject _ ->
+           let clt = find_cltype path env in
+           view_signature_item ~path ~env
+             [Sig_class_type(ident_of_path path ~default:"ct", clt, Trec_first,
+                             Exported);
+              dummy_item; dummy_item]
+-      | Tvariant row when row_name row <> None ->
+-          let Row {fields; more; closed; fixed} = row_repr row in
+-          let row = create_row ~fields ~more ~closed ~fixed ~name:None in
+-          let td =
+-            {td with type_manifest = Some(Btype.newgenty (Tvariant row))} in
++      | Tvariant ({row_name = Some _} as row) ->
++          let td = {td with type_manifest = Some(
++                    Btype.newgenty (Tvariant {row with row_name = None}))} in
+           view_signature_item ~path ~env
+             [Sig_type(ident_of_path path ~default:"t", td, Trec_first,
+                       Exported)]
+@@ -699,7 +697,8 @@ let view_type_menu kind ~env ~parent =
+       Format.set_formatter_output_functions buf#out ignore;
+       Format.set_margin 60;
+       Format.open_hbox ();
+-      Printtyp.prepare_for_printing [ty];
++      Printtyp.reset ();
++      Printtyp.mark_loops ty;
+       Printtyp.wrap_printing_env ~error:false env
+         (fun () -> Printtyp.type_expr Format.std_formatter ty);
+       Format.close_box (); Format.print_flush ();
+@@ -713,12 +712,11 @@ let view_type_menu kind ~env ~parent =
+       in
+       (* Menu.add_separator menu; *)
+       List.iter l ~f:
+-        begin fun label -> match get_desc ty with
++        begin fun label -> match (Ctype.repr ty).desc with
+           Tconstr (path,_,_) ->
+             Menu.add_command menu ~label ~font
+               ~command:(fun () -> view_type_decl path ~env)
+-        | Tvariant row when row_name row <> None ->
+-            let path, _ = Stdlib.Option.get (row_name row) in
++        | Tvariant {row_name = Some (path, _)} ->
+             Menu.add_command menu ~label ~font
+               ~command:(fun () -> view_type_decl path ~env)
+         | _ ->
+@@ -866,7 +864,7 @@ and search_pos_expr ~pos exp =
+       search_pos_expr a ~pos; search_pos_expr b ~pos
+   | Texp_for (_, _, a, b, _, c) ->
+       List.iter [a;b;c] ~f:(search_pos_expr ~pos)
+-  | Texp_send (exp, _) -> search_pos_expr exp ~pos
++  | Texp_send (exp, _, _) -> search_pos_expr exp ~pos
+   | Texp_new (path, _, _) ->
+       add_found_str (`Exp(`New path, exp.exp_type))
+         ~env:exp.exp_env ~loc:exp.exp_loc
+@@ -920,7 +918,7 @@ and search_pos_pat : type a. pos:_ -> env:_ -> a gener
+       add_found_str (`Exp(`Const, pat.pat_type)) ~env ~loc:pat.pat_loc
+   | Tpat_tuple l ->
+       List.iter l ~f:(search_pos_pat ~pos ~env)
+-  | Tpat_construct (_, _, l, _) ->
++  | Tpat_construct (_, _, l) ->
+       List.iter l ~f:(search_pos_pat ~pos ~env)
+   | Tpat_variant (_, None, _) -> ()
+   | Tpat_variant (_, Some pat, _) -> search_pos_pat pat ~pos ~env

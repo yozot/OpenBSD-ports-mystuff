@@ -1,0 +1,16 @@
+revert the following commits for ocaml-4.12.1,
+  - commit 0e52cb81271236d904eaf18d26821d5df5e4234a (update ocamlbrowser for 4.14)
+  - commit 2cbb92a8c0feacdd8ee69976f3f45a7cf81f805c (ready for ocaml 4.13)
+
+Index: browser/typecheck.ml
+--- browser/typecheck.ml.orig
++++ browser/typecheck.ml
+@@ -116,7 +116,7 @@ let f txt =
+     List.iter psl ~f:
+     begin function
+       Ptop_def pstr ->
+-        let str, sign, _names, _, env' = Typemod.type_structure !env pstr in
++        let str, sign, _names, env' = Typemod.type_structure !env pstr in
+         txt.structure <- txt.structure @ str.str_items;
+         txt.signature <- txt.signature @ sign;
+         env := env'

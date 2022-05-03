@@ -1,0 +1,23 @@
+revert the following commits for ocaml-4.12.1,
+  - commit 0e52cb81271236d904eaf18d26821d5df5e4234a (update ocamlbrowser for 4.14)
+  - commit 2cbb92a8c0feacdd8ee69976f3f45a7cf81f805c (ready for ocaml 4.13)
+
+Index: browser/viewer.ml
+--- browser/viewer.ml.orig
++++ browser/viewer.ml
+@@ -65,13 +65,13 @@ let view_symbol ~kind ~env ?path id =
+         [Sig_value (Ident.create_local name, vd, Exported)]
+   | Ptype -> view_type_id id ~env
+   | Plabel -> let ld = find_label_by_name id env in
+-      begin match get_desc ld.lbl_res with
++      begin match ld.lbl_res.desc with
+         Tconstr (path, _, _) -> view_type_decl path ~env
+       | _ -> ()
+       end
+   | Pconstructor ->
+       let cd = find_constructor_by_name id env in
+-      begin match cd.cstr_tag, get_desc cd.cstr_res with
++      begin match cd.cstr_tag, cd.cstr_res.desc with
+ 	Cstr_extension _, Tconstr (cpath, args, _) ->
+           view_signature ~title:(string_of_longident id) ~env ?path
+             [Sig_typext (Ident.create_local name,

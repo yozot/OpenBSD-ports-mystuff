@@ -1,11 +1,8 @@
-# $OpenBSD: Makefile.template,v 1.90 2021/02/25 21:59:27 sthen Exp $
-
 COMMENT =	an ocaml interface to the Tcl/Tk GUI framework
 
-## the compatible version is 8.06.8 for the current ocaml port 4.10
 GH_ACCOUNT =	garrigue
 GH_PROJECT =	labltk
-GH_TAGNAME =	8.06.8
+GH_TAGNAME =	8.06.12
 
 CATEGORIES =	x11
 
