@@ -1,0 +1,14 @@
+why missing AC_CONFIG_HEADERS??
+
+Index: configure.in
+--- configure.in.orig
++++ configure.in
+@@ -11,6 +11,8 @@
+ 
+ AC_INIT([Why3], [1.5.0])
+ 
++AC_CONFIG_HEADERS([config.h])
++
+ # verbosemake
+ 
+ AC_ARG_ENABLE(verbose-make,
