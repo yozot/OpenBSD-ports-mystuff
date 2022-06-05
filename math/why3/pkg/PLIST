@@ -101,8 +101,6 @@ lib/why3/plugins/tptp.cmxs
 lib/why3/why3-call-pvs
 @bin lib/why3/why3cpulimit
 @bin lib/why3/why3server
-share/emacs/
-share/emacs/site-lisp/
 share/emacs/site-lisp/why3.el
 share/emacs/site-lisp/why3.elc
 share/why3/

@@ -22,7 +22,7 @@ BUILD_DEPENDS =		sysutils/findlib \
 			devel/ocaml-menhir \
 			math/ocaml-num \
 			x11/lablgtk3
-RUN_DEPENDS =		x11/lablgtk3
+RUN_DEPENDS =		math/coq
 
 USE_GMAKE =		Yes
 CONFIGURE_STYLE =	autoconf
