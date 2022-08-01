@@ -13,9 +13,10 @@ MAINTAINER =		Yozo TODA <yozo@v007.vaio.ne.jp>
 ## LGPL
 PERMIT_PACKAGE =	Yes
 
-WANTLIB +=		tcl85 tk85
+WANTLIB +=		tcl86 tk86
 
 MODULES =		lang/ocaml x11/tk
+MODTK_VERSION =		8.6
 
 BUILD_DEPENDS =		sysutils/findlib
 LIB_DEPENDS =		${MODTK_LIB_DEPENDS}
