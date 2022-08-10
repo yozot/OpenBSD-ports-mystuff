@@ -25,6 +25,13 @@ USE_GMAKE =		Yes
 CONFIGURE_STYLE =	simple
 CONFIGURE_ARGS =	-use-findlib -verbose -tkdefs "-I${MODTCL_INCDIR} -I${MODTK_INCDIR} -I${X11BASE}/include"
 
+post-install:
+	${INSTALL_DATA_DIR} ${PREFIX}/share/doc/labltk
+	${INSTALL_DATA} ${WRKDIST}/README.md ${PREFIX}/share/doc/labltk
+	${INSTALL_DATA} ${WRKDIST}/Changes ${PREFIX}/share/doc/labltk
+	${INSTALL_DATA_DIR} ${PREFIX}/share/examples/labltk
+	${INSTALL_DATA} ${WRKDIST}/examples_labltk/* ${PREFIX}/share/examples/labltk
+
 NO_TEST =		Yes
 
 .include <bsd.port.mk>

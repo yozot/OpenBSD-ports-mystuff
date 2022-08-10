@@ -227,3 +227,21 @@ lib/ocaml/labltk/wm.cmi
 lib/ocaml/labltk/wm.mli
 @so lib/ocaml/stublibs/dlllabltk.so
 lib/ocaml/stublibs/dlllabltk.so.owner
+share/doc/labltk/
+share/doc/labltk/Changes
+share/doc/labltk/README.md
+share/examples/labltk/
+share/examples/labltk/Lambda2.back.gif
+share/examples/labltk/Makefile
+share/examples/labltk/Makefile.nt
+share/examples/labltk/README
+share/examples/labltk/README.md
+share/examples/labltk/calc.ml
+share/examples/labltk/clock.ml
+share/examples/labltk/demo.ml
+share/examples/labltk/eyes.ml
+share/examples/labltk/hello.ml
+share/examples/labltk/hello.tcl
+share/examples/labltk/lang.ml
+share/examples/labltk/taquin.ml
+share/examples/labltk/tetris.ml

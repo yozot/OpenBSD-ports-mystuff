@@ -12,7 +12,7 @@ The toplevel can be used for interactive development.
 Documentation
 
   - PDF Manual for LablTk and OCamlBrowser
-    (https://github.com/garrigue/labltk/releases/download/8.06.6/labltk.pdf)
+    (https://github.com/garrigue/labltk/releases/download/8.06.12/labltk.pdf)
 
   - The ocamldoc API reference
     (https://garrigue.github.io/apiref/)
