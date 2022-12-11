@@ -1,9 +1,7 @@
-# $OpenBSD: Makefile.template,v 1.78 2018/07/09 15:00:06 jca Exp $
-
 COMMENT =	my local set of packages
 
 PKGNAME =	yozo-1.0
-REVISION =	2
+REVISION =	3
 
 MAINTAINER =		Yozo TODA <yozo@v007.vaio.ne.jp>
 
@@ -26,7 +24,6 @@ RUN_DEPENDS =	japanese/kterm,xaw3d \
 		security/pgpdump \
 		security/gnupg,ldap \
 		security/rnp \
-		mail/getmail \
 		www/w3m,image \
 		mail/nmh,sasl \
 		devel/git \
