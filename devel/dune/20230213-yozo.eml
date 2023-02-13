@@ -1,0 +1,1678 @@
+Return-Path: <owner-ports+m133606=yozo=v007.vaio.ne.jp@openbsd.org>
+Received: from mail.openbsd.org ([199.185.178.25])
+	by ms-mxin02.so-net.ne.jp with ESMTP
+	id RN1Ypjlx0tZRuRN1YpywGu; Mon, 13 Feb 2023 09:48:53 +0900
+X-Snc-Original-To: yozo@v007.vaio.ne.jp
+X-snc-AuthenticSeal: 0
+X-Snc-Authentication: 0
+Authentication-Results: ms-mxin02.so-net.ne.jp; spf=pass
+ smtp.mailfrom=owner-ports+m133606=yozo=v007.vaio.ne.jp@openbsd.org;
+	dkim=pass header.d=openbsd.org header.b=O7J7YxaO;
+	dmarc=none header.from=v007.vaio.ne.jp
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; s=selector1; bh=c15UKeJhOW
+	C/YO5H1cORqtDp+sVrK+ztrvYxt7Id1VU=; h=list-unsubscribe:list-subscribe:
+	list-post:list-owner:list-id:list-help:date:references:in-reply-to:
+	subject:to:from; d=openbsd.org; b=O7J7YxaOKu7+k2D60DCJ2GCCujqBhod+hb8v
+	W6jjJErXauZbjqSVX+3PrauZZRD64rQnDDhvvUfPHHK93yyOs6GIeA1HH51qBKr5kv1OoO
+	lFfi+ZarZzZljo8/0MkMDChFdVbakDsWW3tAByLKknyvREuXErR3nbrQisusAOPUj/AjHd
+	VKNtB5j0DqQGgOaqV/q6wakEQb2/poxn1KGHj9wHXxhDmIxGg9NdqnKlRWr/E0u80b0oWt
+	gL1r5DeymF7EO2/s/hv+53RKEXokcvX4P7dwmzrEDEQNgGMGKlOBr06MycPJ9ACbsH5+Uw
+	5ipvtQwLMMLW5/c8tjkksdj8nw==
+Received: from openbsd.org (localhost [127.0.0.1])
+	by mail.openbsd.org (OpenSMTPD) with ESMTP id c22a138d
+	for <yozo@v007.vaio.ne.jp>;
+	Sun, 12 Feb 2023 17:48:51 -0700 (MST)
+Received: from ms-fb03.so-net.ne.jp (ms-fb03.so-net.ne.jp [202.238.84.157])
+	by mail.openbsd.org (OpenSMTPD) with ESMTPS id 8c865ad7 (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256:NO)
+	for <ports@openbsd.org>;
+	Sun, 12 Feb 2023 17:46:38 -0700 (MST)
+Received: from ms-mxout01.so-net.ne.jp (ms-mxout01.plus.so-net.ne.jp [10.240.82.17])
+	by ms-fb03.so-net.ne.jp  with ESMTP id 31D0S2nQ008675
+	for <ports@openbsd.org>; Mon, 13 Feb 2023 09:46:32 +0900
+Received: from conohabygmo.my.domain ([118.27.114.163])
+	by ms-mxout01.so-net.ne.jp with ESMTPA
+	id RMz5pa5X7On4qRMz5pxZcU; Mon, 13 Feb 2023 09:46:19 +0900
+Received: from conohabygmo.my.domain (localhost [::1])
+	by v007.vaio.ne.jp (OpenSMTPD) with ESMTP id e7aad2e7;
+	Mon, 13 Feb 2023 09:46:19 +0900 (JST)
+From: Yozo TODA <yozo@v007.vaio.ne.jp>
+To: ports@openbsd.org, Volker Schlecht <openbsd-ports@schlecht.dev>,
+        Christopher Zimmermann <chrisz@openbsd.org>
+Subject: Re: [Update] devel/dune 3.6.2
+In-reply-to: <ad28ff8a-19f4-c85c-7e22-f47b9ee27603@schlecht.dev>
+References: <efc3cbaf-6df9-f051-9f38-444dd5e8d86c@schlecht.dev> <89E09590-53CC-4CE5-BC80-0C62BB3B3724@gmail.com> <185bd2f6-516a-2779-e42e-477784d812e3@schlecht.dev> <ad28ff8a-19f4-c85c-7e22-f47b9ee27603@schlecht.dev>
+Comments: In-reply-to Volker Schlecht <openbsd-ports@schlecht.dev>
+   message dated "Sun, 12 Feb 2023 15:13:36 +0100."
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="----- =_aaaaaaaaaa0"
+Content-Transfer-Encoding: 8bit
+Date: Mon, 13 Feb 2023 09:46:19 +0900
+Message-ID: <6dbe939f35a47be3@v007.vaio.ne.jp>
+List-Help: <mailto:majordomo@openbsd.org?body=help>
+List-ID: <ports.openbsd.org>
+List-Owner: <mailto:owner-ports@openbsd.org>
+List-Post: <mailto:ports@openbsd.org>
+List-Subscribe: <mailto:majordomo@openbsd.org?body=sub%20ports>
+List-Unsubscribe: <mailto:majordomo@openbsd.org?body=unsub%20ports>
+X-Loop: ports@openbsd.org
+Precedence: bulk
+Sender: owner-ports@openbsd.org
+
+------- =_aaaaaaaaaa0
+Content-Type: text/plain; charset="us-ascii"
+
+> On 2/3/23 21:44, Volker Schlecht wrote:
+> > On 2/3/23 20:29, Daniel Dickman wrote:
+> >> And more generally when proper releases are available on GitHub, those 
+> >> should be preferred. You know they are proper releases because the 
+> >> download url has /releases/ in it.
+> > 
+> > Here's a diff using the release .tbz ... also a simple @conflict marker 
+> > seems to be solving the update for dune-configurator for me, but I'm 
+> > sure I'm missing something here.
+> > 
+> > That doesn't change the displayed version in ocamlfind, though.
+
+Well, checking the installed files, I found that
+dune META file does not contain "version" stanza.
+(META file of dune-configurator contains it...)
+
+I wonder it's dune's bug?  I found no issue raised on the github repository.
+Anyway, here is my update proposal.
+
+  - somewhat ugly hack, editing META at the last moment of do-install
+  - SUBST_VARS removed from Volker's patch
+
+how about this?
+
+-- yozo.
+
+
+------- =_aaaaaaaaaa0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: attachment; filename="dune-3.6.2-diff"
+Content-Transfer-Encoding: 8bit
+
+diff -urN /usr/ports/devel/dune/Makefile ./Makefile
+--- /usr/ports/devel/dune/Makefile	Sat Mar 12 11:03:51 2022
++++ ./Makefile	Mon Feb 13 08:48:51 2023
+@@ -1,19 +1,15 @@
+-MULTI_PACKAGES =	-main -private -configurator
++MULTI_PACKAGES =	-main -configurator
+ 
+ COMMENT-main =		OCaml build system
+-COMMENT-private =	private libraries of the dune build system
+ COMMENT-configurator =	OCaml library for gathering system configuration
+-REVISION-configurator =	2
+-REVISION-main =		1
+-REVISION-private =	2
+ 
+-VERSION =		2.7.0
++VERSION =		3.6.2
+ 
+ CATEGORIES =		devel
+ 
+-GH_ACCOUNT =		ocaml
+-GH_PROJECT =		dune
+-GH_TAGNAME =		${VERSION}
++DISTNAME =		dune-${VERSION}
++MASTER_SITES =		https://github.com/ocaml/dune/releases/download/${VERSION}/
++EXTRACT_SUFX =		.tbz
+ 
+ HOMEPAGE =		https://github.com/ocaml/dune
+ 
+@@ -26,31 +22,41 @@
+ 
+ MODULES =		lang/ocaml
+ 
+-RUN_DEPENDS-configurator = devel/dune,-private
++RUN_DEPENDS-configurator = devel/dune
+ 
+ CONFIGURE_STYLE =	simple
+-CONFIGURE_ARGS =	--libdir ${PREFIX}/lib/ocaml/
+ 
++# Set default installation directories
++# These affect runtime behavior later!
++CONFIGURE_ARGS =	--bindir ${TRUEPREFIX}/bin \
++			--sbindir ${TRUEPREFIX}/sbin \
++			--datadir ${TRUEPREFIX}/share \
++			--etcdir ${SYSCONFDIR} \
++			--libdir ${TRUEPREFIX}/lib/ocaml \
++			--libexecdir ${TRUEPREFIX}/lib/ocaml \
++			--mandir ${TRUEPREFIX}/man \
++			--docdir ${TRUEPREFIX}/share/doc
++
++MAKE_ENV +=		JOBS=${MAKE_JOBS}
++
+ USE_GMAKE =		Yes
+ 
+ ALL_TARGET =		release
+ 
+-#FAKE_FLAGS =		PREFIX=${PREFIX} LIBDIR=lib/ocaml
+-INSTALL_TARGET =	install
++FAKE_FLAGS =		PREFIX=${TRUEPREFIX} LIBDIR=${PREFIX}/lib/ocaml
++INSTALL_TARGET =	doc install
+ 
+-#./dune.exe build --display=short
+ post-build:
+ 	cd ${WRKSRC} && env -i ${MAKE_ENV} \
+-	./dune.exe build --display=short \
+-	dune-private-libs.install dune-configurator.install
+-
++	./dune.exe build -j${MAKE_JOBS} --display=short \
++	stdune.install dune-configurator.install
++	
+ do-install:
+ 	cd ${WRKSRC} && env -i ${MAKE_ENV} ${FAKE_SETUP} \
+-	./dune.exe install --display=short \
+-	dune dune-private-libs dune-configurator
+-
+-post-install:
+-	mv ${PREFIX}/doc/* ${PREFIX}/share/doc/
+-	rmdir ${PREFIX}/doc
++	./dune.exe install -j${MAKE_JOBS} --display=short \
++	dune stdune dune-configurator
++	echo 'version = "${VERSION}"' > ${WRKINST}${LOCALBASE}/lib/ocaml/dune/META.new
++	cat ${WRKINST}${LOCALBASE}/lib/ocaml/dune/META >> ${WRKINST}${LOCALBASE}/lib/ocaml/dune/META.new
++	mv ${WRKINST}${LOCALBASE}/lib/ocaml/dune/META.new ${WRKINST}${LOCALBASE}/lib/ocaml/dune/META
+ 
+ .include <bsd.port.mk>
+diff -urN /usr/ports/devel/dune/distinfo ./distinfo
+--- /usr/ports/devel/dune/distinfo	Sat Dec 11 09:18:35 2021
++++ ./distinfo	Wed Feb  1 02:50:31 2023
+@@ -1,2 +1,2 @@
+-SHA256 (dune-2.7.0.tar.gz) = 2R9VSUrWHvpYQ97cCE2qZKaXUfCM7xPd6IPvp49+eL4=
+-SIZE (dune-2.7.0.tar.gz) = 1284969
++SHA256 (dune-3.6.2.tbz) = ttSrhI77BKoqMl0AFdMu1EFO1xMOx6oS+YFY7/RFzzw=
++SIZE (dune-3.6.2.tbz) = 1509471
+diff -urN /usr/ports/devel/dune/patches/patch-Makefile ./patches/patch-Makefile
+--- /usr/ports/devel/dune/patches/patch-Makefile	Thu Jan  1 09:00:00 1970
++++ ./patches/patch-Makefile	Wed Feb  1 02:39:29 2023
+@@ -0,0 +1,13 @@
++Respect MAKE_JOBS during bootstrap phase
++Index: Makefile
++--- Makefile.orig
+++++ Makefile
++@@ -47,7 +47,7 @@ release: $(BIN)
++ 	@$(BIN) build @install -p dune --profile dune-bootstrap
++ 
++ $(BIN):
++-	@ocaml boot/bootstrap.ml
+++	@ocaml boot/bootstrap.ml -j $(JOBS)
++ 
++ dev: $(BIN)
++ 	$(BIN) build @install
+diff -urN /usr/ports/devel/dune/patches/patch-src_dune_cram_exec_ml ./patches/patch-src_dune_cram_exec_ml
+--- /usr/ports/devel/dune/patches/patch-src_dune_cram_exec_ml	Sat Mar 12 11:03:51 2022
++++ ./patches/patch-src_dune_cram_exec_ml	Thu Jan  1 09:00:00 1970
+@@ -1,15 +0,0 @@
+-Backport commit for ocaml 4.13 support. see:
+-https://github.com/ocaml/dune/commit/c1e82f94aa2883feda752df450130ee204855c09
+-
+-Index: src/dune/cram_exec.ml
+---- src/dune/cram_exec.ml.orig
+-+++ src/dune/cram_exec.ml
+-@@ -283,7 +283,7 @@ let rewrite_paths build_path_prefix_map ~parent_script
+- 
+- let sanitize ~parent_script cram_to_output :
+-     (block_result * metadata_entry * string) Cram_lexer.block list =
+--  List.map cram_to_output ~f:(fun t ->
+-+  List.map cram_to_output ~f:(fun (t : (block_result * _) Cram_lexer.block) ->
+-       match t with
+-       | Cram_lexer.Comment t -> Cram_lexer.Comment t
+-       | Command
+diff -urN /usr/ports/devel/dune/pkg/DESCR-private ./pkg/DESCR-private
+--- /usr/ports/devel/dune/pkg/DESCR-private	Sat Dec  4 12:05:30 2021
++++ ./pkg/DESCR-private	Thu Jan  1 09:00:00 1970
+@@ -1,3 +0,0 @@
+-This package contains code that is shared between various
+-dune-xxx packages. However, it is not meant for public
+-consumption and provides no stability guarantee.
+diff -urN /usr/ports/devel/dune/pkg/PFRAG.dynlink-native ./pkg/PFRAG.dynlink-native
+--- /usr/ports/devel/dune/pkg/PFRAG.dynlink-native	Sat Mar 12 11:03:51 2022
++++ ./pkg/PFRAG.dynlink-native	Wed Feb  1 02:39:29 2023
+@@ -1,8 +0,0 @@
+-lib/ocaml/dune/_caml/dune_caml.cmxs
+-lib/ocaml/dune/_dune_lang/dune_lang.cmxs
+-lib/ocaml/dune/_ocaml_config/ocaml_config.cmxs
+-lib/ocaml/dune/_result/dune_result.cmxs
+-lib/ocaml/dune/_stdune/stdune.cmxs
+-lib/ocaml/dune/_wp/dune/wp_dune.cmxs
+-lib/ocaml/dune/_wp/jbuilder/wp_jbuilder.cmxs
+-lib/ocaml/dune/configurator/configurator.cmxs
+diff -urN /usr/ports/devel/dune/pkg/PFRAG.dynlink-native-private ./pkg/PFRAG.dynlink-native-private
+--- /usr/ports/devel/dune/pkg/PFRAG.dynlink-native-private	Sat Mar 12 11:03:51 2022
++++ ./pkg/PFRAG.dynlink-native-private	Thu Jan  1 09:00:00 1970
+@@ -1,8 +0,0 @@
+-lib/ocaml/dune-private-libs/cache/cache.cmxs
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang.cmxs
+-lib/ocaml/dune-private-libs/dune_csexp/dune_csexp.cmxs
+-lib/ocaml/dune-private-libs/dune_re/dune_re.cmxs
+-lib/ocaml/dune-private-libs/dune_util/dune_util.cmxs
+-lib/ocaml/dune-private-libs/ocaml-config/ocaml_config.cmxs
+-lib/ocaml/dune-private-libs/stdune/stdune.cmxs
+-lib/ocaml/dune-private-libs/xdg/xdg.cmxs
+diff -urN /usr/ports/devel/dune/pkg/PFRAG.native ./pkg/PFRAG.native
+--- /usr/ports/devel/dune/pkg/PFRAG.native	Sat Mar 12 11:03:51 2022
++++ ./pkg/PFRAG.native	Wed Feb  1 02:39:29 2023
+@@ -1,112 +1 @@
+ %%dynlink%%
+-lib/ocaml/dune/_caml/dune_caml.a
+-lib/ocaml/dune/_caml/dune_caml.cmx
+-lib/ocaml/dune/_caml/dune_caml.cmxa
+-lib/ocaml/dune/_dune_lang/dune_lang.a
+-lib/ocaml/dune/_dune_lang/dune_lang.cmx
+-lib/ocaml/dune/_dune_lang/dune_lang.cmxa
+-lib/ocaml/dune/_dune_lang/dune_lang__.cmx
+-lib/ocaml/dune/_dune_lang/dune_lang__Atom.cmx
+-lib/ocaml/dune/_dune_lang/dune_lang__Combinators.cmx
+-lib/ocaml/dune/_dune_lang/dune_lang__Dune_lexer.cmx
+-lib/ocaml/dune/_dune_lang/dune_lang__Escape.cmx
+-lib/ocaml/dune/_dune_lang/dune_lang__File_syntax.cmx
+-lib/ocaml/dune/_dune_lang/dune_lang__Jbuild_lexer.cmx
+-lib/ocaml/dune/_dune_lang/dune_lang__Lexer.cmx
+-lib/ocaml/dune/_dune_lang/dune_lang__Lexer_shared.cmx
+-lib/ocaml/dune/_dune_lang/dune_lang__Template.cmx
+-lib/ocaml/dune/_dune_lang/dune_lang__Types.cmx
+-lib/ocaml/dune/_ocaml_config/ocaml_config.a
+-lib/ocaml/dune/_ocaml_config/ocaml_config.cmx
+-lib/ocaml/dune/_ocaml_config/ocaml_config.cmxa
+-lib/ocaml/dune/_result/dune_result.a
+-lib/ocaml/dune/_result/dune_result.cmx
+-lib/ocaml/dune/_result/dune_result.cmxa
+-lib/ocaml/dune/_result/dune_result__.cmx
+-lib/ocaml/dune/_result/dune_result__Result.cmx
+-lib/ocaml/dune/_result/dune_result__Result_compat.cmx
+-lib/ocaml/dune/_stdune/stdune.a
+-lib/ocaml/dune/_stdune/stdune.cmx
+-lib/ocaml/dune/_stdune/stdune.cmxa
+-lib/ocaml/dune/_stdune/stdune__.cmx
+-lib/ocaml/dune/_stdune/stdune__Ansi_color.cmx
+-lib/ocaml/dune/_stdune/stdune__Appendable_list.cmx
+-lib/ocaml/dune/_stdune/stdune__Array.cmx
+-lib/ocaml/dune/_stdune/stdune__Bin.cmx
+-lib/ocaml/dune/_stdune/stdune__Bool.cmx
+-lib/ocaml/dune/_stdune/stdune__Bytes.cmx
+-lib/ocaml/dune/_stdune/stdune__Char.cmx
+-lib/ocaml/dune/_stdune/stdune__Code_error.cmx
+-lib/ocaml/dune/_stdune/stdune__Common.cmx
+-lib/ocaml/dune/_stdune/stdune__Comparable.cmx
+-lib/ocaml/dune/_stdune/stdune__Comparable_intf.cmx
+-lib/ocaml/dune/_stdune/stdune__Comparator.cmx
+-lib/ocaml/dune/_stdune/stdune__Console.cmx
+-lib/ocaml/dune/_stdune/stdune__Csexp.cmx
+-lib/ocaml/dune/_stdune/stdune__Digest.cmx
+-lib/ocaml/dune/_stdune/stdune__Dyn.cmx
+-lib/ocaml/dune/_stdune/stdune__Either.cmx
+-lib/ocaml/dune/_stdune/stdune__Env.cmx
+-lib/ocaml/dune/_stdune/stdune__Escape.cmx
+-lib/ocaml/dune/_stdune/stdune__Exn.cmx
+-lib/ocaml/dune/_stdune/stdune__Exn_with_backtrace.cmx
+-lib/ocaml/dune/_stdune/stdune__Fdecl.cmx
+-lib/ocaml/dune/_stdune/stdune__Filename.cmx
+-lib/ocaml/dune/_stdune/stdune__Float.cmx
+-lib/ocaml/dune/_stdune/stdune__Fmt.cmx
+-lib/ocaml/dune/_stdune/stdune__Fn.cmx
+-lib/ocaml/dune/_stdune/stdune__Hashable.cmx
+-lib/ocaml/dune/_stdune/stdune__Hashtbl.cmx
+-lib/ocaml/dune/_stdune/stdune__Hashtbl_intf.cmx
+-lib/ocaml/dune/_stdune/stdune__Id.cmx
+-lib/ocaml/dune/_stdune/stdune__Int.cmx
+-lib/ocaml/dune/_stdune/stdune__Interned.cmx
+-lib/ocaml/dune/_stdune/stdune__Io.cmx
+-lib/ocaml/dune/_stdune/stdune__Lexbuf.cmx
+-lib/ocaml/dune/_stdune/stdune__List.cmx
+-lib/ocaml/dune/_stdune/stdune__Loc.cmx
+-lib/ocaml/dune/_stdune/stdune__Loc0.cmx
+-lib/ocaml/dune/_stdune/stdune__Log.cmx
+-lib/ocaml/dune/_stdune/stdune__Map.cmx
+-lib/ocaml/dune/_stdune/stdune__Map_intf.cmx
+-lib/ocaml/dune/_stdune/stdune__Monad.cmx
+-lib/ocaml/dune/_stdune/stdune__Nothing.cmx
+-lib/ocaml/dune/_stdune/stdune__Option.cmx
+-lib/ocaml/dune/_stdune/stdune__Or_exn.cmx
+-lib/ocaml/dune/_stdune/stdune__Ordered.cmx
+-lib/ocaml/dune/_stdune/stdune__Ordering.cmx
+-lib/ocaml/dune/_stdune/stdune__Path.cmx
+-lib/ocaml/dune/_stdune/stdune__Path_intf.cmx
+-lib/ocaml/dune/_stdune/stdune__Poly.cmx
+-lib/ocaml/dune/_stdune/stdune__Pp.cmx
+-lib/ocaml/dune/_stdune/stdune__Proc.cmx
+-lib/ocaml/dune/_stdune/stdune__Result.cmx
+-lib/ocaml/dune/_stdune/stdune__Set.cmx
+-lib/ocaml/dune/_stdune/stdune__Set_intf.cmx
+-lib/ocaml/dune/_stdune/stdune__Sexp.cmx
+-lib/ocaml/dune/_stdune/stdune__Signal.cmx
+-lib/ocaml/dune/_stdune/stdune__Staged.cmx
+-lib/ocaml/dune/_stdune/stdune__String.cmx
+-lib/ocaml/dune/_stdune/stdune__String_split.cmx
+-lib/ocaml/dune/_stdune/stdune__Table.cmx
+-lib/ocaml/dune/_stdune/stdune__Tuple.cmx
+-lib/ocaml/dune/_stdune/stdune__Type_eq.cmx
+-lib/ocaml/dune/_stdune/stdune__Unit.cmx
+-lib/ocaml/dune/_stdune/stdune__Univ_map.cmx
+-lib/ocaml/dune/_stdune/stdune__User_error.cmx
+-lib/ocaml/dune/_stdune/stdune__User_message.cmx
+-lib/ocaml/dune/_stdune/stdune__User_warning.cmx
+-lib/ocaml/dune/_wp/dune/wp.cmx
+-lib/ocaml/dune/_wp/dune/wp__wp_dune__.cmx
+-lib/ocaml/dune/_wp/dune/wp_dune.a
+-lib/ocaml/dune/_wp/dune/wp_dune.cmxa
+-lib/ocaml/dune/_wp/jbuilder/wp.cmx
+-lib/ocaml/dune/_wp/jbuilder/wp__wp_jbuilder__.cmx
+-lib/ocaml/dune/_wp/jbuilder/wp_jbuilder.a
+-lib/ocaml/dune/_wp/jbuilder/wp_jbuilder.cmxa
+-lib/ocaml/dune/configurator/configurator.a
+-lib/ocaml/dune/configurator/configurator.cmx
+-lib/ocaml/dune/configurator/configurator.cmxa
+-lib/ocaml/dune/configurator/configurator__.cmx
+-lib/ocaml/dune/configurator/configurator__Extract_obj.cmx
+-lib/ocaml/dune/configurator/configurator__V1.cmx
+diff -urN /usr/ports/devel/dune/pkg/PFRAG.native-configurator ./pkg/PFRAG.native-configurator
+--- /usr/ports/devel/dune/pkg/PFRAG.native-configurator	Sat Mar 12 11:03:51 2022
++++ ./pkg/PFRAG.native-configurator	Wed Feb  1 02:39:29 2023
+@@ -3,9 +3,96 @@
+ lib/ocaml/dune-configurator/configurator.cmx
+ lib/ocaml/dune-configurator/configurator.cmxa
+ lib/ocaml/dune-configurator/configurator__.cmx
+-lib/ocaml/dune-configurator/configurator__Csexp.cmx
+ lib/ocaml/dune-configurator/configurator__Dune_lang.cmx
+ lib/ocaml/dune-configurator/configurator__Extract_obj.cmx
+ lib/ocaml/dune-configurator/configurator__Import.cmx
+ lib/ocaml/dune-configurator/configurator__Ocaml_config.cmx
+ lib/ocaml/dune-configurator/configurator__V1.cmx
++lib/ocaml/stdune/csexp/csexp.a
++lib/ocaml/stdune/csexp/csexp.cmx
++lib/ocaml/stdune/csexp/csexp.cmxa
++lib/ocaml/stdune/csexp/csexp.cmxs
++lib/ocaml/stdune/filesystem_stubs/dune_filesystem_stubs.cmx
++lib/ocaml/stdune/filesystem_stubs/dune_filesystem_stubs.cmxa
++lib/ocaml/stdune/filesystem_stubs/dune_filesystem_stubs.cmxs
++lib/ocaml/stdune/stdune.a
++lib/ocaml/stdune/stdune.cmx
++lib/ocaml/stdune/stdune.cmxa
++lib/ocaml/stdune/stdune.cmxs
++lib/ocaml/stdune/stdune__.cmx
++lib/ocaml/stdune/stdune__Ansi_color.cmx
++lib/ocaml/stdune/stdune__Appendable_list.cmx
++lib/ocaml/stdune/stdune__Applicative.cmx
++lib/ocaml/stdune/stdune__Applicative_intf.cmx
++lib/ocaml/stdune/stdune__Array.cmx
++lib/ocaml/stdune/stdune__Bin.cmx
++lib/ocaml/stdune/stdune__Bool.cmx
++lib/ocaml/stdune/stdune__Bytes.cmx
++lib/ocaml/stdune/stdune__Bytes_unit.cmx
++lib/ocaml/stdune/stdune__Caller_id.cmx
++lib/ocaml/stdune/stdune__Char.cmx
++lib/ocaml/stdune/stdune__Code_error.cmx
++lib/ocaml/stdune/stdune__Comparable.cmx
++lib/ocaml/stdune/stdune__Comparable_intf.cmx
++lib/ocaml/stdune/stdune__Comparator.cmx
++lib/ocaml/stdune/stdune__Either.cmx
++lib/ocaml/stdune/stdune__Env.cmx
++lib/ocaml/stdune/stdune__Escape.cmx
++lib/ocaml/stdune/stdune__Exn.cmx
++lib/ocaml/stdune/stdune__Exn_with_backtrace.cmx
++lib/ocaml/stdune/stdune__Fdecl.cmx
++lib/ocaml/stdune/stdune__Filename.cmx
++lib/ocaml/stdune/stdune__Float.cmx
++lib/ocaml/stdune/stdune__Fpath.cmx
++lib/ocaml/stdune/stdune__Hashable.cmx
++lib/ocaml/stdune/stdune__Hashtbl.cmx
++lib/ocaml/stdune/stdune__Hashtbl_intf.cmx
++lib/ocaml/stdune/stdune__Id.cmx
++lib/ocaml/stdune/stdune__Int.cmx
++lib/ocaml/stdune/stdune__Io.cmx
++lib/ocaml/stdune/stdune__Io_intf.cmx
++lib/ocaml/stdune/stdune__Lexbuf.cmx
++lib/ocaml/stdune/stdune__List.cmx
++lib/ocaml/stdune/stdune__Loc.cmx
++lib/ocaml/stdune/stdune__Loc0.cmx
++lib/ocaml/stdune/stdune__Map.cmx
++lib/ocaml/stdune/stdune__Map_intf.cmx
++lib/ocaml/stdune/stdune__Monad.cmx
++lib/ocaml/stdune/stdune__Monad_intf.cmx
++lib/ocaml/stdune/stdune__Monoid.cmx
++lib/ocaml/stdune/stdune__Monoid_intf.cmx
++lib/ocaml/stdune/stdune__Nonempty_list.cmx
++lib/ocaml/stdune/stdune__Nothing.cmx
++lib/ocaml/stdune/stdune__Option.cmx
++lib/ocaml/stdune/stdune__Or_exn.cmx
++lib/ocaml/stdune/stdune__Path.cmx
++lib/ocaml/stdune/stdune__Path_intf.cmx
++lib/ocaml/stdune/stdune__Pid.cmx
++lib/ocaml/stdune/stdune__Poly.cmx
++lib/ocaml/stdune/stdune__Predicate.cmx
++lib/ocaml/stdune/stdune__Proc.cmx
++lib/ocaml/stdune/stdune__Queue.cmx
++lib/ocaml/stdune/stdune__Result.cmx
++lib/ocaml/stdune/stdune__Scanf.cmx
++lib/ocaml/stdune/stdune__Seq.cmx
++lib/ocaml/stdune/stdune__Set.cmx
++lib/ocaml/stdune/stdune__Set_intf.cmx
++lib/ocaml/stdune/stdune__Sexp.cmx
++lib/ocaml/stdune/stdune__Signal.cmx
++lib/ocaml/stdune/stdune__Staged.cmx
++lib/ocaml/stdune/stdune__State.cmx
++lib/ocaml/stdune/stdune__String.cmx
++lib/ocaml/stdune/stdune__String_split.cmx
++lib/ocaml/stdune/stdune__Sys.cmx
++lib/ocaml/stdune/stdune__Table.cmx
++lib/ocaml/stdune/stdune__Temp.cmx
++lib/ocaml/stdune/stdune__Top_closure.cmx
++lib/ocaml/stdune/stdune__Top_closure_intf.cmx
++lib/ocaml/stdune/stdune__Tuple.cmx
++lib/ocaml/stdune/stdune__Type_eq.cmx
++lib/ocaml/stdune/stdune__Unit.cmx
++lib/ocaml/stdune/stdune__Univ_map.cmx
++lib/ocaml/stdune/stdune__Univ_map_intf.cmx
++lib/ocaml/stdune/stdune__User_error.cmx
++lib/ocaml/stdune/stdune__User_message.cmx
++lib/ocaml/stdune/stdune__User_warning.cmx
+diff -urN /usr/ports/devel/dune/pkg/PFRAG.native-private ./pkg/PFRAG.native-private
+--- /usr/ports/devel/dune/pkg/PFRAG.native-private	Sat Mar 12 11:03:51 2022
++++ ./pkg/PFRAG.native-private	Thu Jan  1 09:00:00 1970
+@@ -1,138 +0,0 @@
+-%%dynlink%%
+-lib/ocaml/dune-private-libs/cache/cache.a
+-lib/ocaml/dune-private-libs/cache/cache.cmx
+-lib/ocaml/dune-private-libs/cache/cache.cmxa
+-lib/ocaml/dune-private-libs/cache/cache__.cmx
+-lib/ocaml/dune-private-libs/cache/cache__Cache_intf.cmx
+-lib/ocaml/dune-private-libs/cache/cache__Client.cmx
+-lib/ocaml/dune-private-libs/cache/cache__Key.cmx
+-lib/ocaml/dune-private-libs/cache/cache__Local.cmx
+-lib/ocaml/dune-private-libs/cache/cache__Messages.cmx
+-lib/ocaml/dune-private-libs/cache/cache__Messages_intf.cmx
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang.a
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang.cmx
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang.cmxa
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__.cmx
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Ast.cmx
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Atom.cmx
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Combinators.cmx
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Conv.cmx
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Cst.cmx
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Decoder.cmx
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Encoder.cmx
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Escape.cmx
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Lexer.cmx
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Parser.cmx
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Syntax.cmx
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__T.cmx
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Template.cmx
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Versioned_file.cmx
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Versioned_file_first_line.cmx
+-lib/ocaml/dune-private-libs/dune_csexp/dune_csexp.a
+-lib/ocaml/dune-private-libs/dune_csexp/dune_csexp.cmx
+-lib/ocaml/dune-private-libs/dune_csexp/dune_csexp.cmxa
+-lib/ocaml/dune-private-libs/dune_csexp/dune_csexp__Csexp.cmx
+-lib/ocaml/dune-private-libs/dune_re/dune_re.a
+-lib/ocaml/dune-private-libs/dune_re/dune_re.cmx
+-lib/ocaml/dune-private-libs/dune_re/dune_re.cmxa
+-lib/ocaml/dune-private-libs/dune_re/dune_re__.cmx
+-lib/ocaml/dune-private-libs/dune_re/dune_re__Re.cmx
+-lib/ocaml/dune-private-libs/dune_re/dune_re__Re_automata.cmx
+-lib/ocaml/dune-private-libs/dune_re/dune_re__Re_cset.cmx
+-lib/ocaml/dune-private-libs/dune_re/dune_re__Re_fmt.cmx
+-lib/ocaml/dune-private-libs/dune_util/dune_util.a
+-lib/ocaml/dune-private-libs/dune_util/dune_util.cmx
+-lib/ocaml/dune-private-libs/dune_util/dune_util.cmxa
+-lib/ocaml/dune-private-libs/dune_util/dune_util__Log.cmx
+-lib/ocaml/dune-private-libs/dune_util/dune_util__Report_error.cmx
+-lib/ocaml/dune-private-libs/ocaml-config/ocaml_config.a
+-lib/ocaml/dune-private-libs/ocaml-config/ocaml_config.cmx
+-lib/ocaml/dune-private-libs/ocaml-config/ocaml_config.cmxa
+-lib/ocaml/dune-private-libs/stdune/stdune.a
+-lib/ocaml/dune-private-libs/stdune/stdune.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune.cmxa
+-lib/ocaml/dune-private-libs/stdune/stdune__.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Ansi_color.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Appendable_list.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Applicative.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Applicative_intf.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Array.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Bin.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Bool.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Bytes.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Char.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Code_error.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Comparable.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Comparable_intf.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Comparator.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Console.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Csexp.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Daemonize.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Digest.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Dyn.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Either.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Env.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Escape.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Exn.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Exn_with_backtrace.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Fcntl.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Fdecl.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Filename.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Float.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Fpath.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Hashable.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Hashtbl.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Hashtbl_intf.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Id.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Int.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Interned.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Interned_intf.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Io.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Io_intf.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Lexbuf.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__List.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Loc.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Loc0.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Lock_file.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Map.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Map_intf.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Monad.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Monad_intf.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Nothing.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Option.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Or_exn.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Ordered.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Ordering.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Path.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Path_intf.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Pid.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Poly.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Pp.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Proc.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Queue.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Result.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Scanf.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Seq.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Set.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Set_intf.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Sexp.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Signal.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Spawn.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Staged.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__String.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__String_split.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Sys.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Table.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Temp.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Top_closure.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Top_closure_intf.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Tuple.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Type_eq.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Unit.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__Univ_map.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__User_error.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__User_message.cmx
+-lib/ocaml/dune-private-libs/stdune/stdune__User_warning.cmx
+-lib/ocaml/dune-private-libs/xdg/xdg.a
+-lib/ocaml/dune-private-libs/xdg/xdg.cmx
+-lib/ocaml/dune-private-libs/xdg/xdg.cmxa
+diff -urN /usr/ports/devel/dune/pkg/PLIST-configurator ./pkg/PLIST-configurator
+--- /usr/ports/devel/dune/pkg/PLIST-configurator	Sat Mar 12 11:03:51 2022
++++ ./pkg/PLIST-configurator	Wed Feb  1 02:39:29 2023
+@@ -1,10 +1,14 @@
+ %%native%%
+ lib/ocaml/dune-configurator/
+ lib/ocaml/dune-configurator/.private/
+-lib/ocaml/dune-configurator/.private/configurator__Csexp.cmi
+ lib/ocaml/dune-configurator/.private/configurator__Dune_lang.cmi
++lib/ocaml/dune-configurator/.private/configurator__Dune_lang.cmt
++lib/ocaml/dune-configurator/.private/configurator__Dune_lang.cmti
+ lib/ocaml/dune-configurator/.private/configurator__Import.cmi
++lib/ocaml/dune-configurator/.private/configurator__Import.cmt
+ lib/ocaml/dune-configurator/.private/configurator__Ocaml_config.cmi
++lib/ocaml/dune-configurator/.private/configurator__Ocaml_config.cmt
++lib/ocaml/dune-configurator/.private/configurator__Ocaml_config.cmti
+ lib/ocaml/dune-configurator/META
+ lib/ocaml/dune-configurator/configurator.cma
+ lib/ocaml/dune-configurator/configurator.cmi
+@@ -13,21 +17,12 @@
+ lib/ocaml/dune-configurator/configurator__.cmi
+ lib/ocaml/dune-configurator/configurator__.cmt
+ lib/ocaml/dune-configurator/configurator__.ml
+-lib/ocaml/dune-configurator/configurator__Csexp.cmt
+-lib/ocaml/dune-configurator/configurator__Csexp.cmti
+-lib/ocaml/dune-configurator/configurator__Dune_lang.cmt
+-lib/ocaml/dune-configurator/configurator__Dune_lang.cmti
+ lib/ocaml/dune-configurator/configurator__Extract_obj.cmi
+ lib/ocaml/dune-configurator/configurator__Extract_obj.cmt
+ lib/ocaml/dune-configurator/configurator__Extract_obj.cmti
+-lib/ocaml/dune-configurator/configurator__Import.cmt
+-lib/ocaml/dune-configurator/configurator__Ocaml_config.cmt
+-lib/ocaml/dune-configurator/configurator__Ocaml_config.cmti
+ lib/ocaml/dune-configurator/configurator__V1.cmi
+ lib/ocaml/dune-configurator/configurator__V1.cmt
+ lib/ocaml/dune-configurator/configurator__V1.cmti
+-lib/ocaml/dune-configurator/csexp.ml
+-lib/ocaml/dune-configurator/csexp.mli
+ lib/ocaml/dune-configurator/dune-package
+ lib/ocaml/dune-configurator/dune_lang.ml
+ lib/ocaml/dune-configurator/dune_lang.mli
+@@ -39,7 +34,390 @@
+ lib/ocaml/dune-configurator/opam
+ lib/ocaml/dune-configurator/v1.ml
+ lib/ocaml/dune-configurator/v1.mli
++lib/ocaml/stdune/
++lib/ocaml/stdune/META
++lib/ocaml/stdune/ansi_color.ml
++lib/ocaml/stdune/ansi_color.mli
++lib/ocaml/stdune/appendable_list.ml
++lib/ocaml/stdune/appendable_list.mli
++lib/ocaml/stdune/applicative.ml
++lib/ocaml/stdune/applicative.mli
++lib/ocaml/stdune/applicative_intf.ml
++lib/ocaml/stdune/array.ml
++lib/ocaml/stdune/bin.ml
++lib/ocaml/stdune/bin.mli
++lib/ocaml/stdune/bool.ml
++lib/ocaml/stdune/bool.mli
++lib/ocaml/stdune/bytes.ml
++lib/ocaml/stdune/bytes.mli
++lib/ocaml/stdune/bytes_unit.ml
++lib/ocaml/stdune/bytes_unit.mli
++lib/ocaml/stdune/caller_id.ml
++lib/ocaml/stdune/caller_id.mli
++lib/ocaml/stdune/char.ml
++lib/ocaml/stdune/char.mli
++lib/ocaml/stdune/code_error.ml
++lib/ocaml/stdune/code_error.mli
++lib/ocaml/stdune/comparable.ml
++lib/ocaml/stdune/comparable.mli
++lib/ocaml/stdune/comparable_intf.ml
++lib/ocaml/stdune/comparator.ml
++lib/ocaml/stdune/comparator.mli
++lib/ocaml/stdune/csexp/
++lib/ocaml/stdune/csexp/csexp.cma
++lib/ocaml/stdune/csexp/csexp.cmi
++lib/ocaml/stdune/csexp/csexp.cmt
++lib/ocaml/stdune/csexp/csexp.cmti
++lib/ocaml/stdune/csexp/csexp.ml
++lib/ocaml/stdune/csexp/csexp.mli
++lib/ocaml/stdune/dune-package
++lib/ocaml/stdune/either.ml
++lib/ocaml/stdune/either.mli
++lib/ocaml/stdune/env.ml
++lib/ocaml/stdune/env.mli
++lib/ocaml/stdune/escape.ml
++lib/ocaml/stdune/escape.mli
++lib/ocaml/stdune/exn.ml
++lib/ocaml/stdune/exn.mli
++lib/ocaml/stdune/exn_with_backtrace.ml
++lib/ocaml/stdune/exn_with_backtrace.mli
++lib/ocaml/stdune/fdecl.ml
++lib/ocaml/stdune/fdecl.mli
++lib/ocaml/stdune/filename.ml
++lib/ocaml/stdune/filename.mli
++lib/ocaml/stdune/filesystem_stubs/
++lib/ocaml/stdune/filesystem_stubs/dune_filesystem_stubs.cma
++lib/ocaml/stdune/filesystem_stubs/dune_filesystem_stubs.cmi
++lib/ocaml/stdune/filesystem_stubs/dune_filesystem_stubs.cmt
++lib/ocaml/stdune/filesystem_stubs/dune_filesystem_stubs.cmti
++lib/ocaml/stdune/filesystem_stubs/dune_filesystem_stubs.ml
++lib/ocaml/stdune/filesystem_stubs/dune_filesystem_stubs.mli
++@static-lib lib/ocaml/stdune/filesystem_stubs/libdune_filesystem_stubs_stubs.a
++lib/ocaml/stdune/float.ml
++lib/ocaml/stdune/float.mli
++lib/ocaml/stdune/fpath.ml
++lib/ocaml/stdune/fpath.mli
++lib/ocaml/stdune/hashable.ml
++lib/ocaml/stdune/hashtbl.ml
++lib/ocaml/stdune/hashtbl.mli
++lib/ocaml/stdune/hashtbl_intf.ml
++lib/ocaml/stdune/id.ml
++lib/ocaml/stdune/id.mli
++lib/ocaml/stdune/int.ml
++lib/ocaml/stdune/int.mli
++lib/ocaml/stdune/io.ml
++lib/ocaml/stdune/io.mli
++lib/ocaml/stdune/io_intf.ml
++lib/ocaml/stdune/lexbuf.ml
++lib/ocaml/stdune/lexbuf.mli
++@static-lib lib/ocaml/stdune/libstdune_stubs.a
++lib/ocaml/stdune/list.ml
++lib/ocaml/stdune/list.mli
++lib/ocaml/stdune/loc.ml
++lib/ocaml/stdune/loc.mli
++lib/ocaml/stdune/loc0.ml
++lib/ocaml/stdune/map.ml
++lib/ocaml/stdune/map.mli
++lib/ocaml/stdune/map_intf.ml
++lib/ocaml/stdune/monad.ml
++lib/ocaml/stdune/monad.mli
++lib/ocaml/stdune/monad_intf.ml
++lib/ocaml/stdune/monoid.ml
++lib/ocaml/stdune/monoid.mli
++lib/ocaml/stdune/monoid_intf.ml
++lib/ocaml/stdune/nonempty_list.ml
++lib/ocaml/stdune/nonempty_list.mli
++lib/ocaml/stdune/nothing.ml
++lib/ocaml/stdune/nothing.mli
++lib/ocaml/stdune/opam
++lib/ocaml/stdune/option.ml
++lib/ocaml/stdune/option.mli
++lib/ocaml/stdune/or_exn.ml
++lib/ocaml/stdune/or_exn.mli
++lib/ocaml/stdune/path.ml
++lib/ocaml/stdune/path.mli
++lib/ocaml/stdune/path_intf.ml
++lib/ocaml/stdune/pid.ml
++lib/ocaml/stdune/pid.mli
++lib/ocaml/stdune/poly.ml
++lib/ocaml/stdune/poly.mli
++lib/ocaml/stdune/predicate.ml
++lib/ocaml/stdune/predicate.mli
++lib/ocaml/stdune/proc.ml
++lib/ocaml/stdune/proc.mli
++lib/ocaml/stdune/queue.ml
++lib/ocaml/stdune/queue.mli
++lib/ocaml/stdune/result.ml
++lib/ocaml/stdune/result.mli
++lib/ocaml/stdune/scanf.ml
++lib/ocaml/stdune/scanf.mli
++lib/ocaml/stdune/seq.ml
++lib/ocaml/stdune/seq.mli
++lib/ocaml/stdune/set.ml
++lib/ocaml/stdune/set.mli
++lib/ocaml/stdune/set_intf.ml
++lib/ocaml/stdune/sexp.ml
++lib/ocaml/stdune/sexp.mli
++lib/ocaml/stdune/signal.ml
++lib/ocaml/stdune/signal.mli
++lib/ocaml/stdune/staged.ml
++lib/ocaml/stdune/staged.mli
++lib/ocaml/stdune/state.ml
++lib/ocaml/stdune/state.mli
++lib/ocaml/stdune/stdune.cma
++lib/ocaml/stdune/stdune.cmi
++lib/ocaml/stdune/stdune.cmt
++lib/ocaml/stdune/stdune.ml
++lib/ocaml/stdune/stdune__.cmi
++lib/ocaml/stdune/stdune__.cmt
++lib/ocaml/stdune/stdune__.ml
++lib/ocaml/stdune/stdune__Ansi_color.cmi
++lib/ocaml/stdune/stdune__Ansi_color.cmt
++lib/ocaml/stdune/stdune__Ansi_color.cmti
++lib/ocaml/stdune/stdune__Appendable_list.cmi
++lib/ocaml/stdune/stdune__Appendable_list.cmt
++lib/ocaml/stdune/stdune__Appendable_list.cmti
++lib/ocaml/stdune/stdune__Applicative.cmi
++lib/ocaml/stdune/stdune__Applicative.cmt
++lib/ocaml/stdune/stdune__Applicative.cmti
++lib/ocaml/stdune/stdune__Applicative_intf.cmi
++lib/ocaml/stdune/stdune__Applicative_intf.cmt
++lib/ocaml/stdune/stdune__Array.cmi
++lib/ocaml/stdune/stdune__Array.cmt
++lib/ocaml/stdune/stdune__Bin.cmi
++lib/ocaml/stdune/stdune__Bin.cmt
++lib/ocaml/stdune/stdune__Bin.cmti
++lib/ocaml/stdune/stdune__Bool.cmi
++lib/ocaml/stdune/stdune__Bool.cmt
++lib/ocaml/stdune/stdune__Bool.cmti
++lib/ocaml/stdune/stdune__Bytes.cmi
++lib/ocaml/stdune/stdune__Bytes.cmt
++lib/ocaml/stdune/stdune__Bytes.cmti
++lib/ocaml/stdune/stdune__Bytes_unit.cmi
++lib/ocaml/stdune/stdune__Bytes_unit.cmt
++lib/ocaml/stdune/stdune__Bytes_unit.cmti
++lib/ocaml/stdune/stdune__Caller_id.cmi
++lib/ocaml/stdune/stdune__Caller_id.cmt
++lib/ocaml/stdune/stdune__Caller_id.cmti
++lib/ocaml/stdune/stdune__Char.cmi
++lib/ocaml/stdune/stdune__Char.cmt
++lib/ocaml/stdune/stdune__Char.cmti
++lib/ocaml/stdune/stdune__Code_error.cmi
++lib/ocaml/stdune/stdune__Code_error.cmt
++lib/ocaml/stdune/stdune__Code_error.cmti
++lib/ocaml/stdune/stdune__Comparable.cmi
++lib/ocaml/stdune/stdune__Comparable.cmt
++lib/ocaml/stdune/stdune__Comparable.cmti
++lib/ocaml/stdune/stdune__Comparable_intf.cmi
++lib/ocaml/stdune/stdune__Comparable_intf.cmt
++lib/ocaml/stdune/stdune__Comparator.cmi
++lib/ocaml/stdune/stdune__Comparator.cmt
++lib/ocaml/stdune/stdune__Comparator.cmti
++lib/ocaml/stdune/stdune__Either.cmi
++lib/ocaml/stdune/stdune__Either.cmt
++lib/ocaml/stdune/stdune__Either.cmti
++lib/ocaml/stdune/stdune__Env.cmi
++lib/ocaml/stdune/stdune__Env.cmt
++lib/ocaml/stdune/stdune__Env.cmti
++lib/ocaml/stdune/stdune__Escape.cmi
++lib/ocaml/stdune/stdune__Escape.cmt
++lib/ocaml/stdune/stdune__Escape.cmti
++lib/ocaml/stdune/stdune__Exn.cmi
++lib/ocaml/stdune/stdune__Exn.cmt
++lib/ocaml/stdune/stdune__Exn.cmti
++lib/ocaml/stdune/stdune__Exn_with_backtrace.cmi
++lib/ocaml/stdune/stdune__Exn_with_backtrace.cmt
++lib/ocaml/stdune/stdune__Exn_with_backtrace.cmti
++lib/ocaml/stdune/stdune__Fdecl.cmi
++lib/ocaml/stdune/stdune__Fdecl.cmt
++lib/ocaml/stdune/stdune__Fdecl.cmti
++lib/ocaml/stdune/stdune__Filename.cmi
++lib/ocaml/stdune/stdune__Filename.cmt
++lib/ocaml/stdune/stdune__Filename.cmti
++lib/ocaml/stdune/stdune__Float.cmi
++lib/ocaml/stdune/stdune__Float.cmt
++lib/ocaml/stdune/stdune__Float.cmti
++lib/ocaml/stdune/stdune__Fpath.cmi
++lib/ocaml/stdune/stdune__Fpath.cmt
++lib/ocaml/stdune/stdune__Fpath.cmti
++lib/ocaml/stdune/stdune__Hashable.cmi
++lib/ocaml/stdune/stdune__Hashable.cmt
++lib/ocaml/stdune/stdune__Hashtbl.cmi
++lib/ocaml/stdune/stdune__Hashtbl.cmt
++lib/ocaml/stdune/stdune__Hashtbl.cmti
++lib/ocaml/stdune/stdune__Hashtbl_intf.cmi
++lib/ocaml/stdune/stdune__Hashtbl_intf.cmt
++lib/ocaml/stdune/stdune__Id.cmi
++lib/ocaml/stdune/stdune__Id.cmt
++lib/ocaml/stdune/stdune__Id.cmti
++lib/ocaml/stdune/stdune__Int.cmi
++lib/ocaml/stdune/stdune__Int.cmt
++lib/ocaml/stdune/stdune__Int.cmti
++lib/ocaml/stdune/stdune__Io.cmi
++lib/ocaml/stdune/stdune__Io.cmt
++lib/ocaml/stdune/stdune__Io.cmti
++lib/ocaml/stdune/stdune__Io_intf.cmi
++lib/ocaml/stdune/stdune__Io_intf.cmt
++lib/ocaml/stdune/stdune__Lexbuf.cmi
++lib/ocaml/stdune/stdune__Lexbuf.cmt
++lib/ocaml/stdune/stdune__Lexbuf.cmti
++lib/ocaml/stdune/stdune__List.cmi
++lib/ocaml/stdune/stdune__List.cmt
++lib/ocaml/stdune/stdune__List.cmti
++lib/ocaml/stdune/stdune__Loc.cmi
++lib/ocaml/stdune/stdune__Loc.cmt
++lib/ocaml/stdune/stdune__Loc.cmti
++lib/ocaml/stdune/stdune__Loc0.cmi
++lib/ocaml/stdune/stdune__Loc0.cmt
++lib/ocaml/stdune/stdune__Map.cmi
++lib/ocaml/stdune/stdune__Map.cmt
++lib/ocaml/stdune/stdune__Map.cmti
++lib/ocaml/stdune/stdune__Map_intf.cmi
++lib/ocaml/stdune/stdune__Map_intf.cmt
++lib/ocaml/stdune/stdune__Monad.cmi
++lib/ocaml/stdune/stdune__Monad.cmt
++lib/ocaml/stdune/stdune__Monad.cmti
++lib/ocaml/stdune/stdune__Monad_intf.cmi
++lib/ocaml/stdune/stdune__Monad_intf.cmt
++lib/ocaml/stdune/stdune__Monoid.cmi
++lib/ocaml/stdune/stdune__Monoid.cmt
++lib/ocaml/stdune/stdune__Monoid.cmti
++lib/ocaml/stdune/stdune__Monoid_intf.cmi
++lib/ocaml/stdune/stdune__Monoid_intf.cmt
++lib/ocaml/stdune/stdune__Nonempty_list.cmi
++lib/ocaml/stdune/stdune__Nonempty_list.cmt
++lib/ocaml/stdune/stdune__Nonempty_list.cmti
++lib/ocaml/stdune/stdune__Nothing.cmi
++lib/ocaml/stdune/stdune__Nothing.cmt
++lib/ocaml/stdune/stdune__Nothing.cmti
++lib/ocaml/stdune/stdune__Option.cmi
++lib/ocaml/stdune/stdune__Option.cmt
++lib/ocaml/stdune/stdune__Option.cmti
++lib/ocaml/stdune/stdune__Or_exn.cmi
++lib/ocaml/stdune/stdune__Or_exn.cmt
++lib/ocaml/stdune/stdune__Or_exn.cmti
++lib/ocaml/stdune/stdune__Path.cmi
++lib/ocaml/stdune/stdune__Path.cmt
++lib/ocaml/stdune/stdune__Path.cmti
++lib/ocaml/stdune/stdune__Path_intf.cmi
++lib/ocaml/stdune/stdune__Path_intf.cmt
++lib/ocaml/stdune/stdune__Pid.cmi
++lib/ocaml/stdune/stdune__Pid.cmt
++lib/ocaml/stdune/stdune__Pid.cmti
++lib/ocaml/stdune/stdune__Poly.cmi
++lib/ocaml/stdune/stdune__Poly.cmt
++lib/ocaml/stdune/stdune__Poly.cmti
++lib/ocaml/stdune/stdune__Predicate.cmi
++lib/ocaml/stdune/stdune__Predicate.cmt
++lib/ocaml/stdune/stdune__Predicate.cmti
++lib/ocaml/stdune/stdune__Proc.cmi
++lib/ocaml/stdune/stdune__Proc.cmt
++lib/ocaml/stdune/stdune__Proc.cmti
++lib/ocaml/stdune/stdune__Queue.cmi
++lib/ocaml/stdune/stdune__Queue.cmt
++lib/ocaml/stdune/stdune__Queue.cmti
++lib/ocaml/stdune/stdune__Result.cmi
++lib/ocaml/stdune/stdune__Result.cmt
++lib/ocaml/stdune/stdune__Result.cmti
++lib/ocaml/stdune/stdune__Scanf.cmi
++lib/ocaml/stdune/stdune__Scanf.cmt
++lib/ocaml/stdune/stdune__Scanf.cmti
++lib/ocaml/stdune/stdune__Seq.cmi
++lib/ocaml/stdune/stdune__Seq.cmt
++lib/ocaml/stdune/stdune__Seq.cmti
++lib/ocaml/stdune/stdune__Set.cmi
++lib/ocaml/stdune/stdune__Set.cmt
++lib/ocaml/stdune/stdune__Set.cmti
++lib/ocaml/stdune/stdune__Set_intf.cmi
++lib/ocaml/stdune/stdune__Set_intf.cmt
++lib/ocaml/stdune/stdune__Sexp.cmi
++lib/ocaml/stdune/stdune__Sexp.cmt
++lib/ocaml/stdune/stdune__Sexp.cmti
++lib/ocaml/stdune/stdune__Signal.cmi
++lib/ocaml/stdune/stdune__Signal.cmt
++lib/ocaml/stdune/stdune__Signal.cmti
++lib/ocaml/stdune/stdune__Staged.cmi
++lib/ocaml/stdune/stdune__Staged.cmt
++lib/ocaml/stdune/stdune__Staged.cmti
++lib/ocaml/stdune/stdune__State.cmi
++lib/ocaml/stdune/stdune__State.cmt
++lib/ocaml/stdune/stdune__State.cmti
++lib/ocaml/stdune/stdune__String.cmi
++lib/ocaml/stdune/stdune__String.cmt
++lib/ocaml/stdune/stdune__String.cmti
++lib/ocaml/stdune/stdune__String_split.cmi
++lib/ocaml/stdune/stdune__String_split.cmt
++lib/ocaml/stdune/stdune__String_split.cmti
++lib/ocaml/stdune/stdune__Sys.cmi
++lib/ocaml/stdune/stdune__Sys.cmt
++lib/ocaml/stdune/stdune__Sys.cmti
++lib/ocaml/stdune/stdune__Table.cmi
++lib/ocaml/stdune/stdune__Table.cmt
++lib/ocaml/stdune/stdune__Table.cmti
++lib/ocaml/stdune/stdune__Temp.cmi
++lib/ocaml/stdune/stdune__Temp.cmt
++lib/ocaml/stdune/stdune__Temp.cmti
++lib/ocaml/stdune/stdune__Top_closure.cmi
++lib/ocaml/stdune/stdune__Top_closure.cmt
++lib/ocaml/stdune/stdune__Top_closure.cmti
++lib/ocaml/stdune/stdune__Top_closure_intf.cmi
++lib/ocaml/stdune/stdune__Top_closure_intf.cmt
++lib/ocaml/stdune/stdune__Tuple.cmi
++lib/ocaml/stdune/stdune__Tuple.cmt
++lib/ocaml/stdune/stdune__Tuple.cmti
++lib/ocaml/stdune/stdune__Type_eq.cmi
++lib/ocaml/stdune/stdune__Type_eq.cmt
++lib/ocaml/stdune/stdune__Type_eq.cmti
++lib/ocaml/stdune/stdune__Unit.cmi
++lib/ocaml/stdune/stdune__Unit.cmt
++lib/ocaml/stdune/stdune__Unit.cmti
++lib/ocaml/stdune/stdune__Univ_map.cmi
++lib/ocaml/stdune/stdune__Univ_map.cmt
++lib/ocaml/stdune/stdune__Univ_map.cmti
++lib/ocaml/stdune/stdune__Univ_map_intf.cmi
++lib/ocaml/stdune/stdune__Univ_map_intf.cmt
++lib/ocaml/stdune/stdune__User_error.cmi
++lib/ocaml/stdune/stdune__User_error.cmt
++lib/ocaml/stdune/stdune__User_error.cmti
++lib/ocaml/stdune/stdune__User_message.cmi
++lib/ocaml/stdune/stdune__User_message.cmt
++lib/ocaml/stdune/stdune__User_message.cmti
++lib/ocaml/stdune/stdune__User_warning.cmi
++lib/ocaml/stdune/stdune__User_warning.cmt
++lib/ocaml/stdune/stdune__User_warning.cmti
++lib/ocaml/stdune/string.ml
++lib/ocaml/stdune/string.mli
++lib/ocaml/stdune/string_split.ml
++lib/ocaml/stdune/string_split.mli
++lib/ocaml/stdune/sys.ml
++lib/ocaml/stdune/sys.mli
++lib/ocaml/stdune/table.ml
++lib/ocaml/stdune/table.mli
++lib/ocaml/stdune/temp.ml
++lib/ocaml/stdune/temp.mli
++lib/ocaml/stdune/top_closure.ml
++lib/ocaml/stdune/top_closure.mli
++lib/ocaml/stdune/top_closure_intf.ml
++lib/ocaml/stdune/tuple.ml
++lib/ocaml/stdune/tuple.mli
++lib/ocaml/stdune/type_eq.ml
++lib/ocaml/stdune/type_eq.mli
++lib/ocaml/stdune/unit.ml
++lib/ocaml/stdune/unit.mli
++lib/ocaml/stdune/univ_map.ml
++lib/ocaml/stdune/univ_map.mli
++lib/ocaml/stdune/univ_map_intf.ml
++lib/ocaml/stdune/user_error.ml
++lib/ocaml/stdune/user_error.mli
++lib/ocaml/stdune/user_message.ml
++lib/ocaml/stdune/user_message.mli
++lib/ocaml/stdune/user_warning.ml
++lib/ocaml/stdune/user_warning.mli
+ share/doc/dune-configurator/
+ share/doc/dune-configurator/CHANGES.md
+ share/doc/dune-configurator/LICENSE.md
+ share/doc/dune-configurator/README.md
++share/doc/stdune/
++share/doc/stdune/CHANGES.md
++share/doc/stdune/LICENSE.md
++share/doc/stdune/README.md
+diff -urN /usr/ports/devel/dune/pkg/PLIST-main ./pkg/PLIST-main
+--- /usr/ports/devel/dune/pkg/PLIST-main	Sat Mar 12 11:03:51 2022
++++ ./pkg/PLIST-main	Mon Feb 13 09:24:11 2023
+@@ -1,3 +1,4 @@
++@conflict dune-private-*
+ @pkgpath sysutils/dune
+ @pkgpath devel/dune
+ @bin bin/dune
+@@ -5,23 +6,32 @@
+ lib/ocaml/dune/META
+ lib/ocaml/dune/dune-package
+ lib/ocaml/dune/opam
++@so lib/ocaml/stublibs/dlldune_filesystem_stubs_stubs.so
++@so lib/ocaml/stublibs/dllstdune_stubs.so
+ @man man/man1/dune-build.1
+ @man man/man1/dune-cache.1
+ @man man/man1/dune-clean.1
+-@man man/man1/dune-compute.1
++@man man/man1/dune-coq.1
+ @man man/man1/dune-describe.1
++@man man/man1/dune-diagnostics.1
+ @man man/man1/dune-exec.1
+ @man man/man1/dune-external-lib-deps.1
++@man man/man1/dune-fmt.1
+ @man man/man1/dune-format-dune-file.1
+ @man man/man1/dune-help.1
+ @man man/man1/dune-init.1
+ @man man/man1/dune-install.1
+ @man man/man1/dune-installed-libraries.1
++@man man/man1/dune-internal.1
+ @man man/man1/dune-ocaml-merlin.1
++@man man/man1/dune-ocaml.1
+ @man man/man1/dune-printenv.1
+ @man man/man1/dune-promote.1
++@man man/man1/dune-promotion.1
++@man man/man1/dune-rpc.1
+ @man man/man1/dune-rules.1
+ @man man/man1/dune-runtest.1
++@man man/man1/dune-shutdown.1
+ @man man/man1/dune-subst.1
+ @man man/man1/dune-test.1
+ @man man/man1/dune-top.1
+@@ -37,4 +47,5 @@
+ share/emacs/
+ share/emacs/site-lisp/
+ share/emacs/site-lisp/dune-flymake.el
++share/emacs/site-lisp/dune-watch.el
+ share/emacs/site-lisp/dune.el
+diff -urN /usr/ports/devel/dune/pkg/PLIST-private ./pkg/PLIST-private
+--- /usr/ports/devel/dune/pkg/PLIST-private	Sat Mar 12 11:03:51 2022
++++ ./pkg/PLIST-private	Thu Jan  1 09:00:00 1970
+@@ -1,578 +0,0 @@
+-%%native%%
+-lib/ocaml/dune-private-libs/
+-lib/ocaml/dune-private-libs/META
+-lib/ocaml/dune-private-libs/cache/
+-lib/ocaml/dune-private-libs/cache/cache.cma
+-lib/ocaml/dune-private-libs/cache/cache.cmi
+-lib/ocaml/dune-private-libs/cache/cache.cmt
+-lib/ocaml/dune-private-libs/cache/cache.cmti
+-lib/ocaml/dune-private-libs/cache/cache.ml
+-lib/ocaml/dune-private-libs/cache/cache.mli
+-lib/ocaml/dune-private-libs/cache/cache__.cmi
+-lib/ocaml/dune-private-libs/cache/cache__.cmt
+-lib/ocaml/dune-private-libs/cache/cache__.ml
+-lib/ocaml/dune-private-libs/cache/cache__Cache_intf.cmi
+-lib/ocaml/dune-private-libs/cache/cache__Cache_intf.cmt
+-lib/ocaml/dune-private-libs/cache/cache__Client.cmi
+-lib/ocaml/dune-private-libs/cache/cache__Client.cmt
+-lib/ocaml/dune-private-libs/cache/cache__Client.cmti
+-lib/ocaml/dune-private-libs/cache/cache__Key.cmi
+-lib/ocaml/dune-private-libs/cache/cache__Key.cmt
+-lib/ocaml/dune-private-libs/cache/cache__Key.cmti
+-lib/ocaml/dune-private-libs/cache/cache__Local.cmi
+-lib/ocaml/dune-private-libs/cache/cache__Local.cmt
+-lib/ocaml/dune-private-libs/cache/cache__Local.cmti
+-lib/ocaml/dune-private-libs/cache/cache__Messages.cmi
+-lib/ocaml/dune-private-libs/cache/cache__Messages.cmt
+-lib/ocaml/dune-private-libs/cache/cache__Messages.cmti
+-lib/ocaml/dune-private-libs/cache/cache__Messages_intf.cmi
+-lib/ocaml/dune-private-libs/cache/cache__Messages_intf.cmt
+-lib/ocaml/dune-private-libs/cache/cache_intf.ml
+-lib/ocaml/dune-private-libs/cache/client.ml
+-lib/ocaml/dune-private-libs/cache/client.mli
+-lib/ocaml/dune-private-libs/cache/key.ml
+-lib/ocaml/dune-private-libs/cache/key.mli
+-lib/ocaml/dune-private-libs/cache/local.ml
+-lib/ocaml/dune-private-libs/cache/local.mli
+-lib/ocaml/dune-private-libs/cache/messages.ml
+-lib/ocaml/dune-private-libs/cache/messages.mli
+-lib/ocaml/dune-private-libs/cache/messages_intf.ml
+-lib/ocaml/dune-private-libs/dune-lang/
+-lib/ocaml/dune-private-libs/dune-lang/ast.ml
+-lib/ocaml/dune-private-libs/dune-lang/ast.mli
+-lib/ocaml/dune-private-libs/dune-lang/atom.ml
+-lib/ocaml/dune-private-libs/dune-lang/atom.mli
+-lib/ocaml/dune-private-libs/dune-lang/combinators.ml
+-lib/ocaml/dune-private-libs/dune-lang/conv.ml
+-lib/ocaml/dune-private-libs/dune-lang/conv.mli
+-lib/ocaml/dune-private-libs/dune-lang/cst.ml
+-lib/ocaml/dune-private-libs/dune-lang/cst.mli
+-lib/ocaml/dune-private-libs/dune-lang/decoder.ml
+-lib/ocaml/dune-private-libs/dune-lang/decoder.mli
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang.cma
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang.cmi
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang.cmt
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang.ml
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__.cmi
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__.cmt
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__.ml
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Ast.cmi
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Ast.cmt
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Ast.cmti
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Atom.cmi
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Atom.cmt
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Atom.cmti
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Combinators.cmi
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Combinators.cmt
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Conv.cmi
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Conv.cmt
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Conv.cmti
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Cst.cmi
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Cst.cmt
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Cst.cmti
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Decoder.cmi
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Decoder.cmt
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Decoder.cmti
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Encoder.cmi
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Encoder.cmt
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Encoder.cmti
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Escape.cmi
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Escape.cmt
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Escape.cmti
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Lexer.cmi
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Lexer.cmt
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Lexer.cmti
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Parser.cmi
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Parser.cmt
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Parser.cmti
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Syntax.cmi
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Syntax.cmt
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Syntax.cmti
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__T.cmi
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__T.cmt
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__T.cmti
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Template.cmi
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Template.cmt
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Template.cmti
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Versioned_file.cmi
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Versioned_file.cmt
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Versioned_file.cmti
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Versioned_file_first_line.cmi
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Versioned_file_first_line.cmt
+-lib/ocaml/dune-private-libs/dune-lang/dune_lang__Versioned_file_first_line.cmti
+-lib/ocaml/dune-private-libs/dune-lang/encoder.ml
+-lib/ocaml/dune-private-libs/dune-lang/encoder.mli
+-lib/ocaml/dune-private-libs/dune-lang/escape.ml
+-lib/ocaml/dune-private-libs/dune-lang/escape.mli
+-lib/ocaml/dune-private-libs/dune-lang/lexer.ml
+-lib/ocaml/dune-private-libs/dune-lang/lexer.mli
+-lib/ocaml/dune-private-libs/dune-lang/parser.ml
+-lib/ocaml/dune-private-libs/dune-lang/parser.mli
+-lib/ocaml/dune-private-libs/dune-lang/syntax.ml
+-lib/ocaml/dune-private-libs/dune-lang/syntax.mli
+-lib/ocaml/dune-private-libs/dune-lang/t.ml
+-lib/ocaml/dune-private-libs/dune-lang/t.mli
+-lib/ocaml/dune-private-libs/dune-lang/template.ml
+-lib/ocaml/dune-private-libs/dune-lang/template.mli
+-lib/ocaml/dune-private-libs/dune-lang/versioned_file.ml
+-lib/ocaml/dune-private-libs/dune-lang/versioned_file.mli
+-lib/ocaml/dune-private-libs/dune-lang/versioned_file_first_line.ml
+-lib/ocaml/dune-private-libs/dune-lang/versioned_file_first_line.mli
+-lib/ocaml/dune-private-libs/dune-package
+-lib/ocaml/dune-private-libs/dune_csexp/
+-lib/ocaml/dune-private-libs/dune_csexp/csexp.ml
+-lib/ocaml/dune-private-libs/dune_csexp/csexp.mli
+-lib/ocaml/dune-private-libs/dune_csexp/dune_csexp.cma
+-lib/ocaml/dune-private-libs/dune_csexp/dune_csexp.cmi
+-lib/ocaml/dune-private-libs/dune_csexp/dune_csexp.cmt
+-lib/ocaml/dune-private-libs/dune_csexp/dune_csexp.ml
+-lib/ocaml/dune-private-libs/dune_csexp/dune_csexp__Csexp.cmi
+-lib/ocaml/dune-private-libs/dune_csexp/dune_csexp__Csexp.cmt
+-lib/ocaml/dune-private-libs/dune_csexp/dune_csexp__Csexp.cmti
+-lib/ocaml/dune-private-libs/dune_re/
+-lib/ocaml/dune-private-libs/dune_re/dune_re.cma
+-lib/ocaml/dune-private-libs/dune_re/dune_re.cmi
+-lib/ocaml/dune-private-libs/dune_re/dune_re.cmt
+-lib/ocaml/dune-private-libs/dune_re/dune_re.ml
+-lib/ocaml/dune-private-libs/dune_re/dune_re__.cmi
+-lib/ocaml/dune-private-libs/dune_re/dune_re__.cmt
+-lib/ocaml/dune-private-libs/dune_re/dune_re__.ml
+-lib/ocaml/dune-private-libs/dune_re/dune_re__Re.cmi
+-lib/ocaml/dune-private-libs/dune_re/dune_re__Re.cmt
+-lib/ocaml/dune-private-libs/dune_re/dune_re__Re.cmti
+-lib/ocaml/dune-private-libs/dune_re/dune_re__Re_automata.cmi
+-lib/ocaml/dune-private-libs/dune_re/dune_re__Re_automata.cmt
+-lib/ocaml/dune-private-libs/dune_re/dune_re__Re_automata.cmti
+-lib/ocaml/dune-private-libs/dune_re/dune_re__Re_cset.cmi
+-lib/ocaml/dune-private-libs/dune_re/dune_re__Re_cset.cmt
+-lib/ocaml/dune-private-libs/dune_re/dune_re__Re_cset.cmti
+-lib/ocaml/dune-private-libs/dune_re/dune_re__Re_fmt.cmi
+-lib/ocaml/dune-private-libs/dune_re/dune_re__Re_fmt.cmt
+-lib/ocaml/dune-private-libs/dune_re/re.ml
+-lib/ocaml/dune-private-libs/dune_re/re.mli
+-lib/ocaml/dune-private-libs/dune_re/re_automata.ml
+-lib/ocaml/dune-private-libs/dune_re/re_automata.mli
+-lib/ocaml/dune-private-libs/dune_re/re_cset.ml
+-lib/ocaml/dune-private-libs/dune_re/re_cset.mli
+-lib/ocaml/dune-private-libs/dune_re/re_fmt.ml
+-lib/ocaml/dune-private-libs/dune_util/
+-lib/ocaml/dune-private-libs/dune_util/dune_util.cma
+-lib/ocaml/dune-private-libs/dune_util/dune_util.cmi
+-lib/ocaml/dune-private-libs/dune_util/dune_util.cmt
+-lib/ocaml/dune-private-libs/dune_util/dune_util.ml
+-lib/ocaml/dune-private-libs/dune_util/dune_util__Log.cmi
+-lib/ocaml/dune-private-libs/dune_util/dune_util__Log.cmt
+-lib/ocaml/dune-private-libs/dune_util/dune_util__Log.cmti
+-lib/ocaml/dune-private-libs/dune_util/dune_util__Report_error.cmi
+-lib/ocaml/dune-private-libs/dune_util/dune_util__Report_error.cmt
+-lib/ocaml/dune-private-libs/dune_util/dune_util__Report_error.cmti
+-lib/ocaml/dune-private-libs/dune_util/log.ml
+-lib/ocaml/dune-private-libs/dune_util/log.mli
+-lib/ocaml/dune-private-libs/dune_util/report_error.ml
+-lib/ocaml/dune-private-libs/dune_util/report_error.mli
+-lib/ocaml/dune-private-libs/ocaml-config/
+-lib/ocaml/dune-private-libs/ocaml-config/ocaml_config.cma
+-lib/ocaml/dune-private-libs/ocaml-config/ocaml_config.cmi
+-lib/ocaml/dune-private-libs/ocaml-config/ocaml_config.cmt
+-lib/ocaml/dune-private-libs/ocaml-config/ocaml_config.cmti
+-lib/ocaml/dune-private-libs/ocaml-config/ocaml_config.ml
+-lib/ocaml/dune-private-libs/ocaml-config/ocaml_config.mli
+-lib/ocaml/dune-private-libs/opam
+-lib/ocaml/dune-private-libs/stdune/
+-lib/ocaml/dune-private-libs/stdune/ansi_color.ml
+-lib/ocaml/dune-private-libs/stdune/ansi_color.mli
+-lib/ocaml/dune-private-libs/stdune/appendable_list.ml
+-lib/ocaml/dune-private-libs/stdune/appendable_list.mli
+-lib/ocaml/dune-private-libs/stdune/applicative.ml
+-lib/ocaml/dune-private-libs/stdune/applicative.mli
+-lib/ocaml/dune-private-libs/stdune/applicative_intf.ml
+-lib/ocaml/dune-private-libs/stdune/array.ml
+-lib/ocaml/dune-private-libs/stdune/bin.ml
+-lib/ocaml/dune-private-libs/stdune/bin.mli
+-lib/ocaml/dune-private-libs/stdune/bool.ml
+-lib/ocaml/dune-private-libs/stdune/bool.mli
+-lib/ocaml/dune-private-libs/stdune/bytes.ml
+-lib/ocaml/dune-private-libs/stdune/bytes.mli
+-lib/ocaml/dune-private-libs/stdune/char.ml
+-lib/ocaml/dune-private-libs/stdune/char.mli
+-lib/ocaml/dune-private-libs/stdune/code_error.ml
+-lib/ocaml/dune-private-libs/stdune/code_error.mli
+-lib/ocaml/dune-private-libs/stdune/comparable.ml
+-lib/ocaml/dune-private-libs/stdune/comparable.mli
+-lib/ocaml/dune-private-libs/stdune/comparable_intf.ml
+-lib/ocaml/dune-private-libs/stdune/comparator.ml
+-lib/ocaml/dune-private-libs/stdune/comparator.mli
+-lib/ocaml/dune-private-libs/stdune/console.ml
+-lib/ocaml/dune-private-libs/stdune/console.mli
+-lib/ocaml/dune-private-libs/stdune/csexp.ml
+-lib/ocaml/dune-private-libs/stdune/daemonize.ml
+-lib/ocaml/dune-private-libs/stdune/daemonize.mli
+-lib/ocaml/dune-private-libs/stdune/digest.ml
+-lib/ocaml/dune-private-libs/stdune/digest.mli
+-lib/ocaml/dune-private-libs/stdune/dyn.ml
+-lib/ocaml/dune-private-libs/stdune/dyn.mli
+-lib/ocaml/dune-private-libs/stdune/either.ml
+-lib/ocaml/dune-private-libs/stdune/either.mli
+-lib/ocaml/dune-private-libs/stdune/env.ml
+-lib/ocaml/dune-private-libs/stdune/env.mli
+-lib/ocaml/dune-private-libs/stdune/escape.ml
+-lib/ocaml/dune-private-libs/stdune/escape.mli
+-lib/ocaml/dune-private-libs/stdune/exn.ml
+-lib/ocaml/dune-private-libs/stdune/exn.mli
+-lib/ocaml/dune-private-libs/stdune/exn_with_backtrace.ml
+-lib/ocaml/dune-private-libs/stdune/exn_with_backtrace.mli
+-lib/ocaml/dune-private-libs/stdune/fcntl.ml
+-lib/ocaml/dune-private-libs/stdune/fcntl.mli
+-lib/ocaml/dune-private-libs/stdune/fdecl.ml
+-lib/ocaml/dune-private-libs/stdune/fdecl.mli
+-lib/ocaml/dune-private-libs/stdune/filename.ml
+-lib/ocaml/dune-private-libs/stdune/filename.mli
+-lib/ocaml/dune-private-libs/stdune/float.ml
+-lib/ocaml/dune-private-libs/stdune/float.mli
+-lib/ocaml/dune-private-libs/stdune/fpath.ml
+-lib/ocaml/dune-private-libs/stdune/fpath.mli
+-lib/ocaml/dune-private-libs/stdune/hashable.ml
+-lib/ocaml/dune-private-libs/stdune/hashtbl.ml
+-lib/ocaml/dune-private-libs/stdune/hashtbl.mli
+-lib/ocaml/dune-private-libs/stdune/hashtbl_intf.ml
+-lib/ocaml/dune-private-libs/stdune/id.ml
+-lib/ocaml/dune-private-libs/stdune/id.mli
+-lib/ocaml/dune-private-libs/stdune/int.ml
+-lib/ocaml/dune-private-libs/stdune/int.mli
+-lib/ocaml/dune-private-libs/stdune/interned.ml
+-lib/ocaml/dune-private-libs/stdune/interned.mli
+-lib/ocaml/dune-private-libs/stdune/interned_intf.ml
+-lib/ocaml/dune-private-libs/stdune/io.ml
+-lib/ocaml/dune-private-libs/stdune/io.mli
+-lib/ocaml/dune-private-libs/stdune/io_intf.ml
+-lib/ocaml/dune-private-libs/stdune/lexbuf.ml
+-lib/ocaml/dune-private-libs/stdune/lexbuf.mli
+-@static-lib lib/ocaml/dune-private-libs/stdune/libstdune_stubs.a
+-lib/ocaml/dune-private-libs/stdune/list.ml
+-lib/ocaml/dune-private-libs/stdune/list.mli
+-lib/ocaml/dune-private-libs/stdune/loc.ml
+-lib/ocaml/dune-private-libs/stdune/loc.mli
+-lib/ocaml/dune-private-libs/stdune/loc0.ml
+-lib/ocaml/dune-private-libs/stdune/lock_file.ml
+-lib/ocaml/dune-private-libs/stdune/lock_file.mli
+-lib/ocaml/dune-private-libs/stdune/map.ml
+-lib/ocaml/dune-private-libs/stdune/map.mli
+-lib/ocaml/dune-private-libs/stdune/map_intf.ml
+-lib/ocaml/dune-private-libs/stdune/monad.ml
+-lib/ocaml/dune-private-libs/stdune/monad.mli
+-lib/ocaml/dune-private-libs/stdune/monad_intf.ml
+-lib/ocaml/dune-private-libs/stdune/nothing.ml
+-lib/ocaml/dune-private-libs/stdune/nothing.mli
+-lib/ocaml/dune-private-libs/stdune/option.ml
+-lib/ocaml/dune-private-libs/stdune/option.mli
+-lib/ocaml/dune-private-libs/stdune/or_exn.ml
+-lib/ocaml/dune-private-libs/stdune/or_exn.mli
+-lib/ocaml/dune-private-libs/stdune/ordered.ml
+-lib/ocaml/dune-private-libs/stdune/ordered.mli
+-lib/ocaml/dune-private-libs/stdune/ordering.ml
+-lib/ocaml/dune-private-libs/stdune/ordering.mli
+-lib/ocaml/dune-private-libs/stdune/path.ml
+-lib/ocaml/dune-private-libs/stdune/path.mli
+-lib/ocaml/dune-private-libs/stdune/path_intf.ml
+-lib/ocaml/dune-private-libs/stdune/pid.ml
+-lib/ocaml/dune-private-libs/stdune/pid.mli
+-lib/ocaml/dune-private-libs/stdune/poly.ml
+-lib/ocaml/dune-private-libs/stdune/poly.mli
+-lib/ocaml/dune-private-libs/stdune/pp.ml
+-lib/ocaml/dune-private-libs/stdune/pp.mli
+-lib/ocaml/dune-private-libs/stdune/proc.ml
+-lib/ocaml/dune-private-libs/stdune/proc.mli
+-lib/ocaml/dune-private-libs/stdune/queue.ml
+-lib/ocaml/dune-private-libs/stdune/queue.mli
+-lib/ocaml/dune-private-libs/stdune/result.ml
+-lib/ocaml/dune-private-libs/stdune/result.mli
+-lib/ocaml/dune-private-libs/stdune/scanf.ml
+-lib/ocaml/dune-private-libs/stdune/scanf.mli
+-lib/ocaml/dune-private-libs/stdune/seq.ml
+-lib/ocaml/dune-private-libs/stdune/seq.mli
+-lib/ocaml/dune-private-libs/stdune/set.ml
+-lib/ocaml/dune-private-libs/stdune/set.mli
+-lib/ocaml/dune-private-libs/stdune/set_intf.ml
+-lib/ocaml/dune-private-libs/stdune/sexp.ml
+-lib/ocaml/dune-private-libs/stdune/sexp.mli
+-lib/ocaml/dune-private-libs/stdune/signal.ml
+-lib/ocaml/dune-private-libs/stdune/signal.mli
+-lib/ocaml/dune-private-libs/stdune/spawn.ml
+-lib/ocaml/dune-private-libs/stdune/spawn.mli
+-lib/ocaml/dune-private-libs/stdune/staged.ml
+-lib/ocaml/dune-private-libs/stdune/staged.mli
+-lib/ocaml/dune-private-libs/stdune/stdune.cma
+-lib/ocaml/dune-private-libs/stdune/stdune.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune.ml
+-lib/ocaml/dune-private-libs/stdune/stdune__.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__.ml
+-lib/ocaml/dune-private-libs/stdune/stdune__Ansi_color.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Ansi_color.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Ansi_color.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Appendable_list.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Appendable_list.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Appendable_list.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Applicative.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Applicative.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Applicative.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Applicative_intf.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Applicative_intf.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Array.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Array.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Bin.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Bin.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Bin.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Bool.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Bool.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Bool.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Bytes.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Bytes.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Bytes.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Char.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Char.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Char.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Code_error.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Code_error.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Code_error.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Comparable.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Comparable.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Comparable.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Comparable_intf.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Comparable_intf.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Comparator.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Comparator.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Comparator.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Console.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Console.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Console.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Csexp.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Csexp.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Daemonize.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Daemonize.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Daemonize.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Digest.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Digest.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Digest.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Dyn.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Dyn.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Dyn.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Either.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Either.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Either.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Env.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Env.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Env.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Escape.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Escape.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Escape.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Exn.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Exn.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Exn.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Exn_with_backtrace.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Exn_with_backtrace.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Exn_with_backtrace.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Fcntl.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Fcntl.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Fcntl.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Fdecl.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Fdecl.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Fdecl.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Filename.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Filename.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Filename.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Float.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Float.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Float.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Fpath.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Fpath.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Fpath.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Hashable.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Hashable.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Hashtbl.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Hashtbl.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Hashtbl.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Hashtbl_intf.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Hashtbl_intf.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Id.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Id.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Id.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Int.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Int.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Int.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Interned.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Interned.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Interned.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Interned_intf.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Interned_intf.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Io.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Io.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Io.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Io_intf.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Io_intf.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Lexbuf.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Lexbuf.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Lexbuf.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__List.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__List.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__List.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Loc.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Loc.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Loc.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Loc0.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Loc0.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Lock_file.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Lock_file.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Lock_file.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Map.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Map.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Map.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Map_intf.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Map_intf.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Monad.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Monad.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Monad.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Monad_intf.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Monad_intf.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Nothing.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Nothing.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Nothing.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Option.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Option.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Option.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Or_exn.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Or_exn.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Or_exn.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Ordered.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Ordered.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Ordered.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Ordering.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Ordering.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Ordering.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Path.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Path.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Path.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Path_intf.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Path_intf.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Pid.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Pid.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Pid.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Poly.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Poly.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Poly.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Pp.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Pp.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Pp.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Proc.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Proc.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Proc.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Queue.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Queue.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Queue.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Result.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Result.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Result.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Scanf.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Scanf.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Scanf.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Seq.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Seq.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Seq.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Set.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Set.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Set.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Set_intf.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Set_intf.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Sexp.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Sexp.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Sexp.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Signal.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Signal.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Signal.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Spawn.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Spawn.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Spawn.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Staged.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Staged.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Staged.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__String.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__String.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__String.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__String_split.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__String_split.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__String_split.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Sys.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Sys.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Sys.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Table.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Table.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Table.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Temp.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Temp.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Temp.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Top_closure.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Top_closure.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Top_closure.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Top_closure_intf.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Top_closure_intf.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Tuple.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Tuple.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Tuple.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Type_eq.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Type_eq.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Type_eq.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Unit.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Unit.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Unit.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__Univ_map.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__Univ_map.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__Univ_map.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__User_error.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__User_error.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__User_error.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__User_message.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__User_message.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__User_message.cmti
+-lib/ocaml/dune-private-libs/stdune/stdune__User_warning.cmi
+-lib/ocaml/dune-private-libs/stdune/stdune__User_warning.cmt
+-lib/ocaml/dune-private-libs/stdune/stdune__User_warning.cmti
+-lib/ocaml/dune-private-libs/stdune/string.ml
+-lib/ocaml/dune-private-libs/stdune/string.mli
+-lib/ocaml/dune-private-libs/stdune/string_split.ml
+-lib/ocaml/dune-private-libs/stdune/string_split.mli
+-lib/ocaml/dune-private-libs/stdune/sys.ml
+-lib/ocaml/dune-private-libs/stdune/sys.mli
+-lib/ocaml/dune-private-libs/stdune/table.ml
+-lib/ocaml/dune-private-libs/stdune/table.mli
+-lib/ocaml/dune-private-libs/stdune/temp.ml
+-lib/ocaml/dune-private-libs/stdune/temp.mli
+-lib/ocaml/dune-private-libs/stdune/top_closure.ml
+-lib/ocaml/dune-private-libs/stdune/top_closure.mli
+-lib/ocaml/dune-private-libs/stdune/top_closure_intf.ml
+-lib/ocaml/dune-private-libs/stdune/tuple.ml
+-lib/ocaml/dune-private-libs/stdune/tuple.mli
+-lib/ocaml/dune-private-libs/stdune/type_eq.ml
+-lib/ocaml/dune-private-libs/stdune/type_eq.mli
+-lib/ocaml/dune-private-libs/stdune/unit.ml
+-lib/ocaml/dune-private-libs/stdune/unit.mli
+-lib/ocaml/dune-private-libs/stdune/univ_map.ml
+-lib/ocaml/dune-private-libs/stdune/univ_map.mli
+-lib/ocaml/dune-private-libs/stdune/user_error.ml
+-lib/ocaml/dune-private-libs/stdune/user_error.mli
+-lib/ocaml/dune-private-libs/stdune/user_message.ml
+-lib/ocaml/dune-private-libs/stdune/user_message.mli
+-lib/ocaml/dune-private-libs/stdune/user_warning.ml
+-lib/ocaml/dune-private-libs/stdune/user_warning.mli
+-lib/ocaml/dune-private-libs/xdg/
+-lib/ocaml/dune-private-libs/xdg/xdg.cma
+-lib/ocaml/dune-private-libs/xdg/xdg.cmi
+-lib/ocaml/dune-private-libs/xdg/xdg.cmt
+-lib/ocaml/dune-private-libs/xdg/xdg.cmti
+-lib/ocaml/dune-private-libs/xdg/xdg.ml
+-lib/ocaml/dune-private-libs/xdg/xdg.mli
+-@so lib/ocaml/stublibs/dllstdune_stubs.so
+-share/doc/dune-private-libs/
+-share/doc/dune-private-libs/CHANGES.md
+-share/doc/dune-private-libs/LICENSE.md
+-share/doc/dune-private-libs/README.md
+
+------- =_aaaaaaaaaa0--
+
