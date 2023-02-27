@@ -1,0 +1,79 @@
+Index: Makefile
+--- Makefile.orig
++++ Makefile
+@@ -0,0 +1,74 @@
++## makefile for mizar system
++
++FPC		= fpc
++FPC_OPTIONS	= -Mdelphi -Fuaddtools/ -Fubase/ -Fukernel/ -Fulibtools/ -Fuusrtools/
++
++obj_addtools =        \
++    addtools/remflags \
++    addtools/prune    \
++    addtools/msplit   \
++    addtools/mglue    \
++    addtools/errflag  \
++    addtools/edtfile  \
++    addtools/commextr \
++    addtools/chkerr   \
++    addtools/addfmsg
++
++obj_base =            \
++    base/wsmparser    \
++    base/msmprocessor \
++    base/esmprocessor
++
++obj_kernel =        \
++    kernel/verifier \
++    kernel/transfer \
++    kernel/naccom   \
++    kernel/makeenv  \
++    kernel/exporter \
++    kernel/accom
++
++obj_libtools =        \
++    libtools/unhereby \
++    libtools/trivdemo \
++    libtools/replthls \
++    libtools/renthlab \
++    libtools/reliters \
++    libtools/relinfer \
++    libtools/refrem   \
++    libtools/envget   \
++    libtools/dellink  \
++    libtools/createvd \
++    libtools/chkrprem \
++    libtools/checkvoc
++
++obj_usrtools =        \
++    usrtools/relprem  \
++    usrtools/listvoc  \
++    usrtools/lisppars \
++    usrtools/irrvoc   \
++    usrtools/irrths   \
++    usrtools/inacc    \
++    usrtools/findvoc  \
++    usrtools/constr   \
++    usrtools/chklab   \
++    usrtools/absedt
++
++obj_all = $(obj_addtools) $(obj_base) $(obj_kernel) $(obj_libtools) $(obj_usrtools)
++
++all: $(obj_all)
++
++.for executable in $(obj_all)
++$(executable): $(executable).dpr
++	$(FPC) $(FPC_OPTIONS) $(executable).dpr
++.endfor
++
++install: $(obj_all)
++	for i in $(obj_all); do \
++	  install -d $(PREFIX)/libexec/mizar/ ; \
++	  install $${i} $(PREFIX)/libexec/mizar/ ; \
++	done
++
++clean:
++	rm -f $(obj_all)
++	for i in addtools base kernel libtools usrtools; do \
++	  rm -f ${i}/*.o ${i}/*.ppu ; \
++	done

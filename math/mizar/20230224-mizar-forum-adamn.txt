@@ -1,0 +1,29 @@
+Return-Path: <owner-mizar-forum@mizar.uwb.edu.pl>
+Date: Fri, 24 Feb 2023 13:43:53 +0100 (CET)
+From: Adam Naumowicz  adamn _AT_ math.uwb.edu.pl <owner-mizar-forum@mizar.uwb.edu.pl>
+X-X-Sender: adamn@math
+To: mizar-forum@mizar.uwb.edu.pl
+Subject: [mizar] Open-sourcing Mizar
+Message-ID: <Pine.SOL.4.64.2302241316210.29078@math>
+MIME-Version: 1.0
+Content-Type: TEXT/PLAIN; charset=US-ASCII; format=flowed
+Reply-To: mizar-forum@mizar.uwb.edu.pl
+
+Dear Mizar Users,
+
+I'm writing to let you know that the source code of the current Mizar 
+implementation is now available as a public repository at
+
+https://github.com/MizarProject/system
+
+The Board of Control of the Association of Mizar Users who is the 
+copyright holder, including Czeslaw Bylinski who is the main 
+implementer and author of the sources decided to have it open-sourced
+under the GNU GPLv3 license. This should allow accessing the code and 
+developing Mizar-related software on similar terms as the Mizar 
+Mathematical Library (available under both GPL and CC-By-SA licenses).
+
+Best regards,
+
+Adam Naumowicz
+

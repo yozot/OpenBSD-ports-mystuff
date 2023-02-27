@@ -1,0 +1,19 @@
+The Mizar System is the only implementation of the Mizar Language.
+Originally, the Mizar system was implemented on an IBM-PC x86
+compatibles under MS DOS.
+The whole Mizar system (including verifier) is coded in Pascal
+using the Free Pascal compiler.
+
+Mizar Articles
+Prepare your Mizar Article as a plain text file.
+Run it through the Accomodator to generate related environment files.
+And run it through the Verifier to check any errors.
+Repeat editing and verifying your article until you get no errors.
+
+Josef Urban provides Emacs-lisp Mizar mode.
+(https://github.com/JUrban/mizarmode/)
+
+TODO:
+  - mizf script?
+  - bundling emacs-lisp mizar mode?
+  - Mizar Mathematical Library?
