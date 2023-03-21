@@ -1,0 +1,4 @@
+SafeInt is a class library for C++ that manages integer overflows.
+Since 3.0.26c released on July 2022, it also includes a C library
+that checks casting, multiplication, division, addition, and subtraction
+for all combinations of signed and unsigned 32-bit and 64-bit integers.

@@ -1,0 +1,20 @@
+--- Test/GccTest/CMakeLists.txt.orig	Mon Feb 20 14:48:39 2023
++++ Test/GccTest/CMakeLists.txt	Tue Mar 21 16:47:55 2023
+@@ -22,13 +22,13 @@
+ # - Intel (not regularly tested)
+ # other compilers on a best effort
+ 
+-# test for g++
+-find_program(GCC_PLUS_PLUS "g++")
++# test for eg++
++find_program(GCC_PLUS_PLUS "eg++")
+ 
+ if(NOT GCC_PLUS_PLUS)
+-    message(STATUS "Skipping g++ testing")
++    message(STATUS "Skipping eg++ testing")
+ else()
+-    message(STATUS "g++ available, configuring g++ tests")
++    message(STATUS "eg++ available, configuring eg++ tests")
+     set(CMAKE_CXX_COMPILER ${GCC_PLUS_PLUS})
+     # the standard level is already at C++11, which is what we need for runtime tests
+     add_compile_options(-O3 -ftrapv)

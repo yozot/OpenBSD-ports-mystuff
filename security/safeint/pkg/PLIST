@@ -1,0 +1,10 @@
+include/SafeInt/
+include/SafeInt/SafeInt.hpp
+include/SafeInt/safe_math.h
+include/SafeInt/safe_math_impl.h
+share/doc/SafeInt/
+share/doc/SafeInt/CODE_OF_CONDUCT.md
+share/doc/SafeInt/CONTRIBUTING.md
+share/doc/SafeInt/LICENSE
+share/doc/SafeInt/README.md
+share/doc/SafeInt/helpfile.md
