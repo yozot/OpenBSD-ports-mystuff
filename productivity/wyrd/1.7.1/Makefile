@@ -16,7 +16,7 @@ EXTRACT_SUFX =		.tar.xz
 MODULES =		lang/ocaml
 BUILD_DEPENDS =		devel/dune \
 			devel/ocaml-yojson \
-			lang/ocaml-curses
+			lang/ocaml-curses/1.0.11
 RUN_DEPENDS =		misc/remind
 USE_GMAKE =		Yes
 NO_TEST =		Yes
