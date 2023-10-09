@@ -1,0 +1,10 @@
+OCaml Curses is a project to provide curses / ncurses bindings for the
+Objective Caml language.
+
+It was formally known as Text Mode Kit (TMK), but the TMK part of the project
+is not supported anymore, and instead we are just concentrating on providing
+reliable OCaml curses bindings. The author of TMK and the original version of
+the bindings was Nicolas George.
+
+This is a fork of the now unmaintained ocaml-twk package at
+https://www.nongnu.org/ocaml-tmk/

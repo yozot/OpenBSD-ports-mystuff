@@ -1,0 +1,11 @@
+Index: curses-1.0.11/dune-project
+--- curses-1.0.11/dune-project.orig
++++ curses-1.0.11/dune-project
+@@ -1,6 +1,7 @@
+ (lang dune 2.7)
+ 
+ (name curses)
++(version 1.0.11)
+ 
+ (generate_opam_files true)
+ 
