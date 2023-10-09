@@ -1,0 +1,12 @@
+Wyrd is a text-based front-end to
+[Remind](https://dianne.skoll.ca/projects/remind/), a sophisticated
+calendar and alarm program serving two purposes:
+
+1. It displays reminders in a scrollable timetable view suitable
+   for visualizing your calendar at a glance.
+2. It makes creating and editing reminders fast and easy.
+   However, Wyrd does not hide Remind's textfile programmability,
+   for this is what makes Remind a truly powerful calendaring system.
+
+Wyrd also requires only a fraction of the resources of most calendar
+programs available today.

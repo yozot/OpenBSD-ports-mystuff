@@ -1,0 +1,21 @@
+we don't need DESTDIR here.
+
+Index: Makefile
+--- Makefile.orig
++++ Makefile
+@@ -70,12 +70,12 @@ dist: distclean
+ 	rm -rf wyrd-$(VERSION)
+ 
+ install: wyrd
+-	$(INSTALL) -d $(DESTDIR)$(BINDIR)
+-	$(INSTALL) -m 755 wyrd $(DESTDIR)$(BINDIR)/wyrd
++	$(INSTALL) -d $(BINDIR)
++	$(INSTALL) -m 755 wyrd $(BINDIR)/wyrd
+ 	$(MAKE) -C doc install DESTDIR=$(abspath $(DESTDIR))
+ 
+ uninstall:
+-	rm -f $(DESTDIR)$(BINDIR)/wyrd
++	rm -f $(BINDIR)/wyrd
+ 	$(MAKE) -C doc uninstall DESTDIR=$(abspath $(DESTDIR))
+ 
+ test:

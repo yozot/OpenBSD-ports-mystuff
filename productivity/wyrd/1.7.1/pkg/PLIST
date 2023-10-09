@@ -1,0 +1,4 @@
+@bin bin/wyrd
+@man man/man1/wyrd.1
+@man man/man5/wyrdrc.5
+@man man/man7/wyrd.7
