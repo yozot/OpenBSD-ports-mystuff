@@ -1,4 +1,3 @@
-@comment $OpenBSD$
 @bin bin/camlrunm
 bin/mosml
 bin/mosmlc
@@ -189,6 +188,12 @@ lib/mosml/Option.uo
 lib/mosml/PP.sig
 lib/mosml/PP.ui
 lib/mosml/PP.uo
+lib/mosml/PackRealBig.sig
+lib/mosml/PackRealBig.ui
+lib/mosml/PackRealBig.uo
+lib/mosml/PackRealLittle.sig
+lib/mosml/PackRealLittle.ui
+lib/mosml/PackRealLittle.uo
 lib/mosml/Parsing.sig
 lib/mosml/Parsing.ui
 lib/mosml/Parsing.uo

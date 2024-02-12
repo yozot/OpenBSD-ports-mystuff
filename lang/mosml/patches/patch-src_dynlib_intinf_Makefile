@@ -1,13 +1,12 @@
-$OpenBSD$
---- src/dynlibs/intinf/Makefile.orig	Thu Aug 28 20:45:21 2014
-+++ src/dynlibs/intinf/Makefile	Sun May 29 23:17:28 2016
-@@ -18,11 +18,11 @@ CFLAGS=-Dunix -O3 $(OPTS) $(ADDDYNLIBCFLAGS) -I$(CAMLR
+Index: src/dynlibs/intinf/Makefile
+--- src/dynlibs/intinf/Makefile.orig	Tue Feb 13 03:11:30 2024
++++ src/dynlibs/intinf/Makefile	Tue Feb 13 03:17:30 2024
+@@ -18,22 +18,22 @@
  
  MOSMLTOOLS=camlrunm $(TOOLDIR)
  
 -all: libmgmp.so IntInf.uo
 +all: libmgmp.so.${LIBmgmp_VERSION} IntInf.uo
- 
  
  install:
 -	$(INSTALL_DATA) libmgmp.so $(DESTDIR)$(LIBDIR)
@@ -15,7 +14,11 @@ $OpenBSD$
  	$(INSTALL_DATA) IntInf.sig $(DESTDIR)$(LIBDIR)
  	$(INSTALL_DATA) IntInf.ui $(DESTDIR)$(LIBDIR)
  	$(INSTALL_DATA) IntInf.uo $(DESTDIR)$(LIBDIR)
-@@ -30,8 +30,8 @@ install:
+ 
+ uninstall:
+-	cd $(DESTDIR)$(LIBDIR) && ${UNINSTALL_DATA} libmgmp.so IntInf.sig IntInf.ui IntInf.uo
++	cd $(DESTDIR)$(LIBDIR) && ${UNINSTALL_DATA} libmgmp.so.${LIBmgmp_VERSION} IntInf.sig IntInf.ui IntInf.uo
+ 
  intinf.o: intinf.c
  	$(CC) $(CFLAGS) -c -o intinf.o intinf.c
  

@@ -1,0 +1,36 @@
+Index: src/Makefile.inc
+--- src/Makefile.inc.orig
++++ src/Makefile.inc
+@@ -25,9 +25,9 @@ MANEXT=1
+ VERSION=2.10
+ 
+ # Various utility programs
+-INSTALL_PROGRAM=cp
+-INSTALL_SCRIPT=cp
+-INSTALL_DATA=cp
++INSTALL_PROGRAM=${BSD_INSTALL_PROGRAM}
++INSTALL_SCRIPT=${BSD_INSTALL_SCRIPT}
++INSTALL_DATA=${BSD_INSTALL_DATA}
+ UNINSTALL_PROGRAM=rm -f
+ UNINSTALL_SCRIPT=rm -f
+ UNINSTALL_DATA=rm -f
+@@ -37,7 +37,7 @@ BASELIBS=-lm
+ 
+ # This works with most systems, including MacOS X with XCode installed:
+ 
+-CC=gcc
++## CC=gcc
+ # CC=gcc -mmacosx-version-min=10.7 # for building OS X package
+ # CC=/usr/sepp/bin/gcc		# Solaris at KVL
+ 
+@@ -92,8 +92,8 @@ ifeq ($(UNAME_S),OpenBSD)
+ 	ADDRUNLIBS=
+ 	CPP=cpp -P -traditional -Dunix -Umsdos -Wno-invalid-pp-token
+ 	STRIP=strip -S
+-	LD=gcc -rdynamic -Wl,-rpath,$(LIBDIR)
+-	DYNLD=gcc -shared
++	LD=$(CC) -rdynamic -Wl,-rpath,$(LIBDIR)
++	DYNLD=$(CC) -shared
+ endif
+ 
+ ifeq ($(UNAME_S),Custom) # Your configuration here

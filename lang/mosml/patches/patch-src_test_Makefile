@@ -1,6 +1,7 @@
---- src/test/Makefile.orig	Wed Oct 16 22:29:52 2013
-+++ src/test/Makefile	Mon Oct 28 05:48:36 2013
-@@ -18,7 +18,7 @@
+Index: src/test/Makefile
+--- src/test/Makefile.orig
++++ src/test/Makefile
+@@ -24,7 +24,7 @@ cleaned:
  
  current:
  	rm -f result

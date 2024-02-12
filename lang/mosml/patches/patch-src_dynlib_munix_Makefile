@@ -1,6 +1,7 @@
---- src/dynlibs/munix/Makefile.orig	Thu Aug 28 20:45:21 2014
-+++ src/dynlibs/munix/Makefile	Sun May 29 23:24:54 2016
-@@ -9,16 +9,16 @@
+Index: src/dynlibs/munix/Makefile
+--- src/dynlibs/munix/Makefile.orig	Tue Feb 13 03:11:30 2024
++++ src/dynlibs/munix/Makefile	Tue Feb 13 03:20:07 2024
+@@ -9,19 +9,19 @@
  CFLAGS=-Dunix -O3 $(OPTS) $(ADDDYNLIBCFLAGS) -I$(CAMLRT)
  
  
@@ -18,6 +19,10 @@
  install:
 -	$(INSTALL_DATA) libmunix.so $(DESTDIR)$(LIBDIR)
 +	$(INSTALL_DATA) libmunix.so.${LIBmunix_VERSION} $(DESTDIR)$(LIBDIR)
+ 
+ uninstall:
+-	${UNINSTALL_DATA} $(DESTDIR)$(LIBDIR)/libmunix.so
++	${UNINSTALL_DATA} $(DESTDIR)$(LIBDIR)/libmunix.so.${LIBmunix_VERSION}
  
  test:
  	gcc -O2 -o sieve sieve.c

@@ -1,15 +1,16 @@
-# $OpenBSD: Makefile.template,v 1.75 2016/03/20 17:19:49 naddy Exp $
-
 COMMENT =		a light-weight implementation of Standard ML (SML)
 
 VERSION =	2.10.1
-DISTNAME =	Rel-${VERSION}
 PKGNAME =	mosml-${VERSION}
-REVISION =	1
+REVISION =	2
 
-GH_ACCOUNT =	kfl
+## GH_ACCOUNT =	kfl
 GH_PROJECT =	mosml
-GH_TAGNAME =	ver-${VERSION}
+## GH_TAGNAME =	ver-${VERSION}
+
+COMMIT_HASH = 13c581aec46eea134e478f2e2b6456278e36ecce
+SHORT_HASH  = 13c581ae ## anywhere to use?
+DIST_TUPLE +=	github kfl mosml ${COMMIT_HASH} .
 
 SHARED_LIBS +=	mgmp	1.0 \
                 msocket	0.0 \
@@ -37,7 +38,7 @@ USE_GMAKE =		Yes
 
 NO_TEST =		Yes
 
-WRKDIST =		${WRKDIR}/${GH_PROJECT}-${GH_TAGNAME}
+WRKDIST =		${WRKDIR}/${GH_PROJECT}-${COMMIT_HASH}
 WRKSRC =		${WRKDIST}/src
 
 ALL_TARGET =		world

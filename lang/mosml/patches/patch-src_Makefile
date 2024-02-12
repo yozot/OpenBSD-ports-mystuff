@@ -1,6 +1,7 @@
---- src/Makefile.orig	Wed Oct 16 22:29:52 2013
-+++ src/Makefile	Tue Nov  5 03:35:09 2013
-@@ -143,3 +143,11 @@
+Index: src/Makefile
+--- src/Makefile.orig
++++ src/Makefile
+@@ -159,3 +159,11 @@ depend:
  	cd mosmlyac; $(MAKE) all
  	cd compiler; $(MAKE) depend
  	cd lex; $(MAKE) depend
