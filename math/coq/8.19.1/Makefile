@@ -43,7 +43,6 @@ CONFIGURE_ARGS=	-prefix ${PREFIX} \
 .include <bsd.port.arch.mk>
 .if !${PROPERTIES:Mocaml_native}
 RUN_DEPENDS +=		math/ocaml-zarith
-CONFIGURE_ARGS +=	-byte-only
 .endif
 
 # Unit Tests need the OUnit Testing framework and will fail
