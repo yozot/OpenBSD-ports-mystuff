@@ -1,0 +1,14 @@
+Index: setup.py
+--- setup.py.orig
++++ setup.py
+@@ -2,8 +2,8 @@ from distutils.core import setup
+ import glob
+ 
+ version = '3.0.1'
+-doc_prefix = 'doc/NZMATH-%s/' % version
+-data_prefix = 'nzmath'
++doc_prefix = 'share/doc/NZMATH-%s/' % version
++data_prefix = 'share/nzmath'
+ 
+ setup(
+     name='NZMATH',

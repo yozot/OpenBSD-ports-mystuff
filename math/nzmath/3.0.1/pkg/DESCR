@@ -1,0 +1,15 @@
+NZMATH is a Python calculator on number theory. It is freely available and
+distributed under the BSD license. All programs are written only by Python so
+that you can easily see their algorithmic number theory.
+
+This release contains several program corrections and additions obtained by
+writing a programming "notebook" of the book 'Lectures on Elementary Number
+Theory' (TAKAGI, Teiji) in Python-NZMATH language. The "notebook" itself is
+also available together with NZMATH calculator. It is designed for beginning
+students on algorithmic number theory to self-study Number Theory, Programming
+and scientific English together. It is possible only by running and reading the
+programs. You can get the "notebook" here: https://sourceforge.net/projects/
+nzmath/files/nzmath-enttakagi/
+
+NZMATH is provided as a Python library package named 'nzmath', so please use it
+as a usual package. For more information please refer Tutorial.
