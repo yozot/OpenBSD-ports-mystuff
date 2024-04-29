@@ -1,0 +1,11 @@
+Index: dune-project
+--- dune-project.orig
++++ dune-project
+@@ -11,6 +11,7 @@
+ 
+ (package
+  (name camlp-streams)
++ (version 5.0.1)
+  (synopsis "The Stream and Genlex libraries for use with Camlp4 and Camlp5")
+  (description "
+ This package provides two library modules:
