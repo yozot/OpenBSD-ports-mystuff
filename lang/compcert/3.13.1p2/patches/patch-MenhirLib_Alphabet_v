@@ -1,0 +1,24 @@
+## File "./MenhirLib/Alphabet.v", line 78, characters 7-15:
+## Error: The variable gt_trans was not found in the current environment.
+## found the lemma and the proof of gt_trans from
+## https://www.cs.princeton.edu/courses/archive/fall07/cos595/stdlib/html/Coq.rith.Gt.html
+## I suppose this comes from some old version of coq resources...
+
+Index: MenhirLib/Alphabet.v
+--- MenhirLib/Alphabet.v.orig
++++ MenhirLib/Alphabet.v
+@@ -52,6 +52,14 @@ intros x y z.
+ apply compare_trans.
+ Qed.
+ 
++Lemma gt_trans : forall n m p, n > m -> m > p -> n > p.
++Proof.
++  intros n m p H1 H2.
++  apply Nat.lt_trans with m.
++  auto with arith.
++  apply H1.
++Qed.
++
+ (** nat is comparable. **)
+ Global Program Instance natComparable : Comparable nat :=
+   { compare := Nat.compare }.

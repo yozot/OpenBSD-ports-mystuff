@@ -1,0 +1,18 @@
+## COQC lib/Coqlib.v
+## File "./lib/Coqlib.v", line 1055, characters 13-24:
+## Warning: Notation app_nil_end is deprecated since 8.18.
+## Use app_nil_r instead.
+## [deprecated-syntactic-definition-since-8.18,deprecated-since-8.18,deprecated-syntactic-definition,deprecated,default]
+
+Index: lib/Coqlib.v
+--- lib/Coqlib.v.orig
++++ lib/Coqlib.v
+@@ -1052,7 +1052,7 @@ Proof.
+     elim H4. apply in_or_app. tauto.
+     auto.
+   induction a; simpl; intros.
+-  rewrite <- app_nil_end. auto.
++  rewrite -> app_nil_r. auto.
+   inversion H0. apply H. auto.
+   red; intro; elim H3. apply in_or_app. tauto.
+   red; intro; elim H3. apply in_or_app. tauto.

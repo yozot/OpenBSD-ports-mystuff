@@ -1,0 +1,32 @@
+## COQC flocq/Core/Zaux.v
+## File "./flocq/Core/Zaux.v", line 991, characters 0-20:
+## Error: The variable plus_0_r was not found in the current environment.
+
+Index: flocq/Core/Zaux.v
+--- flocq/Core/Zaux.v.orig
++++ flocq/Core/Zaux.v
+@@ -988,7 +988,7 @@ Lemma iter_nat_plus :
+   iter_nat (p + q) x = iter_nat p (iter_nat q x).
+ Proof.
+ induction q.
+-now rewrite plus_0_r.
++now rewrite <- plus_n_O.
+ intros x.
+ rewrite <- plus_n_Sm.
+ apply IHq.
+@@ -1012,13 +1012,13 @@ Proof.
+ induction p ; intros x.
+ rewrite Pos2Nat.inj_xI.
+ simpl.
+-rewrite plus_0_r.
++rewrite <- plus_n_O.
+ rewrite iter_nat_plus.
+ rewrite (IHp (f x)).
+ apply IHp.
+ rewrite Pos2Nat.inj_xO.
+ simpl.
+-rewrite plus_0_r.
++rewrite <- plus_n_O.
+ rewrite iter_nat_plus.
+ rewrite (IHp x).
+ apply IHp.
