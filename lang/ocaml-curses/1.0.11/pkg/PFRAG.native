@@ -1,1 +1,4 @@
-@so lib/ocaml/stublibs/dllcurses_stubs.so
+lib/ocaml/curses/curses.a
+lib/ocaml/curses/curses.cmx
+lib/ocaml/curses/curses.cmxa
+lib/ocaml/curses/curses.cmxs

@@ -1,18 +1,15 @@
 lib/ocaml/curses/
 lib/ocaml/curses/META
-lib/ocaml/curses/curses.a
 lib/ocaml/curses/curses.cma
 lib/ocaml/curses/curses.cmi
 lib/ocaml/curses/curses.cmt
 lib/ocaml/curses/curses.cmti
-lib/ocaml/curses/curses.cmx
-lib/ocaml/curses/curses.cmxa
-lib/ocaml/curses/curses.cmxs
 lib/ocaml/curses/curses.ml
 lib/ocaml/curses/curses.mli
 lib/ocaml/curses/dune-package
 @static-lib lib/ocaml/curses/libcurses_stubs.a
 lib/ocaml/curses/opam
+@so lib/ocaml/stublibs/dllcurses_stubs.so
 %%native%%
 share/doc/curses/
 share/doc/curses/CHANGES.md
