@@ -22,9 +22,9 @@ RUN_DEPENDS =	japanese/kterm,xaw3d \
 		security/emldump \
 		security/pgpdump \
 		security/gnupg,ldap \
-		security/rnp \
 		www/w3m,image \
 		mail/nmh,sasl \
+		security/rnp \
 		devel/git \
 		misc/magicpoint \
 		editors/emacs,gtk3 \
