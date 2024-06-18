@@ -1,0 +1,14 @@
+$OpenBSD$
+
+we need "typedef pthread_t" early.
+
+Index: test/0000-0012.c
+--- test/0000-0012.c.orig
++++ test/0000-0012.c
+@@ -1,5 +1,6 @@
+ #include "test.h"
+ #include <librecast/net.h>
++#include <pthread.h>
+ #include "../src/librecast_pvt.h"
+ #include <signal.h>
+ #include <time.h>

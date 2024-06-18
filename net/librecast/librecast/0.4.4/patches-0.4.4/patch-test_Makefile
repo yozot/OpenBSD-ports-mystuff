@@ -1,0 +1,30 @@
+$OpenBSD$
+
+here we use /bin/sh, and LDFLAGS and LDCONFIG definitions for OpenBSD.
+
+Index: test/Makefile
+--- test/Makefile.orig
++++ test/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only
+ # Copyright (c) 2017-2021 Brett Sheffield <bacs@librecast.net>
+ 
+-SHELL := /bin/bash
++SHELL := /bin/sh
+ CFLAGS += -O2 -Wall -Wextra -Wpedantic -fno-builtin-malloc -fno-builtin-calloc -g -I. -I../include
+ ifdef USE_LIBSODIUM
+ CFLAGS += -DUSE_LIBSODIUM=$(USE_LIBSODIUM)
+@@ -18,8 +18,13 @@ $(error ABIVERS not set)
+ endif
+ LDCONFIG := ln -sf liblibrecast.so $(LIBRARY_PATH)/liblibrecast.so.$(ABIVERS)
+ else
++ifeq ($(OSNAME),OpenBSD)
++LDFLAGS := -L$(LIBRARY_PATH) -pthread -llibrecast
++LDCONFIG := ln -sf liblibrecast.so $(LIBRARY_PATH)/liblibrecast.so.$(ABIVERS)
++else
+ LDFLAGS := -L$(LIBRARY_PATH) -ldl -pthread -llibrecast
+ LDCONFIG := ldconfig -n $(LIBRARY_PATH)
++endif
+ endif
+ BOLD := "\\e[0m\\e[2m"
+ RESET := "\\e[0m"

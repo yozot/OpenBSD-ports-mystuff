@@ -1,0 +1,15 @@
+$OpenBSD$
+
+we need "typedef pthread_t" early.
+
+Index: src/if.c
+--- src/if.c.orig
++++ src/if.c
+@@ -2,6 +2,7 @@
+ /* Copyright (c) 2017-2021 Brett Sheffield <bacs@librecast.net> */
+ 
+ #include <librecast/if.h>
++#include <pthread.h>
+ #include "librecast_pvt.h"
+ 
+ #include <errno.h>

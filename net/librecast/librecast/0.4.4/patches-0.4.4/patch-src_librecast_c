@@ -1,0 +1,23 @@
+$OpenBSD$
+
+we need "typedef pthread_t" early.
+
+Index: src/librecast.c
+--- src/librecast.c.orig
++++ src/librecast.c
+@@ -2,6 +2,7 @@
+ /* Copyright (c) 2017-2021 Brett Sheffield <bacs@librecast.net> */
+ 
+ #define _GNU_SOURCE
++#include <pthread.h>
+ #include "librecast_pvt.h"
+ #include <librecast/net.h>
+ #include "hash.h"
+@@ -11,7 +12,6 @@
+ #include <ifaddrs.h>
+ #include <net/if.h>
+ #include <netinet/in.h>
+-#include <pthread.h>
+ #include <signal.h>
+ #include <stdlib.h>
+ #include <string.h>

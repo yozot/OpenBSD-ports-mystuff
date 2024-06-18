@@ -1,0 +1,88 @@
+include/librecast/
+include/librecast.h
+include/librecast/blake3.h
+include/librecast/crypto.h
+include/librecast/errors.h
+include/librecast/if.h
+include/librecast/mdex.h
+include/librecast/mld.h
+include/librecast/mtree.h
+include/librecast/net.h
+include/librecast/q.h
+include/librecast/sync.h
+include/librecast/types.h
+@comment @so lib/liblibrecast.so
+@comment lib/liblibrecast.so.0
+@lib lib/liblibrecast.so.${LIBlibrecast_VERSION}
+@man share/man/man3/lc_channel_check_seqno.3
+@man share/man/man3/lc_channel_coding_set.3
+@man share/man/man3/lc_channel_detect_gaps.3
+@man share/man/man3/lc_channel_getkey.3
+@man share/man/man3/lc_channel_nack_add_log.3
+@man share/man/man3/lc_channel_nack_handler.3
+@man share/man/man3/lc_channel_nack_handler_thr.3
+@man share/man/man3/lc_channel_oti_peek.3
+@man share/man/man3/lc_channel_ratelimit.3
+@man share/man/man3/lc_channel_rq.3
+@man share/man/man3/lc_channel_send.3
+@man share/man/man3/lc_channel_sendmsg.3
+@man share/man/man3/lc_channel_set_pub_key.3
+@man share/man/man3/lc_channel_set_sym_key.3
+@man share/man/man3/lc_channel_setkey.3
+@man share/man/man3/lc_ctx_coding_set.3
+@man share/man/man3/lc_ctx_free.3
+@man share/man/man3/lc_ctx_getkey.3
+@man share/man/man3/lc_ctx_ifx.3
+@man share/man/man3/lc_ctx_new.3
+@man share/man/man3/lc_ctx_ratelimit.3
+@man share/man/man3/lc_ctx_set_pub_key.3
+@man share/man/man3/lc_ctx_set_sym_key.3
+@man share/man/man3/lc_ctx_setkey.3
+@man share/man/man3/lc_hashtoaddr.3
+@man share/man/man3/lc_memsync.3
+@man share/man/man3/lc_mmapfile.3
+@man share/man/man3/lc_recv.3
+@man share/man/man3/lc_recvchunk.3
+@man share/man/man3/lc_recvtree.3
+@man share/man/man3/lc_send.3
+@man share/man/man3/lc_sendchunk.3
+@man share/man/man3/lc_sendtree.3
+@man share/man/man3/lc_share.3
+@man share/man/man3/lc_socket_close.3
+@man share/man/man3/lc_socket_new.3
+@man share/man/man3/lc_socketpair.3
+@man share/man/man3/lc_sync.3
+@man share/man/man3/lc_syncfile.3
+@man share/man/man3/lc_syncfilelocal.3
+@man share/man/man3/lc_tuntap_create.3
+@man share/man/man3/lc_unshare.3
+@man share/man/man3/mdex_add.3
+@man share/man/man3/mdex_addfile.3
+@man share/man/man3/mdex_alias.3
+@man share/man/man3/mdex_basedir.3
+@man share/man/man3/mdex_del.3
+@man share/man/man3/mdex_free.3
+@man share/man/man3/mdex_get.3
+@man share/man/man3/mdex_getalias.3
+@man share/man/man3/mdex_init.3
+@man share/man/man3/mdex_put.3
+@man share/man/man3/mdex_tree_hash.3
+@man share/man/man3/mtree_build.3
+@man share/man/man3/mtree_child.3
+@man share/man/man3/mtree_diff_map.3
+@man share/man/man3/mtree_diff_subtree.3
+@man share/man/man3/mtree_free.3
+@man share/man/man3/mtree_init.3
+@man share/man/man3/mtree_nnode.3
+@man share/man/man3/mtree_parent.3
+@man share/man/man3/mtree_subtree_data_max.3
+@man share/man/man3/mtree_subtree_data_min.3
+@man share/man/man3/mtree_verify.3
+@man share/man/man3/q_free.3
+@man share/man/man3/q_init.3
+@man share/man/man3/q_job_seek.3
+@man share/man/man3/q_pool_create.3
+@man share/man/man3/q_pool_destroy.3
+@man share/man/man3/q_push.3
+@man share/man/man3/q_search.3
+@man share/man/man3/q_wait.3

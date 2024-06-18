@@ -1,0 +1,13 @@
+inherit PREFIX from the parent process.
+
+Index: src/Makefile.in
+--- src/Makefile.in.orig
++++ src/Makefile.in
+@@ -16,7 +16,6 @@ HEADERS = ../include/$(LIBNAME).h $(sort $(wildcard ..
+ INSTALL ?= install
+ INSTALL_DATA := $(INSTALL) -m 644
+ LDCONFIG ?= ldconfig
+-PREFIX = @prefix@
+ LIBDIR := $(DESTDIR)$(PREFIX)/lib
+ INCLUDEDIR := $(DESTDIR)$(PREFIX)/include
+ OBJECTS := canonpath.o errors.o hash.o mdex.o mtree.o q.o sync.o @OBJMLD@

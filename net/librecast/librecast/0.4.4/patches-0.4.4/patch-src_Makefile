@@ -1,0 +1,46 @@
+$OpenBSD$
+
+  - additional option for libsodium library
+  - ldconfig disabled
+  - DESTDIR removed
+
+Index: src/Makefile
+--- src/Makefile.orig
++++ src/Makefile
+@@ -20,8 +20,8 @@ INSTALL ?= install
+ LDCONFIG ?= ldconfig
+ INSTALL_DATA := $(INSTALL) -m 644
+ PREFIX ?= /usr/local
+-LIBDIR := $(DESTDIR)$(PREFIX)/lib
+-INCLUDEDIR := $(DESTDIR)$(PREFIX)/include
++LIBDIR := $(PREFIX)/lib
++INCLUDEDIR := $(PREFIX)/include
+ OBJS_BLAKE3 := ../libs/blake3/c/blake3.c ../libs/blake3/c/blake3_dispatch.c ../libs/blake3/c/blake3_portable.c $(sort $(wildcard ../libs/blake3/c/*.o))
+ OBJECTS := errors.o hash.o
+ ifeq ($(OSNAME),Linux)
+@@ -34,7 +34,7 @@ endif
+ LIBS := -pthread -lpthread
+ ifdef USE_LIBSODIUM
+ CFLAGS += -DUSE_LIBSODIUM=$(USE_LIBSODIUM)
+-LIBS += -lsodium
++LIBS += -L${LOCALBASE}/lib -lsodium
+ else
+ OBJECTS += $(OBJS_BLAKE3)
+ endif
+@@ -58,14 +58,14 @@ install: $(SOFILES)
+ 	$(INSTALL) -d $(INCLUDEDIR)
+ 	$(INSTALL_DATA) liblibrecast.so $(LIBDIR)/liblibrecast.so.$(VERSION)
+ 	cp -r ../include/* $(INCLUDEDIR)
+-	$(LDCONFIG) -n $(LIBDIR)
++	## $(LDCONFIG) -n $(LIBDIR)
+ 	ln -sf liblibrecast.so.$(ABIVERS) $(LIBDIR)/liblibrecast.so
+ 
+ .PHONY: clean realclean uninstall
+ 
+ uninstall:
+ 	rm -f $(foreach f,$(SOFILES),$(DESTDIR)$(LIBDIR)/$f.$(VERSION))
+-	$(LDCONFIG) -n $(LIBDIR)
++	## $(LDCONFIG) -n $(LIBDIR)
+ 	cd $(LIBDIR)/ && rm -f $(SOFILES)
+ 
+ clean:

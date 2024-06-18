@@ -1,0 +1,26 @@
+include/lcrq.h
+@comment @so lib/liblcrq.so
+@comment lib/liblcrq.so.0
+@lib lib/liblcrq.so.${LIBlcrq_VERSION}
+@mandir share/man/
+share/man/man3/
+@man share/man/man3/rq_Al.3
+@man share/man/man3/rq_F.3
+@man share/man/man3/rq_K.3
+@man share/man/man3/rq_KP.3
+@man share/man/man3/rq_N.3
+@man share/man/man3/rq_T.3
+@man share/man/man3/rq_Z.3
+@man share/man/man3/rq_decode.3
+@man share/man/man3/rq_encode.3
+@man share/man/man3/rq_free.3
+@man share/man/man3/rq_init.3
+@man share/man/man3/rq_pid2esi.3
+@man share/man/man3/rq_pid2sbn.3
+@man share/man/man3/rq_pidset.3
+@man share/man/man3/rq_pidsetesi.3
+@man share/man/man3/rq_pidsetsbn.3
+@man share/man/man3/rq_query.3
+@man share/man/man3/rq_symbol.3
+share/man/man7/
+@man share/man/man7/lcrq.7
