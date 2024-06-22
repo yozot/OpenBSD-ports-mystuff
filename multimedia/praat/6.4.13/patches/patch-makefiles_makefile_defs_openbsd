@@ -1,0 +1,28 @@
+customization for OpenBSD.
+
+Index: makefiles/makefile.defs.openbsd
+--- makefiles/makefile.defs.openbsd.orig
++++ makefiles/makefile.defs.openbsd
+@@ -0,0 +1,22 @@
++# File: makefile.defs.openbsd
++
++# System: OpenBSD 7.5
++# Yozo TODA, 22 June 2024
++
++LINK = $(CXX)
++## use the default base compiler cc and c++, which means clang on amd64
++
++PKG_CONFIG ?= "pkg-config"
++COMMONFLAGS = -DNO_AUDIO -DUNIX -Dlinux `$(PKG_CONFIG) --cflags gtk+-3.0`
++
++CFLAGS = $(COMMONFLAGS) -Werror=missing-prototypes -Werror=implicit
++
++
++CXXFLAGS = -std=c++17 $(COMMONFLAGS) -Wshadow
++
++EXECUTABLE = praat
++
++LIBS = `$(PKG_CONFIG) --libs gtk+-3.0` -L${X11BASE}/lib -lX11
++
++ICON =
++MAIN_ICON =

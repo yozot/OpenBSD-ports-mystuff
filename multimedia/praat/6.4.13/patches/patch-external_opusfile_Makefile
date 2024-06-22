@@ -1,0 +1,14 @@
+compiled binaries from opusfile/opus/ are placed on opusfile/ and
+results in error when archiving.
+here is a fix for inference rule converting .c to .o.
+
+Index: external/opusfile/Makefile
+--- external/opusfile/Makefile.orig
++++ external/opusfile/Makefile
+@@ -73,3 +73,6 @@ libopusfile.a: $(OBJECTS)
+ 	$(RANLIB) libopusfile.a
+ 
+ $(OBJECTS): *.h ../../melder/*.h
++
++.c.o:
++	${COMPILE.c} -o ${.TARGET} ${.IMPSRC}
