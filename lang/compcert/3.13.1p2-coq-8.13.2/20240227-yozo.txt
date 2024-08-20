@@ -1,0 +1,99 @@
+Return-Path: <owner-ports+m141592=yozo=v007.vaio.ne.jp@openbsd.org>
+Received: from ms-fb01.so-net.ne.jp (ms-fb01.so-net.ne.jp [202.238.84.155])
+	by mail.openbsd.org (OpenSMTPD) with ESMTPS id 1e3ec628 (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256:NO)
+	for <ports@openbsd.org>;
+	Mon, 26 Feb 2024 12:14:17 -0700 (MST)
+Received: from ms-mxout01.so-net.ne.jp (ms-mxout01.plus.so-net.ne.jp [10.240.82.17])
+	by ms-fb01.so-net.ne.jp  with ESMTP id 41QHJmxt006529
+	for <ports@openbsd.org>; Tue, 27 Feb 2024 03:10:16 +0900
+Received: from conohabygmo.my.domain ([118.27.114.163])
+	by ms-mxout01.so-net.ne.jp with ESMTPA
+	id efQSrc38ZSX2FefQSrgDtW; Tue, 27 Feb 2024 03:10:04 +0900
+Received: from conohabygmo.my.domain (localhost [::1])
+	by v007.vaio.ne.jp (OpenSMTPD) with ESMTP id 06623703;
+	Tue, 27 Feb 2024 03:10:04 +0900 (JST)
+From: Yozo TODA <yozo@v007.vaio.ne.jp>
+To: ports@openbsd.org
+cc: Daniel Dickman <didickman@gmail.com>
+Subject: lang/compcert: patch for ocaml-non-native-arch
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="----- =_aaaaaaaaaa0"
+Content-ID: <89988.1708970713.0@conohabygmo.my.domain>
+Date: Tue, 27 Feb 2024 03:10:04 +0900
+Message-ID: <dc726f2773411900@v007.vaio.ne.jp>
+List-Help: <mailto:majordomo@openbsd.org?body=help>
+List-ID: <ports.openbsd.org>
+List-Owner: <mailto:owner-ports@openbsd.org>
+List-Post: <mailto:ports@openbsd.org>
+List-Subscribe: <mailto:majordomo@openbsd.org?body=sub%20ports>
+List-Unsubscribe: <mailto:majordomo@openbsd.org?body=unsub%20ports>
+X-Loop: ports@openbsd.org
+Precedence: bulk
+Sender: owner-ports@openbsd.org
+
+------- =_aaaaaaaaaa0
+Content-Type: text/plain; charset="us-ascii"
+Content-ID: <89988.1708970713.1@conohabygmo.my.domain>
+
+I found that packaging lang/compcert fails on ocaml-non-native architectures.
+we need a patch to Makefile.menhir.
+(and I'm not sure if we need revision up here...)
+
+-- yozo.
+
+
+------- =_aaaaaaaaaa0
+Content-Type: text/plain; charset="us-ascii"
+Content-ID: <89988.1708970713.2@conohabygmo.my.domain>
+content-Disposition: diff-lang-compcert;
+  filename="diff-lang-compcert"
+
+diff -urN -x CVS /usr/ports/lang/compcert/Makefile /usr/ports/mystuff/lang/compcert/3.13.1p1/Makefile
+--- /usr/ports/lang/compcert/Makefile	Sat Jan  6 10:38:27 2024
++++ /usr/ports/mystuff/lang/compcert/3.13.1p1/Makefile	Thu Feb  1 01:36:12 2024
+@@ -8,7 +8,7 @@
+ GH_TAGNAME =		v${V}
+ DISTNAME =		${GH_PROJECT}-${V}
+ PKGNAME =		${DISTNAME:L}
+-REVISION =		0
++REVISION =		1
+ 
+
+ HOMEPAGE =		https://compcert.org/
+ 
+
+diff -urN -x CVS /usr/ports/lang/compcert/patches/patch-Makefile_menhir /usr/ports/mystuff/lang/compcert/3.13.1p1/patches/patch-Makefile_menhir
+--- /usr/ports/lang/compcert/patches/patch-Makefile_menhir	Thu Jan  1 09:00:00 1970
++++ /usr/ports/mystuff/lang/compcert/3.13.1p1/patches/patch-Makefile_menhir	Mon Aug 21 18:18:14 2023
+@@ -0,0 +1,27 @@
++for ocaml-non-native architectures
++
++Index: Makefile.menhir
++--- Makefile.menhir.orig
+++++ Makefile.menhir
++@@ -42,10 +42,18 @@ MENHIR_FLAGS = -v --no-stdlib -la 1
++ # Using Menhir in --table mode requires MenhirLib.
++ 
+
++ ifeq ($(MENHIR_TABLE),true)
++-  ifeq ($(wildcard $(MENHIR_DIR)/menhirLib.cmxa),)
++-    MENHIR_LIBS = menhirLib.cmx
+++  ifeq ($(OCAML_NATIVE_COMP), true)
+++    ifeq ($(wildcard $(MENHIR_DIR)/menhirLib.cmxa),)
+++      MENHIR_LIBS = menhirLib.cmx
+++    else
+++      MENHIR_LIBS = menhirLib.cmxa
+++    endif
++   else
++-    MENHIR_LIBS = menhirLib.cmxa
+++    ifeq ($(wildcard $(MENHIR_DIR)/menhirLib.cma),)
+++      MENHIR_LIBS = menhirLib.cmo
+++    else
+++      MENHIR_LIBS = menhirLib.cma
+++    endif
++   endif
++ else
++   MENHIR_LIBS =
+
+------- =_aaaaaaaaaa0--
+
