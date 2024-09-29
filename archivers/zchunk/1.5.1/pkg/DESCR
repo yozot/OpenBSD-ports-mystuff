@@ -1,0 +1,20 @@
+zchunk is a compressed file format that splits the file into independent chunks.
+This allows you to only download changed chunks when downloading a new version
+of the file.  Files can hosted on any web server that supports HTTP ranged
+requests, with no special software required to serve the files (though to
+download only the changed chunks, your client must be zchunk-aware).
+
+zchunk files are protected with strong checksums to verify that the file you
+downloaded is, in fact, the file you wanted.
+
+To decompress a zchunk file, simply run:
+unzck <filename>
+
+To compress a new zchunk file, run:
+zck <filename>
+
+To download a zchunk file, run:
+zckdl -s <source> <url of target>
+
+To read a zchunk header, run:
+zck_read_header <file>

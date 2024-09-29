@@ -1,0 +1,15 @@
+@bin bin/unzck
+@bin bin/zck
+@bin bin/zck_delta_size
+@bin bin/zck_gen_zdict
+@bin bin/zck_read_header
+@bin bin/zckdl
+include/zck.h
+@lib lib/libzck.so.${LIBzck_VERSION}
+lib/pkgconfig/zck.pc
+@man man/man1/unzck.1
+@man man/man1/zck.1
+@man man/man1/zck_delta_size.1
+@man man/man1/zck_gen_zdict.1
+@man man/man1/zck_read_header.1
+@man man/man1/zckdl.1
