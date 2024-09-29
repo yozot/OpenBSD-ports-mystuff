@@ -1,0 +1,46 @@
+Index: apkhunt.go
+--- apkhunt.go.orig
++++ apkhunt.go
+@@ -50,16 +50,16 @@ import (
+         func APKHunt_basic_req_checks() {
+         
+         // OS type check
+-        if runtime.GOOS != "linux" {
++        if runtime.GOOS != "linux" && runtime.GOOS != "openbsd" {
+                 APKHunt_Intro_Func()
+-                fmt.Println("\n[+] Checking if APKHunt is being executed on Linux OS or not...") 
+-                fmt.Println("[!] Linux OS has not been identified! \n[!] Exiting...")
++                fmt.Println("\n[+] Checking if APKHunt is being executed on Linux or OpenBSD...") 
++                fmt.Println("[!] Unknown OS identified! \n[!] Exiting...")
+                 fmt.Println("\n[+] It is recommended to execute APKHunt on Kali Linux OS.") 
+                 os.Exit(0) 
+         }
+         
+         //grep/jadx/dex2jar filepath check
+-        requiredUtilities := []string{"grep", "jadx", "d2j-dex2jar"}
++        requiredUtilities := []string{"grep", "jadx", "dex2jar"}
+         for _, utility := range requiredUtilities {
+                 _, err := exec.LookPath(utility)
+                         if err != nil {
+@@ -69,7 +69,7 @@ import (
+                                         fmt.Printf("\n[!] grep utility has not been observed. \n[!] Kindly install it first! \n[!] Exiting...")
+                                 case "jadx":
+                                         fmt.Printf("\n[!] jadx decompiler has not been observed. \n[!] Kindly install it first! \n[!] Exiting...")
+-                                case "d2j-dex2jar":
++                                case "dex2jar":
+                                         fmt.Printf("\n[!] dex2jar has not been observed. \n[!] Kindly install it first! \n[!] Exiting...")
+                                 }
+                                 os.Exit(0)
+@@ -351,10 +351,10 @@ func main() {
+         log.Printf("[+] APK Hash: SHA256: %x\n", sha256.Sum256(file_hash))
+         
+         fmt.Printf(string(colorBlue))
+-        log.Println("\n[+] d2j-dex2jar has started converting APK to Java JAR file")
++        log.Println("\n[+] dex2jar has started converting APK to Java JAR file")
+         fmt.Printf(string(colorReset))
+         log.Println("[+] =======================================================")
+-        cmd_apk_dex2jar, err := exec.Command("d2j-dex2jar", apkpath, "-f", "-o", dex2jarpath).CombinedOutput()
++        cmd_apk_dex2jar, err := exec.Command("dex2jar", apkpath, "-f", "-o", dex2jarpath).CombinedOutput()
+         if err != nil {
+                 log.Println(err.Error())
+         }
