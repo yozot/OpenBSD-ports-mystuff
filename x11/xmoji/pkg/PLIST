@@ -1,0 +1,26 @@
+@bin bin/xmoji
+share/applications/
+share/applications/xmoji.desktop
+share/doc/xmoji/
+share/doc/xmoji/README.md
+share/doc/xmoji/TRANSLATE.md
+share/icons/
+share/icons/hicolor/
+share/icons/hicolor/16x16/
+share/icons/hicolor/16x16/apps/
+share/icons/hicolor/16x16/apps/xmoji.png
+share/icons/hicolor/256x256/
+share/icons/hicolor/256x256/apps/
+share/icons/hicolor/256x256/apps/xmoji.png
+share/icons/hicolor/32x32/
+share/icons/hicolor/32x32/apps/
+share/icons/hicolor/32x32/apps/xmoji.png
+share/icons/hicolor/48x48/
+share/icons/hicolor/48x48/apps/
+share/icons/hicolor/48x48/apps/xmoji.png
+share/xmoji/
+share/xmoji/translations/
+share/xmoji/translations/xmoji-emojis-de.xct
+share/xmoji/translations/xmoji-ui-de.xct
+@tag update-desktop-database
+@tag gtk-update-icon-cache %D/share/icons/hicolor
