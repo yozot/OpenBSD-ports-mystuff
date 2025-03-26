@@ -1,0 +1,132 @@
+@conflict dune-private-*
+@pkgpath sysutils/dune
+@pkgpath sysutils/dune,-private
+@pkgpath devel/dune
+@bin bin/dune
+lib/ocaml/dune/
+lib/ocaml/dune/META
+lib/ocaml/dune/dune-package
+lib/ocaml/dune/opam
+lib/ocaml/stdune/array.mli
+lib/ocaml/stdune/bit_set.ml
+lib/ocaml/stdune/bit_set.mli
+lib/ocaml/stdune/compact_position.ml
+lib/ocaml/stdune/compact_position.mli
+lib/ocaml/stdune/dev_null.ml
+lib/ocaml/stdune/dev_null.mli
+lib/ocaml/stdune/dune_either.ml
+lib/ocaml/stdune/env_path.ml
+lib/ocaml/stdune/env_path.mli
+lib/ocaml/stdune/filename_set.ml
+lib/ocaml/stdune/filename_set.mli
+lib/ocaml/stdune/filesystem_stubs/dune_filesystem_stubs.a
+lib/ocaml/stdune/format.ml
+lib/ocaml/stdune/format.mli
+lib/ocaml/stdune/lazy.ml
+lib/ocaml/stdune/loc0.mli
+lib/ocaml/stdune/per_item.ml
+lib/ocaml/stdune/per_item.mli
+lib/ocaml/stdune/per_item_intf.ml
+lib/ocaml/stdune/platform.ml
+lib/ocaml/stdune/platform.mli
+lib/ocaml/stdune/stdune__Array.cmti
+lib/ocaml/stdune/stdune__Bit_set.cmi
+lib/ocaml/stdune/stdune__Bit_set.cmt
+lib/ocaml/stdune/stdune__Bit_set.cmti
+lib/ocaml/stdune/stdune__Bit_set.cmx
+lib/ocaml/stdune/stdune__Compact_position.cmi
+lib/ocaml/stdune/stdune__Compact_position.cmt
+lib/ocaml/stdune/stdune__Compact_position.cmti
+lib/ocaml/stdune/stdune__Compact_position.cmx
+lib/ocaml/stdune/stdune__Dev_null.cmi
+lib/ocaml/stdune/stdune__Dev_null.cmt
+lib/ocaml/stdune/stdune__Dev_null.cmti
+lib/ocaml/stdune/stdune__Dev_null.cmx
+lib/ocaml/stdune/stdune__Dune_either.cmi
+lib/ocaml/stdune/stdune__Dune_either.cmt
+lib/ocaml/stdune/stdune__Dune_either.cmx
+lib/ocaml/stdune/stdune__Env_path.cmi
+lib/ocaml/stdune/stdune__Env_path.cmt
+lib/ocaml/stdune/stdune__Env_path.cmti
+lib/ocaml/stdune/stdune__Env_path.cmx
+lib/ocaml/stdune/stdune__Filename_set.cmi
+lib/ocaml/stdune/stdune__Filename_set.cmt
+lib/ocaml/stdune/stdune__Filename_set.cmti
+lib/ocaml/stdune/stdune__Filename_set.cmx
+lib/ocaml/stdune/stdune__Format.cmi
+lib/ocaml/stdune/stdune__Format.cmt
+lib/ocaml/stdune/stdune__Format.cmti
+lib/ocaml/stdune/stdune__Format.cmx
+lib/ocaml/stdune/stdune__Lazy.cmi
+lib/ocaml/stdune/stdune__Lazy.cmt
+lib/ocaml/stdune/stdune__Lazy.cmx
+lib/ocaml/stdune/stdune__Loc0.cmti
+lib/ocaml/stdune/stdune__Per_item.cmi
+lib/ocaml/stdune/stdune__Per_item.cmt
+lib/ocaml/stdune/stdune__Per_item.cmti
+lib/ocaml/stdune/stdune__Per_item.cmx
+lib/ocaml/stdune/stdune__Per_item_intf.cmi
+lib/ocaml/stdune/stdune__Per_item_intf.cmt
+lib/ocaml/stdune/stdune__Per_item_intf.cmx
+lib/ocaml/stdune/stdune__Platform.cmi
+lib/ocaml/stdune/stdune__Platform.cmt
+lib/ocaml/stdune/stdune__Platform.cmti
+lib/ocaml/stdune/stdune__Platform.cmx
+lib/ocaml/stdune/stdune__String_builder.cmi
+lib/ocaml/stdune/stdune__String_builder.cmt
+lib/ocaml/stdune/stdune__String_builder.cmti
+lib/ocaml/stdune/stdune__String_builder.cmx
+lib/ocaml/stdune/string_builder.ml
+lib/ocaml/stdune/string_builder.mli
+@so lib/ocaml/stublibs/dlldune_filesystem_stubs_stubs.so
+@so lib/ocaml/stublibs/dllstdune_stubs.so
+@man man/man1/dune-build.1
+@man man/man1/dune-cache.1
+@man man/man1/dune-clean.1
+@man man/man1/dune-coq.1
+@man man/man1/dune-describe.1
+@man man/man1/dune-diagnostics.1
+@man man/man1/dune-exec.1
+@man man/man1/dune-external-lib-deps.1
+@man man/man1/dune-fmt.1
+@man man/man1/dune-format-dune-file.1
+@man man/man1/dune-help.1
+@man man/man1/dune-init.1
+@man man/man1/dune-install.1
+@man man/man1/dune-installed-libraries.1
+@man man/man1/dune-internal.1
+@man man/man1/dune-monitor.1
+@man man/man1/dune-ocaml-merlin.1
+@man man/man1/dune-ocaml.1
+@man man/man1/dune-package.1
+@man man/man1/dune-pkg.1
+@man man/man1/dune-printenv.1
+@man man/man1/dune-promote.1
+@man man/man1/dune-promotion.1
+@man man/man1/dune-rpc.1
+@man man/man1/dune-rules.1
+@man man/man1/dune-runtest.1
+@man man/man1/dune-show.1
+@man man/man1/dune-shutdown.1
+@man man/man1/dune-subst.1
+@man man/man1/dune-test.1
+@man man/man1/dune-tools.1
+@man man/man1/dune-top.1
+@man man/man1/dune-uninstall.1
+@man man/man1/dune-upgrade.1
+@man man/man1/dune-utop.1
+@man man/man1/dune.1
+@man man/man5/dune-config.5
+share/doc/dune/
+share/doc/dune-configurator/odoc-pages/
+share/doc/dune-configurator/odoc-pages/index.mld
+share/doc/dune/CHANGES.md
+share/doc/dune/LICENSE.md
+share/doc/dune/README.md
+share/doc/dune/odoc-pages/
+share/doc/dune/odoc-pages/index.mld
+share/emacs/
+share/emacs/site-lisp/
+share/emacs/site-lisp/dune-flymake.el
+share/emacs/site-lisp/dune-watch.el
+share/emacs/site-lisp/dune.el
