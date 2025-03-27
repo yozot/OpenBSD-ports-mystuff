@@ -1,6 +1,8 @@
 ## re-create Makefile from scratch.
 ## WORKING: make configure
-##   BDEP needs devel/dune, and others? (see math/coq/Makefile)
+##   BDEP needs devel/dune with minimal version 3.8.3, we should update devel/dune
+##   BDEP needs others? (see math/coq/Makefile)
+##   configure wants install paths information, we need to fill CONFIGURE_ARGS
 ## TODO: make build fake package install test
 ## TODO: check compcert (and any others?)
 ## 
@@ -41,8 +43,11 @@ SITES =		https://github.com/coq/coq/releases/download/V${V}/
 
 MODULES =	lang/ocaml
 
-# Dependencies
-BUILD_DEPENDS =	devel/dune
+## minimal dune version is 3.8.3
+## see https://coq.github.io/doc/master/refman/changes.html#changes-in-9-0-0
+## (more precisely, #id116 "Infrastructure and dependencies")
+BUILD_DEPENDS =	devel/dune \
+		math/ocaml-zarith
 #RUN_DEPENDS =		???
 #LIB_DEPENDS =		???
 #TEST_DEPENDS =		???
