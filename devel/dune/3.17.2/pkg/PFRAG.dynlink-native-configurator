@@ -1,1 +1,4 @@
 lib/ocaml/dune-configurator/configurator.cmxs
+lib/ocaml/stdune/csexp/csexp.cmxs
+lib/ocaml/stdune/filesystem_stubs/dune_filesystem_stubs.cmxs
+lib/ocaml/stdune/stdune.cmxs
