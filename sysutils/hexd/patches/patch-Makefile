@@ -1,0 +1,12 @@
+Index: Makefile
+--- Makefile.orig
++++ Makefile
+@@ -2,7 +2,7 @@ CFLAGS += -Wall -std=c11
+ 
+ PREFIX ?= /usr/local
+ BINDIR ?= $(PREFIX)/bin
+-MANDIR ?= $(PREFIX)/share/man
++MANDIR ?= $(PREFIX)/man
+ 
+ .PHONY: all
+ all: hexd
