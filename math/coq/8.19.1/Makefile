@@ -1,12 +1,11 @@
 COMMENT=		proof assistant based on a typed lambda calculus
 
 V=			8.19.1
-GH_ACCOUNT =		coq
-GH_PROJECT =		coq
-GH_TAGNAME =		V${V}
+DISTNAME =		coq-${V}
+SITES =			https://github.com/rocq-prover/rocq/releases/download/V${V}/
 
 CATEGORIES=		math
-HOMEPAGE=		https://coq.inria.fr/
+HOMEPAGE=		https://rocq-prover.org/
 
 MAINTAINER=		Yozo Toda <yozo@v007.vaio.ne.jp>
 
