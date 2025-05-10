@@ -1,9 +1,13 @@
 ## re-create Makefile from scratch.
-## WORKING: make configure
-##   BDEP needs devel/dune with minimal version 3.8.3, we should update devel/dune
-##   BDEP needs others? (see math/coq/Makefile)
-##   configure wants install paths information, we need to fill CONFIGURE_ARGS
-## TODO: make build fake package install test
+## BDEP needs devel/dune with minimal version 3.8.3, we should update devel/dune
+## BDEP needs others? (see math/coq/Makefile)
+## DONE: make configure
+## WORKING: make build
+##    DONE ALL_TARGET = states: build a minimal functional rocq repl
+##    - ALL_TARGET = world:  build main public binaries and libraries in developer mode (no rocqide)
+##    - ALL_TARGET = rocqide: build rocqide binary in developer mode
+##    - TEST_TARGET = test-suite: run Rocq's test suite [env NJOBS=N to set job parallelism]
+## TODO: make fake package install test
 ## TODO: check compcert (and any others?)
 ## 
 
@@ -57,60 +61,14 @@ BUILD_DEPENDS =	devel/dune \
 #FAKE_FLAGS =		???
 #TEST_FLAGS =		???
 
-# build/configuration variables
-#
-#SEPARATE_BUILD =	Yes (build in a directory other than WRKSRC)
-#USE_GMAKE =		Yes
-#USE_GROFF =		Yes
-# Programs that require GNU libtool to build instead of the OpenBSD one
-# should use this option. Add a comment explaining why. Don't use this if
-# a port requires libtool's .m4 files but otherwise can use OpenBSD libtool,
-# in that case use "BUILD_DEPENDS=devel/libtool" instead.
-#USE_LIBTOOL=		gnu
-# Set CONFIGURE_STYLE to value corresponding to some standard configuration
-#	  perl [modbuild]: perl's MakeMaker Makefile.PL (modbuild: perl's
-#	  Module::Build Build.PL)
-#	  gnu [autoconf] [old] [dest]: gnu style configure (old: no
-#	  sysconfdir), (dest: add DESTDIR, does not handle it),
-#	  autoconf: run autoconf to regenerate configure script. implies gnu.
-#	  autoreconf: run autoreconf (or other script passed in AUTORECONF) to
-#	   generate configure. implies gnu. adds dependencies automatically.
-#	XXX: cygnus products do NOT use autoconf for making the main
-#		configure from configure.in
-#	  imake [noman]: port uses imake for configuration.
-#	  (noman: no man page installation)
-#	  simple: port has its own configure script
-#	  none: override default CONFIGURE_STYLE coming from a module
-#	        (needed for some ports using lang/python, etc.)
+USE_GMAKE =		Yes
 CONFIGURE_STYLE =	simple
-#CONFIGURE_SCRIPT =	??? (if other than configure)
-#CONFIGURE_ARGS =	???
-#CONFIGURE_ENV =	???
-
-# Assume you have one multiple choice flavor: 1 2 3 and switches a b.
-# You would write
-#
-#FLAVORS =	1 2 3 a b
-#FLAVOR ?=
-# grab multiple choice value
-#CHOICE = ${FLAVOR:Na:Nb}
-# check that CHOICE is 1 OR 2 OR 3, or error out
-#.if ${CHOICE} == "1"
-# code for 1
-#.elif ${CHOICE} == "2"
-# code for 2
-#.elif ${CHOICE} == "3"
-# code for 3
-#.else
-#ERRORS += "Fatal: Conflicting flavor: ${FLAVOR}"
-#.endif
-# check for switches
-#.if ${FLAVOR:Ma}
-# code for a
-#.endif
-#.if ${FLAVOR:Mb}
-# code for b
-#.endif
+## see tools/configure/cmdArgs.ml
+CONFIGURE_ARGS=	-prefix "${PREFIX}" \
+		-libdir "${PREFIX}/lib/ocaml/coq" \
+		-mandir "${PREFIX}/man" \
+		-configdir "${SYSCONFDIR}/xdg/coq" \
+		-coqwebsite "https://rocq-prover.org/"
 
 # Overrides for default values
 #
@@ -120,8 +78,9 @@ CONFIGURE_STYLE =	simple
 
 WRKDIST =		${WRKDIR}/coq-${V}
 
-#ALL_TARGET =		???
+## ALL_TARGET =		states
+ALL_TARGET =		world
+## ALL_TARGET =		rocqide
 #INSTALL_TARGET =	???
-#TEST_TARGET =		???
-
+TEST_TARGET =		test-suite
 .include <bsd.port.mk>
