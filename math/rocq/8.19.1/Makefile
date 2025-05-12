@@ -2,6 +2,7 @@ COMMENT=		proof assistant based on a typed lambda calculus
 
 V=			8.19.1
 DISTNAME =		coq-${V}
+PKGNAME =		rocq-${V}
 SITES =			https://github.com/rocq-prover/rocq/releases/download/V${V}/
 
 CATEGORIES=		math
