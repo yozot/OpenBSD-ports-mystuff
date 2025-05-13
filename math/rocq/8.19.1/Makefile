@@ -20,6 +20,7 @@ PERMIT_PACKAGE=	Yes
 ## WANTLIB += gdk_pixbuf-2.0 gio-2.0 glib-2.0 gmp gobject-2.0 gtk-3
 ## WANTLIB += gtksourceview-3.0 harfbuzz intl m pango-1.0 pangocairo-1.0
 ## WANTLIB += pthread
+WANTLIB += c gmp m pthread
 
 MODULES=	lang/ocaml
 
