@@ -25,10 +25,10 @@ PERMIT_PACKAGE =	Yes
 WANTLIB += c curses m pthread z iconv lz4
 
 # Dependencies
-BUILD_DEPENDS =		archivers/lz4 \
-			sysutils/zuo/1.12
+BUILD_DEPENDS =		sysutils/zuo/1.12
+LIB_DEPENDS =		archivers/lz4 \
+			converters/libiconv
 #RUN_DEPENDS =		???
-#LIB_DEPENDS =		???
 #TEST_DEPENDS =		???
 
 ## now trying to fetch and extract locally nanopass and stex source files.
