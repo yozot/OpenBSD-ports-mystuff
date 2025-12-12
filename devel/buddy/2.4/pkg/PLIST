@@ -1,0 +1,7 @@
+include/bdd.h
+include/bvec.h
+include/fdd.h
+@static-lib lib/libbdd.a
+lib/libbdd.la
+@lib lib/libbdd.so.${LIBbdd_VERSION}
+lib/pkgconfig/libbdd.pc
