@@ -1,6 +1,7 @@
 COMMENT =	meta package for android related tools
 
 PKGNAME =	android-tools-1.0
+REVISION =	0
 
 MAINTAINER =		Yozo TODA <yozo@v007.vaio.ne.jp>
 
@@ -11,11 +12,10 @@ NO_BUILD=		Yes
 NO_TEST=		Yes
 PKG_ARCH=		*
 PERMIT_PACKAGE=	Yes
-do-install:
 
 RUN_DEPENDS =	devel/apktool \
 		devel/dex2jar \
 		devel/jadx \
-		devel/jd-gui
+		devel/vineflower
 
 .include <bsd.port.mk>
