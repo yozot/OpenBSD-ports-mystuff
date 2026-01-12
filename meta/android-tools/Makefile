@@ -12,6 +12,7 @@ NO_BUILD=		Yes
 NO_TEST=		Yes
 PKG_ARCH=		*
 PERMIT_PACKAGE=	Yes
+do-install:
 
 RUN_DEPENDS =	devel/apktool \
 		devel/dex2jar \
