@@ -1,0 +1,4 @@
+#!/bin/sh
+JAVA_CMD=$(javaPathHelper -c jatha)
+
+${JAVA_CMD} -jar /usr/local/share/jatha/jatha-2.9.0.jar "$@" -nodisplay

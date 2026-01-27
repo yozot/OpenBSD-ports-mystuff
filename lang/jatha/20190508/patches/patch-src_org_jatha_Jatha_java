@@ -1,0 +1,20 @@
+traceMethodCalls() and traceInstructions() are removed on JDK-13.
+
+Index: src/org/jatha/Jatha.java
+--- src/org/jatha/Jatha.java.orig
++++ src/org/jatha/Jatha.java
+@@ -1591,10 +1591,10 @@ public class Jatha extends Object implements ActionLis
+    * @see java.lang.Runtime
+    * @param on
+    */
+-  public void javaTrace(boolean on)
+-  {
+-    SYSTEM_INFO.traceMethodCalls(on);  // traceInstructions(on) is also available
+-  }
++  // public void javaTrace(boolean on)
++  // {
++  //   SYSTEM_INFO.traceMethodCalls(on);  // traceInstructions(on) is also available
++  // }
+ 
+   // @author  Micheal S. Hewett    hewett@cs.stanford.edu
+   // @date    Thu Feb  6 09:31:49 1997
