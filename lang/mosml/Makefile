@@ -2,7 +2,7 @@ COMMENT =		a light-weight implementation of Standard ML (SML)
 
 VERSION =	2.10.1
 PKGNAME =	mosml-${VERSION}
-REVISION =	2
+REVISION =	3
 
 ## GH_ACCOUNT =	kfl
 GH_PROJECT =	mosml
@@ -43,5 +43,12 @@ WRKSRC =		${WRKDIST}/src
 
 ALL_TARGET =		world
 #TEST_TARGET =		???
+
+MANFILES = mosml.1 mosmlc.1 mosmllex.1 mosmlyac.1
+post-install:
+	cd ${WRKDIST} && \
+	for m in ${MANFILES}; do \
+		${INSTALL_DATA} man/$${m} ${PREFIX}/man/man1/; \
+	done
 
 .include <bsd.port.mk>

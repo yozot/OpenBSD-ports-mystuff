@@ -310,6 +310,10 @@ lib/mosml/mosmlcmp
 lib/mosml/mosmllex
 lib/mosml/mosmllnk
 lib/mosml/mosmltop
+@man man/man1/mosml.1
+@man man/man1/mosmlc.1
+@man man/man1/mosmllex.1
+@man man/man1/mosmlyac.1
 share/doc/mosml/
 share/doc/mosml/manual.pdf
 share/doc/mosml/mosmllib/
