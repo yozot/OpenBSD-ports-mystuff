@@ -1,0 +1,20 @@
+bin/lcp
+@bin bin/lsftp
+@bin bin/lsh
+bin/lsh-authorize
+@bin bin/lsh-decode-key
+@bin bin/lsh-decrypt-key
+@bin bin/lsh-export-key
+@bin bin/lsh-keygen
+@bin bin/lsh-make-seed
+bin/lsh-upgrade
+bin/lsh-upgrade-key
+bin/lshg
+bin/ssh-conv
+@info info/lsh.info
+@bin libexec/lsh-transport
+@bin libexec/lshd-connection
+@bin libexec/lshd-pty-helper
+@bin libexec/lshd-userauth
+@bin libexec/sftp-server
+@bin sbin/lshd

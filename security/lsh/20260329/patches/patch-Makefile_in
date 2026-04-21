@@ -1,0 +1,14 @@
+avoid building .info files
+
+Index: Makefile.in
+--- Makefile.in.orig
++++ Makefile.in
+@@ -11,7 +11,7 @@ PACKAGE_VERSION = @PACKAGE_VERSION@
+ AUTOCONF = autoconf
+ 
+ # The directories that make all should recurse into
+-BUILD_SUBDIRS = @BUILD_SUBDIRS@ src sftp doc
++BUILD_SUBDIRS = @BUILD_SUBDIRS@ src sftp
+ 
+ SUBDIRS = argp spki src sftp doc contrib misc
+ 
