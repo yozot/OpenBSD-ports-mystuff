@@ -21,44 +21,27 @@ COMMIT =	c97119e7ed2e0bba05ded2cdfe21f0e087652d95
 DISTNAME =	lsh-${COMMIT}{${COMMIT}}
 PKGNAME =	lsh-20260329
 
-# for any port that creates shared libraries.
-# both libtool and cmake automatically set filenames based on this variable.
-# for libtool- or cmake-based ports, have a look at WRKBUILD/shared_libs.log
-#SHARED_LIBS =	???	0.0
-
 CATEGORIES =	security
 
 HOMEPAGE =	https://lysator.liu.se/~nisse/lsh/
 
-MAINTAINER =		Yozo TODA <yozo@v007.vaio.ne.jp>
+MAINTAINER =	Yozo TODA <yozo@v007.vaio.ne.jp>
 
 # GPLv2+
 PERMIT_PACKAGE =	Yes
 
 # If pledge is used, annotate with `uses pledge()' in a comment
 
-# "make port-lib-depends-check" can help
-#WANTLIB =		???
+WANTLIB += Xau c curses oop readline util gmp hogweed nettle
 
 SITES =		https://git.lysator.liu.se/lsh/lsh/-/archive/
 
-# Standard for C++ ports:
-#COMPILER =		base-clang ports-gcc base-gcc
-# Standard for C++11 or newer:
-#COMPILER =		base-clang ports-gcc
-# Ports that require a non-default compiler that do *not* use C++ should set this:
-#COMPILER_LANGS =	c
-
-# Any modules we may be using
-#MODULES =		???
-
-# Dependencies
-BUILD_DEPENDS =		devel/gperf \
-			lang/guile3
-SCHEME_BINARY =		guile3.0
-LIB_DEPENDS =		devel/liboop
-#RUN_DEPENDS =		???
-#TEST_DEPENDS =		???
+BUILD_DEPENDS =	devel/gperf \
+		lang/guile3
+SCHEME_BINARY =	guile3.0
+LIB_DEPENDS =	devel/gmp \
+		devel/liboop \
+		security/libnettle
 
 #MAKE_FLAGS =		???
 #MAKE_ENV =		???
@@ -72,14 +55,7 @@ CONFIGURE_ARGS =	--with-include-path=${LOCALBASE}/include \
 			--with-lib-path=${LOCALBASE}/lib:/usr/lib \
 			--with-scheme=${SCHEME_BINARY}
 AUTOCONF_VERSION =	2.72
-#AUTOMAKE_VERSION =	??? (defaults to 1.4)
 
-# Overrides for default values
-#
-#CFLAGS =		???
-#LDFLAGS =		???
-#MAKE_FILE =		???
-#PKG_ARCH =		??? (* for arch-independent packages)
 WRKDIST =		${WRKDIR}/lsh-${COMMIT}
 
 #ALL_TARGET =		???
@@ -103,4 +79,3 @@ post-configure:
 	(cd ${WRKDIST} && env ${GMAKE} bootstrap)
 
 .include <bsd.port.mk>
-

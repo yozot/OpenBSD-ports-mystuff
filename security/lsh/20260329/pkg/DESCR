@@ -12,8 +12,6 @@ you also need to run
 
 as root.
 
-Some examples...
-
 Create a new RSA key pair, and save it in ~/.lsh/identity and
 ~/.lsh/identity.pub: 
 
