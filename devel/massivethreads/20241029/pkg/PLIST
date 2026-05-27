@@ -1,0 +1,69 @@
+@bin bin/dag2any
+bin/drview
+include/dag_recorder.h
+include/dag_recorder_impl.h
+include/dag_recorder_inl.h
+include/mtbb/
+include/mtbb/parallel_for.h
+include/mtbb/parallel_reduce.h
+include/mtbb/task_group.h
+include/mtbb/task_scheduler_init.h
+include/myth/
+include/myth.h
+include/myth/myth.h
+include/myth/myth_sleep_queue.h
+include/myth/myth_spinlock.h
+include/papi_counters.h
+include/tpswitch/
+include/tpswitch/cilk_dr.cilkh
+include/tpswitch/cilkplus_dr.h
+include/tpswitch/omp_dr.h
+include/tpswitch/serial_dr.h
+include/tpswitch/tbb_dr.h
+include/tpswitch/tpswitch.h
+@static-lib lib/libdr.a
+lib/libdr.la
+@lib lib/libdr.so.${LIBdr_VERSION}
+@static-lib lib/libmyth-dl.a
+lib/libmyth-dl.la
+@lib lib/libmyth-dl.so.${LIBmyth-dl_VERSION}
+@static-lib lib/libmyth-ld.a
+lib/libmyth-ld.la
+@lib lib/libmyth-ld.so.${LIBmyth-ld_VERSION}
+@static-lib lib/libmyth.a
+lib/libmyth.la
+@lib lib/libmyth.so.${LIBmyth_VERSION}
+@info share/doc/massivethreads/
+share/doc/massivethreads/COPYRIGHT
+share/doc/massivethreads/README.md
+share/doc/massivethreads/api.txt
+share/doc/massivethreads/bind.txt
+share/doc/massivethreads/massivethreads.html
+@info share/doc/massivethreads/massivethreads.info
+share/doc/massivethreads/massivethreads.pdf
+share/doc/massivethreads/native-api.txt
+share/doc/massivethreads/reference/
+share/doc/massivethreads/reference/files/
+share/doc/massivethreads/reference/files/myth-h.html
+share/doc/massivethreads/reference/files/myth_spinlock-h.html
+share/doc/massivethreads/reference/index/
+share/doc/massivethreads/reference/index.html
+share/doc/massivethreads/reference/index/Files.html
+share/doc/massivethreads/reference/index/Functions.html
+share/doc/massivethreads/reference/index/General.html
+share/doc/massivethreads/reference/index/General2.html
+share/doc/massivethreads/reference/index/Types.html
+share/doc/massivethreads/reference/javascript/
+share/doc/massivethreads/reference/javascript/main.js
+share/doc/massivethreads/reference/javascript/prettify.js
+share/doc/massivethreads/reference/javascript/searchdata.js
+share/doc/massivethreads/reference/search/
+share/doc/massivethreads/reference/search/FilesM.html
+share/doc/massivethreads/reference/search/FunctionsM.html
+share/doc/massivethreads/reference/search/GeneralF.html
+share/doc/massivethreads/reference/search/GeneralM.html
+share/doc/massivethreads/reference/search/GeneralT.html
+share/doc/massivethreads/reference/search/NoResults.html
+share/doc/massivethreads/reference/search/TypesM.html
+share/doc/massivethreads/reference/styles/
+share/doc/massivethreads/reference/styles/main.css

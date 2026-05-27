@@ -1,0 +1,5 @@
+MassiveThreads is a Lightweight Thread Library, providing
+three APIs to use, native intefrace, pthread-compatible interface,
+and TBB-like interface.
+The API reference is at
+https://massivethreads.github.io/massivethreads/reference/.

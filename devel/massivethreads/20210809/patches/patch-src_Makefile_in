@@ -1,0 +1,16 @@
+$OpenBSD$
+
+"-D_GNU_SOURCE" and "-D_XOPEN_SOURCE" are harmful for OpenBSD.
+
+Index: src/Makefile.in
+--- src/Makefile.in.orig
++++ src/Makefile.in
+@@ -474,8 +474,6 @@ WRAP_SRCS = \
+ # if _XOPEN_SOURCE is specified
+ #
+ COMMON_CFLAGS = \
+-	-D_GNU_SOURCE \
+-	-D_XOPEN_SOURCE \
+ 	-D_DARWIN_C_SOURCE \
+ 	-I$(abs_top_srcdir)/include
+ 

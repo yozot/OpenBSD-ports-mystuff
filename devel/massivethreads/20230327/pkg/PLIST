@@ -1,0 +1,35 @@
+@bin bin/dag2any
+bin/drview
+include/dag_recorder.h
+include/dag_recorder_impl.h
+include/dag_recorder_inl.h
+include/mtbb/
+include/mtbb/parallel_for.h
+include/mtbb/parallel_reduce.h
+include/mtbb/task_group.h
+include/mtbb/task_scheduler_init.h
+include/myth/
+include/myth.h
+include/myth/myth.h
+include/myth/myth_sleep_queue.h
+include/myth/myth_spinlock.h
+include/papi_counters.h
+include/tpswitch/
+include/tpswitch/cilk_dr.cilkh
+include/tpswitch/cilkplus_dr.h
+include/tpswitch/omp_dr.h
+include/tpswitch/serial_dr.h
+include/tpswitch/tbb_dr.h
+include/tpswitch/tpswitch.h
+@static-lib lib/libdr.a
+lib/libdr.la
+@lib lib/libdr.so.${LIBdr_VERSION}
+@static-lib lib/libmyth-dl.a
+lib/libmyth-dl.la
+@lib lib/libmyth-dl.so.${LIBmyth-dl_VERSION}
+@static-lib lib/libmyth-ld.a
+lib/libmyth-ld.la
+@lib lib/libmyth-ld.so.${LIBmyth-ld_VERSION}
+@static-lib lib/libmyth.a
+lib/libmyth.la
+@lib lib/libmyth.so.${LIBmyth_VERSION}

@@ -1,0 +1,21 @@
+Index: configure
+--- configure.orig
++++ configure
+@@ -6343,11 +6343,13 @@ main ()
+   return 0;
+ }
+ _ACEOF
+-if ac_fn_c_try_link "$LINENO"; then :
+-  have_pthread_yield="yes"
+-else
++
++## In OpenBSD, the signature of pthread_yield is
++##   void pthread_yield(void)
++## the return type void different from int in Linux.
++## Disable pthread_yield and use sched_yield
+   have_pthread_yield="no"
+-fi
++
+ rm -f core conftest.err conftest.$ac_objext \
+     conftest$ac_exeext conftest.$ac_ext
+ { $as_echo "$as_me:${as_lineno-$LINENO}: result: $have_pthread_yield" >&5

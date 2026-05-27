@@ -1,0 +1,61 @@
+Index: src/myth_wrap_pthread.c
+--- src/myth_wrap_pthread.c.orig
++++ src/myth_wrap_pthread.c
+@@ -857,8 +857,8 @@ int __wrap(pthread_mutex_unlock)(pthread_mutex_t *mute
+ }
+ 
+ /* pthread_mutex_getprioceiling (3posix) - get and set the priority ceiling of a mutex (REAL... */
+-int __wrap(pthread_mutex_getprioceiling)(const pthread_mutex_t *restrict mutex,
+-					 int *restrict prioceiling) {
++int __wrap(pthread_mutex_getprioceiling)(pthread_mutex_t *mutex,
++					 int *prioceiling) {
+   int _ = enter_wrapped_func("%p, %p", mutex, prioceiling);
+   int ret;
+   (void)_;
+@@ -949,7 +949,7 @@ int __wrap(pthread_mutexattr_setpshared)(pthread_mutex
+ 
+ /* pthread_mutexattr_gettype (3posix) - get and set the mutex type attribute */
+ int __wrap(pthread_mutexattr_gettype)
+-     (const pthread_mutexattr_t *restrict attr, int *restrict type) {
++     (pthread_mutexattr_t *attr, int *type) {
+   int _ = enter_wrapped_func("%p, %p", attr, type);
+   int ret = real_pthread_mutexattr_gettype(attr, type);
+   (void)_;
+@@ -968,7 +968,7 @@ int __wrap(pthread_mutexattr_settype)(pthread_mutexatt
+ 
+ /* pthread_mutexattr_getprotocol (3posix) - get and set the protocol attribute of the mutex ... */
+ int __wrap(pthread_mutexattr_getprotocol)
+-     (const pthread_mutexattr_t *restrict attr, int *restrict protocol) {
++     (pthread_mutexattr_t *attr, int *protocol) {
+   int _ = enter_wrapped_func("%p, %p", attr, protocol);
+   int ret = real_pthread_mutexattr_getprotocol(attr, protocol);
+   (void)_;
+@@ -988,7 +988,7 @@ int __wrap(pthread_mutexattr_setprotocol)
+ 
+ /* pthread_mutexattr_getprioceiling (3posix) - get and set the prioceiling attribute of the ... */
+ int __wrap(pthread_mutexattr_getprioceiling)
+-     (const pthread_mutexattr_t *restrict attr, int *restrict prioceiling) {
++     (pthread_mutexattr_t *attr, int *prioceiling) {
+   int _ = enter_wrapped_func("%p, %d", attr, prioceiling);
+   int ret = real_pthread_mutexattr_getprioceiling(attr, prioceiling);
+   (void)_;
+@@ -1523,8 +1523,8 @@ pthread_barrierattr_to_myth(const pthread_barrierattr_
+   }
+ }
+ 
+-int __wrap(pthread_barrier_init)(pthread_barrier_t *restrict barrier,
+-				 const pthread_barrierattr_t *restrict attr,
++int __wrap(pthread_barrier_init)(pthread_barrier_t *barrier,
++				 pthread_barrierattr_t *attr,
+ 				 unsigned count) {
+   int _ = enter_wrapped_func("%p, %p, %u", barrier, attr, count);
+   int ret;
+@@ -1594,7 +1594,7 @@ int __wrap(pthread_barrierattr_destroy)(pthread_barrie
+ 
+ /* pthread_barrierattr_getpshared (3posix) - get and set the process-shared attribute of the... */
+ int __wrap(pthread_barrierattr_getpshared)
+-     (const pthread_barrierattr_t *restrict attr, int *restrict pshared) {
++     (pthread_barrierattr_t *attr, int *pshared) {
+   int _ = enter_wrapped_func("%p, %p", attr, pshared);
+   int ret = real_pthread_barrierattr_getpshared(attr, pshared);
+   (void)_;

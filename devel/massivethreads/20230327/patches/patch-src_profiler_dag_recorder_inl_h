@@ -1,0 +1,14 @@
+Index: src/profiler/dag_recorder_inl.h
+--- src/profiler/dag_recorder_inl.h.orig
++++ src/profiler/dag_recorder_inl.h
+@@ -37,8 +37,9 @@
+ #define DAG_RECORDER_CHK_LEVEL GS.opts.chk_level
+ #endif
+ 
++/* OpenBSD does not have sched_getcpu() */
+ #if !defined(DAG_RECORDER_RECORD_CPU)
+-#define DAG_RECORDER_RECORD_CPU GS.opts.record_cpu
++#define DAG_RECORDER_RECORD_CPU 0
+ #endif
+ 
+ #ifdef __cplusplus
