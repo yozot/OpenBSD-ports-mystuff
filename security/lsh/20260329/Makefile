@@ -1,5 +1,11 @@
 ## now we can make a package.
 ## TODO: check if the binaries work.
+##   * lsh-make-seed
+##     the help message says "~/.lsh/seed-file", but
+##     the real file name is "~/.lsh/yarrow-seed-file".
+##      see the output of "lsh-make-seed --help".
+##   -- yozo.  Thu Apr 23 17:24:19 JST 2026
+
 ## TODO: "make test"
 ##   "make test" fails because
 ##   src/testsuite/.test-rules.make contains "-lcrypt".
@@ -29,8 +35,6 @@ MAINTAINER =	Yozo TODA <yozo@v007.vaio.ne.jp>
 
 # GPLv2+
 PERMIT_PACKAGE =	Yes
-
-# If pledge is used, annotate with `uses pledge()' in a comment
 
 WANTLIB += Xau c curses oop readline util gmp hogweed nettle
 
