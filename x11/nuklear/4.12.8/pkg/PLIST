@@ -1,0 +1,5 @@
+include/Nuklear/
+include/Nuklear/nuklear.h
+share/doc/Nuklear/
+share/doc/Nuklear/LICENSE
+share/doc/Nuklear/Readme.md
