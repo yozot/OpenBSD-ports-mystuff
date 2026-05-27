@@ -45,7 +45,7 @@ BUILD_DEPENDS =	devel/gperf \
 SCHEME_BINARY =	guile3.0
 LIB_DEPENDS =	devel/gmp \
 		devel/liboop \
-		security/libnettle
+		security/nettle
 
 #MAKE_FLAGS =		???
 #MAKE_ENV =		???
