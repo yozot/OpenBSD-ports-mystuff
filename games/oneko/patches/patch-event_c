@@ -1,0 +1,11 @@
+Index: event.c
+--- event.c.orig
++++ event.c
+@@ -106,6 +106,7 @@ Toy            *toy;
+ 		   0, 0, toy->width, toy->height);
+ }
+ 
++void
+ NekoChangeVisibility(window)
+ Window window;
+ {

@@ -1,0 +1,16 @@
+Index: Imakefile
+--- Imakefile.orig
++++ Imakefile
+@@ -24,9 +24,9 @@ ComplexProgramTarget(oneko)
+ 
+ CppFileTarget(Oneko.ad,Oneko.cpp,-DOnekoLib=$(ONEKOLIBDIR),)
+ 
+-install:: $(BINDIR)/oneko
+-	$(RM) $(BINDIR)/tora
+-	$(LN) $(BINDIR)/oneko $(BINDIR)/tora
++install:: $(DESTDIR)$(BINDIR)/oneko
++	$(RM) $(DESTDIR)$(BINDIR)/tora
++	$(LN) oneko $(DESTDIR)$(BINDIR)/tora
+ 
+ InstallMultipleDestFlags(install,$(HELPFILE),$(ONEKOLIBDIR),$(INSTDATFLAGS))
+ InstallMultipleDestFlags(install,$(BMFILES),$(BMDIR),$(INSTDATFLAGS))

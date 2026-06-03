@@ -1,0 +1,11 @@
+Index: init.c
+--- init.c.orig
++++ init.c
+@@ -11,6 +11,7 @@ static char     rcsid[] = "$Id: init.c,v 1.20 1992/03/
+ #include <X11/Xlib.h>
+ #include <X11/Xutil.h>
+ #include <X11/Xatom.h>
++#include <X11/Xmu/Drawing.h>
+ #ifdef SHAPE
+ #include <X11/extensions/shape.h>
+ #endif	/* SHAPE */

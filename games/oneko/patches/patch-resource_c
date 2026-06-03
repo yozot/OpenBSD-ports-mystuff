@@ -1,0 +1,20 @@
+Index: resource.c
+--- resource.c.orig
++++ resource.c
+@@ -9,6 +9,7 @@ static char     rcsid[] = "$Id: resource.c,v 1.14 1992
+ #endif
+ 
+ #include <stdio.h>
++#include <stdlib.h>
+ #include <ctype.h>
+ #include <string.h>
+ #ifndef SYSV
+@@ -371,7 +372,7 @@ caddr_t        *valuep;			/* RETURN */
+     case type_string:
+ 	if (string) {
+ 	    char           *ptr;
+-	    char           *malloc();
++	    // char           *malloc();
+ 
+ 	    if ((ptr = malloc(strlen(buffer) + 1)) == NULL) {
+ 		Error("GetValue - couldn't allocate memory");

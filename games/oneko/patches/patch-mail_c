@@ -1,0 +1,12 @@
+Index: mail.c
+--- mail.c.orig
++++ mail.c
+@@ -11,6 +11,8 @@ static char     rcsid[] = "$Id: mail.c,v 1.3 1992/03/1
+ #include <X11/Xlib.h>
+ #include <X11/Xutil.h>
+ 
++#include <stdlib.h>
++#include <string.h>
+ #include <stdio.h>
+ #include <sys/types.h>
+ #include <sys/stat.h>

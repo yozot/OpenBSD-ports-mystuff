@@ -1,0 +1,11 @@
+Index: oneko.h
+--- oneko.h.orig
++++ oneko.h
+@@ -122,3 +122,7 @@ void            Warning();
+ 
+ void            InitScreen();
+ void            GetResources();
++
++Bool            ProcessEvent();
++int             ClipInWindow(int *, int *, int, int, int, int);
++void            SetNekoState(int);
