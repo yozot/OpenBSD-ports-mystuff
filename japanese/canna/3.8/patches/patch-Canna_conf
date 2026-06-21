@@ -1,0 +1,12 @@
+Index: Canna.conf
+--- Canna.conf.orig
++++ Canna.conf
+@@ -243,7 +243,7 @@ cannaLight = 1
+ /* #define UseInstalledLibCanna YES */
+ #define UseInstalledLibCanna NO
+ 
+-DicDir   = $(cannaLibDir)/dic
++DicDir   = ${LOCALSTATEDIR}/db
+ 
+ /* ここから下は変更不要です */
+ 

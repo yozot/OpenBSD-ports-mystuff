@@ -1,0 +1,4 @@
+Canna is a Japanese input system for UNIX/Linux. It consists of a kana-to-kanji
+conversion engine (cannaserver) and a user interface engine (libcanna).
+You can also use Canna in X11 (via "kinput2" XIM server),
+Emacs (with an appropreate patch) or other applications.

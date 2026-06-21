@@ -1,0 +1,12 @@
+Index: lib/RK/dd.c
+--- lib/RK/dd.c.orig
++++ lib/RK/dd.c
+@@ -739,7 +739,7 @@ _RkRealizeDD(dd)
+   int ret = -1;
+   int tmpres;
+   int			fdes;
+-  long		tloc;
++  time_t		tloc;
+ #ifdef __EMX__
+   struct stat		statbuf;
+ #endif

@@ -1,0 +1,12 @@
+Index: canna/widedef.h
+--- canna/widedef.h.orig
++++ canna/widedef.h
+@@ -31,7 +31,7 @@
+ #endif
+ 
+ #if (defined(__FreeBSD__) && __FreeBSD_version < 500000) \
+-    || defined(__NetBSD__) || defined(__OpenBSD__)
++    || defined(__NetBSD__)
+ # include <machine/ansi.h>
+ #endif
+ 
