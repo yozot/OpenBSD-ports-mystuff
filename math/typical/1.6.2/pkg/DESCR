@@ -1,0 +1,21 @@
+TyPiCal is a type-based static analyzer for the pi-calculus.
+The current version of TyPiCal provides the following program analyses
+or program transformations:
+lock-freedom analysis, deadlock-freedom analysis, useless-code elimination,
+information flow analysis, and termination analysis. 
+
+The former two analyses aim to statically analyze whether each communication
+succeeds or not. The lock-freedom analysis can answer, e.g., the following questions
+about the behavior of concurrent/distributed programs:
+  - Does the server eventually accept every request from a client?
+  - Does the server eventually send a reply to every request?
+  - Can a process eventually acquire a lock?
+  - Does a process that has acquired a lock eventually release the lock?
+
+Useless-code elimination (UCE) optimizes a pi-calculus process by
+removing sub-processes that do not affect the observable behavior of the process.
+The result of UCE is barbed congruent to the original process, but often simpler than
+the original process, so that it is more efficient, and easier to verify (with other tools
+such as model checkers).
+Information flow analyzer checks whether a process leaks 
+information about secret data to the environment.
