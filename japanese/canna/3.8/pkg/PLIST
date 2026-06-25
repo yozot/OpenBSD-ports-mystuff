@@ -38,15 +38,6 @@ canna/include/canna/keydef.h
 canna/include/canna/mfdef.h
 canna/include/canna/pubconf.h
 canna/include/canna/sysdep.h
-canna/lib/
-@static-lib canna/lib/libRKC.a
-@lib canna/lib/libRKC.so.${LIBRKC_VERSION}
-@static-lib canna/lib/libRKC16.a
-@lib canna/lib/libRKC16.so.${LIBRKC16_VERSION}
-@static-lib canna/lib/libcanna.a
-@lib canna/lib/libcanna.so.${LIBcanna_VERSION}
-@static-lib canna/lib/libcanna16.a
-@lib canna/lib/libcanna16.so.${LIBcanna16_VERSION}
 @mandir canna/man/
 canna/man/ja/
 canna/man/ja/man1/
@@ -234,7 +225,17 @@ canna/share/canna/sample/unix.canna
 canna/share/canna/sample/verbose.canna
 canna/share/canna/sample/vje.canna
 canna/share/canna/sample/wx2+.canna
-@cwd ${LOCALSTATEDIR}/db
+@static-lib lib/libRKC.a
+@lib lib/libRKC.so.${LIBRKC_VERSION}
+@static-lib lib/libRKC16.a
+@lib lib/libRKC16.so.${LIBRKC16_VERSION}
+@static-lib lib/libcanna.a
+@lib lib/libcanna.so.${LIBcanna_VERSION}
+@static-lib lib/libcanna16.a
+@lib lib/libcanna16.so.${LIBcanna16_VERSION}
+@cwd /var/db
+@owner daemon
+@group daemon
 canna/
 canna/bushu.cld
 canna/chimei.ctd

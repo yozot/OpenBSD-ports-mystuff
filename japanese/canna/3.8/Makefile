@@ -17,11 +17,13 @@ MAINTAINER =	Yozo TODA <yozo@v007.vaio.ne.jp>
 # see https://github.com/canna-input/canna/blob/main/COPYRIGHT
 PERMIT_PACKAGE =	Yes
 
-# If pledge is used, annotate with `uses pledge()' in a comment
-
 WANTLIB +=		c
 
-MAKE_ENV =		VARBASE=${VARBASE}
+CANNAOWNER =	daemon
+CANNAGROUP =	daemon
+MAKE_ENV =	LOCALSTATEDIR=${LOCALSTATEDIR} \
+		CANNAOWNER=${CANNAOWNER} \
+		CANNAGROUP=${CANNAGROUP}
 
 CONFIGURE_STYLE =	imake
 
