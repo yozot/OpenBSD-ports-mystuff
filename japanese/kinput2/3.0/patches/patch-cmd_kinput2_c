@@ -1,0 +1,11 @@
+Index: cmd/kinput2.c
+--- cmd/kinput2.c.orig
++++ cmd/kinput2.c
+@@ -25,6 +25,7 @@ static char	*rcsid = "$Id: kinput2.c,v 1.43 1999/05/26
+ #endif
+ 
+ #include <stdio.h>
++#include <stdlib.h>
+ #include <signal.h>
+ #include <X11/Intrinsic.h>
+ #include <X11/StringDefs.h>
