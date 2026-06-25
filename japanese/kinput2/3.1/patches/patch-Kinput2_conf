@@ -1,0 +1,42 @@
+disable sj3
+specifiy canna installed directory and the library
+CONFDIR added to use LOCALBASE/lib/X11/app-defaults/
+instead of /etc/X11/app-defaults/
+
+Index: Kinput2.conf
+--- Kinput2.conf.orig
++++ Kinput2.conf
+@@ -18,7 +18,7 @@ XCOMM
+ /* #define UseWnn */	/* define if you are going to use Wnn (v4, v6 or v7) */
+ /* #define UseWnn6 */	/* define if you are going to use Wnn6 or above */
+ #define UseCanna	/* define if you are going to use Canna */
+-#define UseSj3		/* define if you are going to use Sj3 */
++/* #define UseSj3 */	/* define if you are going to use Sj3 */
+ /* #define UseAtok */	/* define if you are going to use Atok */
+ 
+ 
+@@ -78,17 +78,19 @@ XCOMM Canna configuration
+  * If you have already installed Canna header files and libraries..
+  */
+ XCOMM use installed headers/libraries
+-XCOMM CANNAINSTDIR = /usr/local/canna
+-XCOMM CANNASRC = $(CANNAINSTDIR)/include
+-XCOMM CANNALIB = -lcanna16
++CANNAINSTDIR = /usr/local/canna
++CANNASRC = $(CANNAINSTDIR)/include
++CANNALIB = -lcanna16
+ 
++CONFDIR = ${LOCALBASE}/lib/X11
++
+ /*
+  * If you have compiled Canna that came with X11R6 (contrib/programs/Canna),
+  * but not installed yet..
+  */
+ XCOMM use headers/libraries in the source tree
+-CANNASRC = $(CONTRIBSRC)/programs/Canna32
+-CANNALIB = -L$(CANNASRC)/lib/canna16 -lcanna16
++XCOMM CANNASRC = $(CONTRIBSRC)/programs/Canna32
++XCOMM CANNALIB = -L$(CANNASRC)/lib/canna16 -lcanna16
+ 
+ 
+ XCOMM SJ3 configuration

@@ -1,0 +1,30 @@
+Index: lib/Canna.c
+--- lib/Canna.c.orig
++++ lib/Canna.c
+@@ -244,7 +244,7 @@ XEvent *event;
+ 
+     /* 取りあえず文字に直してしまう */
+     kanabuf[0] = '\0';
+-    nbytes = XKanaLookup(event, kanabuf, 20, &ks, &compose_status);
++    nbytes = XKanaLookup((XKeyEvent *)event, kanabuf, 20, &ks, &compose_status);
+ 
+     buf[0] = (wchar)kanabuf[0]; /* きたない */
+ 
+@@ -301,7 +301,7 @@ wcKanjiStatus *ks;
+       }
+     }
+ 
+-    changeTextForCanna(obj, ks);
++    changeTextForCanna((caddr_t)obj, ks);
+ 
+     /* テキストの変化をチェックする */
+     if (obj->canna.textchanged) {
+@@ -1248,7 +1248,7 @@ CannaObject obj;
+   ksv.val = CANNA_FN_JapaneseMode;
+   wcKanjiControl((int)obj, KC_DO, (char *)&ksv);
+ #endif
+-  changeTextForCanna(obj, &ks);
++  changeTextForCanna((caddr_t)obj, &ks);
+ }
+ 
+ /* checkIfFunctionalChar -- シフトキーのように無意味なキーかどうかの判別

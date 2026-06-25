@@ -1,0 +1,16 @@
+Kinput2 is an input server for X11 applications that want
+Japanese text input.
+
+A client that wants kana-kanji conversion service for Japanese
+text sends a request to kinput2.  Kinput2 receives the request,
+does kana-kanji conversion, and sends the converted text back
+to the client.
+
+Depending on the build configuration, kinput may be able to use
+Wnn jserver, Canna server (see Canna documents for more info),
+or both.
+
+## Now starting with canna support only.
+## When it runs well, I consider to update Wnn (to FreeWnn?) and
+## try to support it.
+## sj3 will follow then.

@@ -1,0 +1,15 @@
+## lldb --core ./kinput2.core  --one-line bt --one-line quit /usr/local/bin/kinput2  > choi
+
+(lldb) target create "/usr/local/bin/kinput2" --core "./kinput2.core"
+Core file '/usr/ports/mystuff/japanese/kinput2/3.1/kinput2.core' (x86_64) was loaded.
+(lldb) bt
+* thread #1, stop reason = signal SIGSEGV
+  * frame #0: 0x0000014c48627517 kinput2`XIOESet + 55
+    frame #1: 0x0000014c486234cf kinput2`Initialize + 2335
+    frame #2: 0x0000014f459ea61f libXt.so.11.1`CallInitialize + 175
+    frame #3: 0x0000014f459e98b7 libXt.so.11.1`xtCreate + 743
+    frame #4: 0x0000014f459e94fd libXt.so.11.1`_XtCreateWidget + 413
+    frame #5: 0x0000014f45a1dd89 libXt.so.11.1`XtVaCreateWidget + 329
+    frame #6: 0x0000014c48609f2f kinput2`main + 863
+    frame #7: 0x0000014c486099fb kinput2`__start + 267
+(lldb) quit

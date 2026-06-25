@@ -1,0 +1,12 @@
+Index: lib/KIProto.c
+--- lib/KIProto.c.orig
++++ lib/KIProto.c
+@@ -1063,7 +1063,7 @@ Boolean initial;
+ 	if ((client = findClient(kpw, (Window)data[1])) == NULL) {
+ 	    TRACE(("\tcreate new client rec. for the window ID\n"));
+ 	    /* check validity of the client window ID */
+-	    if (!isCorrectWindowID(kpw, (Window)data[1])) {
++	    if (!isCorrectWindowID((Widget)kpw, (Window)data[1])) {
+ 		DPRINT(("getXlcDataFromProperty(): client window doesn't exist\n"));
+ 		return NULL;
+ 	    }
