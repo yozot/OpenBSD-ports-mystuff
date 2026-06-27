@@ -1,35 +1,30 @@
-COMMENT =	japanese input system
 
-CANNA_TAG =	release-3.8
-DIST_TUPLE +=	github canna-input canna ${CANNA_TAG} .
+COMMENT=	japanese input system
 
-SHARED_LIBS +=	RKC                       1.2
-SHARED_LIBS +=	RKC16                     1.2
-SHARED_LIBS +=	canna                     1.2
-SHARED_LIBS +=	canna16                   1.2
+CANNA_TAG=	release-3.8
+DIST_TUPLE+=	github canna-input canna ${CANNA_TAG} .
 
-CATEGORIES =	japanese
+SHARED_LIBS+=	RKC                       1.2
+SHARED_LIBS+=	RKC16                     1.2
+SHARED_LIBS+=	canna                     1.2
+SHARED_LIBS+=	canna16                   1.2
 
-HOMEPAGE =	https://canna-input.github.io/
+CATEGORIES=	japanese
 
-MAINTAINER =	Yozo TODA <yozo@v007.vaio.ne.jp>
+MAINTAINER=	Marc Espie <espie@openbsd.org>
 
-# see https://github.com/canna-input/canna/blob/main/COPYRIGHT
-PERMIT_PACKAGE =	Yes
+HOMEPAGE=	https://canna-input.github.io/
 
-WANTLIB +=		c
+# https://github.com/canna-input/canna/blob/main/COPYRIGHT
+PERMIT_PACKAGE=	Yes
 
-CANNAOWNER =	daemon
-CANNAGROUP =	daemon
-MAKE_ENV =	LOCALSTATEDIR=${LOCALSTATEDIR} \
-		CANNAOWNER=${CANNAOWNER} \
-		CANNAGROUP=${CANNAGROUP}
+WANTLIB+=		c
 
-CONFIGURE_STYLE =	imake
-
-NO_TEST =	Yes
-
-## LDFLAGS =	-Wl,-rpath,${LOCALBASE}/canna/lib
-WRKDIST =	${WRKDIR}/${PKGSTEM}-${CANNA_TAG}
+CONFIGURE_STYLE=imake
+## either LOCALSTATEDIR or VARBASE, sync with patch-Canna_conf
+MAKE_ENV+=	CANNAOWNER=daemon CANNAGROUP=daemon \
+		LOCALSTATEDIR=${LOCALSTATEDIR}
+NO_TEST=	Yes
+WRKDIST=	${WRKDIR}/canna-${CANNA_TAG}
 
 .include <bsd.port.mk>
