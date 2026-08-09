@@ -1,0 +1,9 @@
+share/doc/Jigmo/
+share/doc/Jigmo/LICENSE.txt
+share/doc/Jigmo/README.txt
+share/doc/Jigmo/THANKS.txt
+share/fonts/
+@fontdir share/fonts/Jigmo/
+share/fonts/Jigmo/Jigmo.ttf
+share/fonts/Jigmo/Jigmo2.ttf
+share/fonts/Jigmo/Jigmo3.ttf

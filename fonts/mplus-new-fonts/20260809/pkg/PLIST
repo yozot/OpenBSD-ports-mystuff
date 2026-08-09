@@ -1,0 +1,7 @@
+share/fonts/
+@fontdir share/fonts/mplus-new-fonts/
+share/fonts/mplus-new-fonts/MPLUS1Code[wght].ttf
+share/fonts/mplus-new-fonts/MPLUS1[wght].ttf
+share/fonts/mplus-new-fonts/MPLUS2[wght].ttf
+share/fonts/mplus-new-fonts/MPLUSCodeLatin[wdth,wght].ttf
+share/fonts/mplus-new-fonts/MPLUSU[wght].ttf
