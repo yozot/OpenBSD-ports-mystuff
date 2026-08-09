@@ -25,6 +25,11 @@ LIB_DEPENDS =		japanese/canna/3.8
 
 CONFIGURE_STYLE =	imake
 
+## DEBUG_CONFIGURE_ARGS =	CDEBUGFLAGS="-g -DDEBUG"
+DEBUG_CONFIGURE_ARGS =	DefaultCDebugFlags="-g -DDEBUG"
+DEBUG_PACKAGES = ${BUILD_PACKAGES}
+
+
 NO_TEST =		Yes
 
 INSTALL_TARGET =	install install.man

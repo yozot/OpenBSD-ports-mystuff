@@ -2,6 +2,7 @@ disable sj3
 specifiy canna installed directory and the library
 CONFDIR added to use LOCALBASE/lib/X11/app-defaults/
 instead of /etc/X11/app-defaults/
+and now add CDebugFlags for debug purposes...
 
 Index: Kinput2.conf
 --- Kinput2.conf.orig
@@ -40,3 +41,10 @@ Index: Kinput2.conf
  
  
  XCOMM SJ3 configuration
+@@ -155,3 +157,6 @@ TRANSPORTDEFS = 
+ XCOMM
+ XCOMM End of global configuration parameters
+ XCOMM
++
++/* for debug ... */
++CDEBUGFLAGS = -g -DDEBUG
