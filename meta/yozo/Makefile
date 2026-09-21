@@ -19,7 +19,7 @@ RUN_DEPENDS =	japanese/kterm,xaw3d \
 		converters/qprint \
 		textproc/aspell/core \
 		archivers/lha \
-		archivers/p7zip \
+		archivers/7zip \
 		security/emldump \
 		security/pgpdump \
 		security/gnupg,ldap \
