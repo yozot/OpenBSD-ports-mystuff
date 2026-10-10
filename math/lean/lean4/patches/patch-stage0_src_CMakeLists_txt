@@ -1,0 +1,14 @@
+use security/openssl/3.5/.
+if it works, consider to use LOCALBASE instead of "/usr/local/".
+
+Index: stage0/src/CMakeLists.txt
+--- stage0/src/CMakeLists.txt.orig
++++ stage0/src/CMakeLists.txt
+@@ -372,6 +372,7 @@ endif()
+ 
+ # OpenSSL
+ if(NOT "${CMAKE_SYSTEM_NAME}" MATCHES "Emscripten")
++  list(APPEND CMAKE_PREFIX_PATH "/usr/local/lib/eopenssl35" "/usr/local/include/eopenssl35")
+   find_package(OpenSSL 3 REQUIRED COMPONENTS Crypto SSL)
+   set(OPENSSL_LIBRARIES ${OPENSSL_SSL_LIBRARY} ${OPENSSL_CRYPTO_LIBRARY})
+   include_directories(${OPENSSL_INCLUDE_DIR})

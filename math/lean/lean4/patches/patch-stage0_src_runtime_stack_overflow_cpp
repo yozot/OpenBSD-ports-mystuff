@@ -1,0 +1,34 @@
+OpenBSD does not have pthread_getattr_np, but has pthread_stackseg_np(3).
+
+Index: stage0/src/runtime/stack_overflow.cpp
+--- stage0/src/runtime/stack_overflow.cpp.orig
++++ stage0/src/runtime/stack_overflow.cpp
+@@ -20,6 +20,9 @@ Port of the corresponding Rust code (see links below).
+ #include <lean/lean.h>
+ #include <initializer_list>
+ #include "runtime/stack_overflow.h"
++#if defined(__OpenBSD__)
++#include <pthread_np.h>
++#endif
+ 
+ namespace lean {
+ // stack guard of the main thread
+@@ -54,13 +57,17 @@ bool is_within_stack_guard(void * addr) {
+     char * stackaddr;
+ #ifdef __APPLE__
+     stackaddr = static_cast<char *>(pthread_get_stackaddr_np(pthread_self())) - pthread_get_stacksize_np(pthread_self());
+-#else
++#elif defined(__linux__)
+     pthread_attr_t attr;
+     if (pthread_attr_init(&attr) != 0) return false;
+     pthread_getattr_np(pthread_self(), &attr);
+     size_t stacksize;
+     pthread_attr_getstack(&attr, reinterpret_cast<void **>(&stackaddr), &stacksize);
+     pthread_attr_destroy(&attr);
++#else // OpenBSD
++    stack_t sinfo;
++    pthread_stackseg_np(pthread_self(), &sinfo);
++    stackaddr = (char *)((uintptr_t)sinfo.ss_sp - sinfo.ss_size);
+ #endif
+     // close enough; the actual guard might be bigger, but it's unlikely a Lean function will have stack frames that big
+     size_t guardsize = static_cast<size_t>(sysconf(_SC_PAGESIZE));

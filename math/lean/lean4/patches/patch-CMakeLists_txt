@@ -1,0 +1,129 @@
+don't use MIMALLOC
+disable downloading leantar
+disable downloading and updating cadical
+disable ccache too
+
+Index: CMakeLists.txt
+--- CMakeLists.txt.orig
++++ CMakeLists.txt
+@@ -6,7 +6,8 @@ if(NOT CMAKE_GENERATOR MATCHES "Makefiles")
+   message(FATAL_ERROR "Only makefile generators are supported")
+ endif()
+ 
+-option(USE_MIMALLOC "use mimalloc" ON)
++option(USE_MIMALLOC "use mimalloc" OFF)
++option(CCACHE "use ccache" OFF)
+ 
+ # store all variables passed on the command line into CL_ARGS so we can pass them to the stage builds
+ # MUST be done before call to 'project'
+@@ -67,9 +68,11 @@ if(NOT CMAKE_SYSTEM_NAME MATCHES "Emscripten")
+     ExternalProject_Add(
+       cadical
+       PREFIX cadical
+-      GIT_REPOSITORY https://github.com/arminbiere/cadical
+-      GIT_TAG rel-2.1.2
++      ## GIT_REPOSITORY https://github.com/arminbiere/cadical
++      ## GIT_TAG rel-2.1.2
++      DOWNLOAD_COMMAND ""
+       CONFIGURE_COMMAND ""
++      UPDATE_DISCONNECTED ON
+       BUILD_COMMAND
+         $(MAKE) -f ${CMAKE_SOURCE_DIR}/src/cadical.mk CMAKE_EXECUTABLE_SUFFIX=${CMAKE_EXECUTABLE_SUFFIX}
+         CXX=${CADICAL_CXX} CXXFLAGS=${CADICAL_CXXFLAGS} LDFLAGS=${CADICAL_LDFLAGS}
+@@ -79,51 +82,51 @@ if(NOT CMAKE_SYSTEM_NAME MATCHES "Emscripten")
+     set(CADICAL ${CMAKE_BINARY_DIR}/cadical/cadical${CMAKE_EXECUTABLE_SUFFIX})
+     list(APPEND EXTRA_DEPENDS cadical)
+   endif()
+-  find_program(LEANTAR leantar)
+-  if(NOT LEANTAR)
+-    set(LEANTAR_VERSION v0.1.20)
+-    if(CMAKE_SYSTEM_NAME MATCHES "Windows")
+-      set(LEANTAR_ARCHIVE_SUFFIX .zip)
+-      set(LEANTAR_TARGET x86_64-pc-windows-msvc)
+-    else()
+-      set(LEANTAR_ARCHIVE_SUFFIX .tar.gz)
+-      if(CMAKE_SYSTEM_PROCESSOR MATCHES "arm64|aarch64")
+-        set(LEANTAR_TARGET_ARCH aarch64)
+-      else()
+-        set(LEANTAR_TARGET_ARCH x86_64)
+-      endif()
+-      if(CMAKE_SYSTEM_NAME MATCHES "Darwin")
+-        set(LEANTAR_TARGET_OS apple-darwin)
+-      else()
+-        set(LEANTAR_TARGET_OS unknown-linux-musl)
+-      endif()
+-      set(LEANTAR_TARGET ${LEANTAR_TARGET_ARCH}-${LEANTAR_TARGET_OS})
+-    endif()
+-    set(
+-      LEANTAR
+-      ${CMAKE_BINARY_DIR}/leantar/leantar-${LEANTAR_VERSION}-${LEANTAR_TARGET}/leantar${CMAKE_EXECUTABLE_SUFFIX}
+-    )
+-    if(NOT EXISTS "${LEANTAR}")
+-      file(
+-        DOWNLOAD
+-          https://github.com/digama0/leangz/releases/download/${LEANTAR_VERSION}/leantar-${LEANTAR_VERSION}-${LEANTAR_TARGET}${LEANTAR_ARCHIVE_SUFFIX}
+-        ${CMAKE_BINARY_DIR}/leantar${LEANTAR_ARCHIVE_SUFFIX}
+-        STATUS LEANTAR_DOWNLOAD_STATUS
+-      )
+-      list(GET LEANTAR_DOWNLOAD_STATUS 0 LEANTAR_DOWNLOAD_CODE)
+-      if(NOT LEANTAR_DOWNLOAD_CODE EQUAL 0)
+-        list(GET LEANTAR_DOWNLOAD_STATUS 1 LEANTAR_DOWNLOAD_ERROR)
+-        message(FATAL_ERROR "Failed to download leantar: ${LEANTAR_DOWNLOAD_ERROR}")
+-      endif()
+-      file(
+-        ARCHIVE_EXTRACT
+-        INPUT ${CMAKE_BINARY_DIR}/leantar${LEANTAR_ARCHIVE_SUFFIX}
+-        DESTINATION ${CMAKE_BINARY_DIR}/leantar
+-      )
+-    endif()
+-  endif()
+-  list(APPEND STAGE0_ARGS -DLEANTAR=${LEANTAR})
+-  list(APPEND CL_ARGS -DCADICAL=${CADICAL} -DLEANTAR=${LEANTAR})
++  ## find_program(LEANTAR leantar)
++  ## if(NOT LEANTAR)
++  ##   set(LEANTAR_VERSION v0.1.20)
++  ##   if(CMAKE_SYSTEM_NAME MATCHES "Windows")
++  ##     set(LEANTAR_ARCHIVE_SUFFIX .zip)
++  ##     set(LEANTAR_TARGET x86_64-pc-windows-msvc)
++  ##   else()
++  ##     set(LEANTAR_ARCHIVE_SUFFIX .tar.gz)
++  ##     if(CMAKE_SYSTEM_PROCESSOR MATCHES "arm64|aarch64")
++  ##       set(LEANTAR_TARGET_ARCH aarch64)
++  ##     else()
++  ##       set(LEANTAR_TARGET_ARCH x86_64)
++  ##     endif()
++  ##     if(CMAKE_SYSTEM_NAME MATCHES "Darwin")
++  ##       set(LEANTAR_TARGET_OS apple-darwin)
++  ##     else()
++  ##       set(LEANTAR_TARGET_OS unknown-linux-musl)
++  ##     endif()
++  ##     set(LEANTAR_TARGET ${LEANTAR_TARGET_ARCH}-${LEANTAR_TARGET_OS})
++  ##   endif()
++  ##   set(
++  ##     LEANTAR
++  ##     ${CMAKE_BINARY_DIR}/leantar/leantar-${LEANTAR_VERSION}-${LEANTAR_TARGET}/leantar${CMAKE_EXECUTABLE_SUFFIX}
++  ##   )
++  ##   if(NOT EXISTS "${LEANTAR}")
++  ##     file(
++  ##       DOWNLOAD
++  ##         https://github.com/digama0/leangz/releases/download/${LEANTAR_VERSION}/leantar-${LEANTAR_VERSION}-${LEANTAR_TARGET}${LEANTAR_ARCHIVE_SUFFIX}
++  ##       ${CMAKE_BINARY_DIR}/leantar${LEANTAR_ARCHIVE_SUFFIX}
++  ##       STATUS LEANTAR_DOWNLOAD_STATUS
++  ##     )
++  ##     list(GET LEANTAR_DOWNLOAD_STATUS 0 LEANTAR_DOWNLOAD_CODE)
++  ##     if(NOT LEANTAR_DOWNLOAD_CODE EQUAL 0)
++  ##       list(GET LEANTAR_DOWNLOAD_STATUS 1 LEANTAR_DOWNLOAD_ERROR)
++  ##       message(FATAL_ERROR "Failed to download leantar: ${LEANTAR_DOWNLOAD_ERROR}")
++  ##     endif()
++  ##     file(
++  ##       ARCHIVE_EXTRACT
++  ##       INPUT ${CMAKE_BINARY_DIR}/leantar${LEANTAR_ARCHIVE_SUFFIX}
++  ##       DESTINATION ${CMAKE_BINARY_DIR}/leantar
++  ##     )
++  ##   endif()
++  ## endif()
++  ## list(APPEND STAGE0_ARGS -DLEANTAR=${LEANTAR})
++  ## list(APPEND CL_ARGS -DCADICAL=${CADICAL} -DLEANTAR=${LEANTAR})
+ endif()
+ 
+ if(USE_MIMALLOC)

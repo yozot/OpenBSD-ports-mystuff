@@ -1,0 +1,14 @@
+OpenBSD does not have <sys/random.h>
+
+Index: stage0/src/runtime/io.cpp
+--- stage0/src/runtime/io.cpp.orig
++++ stage0/src/runtime/io.cpp
+@@ -22,7 +22,7 @@ Authors: Leonardo de Moura, Sebastian Ullrich
+ #include <unistd.h> // NOLINT
+ #include <sys/mman.h>
+ #include <sys/file.h>
+-#ifndef LEAN_EMSCRIPTEN
++#if !defined(LEAN_EMSCRIPTEN) && defined(__linux__)
+ #include <sys/random.h>
+ #endif
+ #endif

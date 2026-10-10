@@ -1,0 +1,40 @@
+OpenBSD removed syscall(2).
+which is better to get a (system-wide) thread ID, pthread_self(3) or getthrid(2)?
+in this patch I use pthread_self(3).
+
+Index: stage0/src/runtime/process.cpp
+--- stage0/src/runtime/process.cpp.orig
++++ stage0/src/runtime/process.cpp
+@@ -343,10 +343,13 @@ extern "C" LEAN_EXPORT uint64_t lean_io_get_tid() {
+     lean_always_assert(pthread_threadid_np(NULL, &tid) == 0);
+ #elif defined(LEAN_EMSCRIPTEN)
+     tid = 0;
+-#else
++#elif defined(__linux__)
+     // since Linux 2.4.11, our glibc 2.27 requires at least 3.2
+     // glibc 2.30 would provide a wrapper
+     tid = (pid_t)syscall(SYS_gettid);
++#else // OpenBSD
++    // pthread_self(3) or getthrid(2), which is better?
++    tid = (uint64_t)pthread_self();
+ #endif
+     return tid;
+ }
+@@ -431,7 +434,7 @@ static optional<pipe> setup_stdio(stdio cfg) {
+     lean_unreachable();
+ }
+ 
+-#ifdef __APPLE__
++#if defined(__APPLE__) || defined(__OpenBSD__)
+ extern "C" char **environ;
+ #endif
+ 
+@@ -454,7 +457,7 @@ static obj_res spawn(string_ref const & proc_name, arr
+ 
+     if (pid == 0) {
+         if (!inherit_env) {
+-#ifdef __APPLE__
++#if defined(__APPLE__) || defined(__OpenBSD__)
+             environ = NULL;
+ #else
+             clearenv();

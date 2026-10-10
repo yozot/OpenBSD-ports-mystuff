@@ -1,0 +1,4 @@
+looks like lean4 depends on CaDiCal solver.
+should we prepare it as a new port?
+
+-- yozo.  Wed Sep 23 01:44:45 JST 2026
